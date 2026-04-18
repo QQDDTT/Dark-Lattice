@@ -1,0 +1,39 @@
+{{ $item := . }}
+<div class="glass-card standardized-card animate-slide-up">
+    <div class="card-inner">
+        <!-- 1. Meta / Category Header -->
+        <div class="card-header">
+            <span class="card-category">
+                {{ with $item.Params.categories }}{{ range first 1 . }}{{ . | upper }}{{ end }}{{ else }}{{ $item.Section | upper }}{{ end }}
+            </span>
+            <span class="card-date">{{ $item.Date.Format "2006.01.02" }}</span>
+        </div>
+
+        <!-- 2. Content -->
+        <div class="card-body">
+            <h3 class="card-title">
+                <a href="{{ $item.Permalink }}">{{ $item.Title }}</a>
+            </h3>
+            <p class="card-summary">
+                {{ $item.Summary | truncate 140 }}
+            </p>
+        </div>
+
+        <!-- 3. Tech Stack Pills -->
+        {{ with $item.Params.tags }}
+        <div class="card-tags">
+            {{ range first 4 . }}
+            <span class="tech-pill">#{{ . }}</span>
+            {{ end }}
+        </div>
+        {{ end }}
+
+        <!-- 4. Footer / Actions -->
+        <div class="card-footer">
+            <a href="{{ $item.Permalink }}" class="read-more-link">
+                {{ T "explore_more" | default "READ MORE" }} 
+                <span class="arrow">→</span>
+            </a>
+        </div>
+    </div>
+</div>

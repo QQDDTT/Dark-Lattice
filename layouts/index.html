@@ -1,0 +1,56 @@
+{{ define "main" }}
+<div class="hero-section container">
+    <!-- Bio Segment (Left) -->
+    <div class="hero-bio-segment glass animate-fade-in">
+        <div class="avatar-wrapper">
+            <img src="{{ "/images/avatar.png" | relURL }}" alt="Researcher Avatar" class="hero-avatar">
+        </div>
+        <div class="bio-text">
+            <p class="typewriter-text">{{ T "hero_bio" }}</p>
+        </div>
+    </div>
+    
+    <!-- Hero Content Segment (Right) -->
+    <div class="hero-content-segment animate-slide-up">
+        <h1 class="hero-title">{{ T "hero_title" }}</h1>
+        <p class="hero-subtitle">{{ T "hero_subtitle" }}</p>
+        
+        <div class="hero-cta-group">
+            <a href="/research/" class="btn btn-primary">{{ T "research_cta" }}</a>
+            <a href="/posts/" class="btn btn-secondary">{{ T "blog_cta" }}</a>
+        </div>
+    </div>
+
+    <!-- 3D Scene Container -->
+    <div id="hero-canvas-container" class="animate-fade-in" data-model="/models/sample-cube.glb"></div>
+</div>
+
+<div class="container recent-updates section-spacing">
+    <div class="section-header-group">
+        <h2 class="section-title">{{ T "latest_updates" }}</h2>
+        <a href="/research/" class="view-all-link">{{ T "view_all" | default "VIEW ALL" }} →</a>
+    </div>
+    
+    <div class="cards-grid">
+        {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "research")) }}
+        <div class="grid-item">
+            {{ partial "card.html" . }}
+        </div>
+        {{ end }}
+    </div>
+</div>
+
+<!-- Skill Radar Section -->
+<div class="container section-spacing animate-fade-in">
+    <div class="section-header-group">
+        <h2 class="section-title">{{ T "research_dimensions" | default "RESEARCH DIMENSIONS" }}</h2>
+    </div>
+    <div class="radar-layout glass">
+        <div id="skill-radar-container"></div>
+        <div class="radar-info">
+            <h3 class="info-title">{{ T "competence_overview" | default "Competence Overview" }}</h3>
+            <p class="info-desc">{{ T "radar_desc" | default "Quantitative analysis of core research fields and engineering capabilities." }}</p>
+        </div>
+    </div>
+</div>
+{{ end }}

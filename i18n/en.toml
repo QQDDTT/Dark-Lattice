@@ -1,0 +1,44 @@
+[all_rights_reserved]
+other = "All rights reserved."
+
+[built_with]
+other = "Built with"
+
+[enter_blog]
+other = "Enter Blog"
+
+[blog_cta]
+other = "Read Blog Posts"
+
+[research_projects]
+other = "Research Projects"
+
+[research_cta]
+other = "Explore Research"
+
+[latest_updates]
+other = "Recent Updates"
+
+[hero_bio]
+other = "Independent Researcher / Developer. Reconstructing order through code and logic in the digital wilderness."
+
+[hero_title]
+other = "In the lattice of dots, truth hides in the darkness."
+
+[hero_subtitle]
+other = "Deep Learning, Industrial Vision, and the frontier of Web Design."
+
+[abstract]
+other = "Abstract"
+
+[published_at]
+other = "Published at"
+
+[read_time]
+other = "Read Time"
+
+[table_of_contents]
+other = "Table of Contents"
+
+[view_bibtex]
+other = "View BibTeX"

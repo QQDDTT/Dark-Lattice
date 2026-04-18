@@ -1,0 +1,33 @@
+{{ define "main" }}
+<div class="container main-content">
+    <div class="doc-layout">
+        <article class="doc-content single-page">
+            <header class="doc-header gsap-fade-up">
+                <h1 class="doc-title">{{ .Title }}</h1>
+                <div class="doc-meta">
+                    <span class="doc-date">{{ T "published_on" | default "Published on" }} {{ .Date.Format "2006.01.02" }}</span>
+                    {{ with .Params.tags }}
+                    <div class="doc-tags">
+                        {{ range . }}
+                        <span class="doc-tag gsap-stagger">#{{ . }}</span>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </header>
+            <div class="doc-body post-content gsap-fade-up">
+                {{ .Content }}
+            </div>
+        </article>
+        
+        <aside class="doc-sidebar gsap-fade-in">
+            <div class="toc-container glass toc-wrapper">
+                <h3 class="toc-title">{{ T "table_of_contents" | default "Table of Contents" }}</h3>
+                <nav id="TableOfContents">
+                    {{ .TableOfContents }}
+                </nav>
+            </div>
+        </aside>
+    </div>
+</div>
+{{ end }}

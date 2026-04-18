@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.LanguageCode }}">
+<head>
+    {{ partial "head.html" . }}
+</head>
+<body class="animate-fade-in">
+    {{ partial "header.html" . }}
+    
+    <main class="main-content container animate-slide-up">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ partial "footer.html" . }}
+
+    <!-- Global Scripts -->
+    {{ $js := resources.Get "js/main.js" }}
+    {{ if $js }}
+        {{ $secureJS := $js | minify | fingerprint }}
+        <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous"></script>
+    {{ end }}
+</body>
+</html>

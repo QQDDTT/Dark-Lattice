@@ -1,0 +1,32 @@
+<header class="header glass site-header">
+    <div class="container header-container">
+        <a href="{{ .Site.Home.RelPermalink }}" class="logo-link">
+            {{ if .Site.Params.logo }}
+                <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" class="site-logo">
+            {{ else }}
+                <span class="logo-text">{{ .Site.Title }}</span>
+            {{ end }}
+        </a>
+        
+        <nav class="navigation">
+            <ul class="nav-list">
+                {{ range .Site.Menus.main }}
+                    <li class="nav-item">
+                        <a href="{{ .URL | relLangURL }}" class="nav-link">{{ .Name }}</a>
+                    </li>
+                {{ end }}
+            </ul>
+        </nav>
+
+        <div class="header-actions">
+            <!-- Language Switcher Placeholder -->
+            <select class="language-select" onchange="window.location.href=this.value">
+                {{ range .AllTranslations }}
+                    <option value="{{ .RelPermalink }}" {{ if eq .Language $.Language }}selected{{ end }}>
+                        {{ .Language.LanguageName }}
+                    </option>
+                {{ end }}
+            </select>
+        </div>
+    </div>
+</header>

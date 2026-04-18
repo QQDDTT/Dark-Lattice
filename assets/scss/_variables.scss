@@ -1,0 +1,30 @@
+// Nightfield Design System Variables
+
+// 1. Colors (Nightfield Palette)
+$space-black: #0F172A; // 背景 (60%)
+$cyber-blue: #3B82F6;  // 主色 (30%)
+$mystic-purple: #8B5CF6; // 辅助 (10%)
+
+$text-primary: #E2E8F0;
+$text-secondary: #94A3B8;
+$text-muted: #64748B;
+
+$border-color: rgba($cyber-blue, 0.2);
+$glass-bg: rgba($space-black, 0.8);
+
+// 2. Typography
+$font-title: 'Inter', 'Source Code Pro', sans-serif;
+$font-body: 'Roboto', sans-serif;
+$font-code: 'Fira Code', monospace;
+
+// 3. Grid & Spacing
+$spacing-unit: 8px;
+
+// 4. Transitions
+$transition-duration: 300ms;
+$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+
+// 5. Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;

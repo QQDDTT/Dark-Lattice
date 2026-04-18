@@ -1,0 +1,40 @@
+{{ define "main" }}
+<div class="container main-content animate-fade-in">
+    <div class="list-header">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ with .Content }}
+        <div class="page-description">
+            {{ . }}
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="doc-list">
+        {{ range $index, $element := .Paginator.Pages }}
+            <div class="doc-item" style="--index: {{ $index }};">
+                <article class="doc-item-inner">
+                    <div class="doc-item-meta">
+                        <span class="doc-item-date">{{ .Date.Format "2006-01-02" }}</span>
+                    </div>
+                    <div class="doc-item-main">
+                        <h2 class="doc-item-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h2>
+                        {{ with .Params.tags }}
+                        <div class="doc-item-tags">
+                            {{ range . }}
+                            <span class="doc-item-tag">#{{ . }}</span>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </article>
+            </div>
+        {{ end }}
+    </div>
+
+    <div class="pagination-wrapper">
+        {{ partial "pagination.html" . }}
+    </div>
+</div>
+{{ end }}

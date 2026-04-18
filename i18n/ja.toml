@@ -1,0 +1,44 @@
+[all_rights_reserved]
+other = "不許複製・禁無断転載。"
+
+[built_with]
+other = "構築環境"
+
+[enter_blog]
+other = "ブログを見る"
+
+[blog_cta]
+other = "ブログ記事を読む"
+
+[research_projects]
+other = "研究プロジェクト"
+
+[research_cta]
+other = "研究アーカイブを探索"
+
+[latest_updates]
+other = "最近の更新"
+
+[hero_bio]
+other = "独立した研究者兼開発者。デジタルの荒野で、コードとロジックを通じて秩序を再構築しています。"
+
+[hero_title]
+other = "点と線の格子の中に、真理は暗闇に潜む。"
+
+[hero_subtitle]
+other = "ディープラーニング、工業用ビジョン、そして最先端ウェブデザインの交差点。"
+
+[abstract]
+other = "要約"
+
+[published_at]
+other = "公開日"
+
+[read_time]
+other = "読了時間"
+
+[table_of_contents]
+other = "目次"
+
+[view_bibtex]
+other = "BibTeX を表示"

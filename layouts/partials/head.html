@@ -1,0 +1,47 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+
+<!-- Google Fonts: Inter, Roboto, Source Code Pro, Fira Code -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400;700&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+
+<!-- CSS Loading (SCSS with Hugo Pipes) -->
+{{ $options := dict "targetPath" "css/main.css" "outputStyle" "compressed" "enableSourceMap" true }}
+{{ $style := resources.Get "scss/main.scss" | toCSS $options | fingerprint }}
+<link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}" crossorigin="anonymous">
+
+<!-- Three.js Integration -->
+<script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.156.1/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.156.1/examples/jsm/"
+    }
+  }
+</script>
+
+<!-- SEO: Hreflang & Multi-language -->
+{{ if .IsTranslated }}
+    {{ range .AllTranslations }}
+        <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .RelPermalink }}">
+    {{ end }}
+{{ end }}
+
+<!-- Favicon -->
+{{ with .Site.Params.favicon }}
+    <link rel="icon" type="image/svg+xml" href="{{ . | relURL }}">
+{{ end }}
+
+<!-- GSAP & ScrollTrigger -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+<!-- KaTeX for Math Rendering -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" integrity="sha384-GvrOXuhMATgEsSwCs4smul74iXGOixntILdUW9XmUC6+HX0sLNAK3q71bZBTIQHQ" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js" integrity="sha384-cpW21h6RZv/phavutF+AuVYrr+dA8xD9zs6FwLpaCct6O932O-l/R/0NAn1w/Zus" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbOxyj0O+8NHR0L3sXWp/d/b8q" crossorigin="anonymous"
+    onload="renderMathInElement(document.body);"></script>

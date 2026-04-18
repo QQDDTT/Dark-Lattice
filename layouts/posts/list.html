@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="container main-content animate-fade-in section-spacing">
+    <header class="list-head section-spacing">
+        <h1 class="page-title">{{ .Title }}</h1>
+        {{ with .Content }}
+        <div class="page-description">{{ . }}</div>
+        {{ end }}
+    </header>
+
+    <div class="blog-card-list">
+        {{ range $index, $element := .Paginator.Pages }}
+        <div class="blog-card-item" style="--index: {{ $index }};">
+            <article class="blog-card-inner glass">
+                <div class="blog-card-decor">
+                    <!-- Date Decoration -->
+                    <div class="blog-date-big">
+                        <span class="day">{{ .Date.Format "02" }}</span>
+                        <span class="month">{{ .Date.Format "Jan" }}</span>
+                    </div>
+                </div>
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">
+                        <a href="{{ .Permalink }}">{{ .Title }}</a>
+                    </h2>
+                    <p class="blog-card-summary">
+                        {{ .Summary | truncate 150 }}
+                    </p>
+                    <div class="blog-card-meta">
+                        {{ range .Params.tags }}
+                        <span class="meta-tag">#{{ . }}</span>
+                        {{ end }}
+                        <span class="meta-item">{{ .ReadingTime }} min read</span>
+                    </div>
+                </div>
+            </article>
+        </div>
+        {{ end }}
+    </div>
+
+    <div class="pagination-container section-spacing">
+        {{ partial "pagination.html" . }}
+    </div>
+</div>
+{{ end }}

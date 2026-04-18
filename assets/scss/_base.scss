@@ -1,0 +1,122 @@
+@import "variables";
+
+// 1. CSS Reset & Base Defaults
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    background-color: $space-black;
+    color: $text-primary;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: $font-body;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+    // 全站背景格阵纹理叠加：极低不透明度，保持深色基底
+    background-image: url('/images/background-grid.png');
+    background-repeat: repeat;
+    background-size: 512px 512px;
+    background-blend-mode: overlay;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $font-title;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: $spacing-unit * 2;
+}
+
+a {
+    color: $cyber-blue;
+    text-decoration: none;
+    transition: color $transition-duration $transition-timing;
+
+    &:hover {
+        color: lighten($cyber-blue, 15%);
+    }
+}
+
+code, pre {
+    font-family: $font-code;
+}
+
+// 2. Global Layout Classes
+.container {
+    max-width: $breakpoint-desktop;
+    margin: 0 auto;
+    padding: 0 ($spacing-unit * 3);
+}
+
+.main-content {
+    padding-top: 100px; // Offset for fixed header
+    min-height: calc(100vh - 200px);
+}
+
+// 3. Animations
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fadeIn $transition-duration $transition-timing forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp $transition-duration $transition-timing forwards;
+}
+
+// Shimmer 动画（代码生成，替代 shimmer-noise 图片）
+@keyframes shimmer {
+    0%   { opacity: 0; transform: translateX(-100%) skewX(-15deg); }
+    50%  { opacity: 1; }
+    100% { opacity: 0; transform: translateX(200%) skewX(-15deg); }
+}
+
+// 4. Utility Components
+.glass {
+    background: $glass-bg;
+    backdrop-filter: blur(12px);
+    border: 1px solid $border-color;
+    position: relative;
+    overflow: hidden;
+
+    // 磨砂玻璃微光扫描效果（shimmer）
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 40%;
+        height: 100%;
+        background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 255, 255, 0.04),
+            transparent
+        );
+        animation: shimmer 6s ease-in-out infinite;
+        pointer-events: none;
+    }
+}

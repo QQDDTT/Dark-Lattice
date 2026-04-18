@@ -1,0 +1,44 @@
+[all_rights_reserved]
+other = "版权所有。"
+
+[built_with]
+other = "构建自"
+
+[enter_blog]
+other = "进入博客"
+
+[blog_cta]
+other = "阅读博客动态"
+
+[research_projects]
+other = "研究项目"
+
+[research_cta]
+other = "探索研究专栏"
+
+[latest_updates]
+other = "最近更新"
+
+[hero_bio]
+other = "独立研究员 / 开发者。致力于在数字荒原中，用代码与逻辑重建秩序。"
+
+[hero_title]
+other = "万象森罗，真理深藏于点线交织的幽暗之中。"
+
+[hero_subtitle]
+other = "探索深度学习、工业视觉与极致网页设计的交汇点。"
+
+[abstract]
+other = "摘要"
+
+[published_at]
+other = "发表于"
+
+[read_time]
+other = "阅读时长"
+
+[table_of_contents]
+other = "目录"
+
+[view_bibtex]
+other = "查看 BibTeX"

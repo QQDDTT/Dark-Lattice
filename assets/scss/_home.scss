@@ -1,0 +1,233 @@
+@import "variables";
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-unit * 6;
+    padding: ($spacing-unit * 12) ($spacing-unit * 3) ($spacing-unit * 8);
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+
+    @media (min-width: $breakpoint-tablet) {
+        flex-direction: row;
+        height: 70vh;
+        min-height: 500px;
+        gap: $spacing-unit * 10;
+        text-align: left;
+    }
+}
+
+// 1. Identity & Hero Component
+.hero-bio-segment {
+    width: 100%;
+    max-width: 320px;
+    padding: $spacing-unit * 4;
+    border-radius: 12px;
+    text-align: center;
+    flex-shrink: 0;
+
+    .avatar-wrapper {
+        margin-bottom: $spacing-unit * 3;
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-avatar {
+        width: 140px;
+        height: 140px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid rgba($cyber-blue, 0.2);
+        transition: all $transition-duration $transition-timing;
+        box-shadow: 0 0 20px rgba($cyber-blue, 0.1);
+        // Fallback: Using CSS filter to align the original image's cyan tones with Cyber Blue
+        filter: hue-rotate(35deg) contrast(1.1) brightness(0.9);
+        
+        &:hover {
+            transform: scale(1.08);
+            border-color: $cyber-blue;
+            box-shadow: 0 0 30px rgba($cyber-blue, 0.4);
+        }
+    }
+
+    .bio-text {
+        font-size: 0.95rem;
+        color: $text-secondary;
+        line-height: 1.6;
+        margin-top: $spacing-unit * 2;
+    }
+}
+
+.hero-content-segment {
+    flex: 1;
+
+    .hero-title {
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        line-height: 1.1;
+        margin-bottom: $spacing-unit * 3;
+        background: linear-gradient(90deg, #fff, $cyber-blue);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 2vw, 1.25rem);
+        color: $text-secondary;
+        margin-bottom: $spacing-unit * 6;
+        max-width: 700px;
+    }
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: $spacing-unit * 3;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: $breakpoint-tablet) {
+        justify-content: flex-start;
+    }
+}
+
+// 2. 3D Renderer Container
+#hero-canvas-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+// 3. Grid & Header Components
+.section-header-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: $spacing-unit * 4;
+}
+
+.view-all-link {
+    font-size: 0.8rem;
+    color: $text-secondary;
+    font-weight: 700;
+    letter-spacing: 1px;
+    
+    &:hover {
+        color: $cyber-blue;
+    }
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-unit * 4;
+
+    @media (min-width: $breakpoint-tablet) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+// 4. Radar Component
+.radar-layout {
+    display: flex;
+    flex-direction: column;
+    padding: $spacing-unit * 6;
+    gap: $spacing-unit * 6;
+    align-items: center;
+    border-radius: 16px;
+
+    @media (min-width: $breakpoint-tablet) {
+        flex-direction: row;
+        justify-content: space-around;
+        padding: $spacing-unit * 8;
+    }
+
+    #skill-radar-container {
+        width: 100%;
+        max-width: 350px;
+        filter: drop-shadow(0 0 10px rgba($cyber-blue, 0.2));
+    }
+
+    .radar-info {
+        flex: 1;
+        max-width: 400px;
+        text-align: center;
+
+        @media (min-width: $breakpoint-tablet) {
+            text-align: left;
+        }
+
+        .info-title {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: $spacing-unit * 2;
+        }
+
+        .info-desc {
+            color: $text-secondary;
+            line-height: 1.6;
+        }
+    }
+}
+
+// 5. Utils & Global Elements
+.section-spacing {
+    padding: ($spacing-unit * 10) 0;
+}
+
+.section-title {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-unit * 4;
+    position: relative;
+    padding-left: $spacing-unit * 3;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: $cyber-blue;
+        border-radius: 2px;
+    }
+}
+
+.btn {
+    display: inline-block;
+    padding: ($spacing-unit * 2) ($spacing-unit * 6);
+    border-radius: 4px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: all $transition-duration $transition-timing;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: $cyber-blue;
+    color: #fff;
+
+    &:hover {
+        background: lighten($cyber-blue, 10%);
+        box-shadow: 0 0 25px rgba($cyber-blue, 0.5);
+        transform: translateY(-2px);
+    }
+}
+
+.btn-secondary {
+    border: 1px solid rgba($text-primary, 0.2);
+    color: $text-primary;
+    backdrop-filter: blur(4px);
+
+    &:hover {
+        background: rgba($text-primary, 0.1);
+        border-color: $text-primary;
+        transform: translateY(-2px);
+    }
+}
