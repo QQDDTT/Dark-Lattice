@@ -2,7 +2,7 @@
 title: "记忆层的构建：从“失忆助手”到你的“数字孪生”"
 date: 2026-04-13
 categories: ['Technology']
-draft: true
+draft: false
 tags: ['AIOS', 'AI记忆', '个性化体验', '个性化助理', '向量数据库', '数字孪生', '未来科技', '科技伦理']
 ---
 

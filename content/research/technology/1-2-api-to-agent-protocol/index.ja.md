@@ -2,7 +2,7 @@
 title: "API から Agent-Protocol へ：ソフトウェア統合の終焉と再生"
 date: 2026-03-30
 categories: ['コラム', '技術']
-draft: true
+draft: false
 tags: ['AIOS', 'API', 'Agent', 'アーキテクチャ再構築', 'ソフトウェア工学', 'テクノロジー最前線', '技術パラダイム', '自動化プロトコル']
 ---
 

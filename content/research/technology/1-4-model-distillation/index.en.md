@@ -2,7 +2,7 @@
 title: "Model Distillation & Miniaturization: From 'Clash of Titans' to 'Guerrilla Warfare'"
 date: 2026-04-06
 categories: ['Insights', 'Technology']
-draft: true
+draft: false
 tags: ['AIOS', 'ArchitectureRestructuring', 'ComputeScheduling', 'ExpertArchitecture', 'ExpertCluster', 'MiniatureModels', 'ModelDistillation', 'SLM', 'SmallModel', 'TechEvolution']
 ---
 

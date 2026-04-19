@@ -2,7 +2,7 @@
 title: "当操作系统开始「思考」"
 date: 2026-03-24
 categories: ['Technology']
-draft: true
+draft: false
 tags: ['AIOS', 'AI大模型', 'AaaS', 'MaaS', '产品思维', '人工智能', '技术革命', '操作系统', '硅谷', '科技洞察']
 ---
 

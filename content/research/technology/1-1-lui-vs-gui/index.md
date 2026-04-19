@@ -2,7 +2,7 @@
 title: "LUI vs GUI：人机交互的下一场范式之争"
 date: 2026-03-02
 categories: ['Technology']
-draft: true
+draft: false
 tags: ['AIOS', 'AI操作系统', 'GUI', 'LUI', '人工智能', '人机交互', '技术范式', '技术革命', '科技洞察']
 ---
 

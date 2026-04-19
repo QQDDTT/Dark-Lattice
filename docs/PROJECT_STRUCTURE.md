@@ -61,7 +61,7 @@
 
 ### 3.1 图片资源
 - 所有的博客首图存放在 `assets/images/posts/`。
-- 形象照存放在 `static/images/avatar/`。
+- 形象照存放在 `static/images/avatar.png`。
 
 ### 3.2 样式 (CSS/SCSS)
 - 全局变量定义在 `assets/scss/_variables.scss`。
@@ -70,6 +70,10 @@
 ### 3.3 仓库分支管理
 - `main`：存放源代码（Markdown, Layouts, Assets）。
 - `gh-pages`：由 CI 自动生成的静态产物预览。
+
+### 3.4 外部资源安全 (SRI)
+- 所有的外部 CDN 资源（如 KaTeX, GSAP）必须包含 `integrity` 校验哈希。
+- 更新资源版本时，务必通过 [sri.hash.guide](https://sri.hash.guide/) 等工具更新对应的哈希值，防止加载失败。
 
 ---
 

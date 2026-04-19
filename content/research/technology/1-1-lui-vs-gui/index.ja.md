@@ -2,7 +2,7 @@
 title: "LUI vs GUI：人機インタラクションの次なるパラダイム争い"
 date: 2026-03-02
 categories: ['コラム', '技術']
-draft: true
+draft: false
 tags: ['AIOS', 'AIオペレーティングシステム', 'GUI', 'LUI', 'テクノロジー', '人工知能', '人機インタラクション', '技術パラダイム', '技術革命']
 ---
 

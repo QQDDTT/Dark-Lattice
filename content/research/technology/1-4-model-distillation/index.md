@@ -2,7 +2,7 @@
 title: "模型蒸馏与微型化：从“诸神之战”到“游击战”"
 date: 2026-04-06
 categories: ['Technology']
-draft: true
+draft: false
 tags: ['AIOS', 'SLM', '专家架构', '专家集群', '小模型', '微小模型', '技术演进', '架构重组', '模型蒸馏', '算力调度']
 ---
 

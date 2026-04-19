@@ -21,7 +21,8 @@
     <!-- Project List -->
     <div class="container section-spacing">
         <div class="cards-grid">
-            {{ range $index, $element := .Paginator.Pages }}
+            {{ $pages := where .Site.RegularPages "Section" "research" }}
+            {{ range $index, $element := (.Paginate $pages).Pages }}
             <div class="grid-item">
                 {{ partial "card.html" . }}
             </div>

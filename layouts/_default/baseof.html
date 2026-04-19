@@ -12,11 +12,11 @@
 
     {{ partial "footer.html" . }}
 
-    <!-- Global Scripts -->
     {{ $js := resources.Get "js/main.js" }}
     {{ if $js }}
-        {{ $secureJS := $js | minify | fingerprint }}
-        <script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}" crossorigin="anonymous"></script>
+        {{ $opts := dict "minify" true "format" "esm" "target" "es2020" "externals" (slice "three" "three/addons/*") }}
+        {{ $built := $js | js.Build $opts | fingerprint }}
+        <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
     {{ end }}
 </body>
 </html>

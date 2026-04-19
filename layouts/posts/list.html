@@ -8,7 +8,8 @@
     </header>
 
     <div class="blog-card-list">
-        {{ range $index, $element := .Paginator.Pages }}
+        {{ $pages := where .Site.RegularPages "Section" "posts" }}
+        {{ range $index, $element := (.Paginate $pages).Pages }}
         <div class="blog-card-item" style="--index: {{ $index }};">
             <article class="blog-card-inner glass">
                 <div class="blog-card-decor">

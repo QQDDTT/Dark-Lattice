@@ -2,7 +2,7 @@
 title: "从 API 到 Agent-Protocol：软件集成的终结与重生"
 date: 2026-03-30
 categories: ['Technology']
-draft: true
+draft: false
 tags: ['AIOS', 'API', 'Agent', '技术范式', '架构重组', '科技前沿', '自动化协议', '软件工程']
 ---
 
