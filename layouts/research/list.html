@@ -1,13 +1,13 @@
 {{ define "main" }}
-{{ $bg := "/images/design/research-tech-3d.png" }}
 {{ if eq .Title "Interaction" }}
-    {{ $bg = "/images/design/research-interaction-3d.png" }}
+{{ $bg = "/images/design/research-interaction-3d.png" }}
 {{ end }}
 {{ $bg = $bg | relURL }}
 
 <div class="research-page-wrapper">
     <!-- Section Hero with 3D Background -->
-    <section class="research-hero" style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('{{ $bg }}');">
+    <section class="research-hero"
+        style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('{{ $bg }}');">
         <div class="container hero-content animate-fade-in">
             <h1 class="page-title">{{ .Title }}</h1>
             {{ with .Content }}

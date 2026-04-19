@@ -3,27 +3,50 @@
 {{ if gt $paginator.TotalPages 1 }}
 <div class="pagination-container">
     <ul class="pagination">
+        <!-- Previous Page -->
         {{ if $paginator.HasPrev }}
         <li class="pagination-item prev">
-            <a href="{{ $paginator.Prev.URL }}" aria-label="Previous">
-                &laquo;
-            </a>
+            <a href="{{ $paginator.Prev.URL }}" aria-label="Previous">&laquo;</a>
         </li>
         {{ end }}
+
+        <!-- Page Numbers with Sliding Window -->
+        {{ $adjacent_links := 2 }}
+        {{ $should_show_first := true }}
+        {{ $should_show_last := true }}
+        {{ $is_first_ellipsis := false }}
+        {{ $is_last_ellipsis := false }}
 
         {{ range $paginator.Pagers }}
-        <li class="pagination-item">
-            <a href="{{ .URL }}" class="{{ if eq . $paginator }}active{{ end }}">
-                {{ .PageNumber }}
-            </a>
-        </li>
+            {{ $show_page := false }}
+            
+            {{ if or (eq .PageNumber 1) (eq .PageNumber $paginator.TotalPages) }}
+                {{ $show_page = true }}
+            {{ else if and (ge .PageNumber (sub $paginator.PageNumber $adjacent_links)) (le .PageNumber (add $paginator.PageNumber $adjacent_links)) }}
+                {{ $show_page = true }}
+            {{ end }}
+
+            {{ if $show_page }}
+                <li class="pagination-item">
+                    <a href="{{ .URL }}" class="{{ if eq . $paginator }}active{{ end }}">
+                        {{ .PageNumber }}
+                    </a>
+                </li>
+            {{ else }}
+                {{ if and (lt .PageNumber $paginator.PageNumber) (not $is_first_ellipsis) }}
+                    <li class="pagination-item disabled"><span>...</span></li>
+                    {{ $is_first_ellipsis = true }}
+                {{ else if and (gt .PageNumber $paginator.PageNumber) (not $is_last_ellipsis) }}
+                    <li class="pagination-item disabled"><span>...</span></li>
+                    {{ $is_last_ellipsis = true }}
+                {{ end }}
+            {{ end }}
         {{ end }}
 
+        <!-- Next Page -->
         {{ if $paginator.HasNext }}
         <li class="pagination-item next">
-            <a href="{{ $paginator.Next.URL }}" aria-label="Next">
-                &raquo;
-            </a>
+            <a href="{{ $paginator.Next.URL }}" aria-label="Next">&raquo;</a>
         </li>
         {{ end }}
     </ul>
