@@ -15,8 +15,14 @@
     {{ $js := resources.Get "js/main.js" }}
     {{ if $js }}
         {{ $opts := dict "minify" true "format" "esm" "target" "es2020" "externals" (slice "three" "three/addons/*") }}
-        {{ $built := $js | js.Build $opts | fingerprint }}
-        <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
+        {{/* 确保环境下 js 对象存在再尝试 Build */}}
+        {{ if (isset resources "js") }}
+            {{ $built := $js | js.Build $opts | fingerprint }}
+            <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
+        {{ else }}
+            <script src="{{ $js.RelPermalink }}" type="module"></script>
+        {{ end }}
     {{ end }}
+
 </body>
 </html>
