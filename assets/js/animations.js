@@ -9,6 +9,11 @@ export function initScrollAnimations() {
 
     gsap.registerPlugin(ScrollTrigger);
 
+    // [STABILITY FIX] Helper to get current scroller
+    const getScroller = () => {
+        return window.AppConfig.isPortrait ? '.article-scroll-container' : window;
+    };
+
     // 1. Generic Fade-in-up for articles / sections
     const fadeUpElements = document.querySelectorAll('.gsap-fade-up');
     fadeUpElements.forEach((el) => {
@@ -22,6 +27,7 @@ export function initScrollAnimations() {
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 85%', // Trigger when top of element hits 85% of viewport
+                    scroller: getScroller(), // Use dynamic scroller
                     toggleActions: 'play none none none' // Play once
                 }
             }
@@ -31,6 +37,8 @@ export function initScrollAnimations() {
     // 2. Simple fade in for sidebars
     const fadeInElements = document.querySelectorAll('.gsap-fade-in');
     fadeInElements.forEach((el) => {
+        if (el.classList.contains('doc-sidebar') && window.AppConfig.isMobile) return;
+
         gsap.fromTo(el,
             { opacity: 0 },
             {
@@ -40,6 +48,7 @@ export function initScrollAnimations() {
                 scrollTrigger: {
                     trigger: el,
                     start: 'top 90%',
+                    scroller: getScroller() // Use dynamic scroller
                 }
             }
         );
@@ -70,10 +79,11 @@ export function initScrollAnimations() {
 
 export function initTOCScrollSpy() {
     const observerOptions = {
-        root: null,
+        root: window.AppConfig.isPortrait ? document.querySelector('.article-scroll-container') : null,
         rootMargin: '-10% 0px -80% 0px', // Trigger when header is in the top 10%-20% of viewport
         threshold: 0
     };
+
 
     const tocLinks = document.querySelectorAll('#TableOfContents a');
     if (tocLinks.length === 0) return;
@@ -108,4 +118,49 @@ export function initTOCScrollSpy() {
     }, observerOptions);
 
     headers.forEach(header => observer.observe(header));
+}
+
+export function initMobileTOC() {
+    const toggle = document.getElementById('toc-toggle');
+    const closeBtn = document.getElementById('toc-close');
+    const sidebar = document.getElementById('doc-sidebar');
+    const overlay = document.getElementById('toc-overlay');
+    const tocLinks = document.querySelectorAll('#TableOfContents a');
+
+    if (!toggle || !sidebar || !overlay) return;
+    
+    const setSidebarState = (active) => {
+        sidebar.classList.toggle('is-active', active);
+        overlay.classList.toggle('is-active', active);
+        document.body.classList.toggle('body-lock', active);
+    };
+
+    const toggleSidebar = () => {
+        const currentlyActive = sidebar.classList.contains('is-active');
+        setSidebarState(!currentlyActive);
+    };
+
+    toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleSidebar();
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', () => setSidebarState(false));
+    overlay.addEventListener('click', () => setSidebarState(false));
+
+    // Close when a TOC link is clicked (user expects navigation)
+    tocLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (window.AppConfig.isMobile) {
+                setSidebarState(false);
+            }
+        });
+    });
+
+    // [STABILITY FIX] Reset state when switching back to desktop
+    window.addEventListener('app:env-change', (e) => {
+        if (!e.detail.isMobile) {
+            setSidebarState(false);
+        }
+    });
 }

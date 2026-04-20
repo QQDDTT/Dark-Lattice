@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "framework": "hugo",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "buildCommand": "hugo --minify --gc",
+  "outputDirectory": "public"
+}

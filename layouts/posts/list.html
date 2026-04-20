@@ -1,5 +1,6 @@
 {{ define "main" }}
-{{ $bg := .Params.background | default "images/design/project-scene-concept.png" | relURL }}
+{{ $bg := .Params.background | default "images/design/project-scene-concept.png" }}
+{{ $bg = printf "%s%s" site.BaseURL (strings.TrimPrefix "/" $bg) }}
 <div class="blog-page-wrapper">
     <section class="blog-hero"
         style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('{{ $bg }}');">

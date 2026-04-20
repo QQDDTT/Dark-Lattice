@@ -3,7 +3,7 @@
 {{ if eq .Title "Interaction" }}
 {{ $bg = "images/design/research-interaction-3d.png" }}
 {{ end }}
-{{ $bg = $bg | relURL }}
+{{ $bg = printf "%s%s" site.BaseURL (strings.TrimPrefix "/" $bg) }}
 
 <div class="research-page-wrapper">
     <!-- Section Hero with 3D Background -->
