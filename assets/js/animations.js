@@ -9,9 +9,9 @@ export function initScrollAnimations() {
 
     gsap.registerPlugin(ScrollTrigger);
 
-    // [STABILITY FIX] Helper to get current scroller
+    // scroller is always window after removing local scroll container
     const getScroller = () => {
-        return window.AppConfig.isPortrait ? '.article-scroll-container' : window;
+        return window;
     };
 
     // 1. Generic Fade-in-up for articles / sections
@@ -79,7 +79,7 @@ export function initScrollAnimations() {
 
 export function initTOCScrollSpy() {
     const observerOptions = {
-        root: window.AppConfig.isPortrait ? document.querySelector('.article-scroll-container') : null,
+        root: null,
         rootMargin: '-10% 0px -80% 0px', // Trigger when header is in the top 10%-20% of viewport
         threshold: 0
     };
@@ -120,47 +120,3 @@ export function initTOCScrollSpy() {
     headers.forEach(header => observer.observe(header));
 }
 
-export function initMobileTOC() {
-    const toggle = document.getElementById('toc-toggle');
-    const closeBtn = document.getElementById('toc-close');
-    const sidebar = document.getElementById('doc-sidebar');
-    const overlay = document.getElementById('toc-overlay');
-    const tocLinks = document.querySelectorAll('#TableOfContents a');
-
-    if (!toggle || !sidebar || !overlay) return;
-    
-    const setSidebarState = (active) => {
-        sidebar.classList.toggle('is-active', active);
-        overlay.classList.toggle('is-active', active);
-        document.body.classList.toggle('body-lock', active);
-    };
-
-    const toggleSidebar = () => {
-        const currentlyActive = sidebar.classList.contains('is-active');
-        setSidebarState(!currentlyActive);
-    };
-
-    toggle.addEventListener('click', (e) => {
-        e.stopPropagation();
-        toggleSidebar();
-    });
-
-    if (closeBtn) closeBtn.addEventListener('click', () => setSidebarState(false));
-    overlay.addEventListener('click', () => setSidebarState(false));
-
-    // Close when a TOC link is clicked (user expects navigation)
-    tocLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (window.AppConfig.isMobile) {
-                setSidebarState(false);
-            }
-        });
-    });
-
-    // [STABILITY FIX] Reset state when switching back to desktop
-    window.addEventListener('app:env-change', (e) => {
-        if (!e.detail.isMobile) {
-            setSidebarState(false);
-        }
-    });
-}

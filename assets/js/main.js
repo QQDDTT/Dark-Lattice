@@ -41,8 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize TOC ScrollSpy
     initTOCScrollSpy();
-
-    // Initialize Mobile TOC Toggle
-    initMobileTOC();
 });
+
 

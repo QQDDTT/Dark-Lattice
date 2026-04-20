@@ -1,8 +1,8 @@
 {{ define "main" }}
-<div class="doc-main-wrapper">
-    <div class="container main-content article-scroll-container">
-        <div class="doc-layout">
-            <article class="doc-content single-page">
+<div class="container main-content">
+    <div class="doc-layout">
+        <article class="doc-content single-page">
+
                 <header class="doc-header gsap-fade-up">
                     <h1 class="doc-title">{{ .Title }}</h1>
                     <div class="doc-meta">
@@ -23,26 +23,8 @@
         </div>
     </div>
 
-    <!-- Fixed Navigation Shell -->
-    <aside class="doc-sidebar gsap-fade-in" id="doc-sidebar">
-        <!-- Mobile Close Button -->
-        <button class="toc-close-btn" id="toc-close" aria-label="Close Contents">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 6L6 18M6 6l12 12"></path></svg>
-        </button>
-        <div class="toc-container glass toc-wrapper">
-            <h3 class="toc-title">{{ T "table_of_contents" | default "Table of Contents" }}</h3>
-            <nav id="TableOfContents">
-                {{ .TableOfContents }}
-            </nav>
-        </div>
-    </aside>
-
-    <!-- Floating Controls -->
-    <button class="toc-toggle" id="toc-toggle" aria-label="Toggle TOC">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"></path></svg>
-    </button>
-
-    <div class="toc-overlay" id="toc-overlay"></div>
 </div>
 {{ end }}
+
+
 

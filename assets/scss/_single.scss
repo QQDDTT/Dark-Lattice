@@ -145,46 +145,16 @@ $sidebar-width: 300px;
 }
 
 // 4. Sidebar & TOC (Right)
+// 4. Sidebar & TOC (Right)
 .doc-sidebar {
-    width: 100%;
+    display: none; // Hide by default on mobile
     
     @media (min-width: $breakpoint-desktop) {
+        display: block;
         width: $sidebar-width;
         flex-shrink: 0;
         position: sticky;
-        top: 100px; // Offset from header
-    }
-
-    // Mobile Drawer Defaults
-    @media (max-width: ($breakpoint-desktop - 1)) {
-        position: fixed;
-        top: 0;
-        right: -300px;
-        width: 300px;
-        height: 100vh;
-        z-index: 2000;
-        background: rgba($space-black, 0.98);
-        backdrop-filter: blur(20px);
-        padding: 100px 20px 40px;
-        transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        border-left: 1px solid rgba($cyber-blue, 0.2);
-        box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
-
-        &.is-active {
-            right: 0;
-        }
-
-        &::before {
-            content: "CONTENTS";
-            position: absolute;
-            top: 40px;
-            left: 24px;
-            font-size: 0.7rem;
-            letter-spacing: 4px;
-            color: $cyber-blue;
-            font-weight: 800;
-            opacity: 0.5;
-        }
+        top: 100px;
     }
 
     .toc-container {
@@ -194,15 +164,6 @@ $sidebar-width: 300px;
         max-height: calc(100vh - 140px);
         overflow-y: auto;
 
-        @media (max-width: ($breakpoint-desktop - 1)) {
-            max-height: calc(100vh - 180px);
-            border: none;
-            background: transparent;
-            backdrop-filter: none;
-            padding: 0;
-        }
-
-        /* Custom Scrollbar for TOC */
         &::-webkit-scrollbar { width: 3px; }
         &::-webkit-scrollbar-track { background: transparent; }
         &::-webkit-scrollbar-thumb { background: rgba($cyber-blue, 0.2); border-radius: 2px; }
@@ -213,10 +174,6 @@ $sidebar-width: 300px;
             margin-bottom: $spacing-unit * 2;
             padding-bottom: $spacing-unit;
             border-bottom: 1px solid rgba($cyber-blue, 0.1);
-
-            @media (max-width: ($breakpoint-desktop - 1)) {
-                display: none; // Hiding title in mobile drawer as we have pseudo-header
-            }
         }
 
         nav {
@@ -227,9 +184,8 @@ $sidebar-width: 300px;
                 list-style: none;
                 padding-left: $spacing-unit * 2;
                 margin: 0;
+                > ul { padding-left: 0; }
             }
-
-            > ul { padding-left: 0; }
 
             li {
                 margin-top: $spacing-unit;
@@ -243,11 +199,7 @@ $sidebar-width: 300px;
                     padding-left: 8px;
                     margin-left: -10px;
 
-                    &:hover {
-                        color: $cyber-blue;
-                    }
-
-                    // Active state handled by ScrollSpy JS
+                    &:hover { color: $cyber-blue; }
                     &.active {
                         color: $cyber-blue;
                         font-weight: 700;
@@ -260,153 +212,3 @@ $sidebar-width: 300px;
     }
 }
 
-// 5. TOC Mobile Controls
-.toc-toggle {
-    display: none;
-    
-    @media (max-width: ($breakpoint-desktop - 1)) {
-        display: flex;
-        position: fixed;
-        bottom: 32px;
-        right: 32px;
-        width: 56px;
-        height: 56px;
-        background: $cyber-blue;
-        color: #fff;
-        border: none;
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        z-index: 1500;
-        box-shadow: 0 8px 24px rgba($cyber-blue, 0.4);
-        cursor: pointer;
-        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-        
-        svg { width: 24px; height: 24px; }
-
-        &:hover { transform: scale(1.1); }
-        &:active { transform: scale(0.95); }
-    }
-}
-
-.toc-close-btn {
-    display: none;
-    @media (max-width: ($breakpoint-desktop - 1)) {
-        display: flex;
-        position: absolute;
-        top: 20px;
-        right: 20px;
-        width: 40px;
-        height: 40px;
-        background: rgba($cyber-blue, 0.1);
-        border: 1px solid rgba($cyber-blue, 0.2);
-        color: $cyber-blue;
-        border-radius: 50%;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        z-index: 2100;
-
-        &:hover { background: rgba($cyber-blue, 0.2); transform: rotate(90deg); }
-        svg { width: 20px; height: 20px; }
-    }
-}
-
-.toc-overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    z-index: 1900;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease;
-
-    &.is-active {
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-// Helper to lock scroll
-:global(body.body-lock) {
-    overflow: hidden !important;
-    touch-action: none;
-    
-    // In portrait mode, the inner container is the one that scrolls
-    @media (orientation: portrait) {
-        .article-scroll-container {
-            overflow: hidden !important;
-        }
-    }
-}
-
-
-
-// 6. Portrait Mode "App Shell" Layout
-@media (orientation: portrait) {
-    :global(html), :global(body) {
-        height: 100%;
-        overflow: hidden;
-        // Prevent Pull-to-refresh on content
-        overscroll-behavior-y: none;
-    }
-
-    :global(.main-content.container) {
-        height: calc(100vh - 70px); // Full viewport minus header
-        margin-top: 70px; // Offset for fixed header
-        padding-top: 0 !important;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        max-width: 100% !important;
-        width: 100% !important;
-    }
-
-    .article-scroll-container {
-        flex: 1;
-        overflow-y: auto;
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-        padding: $spacing-unit * 4 !important;
-        scroll-behavior: smooth;
-        // Allow overscroll only on the content
-        overscroll-behavior-y: auto;
-        
-        // Hide scrollbar but keep functionality for cleaner aesthetic
-        &::-webkit-scrollbar { width: 0; display: none; }
-    }
-
-    .doc-main-wrapper {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-
-    .doc-layout {
-        display: block; // No flex-row in portrait
-        padding: 0;
-    }
-
-    .doc-content {
-        max-width: 100%;
-    }
-
-    // Sidebar drawer is already fixed relative to screen, so it stays stable
-    .doc-sidebar {
-        @media (max-width: ($breakpoint-desktop - 1)) {
-            height: 100%;
-            // Ensure z-index is above the scroll container
-            z-index: 3000;
-        }
-    }
-    
-    .toc-toggle {
-        z-index: 3500;
-        bottom: 40px;
-        right: 24px;
-        // Strong shadow to separate from content
-        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
-    }
-}

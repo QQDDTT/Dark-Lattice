@@ -6,11 +6,12 @@
 <body class="animate-fade-in">
     {{ partial "header.html" . }}
     
-    <main class="main-content container animate-slide-up">
+    <div class="container main-content animate-slide-up">
         {{ block "main" . }}{{ end }}
-    </main>
+    </div>
 
     {{ partial "footer.html" . }}
+
 
     {{ $js := resources.Get "js/main.js" }}
     {{ if $js }}
@@ -22,14 +23,9 @@
             "externals" (slice "three" "three/addons/*") 
             "defines" $defines
         }}
-        {{/* 检查是否支持 js.Build (Hugo Extended) */}}
-        {{ if (isset resources "js") }}
-            {{ $built := $js | js.Build $opts | fingerprint }}
-            <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
-        {{ else }}
-            {{/* 回退方案：如果环境不支持打包，则直接加载，但可能产生 MIME 错误（如果 Vercel 版本太低） */}}
-            <script src="{{ $js.RelPermalink }}" type="module"></script>
-        {{ end }}
+        {{/* 强制执行 js.Build 以合并模块，杜绝子文件 404 问题 */}}
+        {{ $built := $js | js.Build $opts | fingerprint }}
+        <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
     {{ end }}
 
 
