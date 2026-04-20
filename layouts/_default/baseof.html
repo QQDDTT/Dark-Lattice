@@ -14,15 +14,24 @@
 
     {{ $js := resources.Get "js/main.js" }}
     {{ if $js }}
-        {{ $opts := dict "minify" true "format" "esm" "target" "es2020" "externals" (slice "three" "three/addons/*") }}
-        {{/* 确保环境下 js 对象存在再尝试 Build */}}
+        {{ $defines := dict "process.env.NODE_ENV" `"production"` }}
+        {{ $opts := dict 
+            "minify" true 
+            "format" "esm" 
+            "target" "es2020" 
+            "externals" (slice "three" "three/addons/*") 
+            "defines" $defines
+        }}
+        {{/* 检查是否支持 js.Build (Hugo Extended) */}}
         {{ if (isset resources "js") }}
             {{ $built := $js | js.Build $opts | fingerprint }}
             <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
         {{ else }}
+            {{/* 回退方案：如果环境不支持打包，则直接加载，但可能产生 MIME 错误（如果 Vercel 版本太低） */}}
             <script src="{{ $js.RelPermalink }}" type="module"></script>
         {{ end }}
     {{ end }}
+
 
 </body>
 </html>
