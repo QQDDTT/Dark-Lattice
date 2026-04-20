@@ -26,7 +26,7 @@ tags: ['AIOS', '拟人化', '恐怖谷效应', '人机心理学', '交互设计'
 
 ## 图示
 
-![拟人化悖论与交互屏障](images/research/interaction/3-1-anthropomorphism-paradox/figure-1.png)
+![拟人化悖论与交互屏障](/images/research/interaction/3-1-anthropomorphism-paradox/figure-1.png)
 
 *图 1：拟人化程度与用户信任度的关系曲线示意图。随着拟人化曲线接近人类基准，信任度垂直跌入“恐怖谷”深渊。金属模型身上的代码闪烁代表了交互的机器本质与人类幻象之间的冲突张力。*
 

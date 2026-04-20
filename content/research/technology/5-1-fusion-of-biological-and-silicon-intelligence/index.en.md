@@ -23,7 +23,7 @@ This fusion is not only a technological advancement but also a new stage in anth
 
 ## Illustration
 
-![Fusion of Biological and Silicon Intelligence](images/research/technology/5-1-fusion-of-biological-and-silicon-intelligence/figure-1.png)
+![Fusion of Biological and Silicon Intelligence](/images/research/technology/5-1-fusion-of-biological-and-silicon-intelligence/figure-1.png)
 
 *Figure 1: Illustration of Synthetic Intelligence fusion. The center is interwoven with a double helix structure (biological) and a geometric lattice (silicon), presenting a flowing, holographic blue core. Surrounding radiating neuronal tentacles and fiber-optic textures coexist, demonstrating the digital upgrade of life forms.*
 

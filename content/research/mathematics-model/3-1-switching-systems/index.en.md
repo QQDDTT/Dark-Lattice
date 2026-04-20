@@ -21,5 +21,5 @@ Stability can be guaranteed if the average time spent in each mode is long enoug
 
 ---
 ## Figure
-![Phase Trajectories of Switching Systems](images/research/mathematics-model/3-1-switching-systems/figure-1.png)
+![Phase Trajectories of Switching Systems](/images/research/mathematics-model/3-1-switching-systems/figure-1.png)
 *Figure 1: Phase trajectories of two linear subsystems showing the impact of dwell time on overall convergence.*

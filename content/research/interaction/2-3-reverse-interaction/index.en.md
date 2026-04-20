@@ -31,7 +31,7 @@ For example, instead of suddenly popping up a dialog box, a faint cue color coul
 
 ## Illustration
 
-![Predictive Pulses of Reverse Interaction](images/research/interaction/2-3-reverse-interaction/figure-1.png)
+![Predictive Pulses of Reverse Interaction](/images/research/interaction/2-3-reverse-interaction/figure-1.png)
 
 *Figure 1: Illustration of predictive pulse fields in reverse interaction. The central ring represents the AIOS core, and the soft waves emitted outward represent its proactive detection of potential needs. When a wave touches peripheral task nodes (small dots), it decides whether to convey information via strong pulses (pop-ups) or weak ripples (soft reminders) based on the user's current cognitive load.*
  drug-delivery systems and economic models.

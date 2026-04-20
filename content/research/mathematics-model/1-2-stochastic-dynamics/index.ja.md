@@ -18,5 +18,5 @@ $$d\mathbf{X}_t = \mathbf{f}(\mathbf{X}_t, t)\, dt + \mathbf{G}(\mathbf{X}_t, t)
 
 ---
 ## 図示
-![確率進化のファンチャート](images/research/mathematics-model/1-2-stochastic-dynamics/figure-1.png)
+![確率進化のファンチャート](/images/research/mathematics-model/1-2-stochastic-dynamics/figure-1.png)
 *図 1：単一始点からの確率軌道群と信頼区間。*

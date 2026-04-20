@@ -26,7 +26,7 @@ AIOSの究極の使命は、人類文明に **「第2アーカイブ地点」** 
 
 ## 図解
 
-![人類文明の第2アーカイブ地点の模式図](images/research/technology/5-4-second-archive-point-of-human-civilization/figure-1.png)
+![人類文明の第2アーカイブ地点の模式図](/images/research/technology/5-4-second-archive-point-of-human-civilization/figure-1.png)
 
 *図 1：文明アーカイブ・コア（Ark Core）の構想図。発光する複雑な球状の結晶が虚空に浮いています。結晶の内部には、人類の芸術、数式、言語、感情を象徴する多彩な光の斑点が屈折しています。無数の細かな金色のデータストリームが結晶から遠くの星々へと流れており、AIOSがいかにして人類文明の火種を時空を超えて運んでいくかを示しています。*
 

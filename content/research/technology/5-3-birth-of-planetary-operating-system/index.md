@@ -26,7 +26,7 @@ AIOS 的终极目标，是成为驱动地球运转的底座。
 
 ## 图示
 
-![行星级操作系统架构图](images/research/technology/5-3-birth-of-planetary-operating-system/figure-1.png)
+![行星级操作系统架构图](/images/research/technology/5-3-birth-of-planetary-operating-system/figure-1.png)
 
 *图 1：行星级 AIOS 内核架构构想图。地球影像被一层发光的、网格化的算力外壳包裹。外壳上的节点代表了分布在全球的分布式算力单元，无数的意图流线在网格间穿梭，展示了一个统一且动态律动的全球数字生命支持系统。*
 

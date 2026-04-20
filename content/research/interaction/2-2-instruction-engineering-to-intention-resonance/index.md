@@ -29,7 +29,7 @@ tags: ['AIOS', '意图识别', '指令工程', '语义理解', '人机交互', '
 
 ## 图示
 
-![意图共鸣与频率协调](images/research/interaction/2-2-instruction-engineering-to-intention-resonance/figure-1.png)
+![意图共鸣与频率协调](/images/research/interaction/2-2-instruction-engineering-to-intention-resonance/figure-1.png)
 
 *图 1：意图协调的波动示意图。下方不规则的波形代表用户原始模糊的自然语言输入，上方规则的波形代表系统的逻辑解析，二者在振幅和频率上逐渐重合相消，最终在中心达成完美的共振点（共鸣）。*
 

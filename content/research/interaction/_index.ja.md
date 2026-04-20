@@ -1,6 +1,6 @@
 ---
 title: "インタラクション"
-background: "images/design/research-interaction-3d.png"
+background: "/images/design/research-interaction-3d.png"
 date: 2026-04-16
 draft: false
 ---

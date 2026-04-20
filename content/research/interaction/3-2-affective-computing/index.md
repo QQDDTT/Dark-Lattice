@@ -29,7 +29,7 @@ tags: ['AIOS', '情感计算', '共情能力', '交互伦理', '心理压力', '
 
 ## 图示
 
-![情感计算与压力中和](images/research/interaction/3-2-affective-computing/figure-1.png)
+![情感计算与压力中和](/images/research/interaction/3-2-affective-computing/figure-1.png)
 
 *图 1：情感流调节示意图。核心显示了一个波动的、高能的红色压力场（用户状态），环绕的蓝色平滑波段代表 AIOS 的情感计算干预，通过动态调整交互颗粒度和视觉色调，实现认知的物理降温。*
 

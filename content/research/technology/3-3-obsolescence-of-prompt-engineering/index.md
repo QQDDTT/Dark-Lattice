@@ -28,7 +28,7 @@ tags: ['AIOS', '指令工程', 'Prompt工程', '交互演进', '语义理解', '
 
 ## 图示
 
-![指令工程演进简图](images/research/technology/3-3-obsolescence-of-prompt-engineering/figure-1.png)
+![指令工程演进简图](/images/research/technology/3-3-obsolescence-of-prompt-engineering/figure-1.png)
 
 *图 1：指令工程生命周期评估图。曲线展示了 Prompt 复杂度随时间先升后降的趋势。随着 AIOS 意图解析核心的增强，复杂的文字指令（灰色区域）将被直观的意图共鸣（发光的中心）所吸收。*
 

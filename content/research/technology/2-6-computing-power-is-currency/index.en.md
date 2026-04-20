@@ -28,7 +28,7 @@ Compute will no longer be a background resource, but the sole measurement standa
 
 ## Illustration
 
-![Computing Power as Currency Flow](images/research/technology/2-6-computing-power-is-currency/figure-1.png)
+![Computing Power as Currency Flow](/images/research/technology/2-6-computing-power-is-currency/figure-1.png)
 
 *Figure 1: Diagram of computing power monetization flow. The center is a glowing CPU/GPU core, with diffusing golden coin textures representing compute quotas connecting to different types of Agent interfaces, demonstrating how task flows are converted in real-time into payment flows of compute quotas.*
  drug-delivery systems and economic models.

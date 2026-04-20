@@ -18,5 +18,5 @@ Measure the exponential divergence of nearby trajectories: $\lambda_1 > 0$ for c
 
 ---
 ## Figure
-![Phase Space Trajectory of Lorenz Attractor](images/research/mathematics-model/1-3-chaos-and-evolution/figure-1.png)
+![Phase Space Trajectory of Lorenz Attractor](/images/research/mathematics-model/1-3-chaos-and-evolution/figure-1.png)
 *Figure 1: Lorenz attractor trajectory showing fractal self-similarity.*

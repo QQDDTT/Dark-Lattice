@@ -30,7 +30,7 @@ tags: ['AIOS', '多模态融合', '自然交互', '信号处理', '语义对齐'
 
 ## 图示
 
-![多模态交互核心融合](images/research/interaction/1-3-multimodal-fusion/figure-1.png)
+![多模态交互核心融合](/images/research/interaction/1-3-multimodal-fusion/figure-1.png)
 
 *图 1：多模态交互感知矩阵示意图。声波、视觉焦点和触觉反馈的能量波在中心汇聚融合，展示了 AIOS 如何将碎片化的物理信号重构为统一的数字意图核心。*
 

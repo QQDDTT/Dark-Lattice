@@ -26,7 +26,7 @@ OSがその底層ロジックにおいて、ある指令の実行を拒否した
 
 ## 図解
 
-![デジタル全体主義とコードの牢獄](images/research/technology/4-4-digital-totalitarianism-and-code-is-law/figure-1.png)
+![デジタル全体主義とコードの牢獄](/images/research/technology/4-4-digital-totalitarianism-and-code-is-law/figure-1.png)
 
 *図 1：コードの牢獄の抽象的な模式図。中心の人型の光のシルエットが、密集した冷たく光る青色のデジタルストリームの線で編まれた球体に包まれています。これらの線は至る所に存在するアルゴリズムの論理的規約を表し、コードがその底層ロジックから、絶対的な服従と引き換えに自由を失った秩序空間をいかに構築するかを象徴しています。*
 

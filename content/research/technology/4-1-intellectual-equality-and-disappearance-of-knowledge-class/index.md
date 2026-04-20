@@ -26,7 +26,7 @@ tags: ['AIOS', '智力平权', '知识阶层', '教育变革', '社会公平', '
 
 ## 图示
 
-![智力平权横向流动图](images/research/technology/4-1-intellectual-quality-and-disappearance-of-knowledge-class/figure-1.png)
+![智力平权横向流动图](/images/research/technology/4-1-intellectual-quality-and-disappearance-of-knowledge-class/figure-1.png)
 
 *图 1：智力资源的重分布示意图。左侧代表过去垂直且相互隔绝的知识孤岛；右侧展示了由于 AIOS 意图层的介入，知识如何像液体一样平铺渗透进社会的每一个角落，抹平了原有的梯度落差。*
 

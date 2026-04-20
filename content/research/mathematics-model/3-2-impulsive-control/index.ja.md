@@ -18,5 +18,5 @@ math: true
 
 ---
 ## 図示
-![インパルス制御の波形](images/research/mathematics-model/3-2-impulsive-control/figure-1.png)
+![インパルス制御の波形](/images/research/mathematics-model/3-2-impulsive-control/figure-1.png)
 *図 1：制御パルスと状態軌道の重畳図。離散的な干渉によって発散を抑え込む様子を示しています。*

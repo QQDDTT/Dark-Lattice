@@ -73,7 +73,7 @@ $$
 
 ## 图示
 
-![组合优化搜索树与近似解路径](images/research/mathematics-model/2-2-combinatorial-optimization/figure-1.png)
+![组合优化搜索树与近似解路径](/images/research/mathematics-model/2-2-combinatorial-optimization/figure-1.png)
 
 *图 1：组合优化问题搜索树结构图。根节点为初始 LP 松弛，子节点为分支约束，颜色深度表示下界质量，剪枝分支以虚线标注；最优路径以金色主干高亮显示。*
 

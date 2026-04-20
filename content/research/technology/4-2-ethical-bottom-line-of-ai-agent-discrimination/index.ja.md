@@ -29,7 +29,7 @@ AIエージェント間の悪質な競争や体系的な差別を防ぐために
 
 ## 図解
 
-![アルゴリズム差別によるフィルタリング図](images/research/technology/4-2-ethical-bottom-line-of-ai-agent-discrimination/figure-1.png)
+![アルゴリズム差別によるフィルタリング図](/images/research/technology/4-2-ethical-bottom-line-of-ai-agent-discrimination/figure-1.png)
 
 *図 1：意図の伝達経路における「不規則なフィルター」の模式図。中心には加重処理された意図の漏斗があります。左側は優先度が高くスムーズに流れるエリートのリクエスト（金色）を表し、右側は偏見や排他性ロジックによって遮断され、次第に色あせて消えていく弱者の意図の断片（灰色）を示しています。*
  drug-delivery systems and economic models.

@@ -26,7 +26,7 @@ Future AIOS interaction design should avoid extreme anthropomorphism and instead
 
 ## Illustration
 
-![Anthropomorphism Paradox and Interaction Barriers](images/research/interaction/3-1-anthropomorphism-paradox/figure-1.png)
+![Anthropomorphism Paradox and Interaction Barriers](/images/research/interaction/3-1-anthropomorphism-paradox/figure-1.png)
 
 *Figure 1: Illustration of the relationship curve between the degree of anthropomorphism and user trust. As the anthropomorphism curve approaches the human benchmark, trust plummets into the depths of the "Uncanny Valley." The code flickering on the metal model represents the tension of conflict between the machine essence of interaction and the human illusion.*
  drug-delivery systems and economic models.

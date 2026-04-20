@@ -28,7 +28,7 @@ If society loses a unified factual base, the adhesive of civilization will fail.
 
 ## Illustration
 
-![Collapse of Consensus and Multiple Realities](images/research/technology/4-3-collapse-of-consensus-in-post-truth-era/figure-1.png)
+![Collapse of Consensus and Multiple Realities](/images/research/technology/4-3-collapse-of-consensus-in-post-truth-era/figure-1.png)
 
 *Figure 1: Illustration of the refraction of multiple realities. A white light spot representing the original fact is refracted into countless parallel rays of completely different colors and logics after passing through the anisotropic prism of AIOS. Each ray is directed toward a single individual, demonstrating how shared facts are shattered on a global scale.*
  drug-delivery systems and economic models.

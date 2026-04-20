@@ -18,5 +18,5 @@ math: true
 
 ---
 ## 図示
-![ウェーブレット時域・周波数域分割](images/research/mathematics-model/4-2-wavelet-analysis/figure-1.png)
+![ウェーブレット時域・周波数域分割](/images/research/mathematics-model/4-2-wavelet-analysis/figure-1.png)
 *図 1：マルチ解像度解析における適応的ハニカム構造の時間・周波数分割格子図。*

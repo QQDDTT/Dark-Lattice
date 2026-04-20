@@ -26,7 +26,7 @@ tags: ['AIOS', '能源本位', '全球治理', '算力外交', 'GPU', '国家信
 
 ## 图示
 
-![能源本位全球治理图](images/research/technology/5-2-energy-based-global-governance/figure-1.png)
+![能源本位全球治理图](/images/research/technology/5-2-energy-based-global-governance/figure-1.png)
 
 *图 1：能源-算力全球权力分布图。展示了由能源核心（热源色）与算力晶格（冷色调）交织成的全球网络。线条的粗细代表了国家间算力信用流的强度，展示了地缘政治如何演变为算力拓扑。*
 

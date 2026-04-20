@@ -69,7 +69,7 @@ $$
 
 ## 图示
 
-![复杂网络拓扑鲁棒性热力图](images/research/mathematics-model/2-1-topological-robustness/figure-1.png)
+![复杂网络拓扑鲁棒性热力图](/images/research/mathematics-model/2-1-topological-robustness/figure-1.png)
 
 *图 1：节点连通性热力图。节点颜色深度表示其拓扑中心性，边的粗细表示流量权重；移除高度节点后网络破碎的临界过程以渐变透明度示意。*
 

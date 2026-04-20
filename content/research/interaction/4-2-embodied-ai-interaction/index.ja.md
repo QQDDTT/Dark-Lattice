@@ -28,7 +28,7 @@ tags: ['AIOS', '具身知能', 'Embodied AI', '空間インタラクション', 
 
 ## 図解
 
-![具身知能との空間協調](images/research/interaction/4-2-embodied-ai-interaction/figure-1.png)
+![具身知能との空間協調](/images/research/interaction/4-2-embodied-ai-interaction/figure-1.png)
 
 *図 1：具身知能との協調の模式図。現実の物理的な物体と、仮想的に生成されたロボットアーム（混合現実プロジェクション）が精密に協調しています。金色の光影はAIOSによる物理法則のリアルタイム計算と予測を表し、仮想と現実の交差は原子とピクセルの深い相互作用を示しています。*
  drug-delivery systems and economic models.

@@ -1,6 +1,6 @@
 ---
 title: "数学模型"
-background: "images/design/research-math-3d.png"
+background: "/images/design/research-math-3d.png"
 date: 2026-04-17
 draft: false
 tags: ["mathematics", "modeling"]

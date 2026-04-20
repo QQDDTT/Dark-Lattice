@@ -57,7 +57,7 @@ $$
 
 ## 图示
 
-![脉冲信号波形图](images/research/mathematics-model/3-2-impulsive-control/figure-1.png)
+![脉冲信号波形图](/images/research/mathematics-model/3-2-impulsive-control/figure-1.png)
 
 *图 1：脉冲控制信号与系统状态轨迹的叠加图。垂直脉冲代表控制作用时刻的状态瞬时跳变，折线展示了在离散干预下系统如何从发散趋势被“拉回”到稳定边界。*
 

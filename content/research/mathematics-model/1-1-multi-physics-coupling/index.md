@@ -74,7 +74,7 @@ $$
 
 ## 图示
 
-![多物理场能量传递层次结构](images/research/mathematics-model/1-1-multi-physics-coupling/figure-1.png)
+![多物理场能量传递层次结构](/images/research/mathematics-model/1-1-multi-physics-coupling/figure-1.png)
 
 *图 1：从量子尺度→介观尺度→宏观流体尺度的多层能量传递结构示意图。三层同心环代表不同尺度的物理场，箭头粗细与密度表征能量交换强度与方向。*
 

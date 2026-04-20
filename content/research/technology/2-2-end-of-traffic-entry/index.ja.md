@@ -35,7 +35,7 @@ tags: ['AIOS', 'トラフィックエントリ', 'モバイルインターネッ
 
 ## 図解
 
-![トラフィックエントリの進化](images/research/technology/2-2-end-of-traffic-entry/figure-1.png)
+![トラフィックエントリの進化](/images/research/technology/2-2-end-of-traffic-entry/figure-1.png)
 
 *図 1：トラフィックエントリの遷移の模式図。左側は従来のアプリアイコンのグリッド（トラフィックの分散）、右側は中央集約されたAIOSの意図コアを通じて配信された後の構造化データフロー（トラフィックの集中）を表し、セカンダリインターフェースが縮小し、底層のプロトコルノードへと沈殿していく様子を示しています。*
  drug-delivery systems and economic models.

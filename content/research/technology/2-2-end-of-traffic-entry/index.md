@@ -35,7 +35,7 @@ tags: ['AIOS', '流量入口', '移动互联网', 'App交互', '无头应用', '
 
 ## 图示
 
-![流量入口演进示意图](images/research/technology/2-2-end-of-traffic-entry/figure-1.png)
+![流量入口演进示意图](/images/research/technology/2-2-end-of-traffic-entry/figure-1.png)
 
 *图 1：流量入口转移的示意图。左侧是传统的 App 图标网格（流量分散）；右侧是通过中心化的 AIOS 意图核心进行分发后的结构化数据流（流量聚拢），展示了二级界面如何萎缩并沉淀为底层的协议节点。*
 

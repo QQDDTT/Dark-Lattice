@@ -23,7 +23,7 @@ tags: ['AIOS', '生物智能', '硅基智能', 'BCI', '合成智能', '进化', 
 
 ## 图示
 
-![生物与硅基智能融合图](images/research/technology/5-1-fusion-of-biological-and-silicon-intelligence/figure-1.png)
+![生物与硅基智能融合图](/images/research/technology/5-1-fusion-of-biological-and-silicon-intelligence/figure-1.png)
 
 *图 1：合成智力融合示意图。中心由双螺旋结构（生物）与几何晶格（硅基）交织而成，呈现出一种流动的、半透明的蓝色核心。周围发散的神经元触手与光纤纹理共生，展示了生命形式的数字化升级。*
 

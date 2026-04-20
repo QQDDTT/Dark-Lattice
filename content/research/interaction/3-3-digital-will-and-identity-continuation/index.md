@@ -30,7 +30,7 @@ tags: ['AIOS', '数字遗嘱', '身份延续', '数字永生', '交互遗产', '
 
 ## 图示
 
-![数字身份的无限螺旋](images/research/interaction/3-3-digital-will-and-identity-continuation/figure-1.png)
+![数字身份的无限螺旋](/images/research/interaction/3-3-digital-will-and-identity-continuation/figure-1.png)
 
 *图 1：身份延续的 DNA 螺旋示意图。一条由发光的二进制数据流构成的螺旋线在时空隧道中无限延伸，代表用户的长期交互记忆正在跨越个体的生命节点，转化为某种数字意义上的延续结构。*
 

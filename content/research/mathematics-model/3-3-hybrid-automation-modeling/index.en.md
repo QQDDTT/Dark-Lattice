@@ -18,5 +18,5 @@ Synchronous simulation bridges discrete layers (e.g., Petri Nets) and continuous
 
 ---
 ## Figure
-![Hybrid Automation Architecture](images/research/mathematics-model/3-3-hybrid-automation-modeling/figure-1.png)
+![Hybrid Automation Architecture](/images/research/mathematics-model/3-3-hybrid-automation-modeling/figure-1.png)
 *Figure 1: Hierarchical architecture of hybrid automation showing the interaction between finite state machines and dynamic trajectories via guard conditions.*

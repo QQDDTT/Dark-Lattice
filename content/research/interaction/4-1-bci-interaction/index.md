@@ -28,7 +28,7 @@ tags: ['AIOS', '脑机接口', 'BCI', '人机交互', '自我意识', '神经工
 
 ## 图示
 
-![脑机接口意图流](images/research/interaction/4-1-bci-interaction/figure-1.png)
+![脑机接口意图流](/images/research/interaction/4-1-bci-interaction/figure-1.png)
 
 *图 1：脑机接口交互示意图。大脑皮层直接射出多条微型光导管，代表神经元电信号被 AIOS 实时捕获并转化为几何物体的构建逻辑。背景的微光格点代表了意图在数字空间中的实时映射。*
 

@@ -42,7 +42,7 @@ For composite materials with periodic microstructures, macro-scale $\mathbf{x}$ 
 
 ## Figure
 
-![Multi-physics Energy Transfer Hierarchy](images/research/mathematics-model/1-1-multi-physics-coupling/figure-1.png)
+![Multi-physics Energy Transfer Hierarchy](/images/research/mathematics-model/1-1-multi-physics-coupling/figure-1.png)
 
 *Figure 1: Schematic of multi-layer energy transfer across quantum, meso, and macro fluid scales.*
 

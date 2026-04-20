@@ -28,7 +28,7 @@ tags: ['AIOS', '后真相', '共识瓦解', '生成式内容', '回声壁效应'
 
 ## 图示
 
-![共识瓦解与多重现实图](images/research/technology/4-3-collapse-of-consensus-in-post-truth-era/figure-1.png)
+![共识瓦解与多重现实图](/images/research/technology/4-3-collapse-of-consensus-in-post-truth-era/figure-1.png)
 
 *图 1：多重现实的折射示意图。一颗代表原始事实的白色光斑通过 AIOS 的各向异性棱镜后，被折射成了无数种完全不同色彩、不同逻辑的平行射线。每一条射线射向单一个体，展示了共享事实如何在全球范围内被粉碎。*
 

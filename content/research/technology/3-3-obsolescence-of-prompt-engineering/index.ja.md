@@ -28,7 +28,7 @@ tags: ['AIOS', 'インストラクション工学', 'プロンプトエンジニ
 
 ## 図解
 
-![プロンプトエンジニアリングの進化図](images/research/technology/3-3-obsolescence-of-prompt-engineering/figure-1.png)
+![プロンプトエンジニアリングの進化図](/images/research/technology/3-3-obsolescence-of-prompt-engineering/figure-1.png)
 
 *図 1：インストラクション工学のライフサイクル評価図。プロンプトの複雑さが時間とともに上昇した後、下降に転じる傾向を示しています。AIOSの意図解析コアが強化されるにつれ、複雑なテキスト指令（灰色部分）は直感的な意図の共鳴（輝く中心点）へと吸収されていきます。*
  drug-delivery systems and economic models.

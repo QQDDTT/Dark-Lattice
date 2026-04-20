@@ -29,7 +29,7 @@ tags: ['AIOS', '意図認識', 'インストラクション・エンジニアリ
 
 ## 図解
 
-![意図共鳴と周波数の調和](images/research/interaction/2-2-instruction-engineering-to-intention-resonance/figure-1.png)
+![意図共鳴と周波数の調和](/images/research/interaction/2-2-instruction-engineering-to-intention-resonance/figure-1.png)
 
 *図 1：意図的な調和波の模式図。下部の不規則な波形はユーザーの元の曖昧な自然言語入力を表し、上部の規則的な波形はシステムの論理的なパースを表しています。両者は振幅と周波数において徐々に重なり合い、打ち消し合い、最終的に中心で完璧な共振点（共鳴）に達します。*
  drug-delivery systems and economic models.

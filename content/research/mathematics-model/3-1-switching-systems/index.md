@@ -50,7 +50,7 @@ $$
 
 ## 图示
 
-![切换系统相轨迹](images/research/mathematics-model/3-1-switching-systems/figure-1.png)
+![切换系统相轨迹](/images/research/mathematics-model/3-1-switching-systems/figure-1.png)
 
 *图 1：两个线性子系统间的切换相轨迹。虚线代表子系统各自的平衡态趋向，实线代表在高频切换下的整体复合轨迹，揭示了驻留时间对系统收敛性的决定性影响。*
 

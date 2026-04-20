@@ -29,7 +29,7 @@ tags: ['AIOS', '算法歧视', '交互伦理', '意图分发', '公平性', '黑
 
 ## 图示
 
-![算法歧视过滤示意图](images/research/technology/4-2-ethical-bottom-line-of-ai-agent-discrimination/figure-1.png)
+![算法歧视过滤示意图](/images/research/technology/4-2-ethical-bottom-line-of-ai-agent-discrimination/figure-1.png)
 
 *图 1：意图链路中的“不规则过滤器”示意图。中心是经过加权处理的意图漏斗。左侧代表高优先级、顺畅流过的精英请求（金色）；右侧展示了被基于偏见和排他性逻辑拦截、并逐渐黯淡消失的弱势意图碎片（灰色）。*
 

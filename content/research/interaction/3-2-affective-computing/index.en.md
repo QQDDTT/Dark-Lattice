@@ -29,7 +29,7 @@ Future emotional interaction should be built upon explicit user authorization. A
 
 ## Illustration
 
-![Affective Computing and Stress Neutralization](images/research/interaction/3-2-affective-computing/figure-1.png)
+![Affective Computing and Stress Neutralization](/images/research/interaction/3-2-affective-computing/figure-1.png)
 
 *Figure 1: Illustration of affective flow regulation. The core shows a fluctuating, high-energy red stress field (user state), and the surrounding smooth blue wavebands represent the intervention of AIOS affective computing, achieving physical cognitive cooling through dynamic adjustment of interaction granularity and visual tones.*
  drug-delivery systems and economic models.

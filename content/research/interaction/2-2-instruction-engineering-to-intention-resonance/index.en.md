@@ -29,7 +29,7 @@ Future interaction will not be you issuing orders to a machine, but rather you a
 
 ## Illustration
 
-![Intent Resonance and Frequency Coordination](images/research/interaction/2-2-instruction-engineering-to-intention-resonance/figure-1.png)
+![Intent Resonance and Frequency Coordination](/images/research/interaction/2-2-instruction-engineering-to-intention-resonance/figure-1.png)
 
 *Figure 1: Illustration of intentional coordination waves. The irregular waveform at the bottom represents the user's original vague natural language input, while the regular waveform above represents the system's logical parsing. The two gradually overlap and cancel out in amplitude and frequency, finally reaching a perfect resonance point at the center.*
  drug-delivery systems and economic models.

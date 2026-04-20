@@ -1,6 +1,6 @@
 ---
 title: "テクノロジー"
-background: "images/design/research-tech-3d.png"
+background: "/images/design/research-tech-3d.png"
 date: 2026-04-16
 draft: false
 ---
