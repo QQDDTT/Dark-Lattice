@@ -45,7 +45,7 @@ $$
 
 ## 图示
 
-![压缩感知稀疏重构散点图](/images/research/mathematics-model/4-3-compressive-sensing/figure-1.png)
+![压缩感知稀疏重构散点图](images/research/mathematics-model/4-3-compressive-sensing/figure-1.png)
 
 *图 1：信息稀疏重构的几何示意图。展示了在由少量测量值定义的超平面与 $L_1$ 范数（菱形）接触时，如何精准捕获到位于坐标轴上的稀疏解，背景散点代表原始高维信号分量的能量分布。*
 

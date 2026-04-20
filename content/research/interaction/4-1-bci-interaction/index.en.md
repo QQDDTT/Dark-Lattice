@@ -28,7 +28,7 @@ Future BCI interaction design must include a **\"neural safety threshold.\"** It
 
 ## Illustration
 
-![BCI Intent Flow](/images/research/interaction/4-1-bci-interaction/figure-1.png)
+![BCI Intent Flow](images/research/interaction/4-1-bci-interaction/figure-1.png)
 
 *Figure 1: Illustration of BCI interaction. Multiple miniature light pipes radiate directly from the cerebral cortex, representing neuronal electrical signals being captured in real-time by AIOS and converted into construction logic for geometric objects. The shimmering grid in the background represents the real-time mapping of intent in digital space.*
  drug-delivery systems and economic models.

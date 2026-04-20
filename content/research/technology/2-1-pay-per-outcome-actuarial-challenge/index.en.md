@@ -28,7 +28,7 @@ As model efficiency improves, basic inference costs will trend toward zero. At t
 
 ## Illustration
 
-![Actuarial Structure of Pay-per-Outcome](/images/research/technology/2-1-pay-per-outcome-actuarial-challenge/figure-1.png)
+![Actuarial Structure of Pay-per-Outcome](images/research/technology/2-1-pay-per-outcome-actuarial-challenge/figure-1.png)
 
 *Figure 1: Illustration of pay-per-outcome pricing logic. The left shows fluctuating computational loads and token costs; the middle hedges risk through a probability firewall (actuarial model); and the right presents a unified, deterministic pricing for the outcome to the user.*
  drug-delivery systems and economic models.

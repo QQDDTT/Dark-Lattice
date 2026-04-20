@@ -30,6 +30,6 @@ True natural interaction is about letting machines adapt to human complexity, ra
 
 ## Illustration
 
-![Core Fusion of Multimodal Interaction](/images/research/interaction/1-3-multimodal-fusion/figure-1.png)
+![Core Fusion of Multimodal Interaction](images/research/interaction/1-3-multimodal-fusion/figure-1.png)
 
 *Figure 1: Illustration of the multimodal interaction sensing matrix. Energy waves from sound waves, visual focus, and tactile feedback converge and fuse at the center, demonstrating how AIOS reconstructs fragmented physical signals into a unified digital intentional core.*

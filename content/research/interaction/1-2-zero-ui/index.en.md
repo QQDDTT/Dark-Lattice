@@ -32,6 +32,6 @@ The mathematical solution to the Zero UI trust crisis lies in "Prediction Thresh
 
 ## Illustration
 
-![Environmental Sensing in Zero UI](/images/research/interaction/1-2-zero-ui/figure-1.png)
+![Environmental Sensing in Zero UI](images/research/interaction/1-2-zero-ui/figure-1.png)
 
 *Figure 1: Illustration of the intent sensing field under Zero UI. Golden streamlines represent the kinetic energy trajectory left by a user's gesture in mid-air, while the diffusing geometric ripples denote the environment sensors capturing and predicting intent.*

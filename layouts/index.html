@@ -3,7 +3,7 @@
     <!-- Bio Segment (Left) -->
     <div class="hero-bio-segment glass animate-fade-in">
         <div class="avatar-wrapper">
-            <img src="{{ "/images/avatar.png" | relURL }}" alt="Researcher Avatar" class="hero-avatar">
+            <img src="{{ "images/avatar.png" | relURL }}" alt="Researcher Avatar" class="hero-avatar">
         </div>
         <div class="bio-text">
             <p class="typewriter-text">{{ T "hero_bio" }}</p>
@@ -22,7 +22,7 @@
     </div>
 
     <!-- 3D Scene Container -->
-    <div id="hero-canvas-container" class="animate-fade-in" data-model="/models/sample-cube.glb"></div>
+    <div id="hero-canvas-container" class="animate-fade-in" data-model="{{ "models/sample-cube.glb" | relURL }}"></div>
 </div>
 
 <div class="container recent-updates section-spacing">

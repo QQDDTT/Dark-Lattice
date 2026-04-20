@@ -35,7 +35,7 @@ The barriers of AIOS are deeper than any previous system. Once a user becomes ac
 
 ## Illustration
 
-![Digital Tax Game in the AIOS Era](/images/research/technology/2-3-aios-digital-tax/figure-1.png)
+![Digital Tax Game in the AIOS Era](images/research/technology/2-3-aios-digital-tax/figure-1.png)
 
 *Figure 1: Value distribution flow chart in the AIOS world. The central node represents the AIOS scheduler, responsible for connecting user intent with various Agent services. By setting traffic gates at each node, it demonstrates the interception capabilities of different camps (hardware vs. model vs. protocol) regarding the \"digital tax.\"*
  drug-delivery systems and economic models.

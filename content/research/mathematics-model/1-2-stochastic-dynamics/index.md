@@ -76,7 +76,7 @@ $$
 
 ## 图示
 
-![随机轨迹演化的概率扇形分布](/images/research/mathematics-model/1-2-stochastic-dynamics/figure-1.png)
+![随机轨迹演化的概率扇形分布](images/research/mathematics-model/1-2-stochastic-dynamics/figure-1.png)
 
 *图 1：从单一初始点出发的随机系统轨迹族。颜色从冷色（低概率路径）渐变为暖色（高概率路径），外包络线对应 95% 置信带，右侧概率密度条图显示终态分布的统计权重。*
 

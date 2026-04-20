@@ -18,5 +18,5 @@ math: true
 
 ---
 ## 図示
-![ネットワーク堅牢性のヒートマップ](/images/research/mathematics-model/2-1-topological-robustness/figure-1.png)
+![ネットワーク堅牢性のヒートマップ](images/research/mathematics-model/2-1-topological-robustness/figure-1.png)
 *図 1：ハブ除去によるネットワーク断片化のシミュレーションと中心性マップ。*

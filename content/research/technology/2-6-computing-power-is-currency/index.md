@@ -28,7 +28,7 @@ tags: ['AIOS', '算力', '算力经济', 'GPU', 'Token经济', '硬通货', '商
 
 ## 图示
 
-![算力货币结算示意图](/images/research/technology/2-6-computing-power-is-currency/figure-1.png)
+![算力货币结算示意图](images/research/technology/2-6-computing-power-is-currency/figure-1.png)
 
 *图 1：算力货币化流动简图。中心是发光的 CPU/GPU 核心，向四周扩散代表算力额度的金币纹理，连接着不同类型的 Agent 接口，展示了任务流如何被实时转化为算力额度的支付流。*
 

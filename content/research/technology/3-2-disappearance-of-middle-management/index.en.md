@@ -33,7 +33,7 @@ Those management positions that survive solely on reporting and occupying inform
 
 ## Illustration
 
-![Disappearance of Middle Management](/images/research/technology/3-2-disappearance-of-middle-management/figure-1.png)
+![Disappearance of Middle Management](images/research/technology/3-2-disappearance-of-middle-management/figure-1.png)
 
 *Figure 1: Illustration of organizational hierarchy degradation. The traditional middle layer of the pyramid (gray area) is gradually becoming transparent and fracturing, replaced by penetrating lines emitted from the AIOS scheduling core that directly link top-level decisions with bottom-level execution.*
  drug-delivery systems and economic models.

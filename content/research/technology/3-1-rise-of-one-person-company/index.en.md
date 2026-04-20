@@ -26,7 +26,7 @@ The future workplace structure will shift from a \"pyramid\" to a \"star.\" The 
 
 ## Illustration
 
-![Organizational Structure of a One-Person Company](/images/research/technology/3-1-rise-of-one-person-company/figure-1.png)
+![Organizational Structure of a One-Person Company](images/research/technology/3-1-rise-of-one-person-company/figure-1.png)
 
 *Figure 1: Illustration of the evolution from a traditional pyramid organization to a star-shaped \"One-Person Company.\" The central luminous point represents the human founder (decision-maker), and the scattering controlled nodes represent AI agents from various domains, demonstrating the extreme expansion of intellectual leverage.*
  drug-delivery systems and economic models.

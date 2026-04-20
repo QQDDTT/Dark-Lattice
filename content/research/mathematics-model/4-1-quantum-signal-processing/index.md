@@ -44,7 +44,7 @@ $$
 
 ## 图示
 
-![量子线路复杂度对比图](/images/research/mathematics-model/4-1-quantum-signal-processing/figure-1.png)
+![量子线路复杂度对比图](images/research/mathematics-model/4-1-quantum-signal-processing/figure-1.png)
 
 *图 1：量子傅里叶变换线路图与经典 FFT 复杂度的指数级对比示意图。左侧展示了受控旋转门阵列，右侧通过对数刻度线展示了随着信号维数 $N$ 增加，量子算法相对于经典算法巨大的算力红利空间。*
 

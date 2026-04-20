@@ -1,11 +1,17 @@
 {{ define "main" }}
-<div class="container main-content animate-fade-in section-spacing">
-    <header class="list-head section-spacing">
-        <h1 class="page-title">{{ .Title }}</h1>
-        {{ with .Content }}
-        <div class="page-description">{{ . }}</div>
-        {{ end }}
-    </header>
+{{ $bg := .Params.background | default "images/design/project-scene-concept.png" | relURL }}
+<div class="blog-page-wrapper">
+    <section class="blog-hero"
+        style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('{{ $bg }}');">
+        <div class="container hero-content animate-fade-in">
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ with .Description }}
+            <div class="page-description">{{ . }}</div>
+            {{ end }}
+        </div>
+    </section>
+
+    <div class="container section-spacing">
 
     <div class="blog-card-list">
         {{ $pages := where .Site.RegularPages "Section" "posts" }}

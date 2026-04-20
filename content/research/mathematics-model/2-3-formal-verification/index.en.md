@@ -20,5 +20,5 @@ Exhaustive search of the state space (Kripke structure $M$) to check properties.
 
 ---
 ## Figure
-![Formal Verification Flowchart](/images/research/mathematics-model/2-3-formal-verification/figure-1.png)
+![Formal Verification Flowchart](images/research/mathematics-model/2-3-formal-verification/figure-1.png)
 *Figure 1: Kripke structure showing state transitions and verified safety paths.*

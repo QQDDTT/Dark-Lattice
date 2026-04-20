@@ -28,7 +28,7 @@ tags: ['AIOS', '価格モデル', 'AaaS', 'アクチュアリー', 'ビジネス
 
 ## 図解
 
-![成果報酬型の数理構造](/images/research/technology/2-1-pay-per-outcome-actuarial-challenge/figure-1.png)
+![成果報酬型の数理構造](images/research/technology/2-1-pay-per-outcome-actuarial-challenge/figure-1.png)
 
 *図 1：成果報酬型価格設定ロジックの模式図。左側は変動する計算負荷とトークンコスト、中央は確率論的なファイアウォール（数理モデル）によるリスクヘッジ、右側はユーザーに提示される成果に対する確定的な価格設定を表しています。*
  drug-delivery systems and economic models.

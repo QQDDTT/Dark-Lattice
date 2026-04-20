@@ -33,7 +33,7 @@ tags: ['AIOS', '中层管理', '组织变革', '流程自动化', '去层级化'
 
 ## 图示
 
-![中层管理消亡示意图](/images/research/technology/3-2-disappearance-of-middle-management/figure-1.png)
+![中层管理消亡示意图](images/research/technology/3-2-disappearance-of-middle-management/figure-1.png)
 
 *图 1：组织层级降解图。传统的金字塔中层（灰色区域）正在逐渐透明化并断裂，取而代之的是由 AIOS 调度核心发出的、直接链接顶层决策与底层执行的贯穿线。*
 

@@ -23,5 +23,5 @@ Modeling combinatorial problems as Quadratic Unconstrained Binary Optimization f
 
 ---
 ## Figure
-![Optimization Search Tree](/images/research/mathematics-model/2-2-combinatorial-optimization/figure-1.png)
+![Optimization Search Tree](images/research/mathematics-model/2-2-combinatorial-optimization/figure-1.png)
 *Figure 1: Search tree structure for branch-and-bound with optimal path highlighting.*

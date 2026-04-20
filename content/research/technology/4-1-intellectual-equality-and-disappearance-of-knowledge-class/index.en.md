@@ -26,7 +26,7 @@ Knowledge is transforming from an expensive luxury locked in ivory towers into a
 
 ## Illustration
 
-![Horizontal Flow of Intellectual Equality](/images/research/technology/4-1-intellectual-quality-and-disappearance-of-knowledge-class/figure-1.png)
+![Horizontal Flow of Intellectual Equality](images/research/technology/4-1-intellectual-quality-and-disappearance-of-knowledge-class/figure-1.png)
 
 *Figure 1: Illustration of the redistribution of intellectual resources. The left represents the vertical and isolated islands of knowledge of the past; the right shows how, with the intervention of the AIOS intent layer, knowledge flows like a liquid, permeating every corner of society and flattening the original gradients.*
  drug-delivery systems and economic models.

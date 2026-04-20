@@ -1,4 +1,4 @@
-baseURL = 'https://dark-lattice.github.io/'
+baseURL = 'https://dark-lattice.github.io/Dark-Lattice/'
 languageCode = 'zh-cn'
 defaultContentLanguage = 'zh'
 title = 'Dark Lattice'
@@ -6,8 +6,8 @@ title = 'Dark Lattice'
 
 [params]
     author = "Researcher"
-    logo = "/images/logo.svg"
-    favicon = "/images/icon.svg"
+    logo = "images/logo.svg"
+    favicon = "images/icon.svg"
 
 [languages]
     [languages.zh]

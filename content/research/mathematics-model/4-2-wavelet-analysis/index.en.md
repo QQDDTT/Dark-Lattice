@@ -21,5 +21,5 @@ Providing narrow time windows for high frequencies and wide windows for low freq
 
 ---
 ## Figure
-![Wavelet Time-Frequency Reconstruction](/images/research/mathematics-model/4-2-wavelet-analysis/figure-1.png)
+![Wavelet Time-Frequency Reconstruction](images/research/mathematics-model/4-2-wavelet-analysis/figure-1.png)
 *Figure 1: Time-frequency grid of multiresolution analysis showing adaptive windowing across scales.*

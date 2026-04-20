@@ -30,6 +30,6 @@ Future interaction design should not just be about \"simplification,\" but about
 
 ## Illustration
 
-![Cognitive Outsourcing and Neural Augmentation](/images/research/interaction/2-1-cognitive-outsourcing/figure-1.png)
+![Cognitive Outsourcing and Neural Augmentation](images/research/interaction/2-1-cognitive-outsourcing/figure-1.png)
 
 *Figure 1: Illustration of the outward shifting of human cognitive boundaries. The central brain silhouette becomes ethereal, representing the loss of basic operational logic, while the surrounding digital neural ring (AIOS agent layer) becomes increasingly dense, carrying the vast majority of the logical load.*

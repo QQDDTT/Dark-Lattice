@@ -30,6 +30,6 @@ tags: ['AIOS', 'マルチモーダル融合', '自然なインタラクション
 
 ## 図解
 
-![マルチモーダル・インタラクションの核心的融合](/images/research/interaction/1-3-multimodal-fusion/figure-1.png)
+![マルチモーダル・インタラクションの核心的融合](images/research/interaction/1-3-multimodal-fusion/figure-1.png)
 
 *図 1：マルチモーダル・インタラクション感知行列の模式図。音波、視覚的な焦点、および触覚フィードバックのエネルギー波が中心で収束・融合し、AIOSが断片化された物理信号を統一されたデジタルの意図の核心へと再構築する様子を表しています。*

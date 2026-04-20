@@ -30,6 +30,6 @@ $$
 
 ## 図示
 
-![マルチフィジックスエネルギー伝達構造](/images/research/mathematics-model/1-1-multi-physics-coupling/figure-1.png)
+![マルチフィジックスエネルギー伝達構造](images/research/mathematics-model/1-1-multi-physics-coupling/figure-1.png)
 
 *図 1：量子、メゾ、マクロ流体スケールにわたる多層エネルギー伝達の模式図。*

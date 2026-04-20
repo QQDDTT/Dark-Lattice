@@ -43,7 +43,7 @@ $$
 
 ## 图示
 
-![混合自动化分层架构图](/images/research/mathematics-model/3-3-hybrid-automation-modeling/figure-1.png)
+![混合自动化分层架构图](images/research/mathematics-model/3-3-hybrid-automation-modeling/figure-1.png)
 
 *图 1：混合自动化系统分层架构示意图。上层展示了离散状态转换图（状态机逻辑），下层展示了对应状态下的动力学轨迹，中间的双向箭头展示了 Guard 触发条件与 Reset 重置函数的数据流向。*
 

@@ -35,7 +35,7 @@ Without icon clicks, how can brands survive?
 
 ## Illustration
 
-![Evolution of Traffic Entries](/images/research/technology/2-2-end-of-traffic-entry/figure-1.png)
+![Evolution of Traffic Entries](images/research/technology/2-2-end-of-traffic-entry/figure-1.png)
 
 *Figure 1: Illustration of the transfer of traffic entries. The left shows a traditional grid of App icons (fragmented traffic); the right shows structured data streams after distribution through a centralized AIOS intent core (consolidated traffic), demonstrating how secondary interfaces shrink and settle into underlying protocol nodes.*
  drug-delivery systems and economic models.

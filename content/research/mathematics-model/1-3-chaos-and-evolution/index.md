@@ -68,7 +68,7 @@ $$
 
 ## 图示
 
-![Lorenz 吸引子相空间轨迹](/images/research/mathematics-model/1-3-chaos-and-evolution/figure-1.png)
+![Lorenz 吸引子相空间轨迹](images/research/mathematics-model/1-3-chaos-and-evolution/figure-1.png)
 
 *图 1：Lorenz 奇异吸引子在相空间中的轨迹。轨迹颜色根据局部速度大小从深蓝（低速）渐变至洋红（高速），展示分形自相似结构与无规律的轨道跳转。*
 

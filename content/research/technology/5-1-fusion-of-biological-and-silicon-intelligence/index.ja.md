@@ -23,7 +23,7 @@ tags: ['AIOS', '生物知能', 'シリコン知能', 'BCI', '合成知能', '進
 
 ## 図解
 
-![生物知能とシリコン知能の融合図](/images/research/technology/5-1-fusion-of-biological-and-silicon-intelligence/figure-1.png)
+![生物知能とシリコン知能の融合図](images/research/technology/5-1-fusion-of-biological-and-silicon-intelligence/figure-1.png)
 
 *図 1：合成知能融合の模式図。中心は二重らせん構造（生物）と幾何学的な格子（シリコン）が織りなす、流動的で半透明のブルー・コアで構成されています。周囲に広がるニューロンの触手と光ファイバーの質感が共生しており、生命形態のデジタル・アップグレードを示しています。*
 

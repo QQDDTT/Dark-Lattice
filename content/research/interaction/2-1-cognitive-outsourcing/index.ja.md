@@ -30,6 +30,6 @@ LUIとインテリジェント・エージェント（Agent）の普及に伴い
 
 ## 図解
 
-![認知の外包化と神経増強](/images/research/interaction/2-1-cognitive-outsourcing/figure-1.png)
+![認知の外包化と神経増強](images/research/interaction/2-1-cognitive-outsourcing/figure-1.png)
 
 *図 1：人間の認知境界が外部へシフトする様子の模式図。中心の脳のシルエットは基礎的な操作論理の流失を表して空虚になり、それを取り囲むデジタルの神経環（AIOSエージェント層）は日益しに緻密になり、論理負荷の大部分を担っています。*

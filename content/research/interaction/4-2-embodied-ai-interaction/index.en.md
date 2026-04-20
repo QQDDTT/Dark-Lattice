@@ -28,7 +28,7 @@ In the age of embodiment, the body itself is the interaction interface. AIOS is 
 
 ## Illustration
 
-![Embodied AI Spatial Collaboration](/images/research/interaction/4-2-embodied-ai-interaction/figure-1.png)
+![Embodied AI Spatial Collaboration](images/research/interaction/4-2-embodied-ai-interaction/figure-1.png)
 
 *Figure 1: Illustration of embodied AI collaboration. Physical objects in the real world are in precision collaboration with virtually generated robotic arms (Mixed Reality projections). Golden light and shadow represent AIOS's real-time calculation and prediction of physical laws, and the intersection between the virtual and the real demonstrates the deep interaction between atoms and pixels.*
  drug-delivery systems and economic models.

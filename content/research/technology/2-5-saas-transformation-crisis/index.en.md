@@ -32,7 +32,7 @@ Those SaaS brands that refuse interfacing and attempt to maintain closed ecosyst
 
 ## Illustration
 
-![SaaS Transformation Crisis](/images/research/technology/2-5-saas-transformation-crisis/figure-1.png)
+![SaaS Transformation Crisis](images/research/technology/2-5-saas-transformation-crisis/figure-1.png)
 
 *Figure 1: The crossroad of SaaS model transformation. On one side, traditional, heavy monolithic GUI software architectures are collapsing; on the other, lightweight Agent services based entirely on interfaces (APIs) are emerging from their shells.*
  drug-delivery systems and economic models.

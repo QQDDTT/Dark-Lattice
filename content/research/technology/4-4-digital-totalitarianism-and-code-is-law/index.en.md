@@ -26,6 +26,6 @@ Technological progress should not become a sophisticated shackle for enslaving h
 
 ## Illustration
 
-![Digital Totalitarianism and Code Prison](/images/research/technology/4-4-digital-totalitarianism-and-code-is-law/figure-1.png)
+![Digital Totalitarianism and Code Prison](images/research/technology/4-4-digital-totalitarianism-and-code-is-law/figure-1.png)
 
 *Figure 1: Abstract illustration of the code prison. A central humanoid light silhouette is enveloped by a sphere woven from dense, cold-glimmering blue digital stream lines. The lines represent pervasive algorithmic mandate logic, symbolizing how code constructs an ordered space of absolute obedience but lost freedom at its base logic.*

@@ -30,7 +30,7 @@ Interaction should not collapse due to biological termination, but it must conve
 
 ## Illustration
 
-![Infinite Spiral of Digital Identity](/images/research/interaction/3-3-digital-will-and-identity-continuation/figure-1.png)
+![Infinite Spiral of Digital Identity](images/research/interaction/3-3-digital-will-and-identity-continuation/figure-1.png)
 
 *Figure 1: Illustration of the DNA spiral of identity continuation. A spiral line composed of glowing binary data streams extends infinitely in a space-time tunnel, representing how a user's long-term interaction memory transcends the biological life node and transforms into a continuous structure in a digital sense.*
  drug-delivery systems and economic models.

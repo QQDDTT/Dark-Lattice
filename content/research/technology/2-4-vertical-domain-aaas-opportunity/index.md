@@ -26,7 +26,7 @@ tags: ['AIOS', 'AaaS', '垂直领域', '行业Agent', '商业机遇', '专业知
 
 ## 图示
 
-![垂直领域AaaS机遇图](/images/research/technology/2-4-vertical-domain-aaas-opportunity/figure-1.png)
+![垂直领域AaaS机遇图](images/research/technology/2-4-vertical-domain-aaas-opportunity/figure-1.png)
 
 *图 1：垂直领域 AaaS 生态位示意图。中心是通用的 AIOS 内核（通用智能），外围是针对法律、医疗、工程等特定行业定制的深层 Agent 触角，展示了这些触角如何深扎进私有数据与行业规范的土壤中。*
 

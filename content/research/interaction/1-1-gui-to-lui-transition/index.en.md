@@ -29,6 +29,6 @@ Within the Spatial Computing framework, interfaces are no longer confined to rec
 
 ## Illustration
 
-![Transition from GUI to LUI](/images/research/interaction/1-1-gui-to-lui-transition/figure-1.png)
+![Transition from GUI to LUI](images/research/interaction/1-1-gui-to-lui-transition/figure-1.png)
 
 *Figure 1: Schematic of the evolution from traditional interface frameworks to Generative UI. The left represents dissolving fixed window grids, while the right depicts dynamic interaction nodes aggregating in real-time around an intentional core.*

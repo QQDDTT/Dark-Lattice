@@ -26,7 +26,7 @@ Under this new order, computing power is not to be squandered limitlessly; it mu
 
 ## Illustration
 
-![Energy-Based Global Governance](/images/research/technology/5-2-energy-based-global-governance/figure-1.png)
+![Energy-Based Global Governance](images/research/technology/5-2-energy-based-global-governance/figure-1.png)
 
 *Figure 1: Global power distribution map of energy and compute. Shows a global network interwoven with energy cores (heat source colors) and compute lattices (cool tones). The thickness of lines represents the strength of compute credit flows between nations, demonstrating how geopolitics evolves into compute topology.*
 

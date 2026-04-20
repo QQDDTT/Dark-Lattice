@@ -18,5 +18,5 @@ $$\frac{\partial p}{\partial t} = -\sum_i \frac{\partial}{\partial x_i}(f_i \, p
 
 ---
 ## Figure
-![Probability Evolution of Stochastic Trajectories](/images/research/mathematics-model/1-2-stochastic-dynamics/figure-1.png)
+![Probability Evolution of Stochastic Trajectories](images/research/mathematics-model/1-2-stochastic-dynamics/figure-1.png)
 *Figure 1: Family of stochastic trajectories showing density and 95% confidence bands.*

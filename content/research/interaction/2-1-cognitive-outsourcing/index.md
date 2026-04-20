@@ -30,7 +30,7 @@ tags: ['AIOS', '认知负荷', '认知外包', '设计伦理', '逻辑思维', '
 
 ## 图示
 
-![认知外包与神经增强](/images/research/interaction/2-1-cognitive-outsourcing/figure-1.png)
+![认知外包与神经增强](images/research/interaction/2-1-cognitive-outsourcing/figure-1.png)
 
 *图 1：人类认知边界外移的示意图。核心大脑轮廓逐渐空灵化，代表基础操作逻辑的流失；而外部环绕的数字神经环（AIOS 代理层）则变得日益致密，承担了绝大部分的逻辑负载。*
 

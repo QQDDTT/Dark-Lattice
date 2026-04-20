@@ -46,7 +46,7 @@ $$
 
 ## 图示
 
-![小波时频重构图](/images/research/mathematics-model/4-2-wavelet-analysis/figure-1.png)
+![小波时频重构图](images/research/mathematics-model/4-2-wavelet-analysis/figure-1.png)
 
 *图 1：小波多分辨率分析的时频格点图。展示了在不同频率尺度（分层）下，时间窗口宽度的自适应调整过程。颜色深浅代表对应时空区域内的能量密度，揭示了信号在时频域的跨尺度特征分布。*
 

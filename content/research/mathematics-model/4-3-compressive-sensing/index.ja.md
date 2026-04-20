@@ -18,5 +18,5 @@ math: true
 
 ---
 ## 図示
-![スパース復元の幾何学的イメージ](/images/research/mathematics-model/4-3-compressive-sensing/figure-1.png)
+![スパース復元の幾何学的イメージ](images/research/mathematics-model/4-3-compressive-sensing/figure-1.png)
 *図 1：観測超平面と $L_1$ ノルム（星形凸集合）の接触点によるスパース解の特定を示す図。*

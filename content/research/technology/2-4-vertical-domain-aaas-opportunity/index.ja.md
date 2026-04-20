@@ -26,7 +26,7 @@ GPT-4などの汎用大規模モデルが一般常識的なタスクの80%を解
 
 ## 図解
 
-![垂直ドメインAaaSの機会マップ](/images/research/technology/2-4-vertical-domain-aaas-opportunity/figure-1.png)
+![垂直ドメインAaaSの機会マップ](images/research/technology/2-4-vertical-domain-aaas-opportunity/figure-1.png)
 
 *図 1：垂直ドメインAaaSのニッチを示す模式図。中心には汎用的なAIOSカーネル（汎用知能）があり、その周囲を法律、医療、工学などの特定業界向けにカスタマイズされた深いエージェントの触手が囲んでいます。これらの触手が、私有データや業界規範という土壌に深く根ざしている様子を表しています。*
  drug-delivery systems and economic models.

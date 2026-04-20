@@ -26,7 +26,7 @@ tags: ['AIOS', '知识产权', '数字伦理', '数据确权', '合成智力', '
 
 ## 图示
 
-![知识产权确权逻辑图](/images/research/technology/3-4-intellectual-property-in-ai-era/figure-1.png)
+![知识产权确权逻辑图](images/research/technology/3-4-intellectual-property-in-ai-era/figure-1.png)
 
 *图 1：智力贡献补偿流转示意图。底层是受版权保护的多彩原始数据集，通过 AIOS 中心的中和与转换，生成的单色“合成智力”成品向四周输出，虚线箭头代表流向原始创作者的自动化微支付补偿流。*
 

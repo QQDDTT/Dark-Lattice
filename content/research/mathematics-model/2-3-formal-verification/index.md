@@ -76,7 +76,7 @@ $$
 
 ## 图示
 
-![形式化验证状态机流程图](/images/research/mathematics-model/2-3-formal-verification/figure-1.png)
+![形式化验证状态机流程图](images/research/mathematics-model/2-3-formal-verification/figure-1.png)
 
 *图 1：形式化验证的 Kripke 结构有向图。节点代表系统状态，颜色区分初始态（蓝）、安全态（绿）、违规态（红）；边权重代表转移概率，验证路径以粗线高亮标注。*
 

@@ -21,5 +21,5 @@ Recovering the signal via convex optimization: $\min \|s\|_1 \text{ s.t. } y = \
 
 ---
 ## Figure
-![Sparse Reconstruction Scatter Plot](/images/research/mathematics-model/4-3-compressive-sensing/figure-1.png)
+![Sparse Reconstruction Scatter Plot](images/research/mathematics-model/4-3-compressive-sensing/figure-1.png)
 *Figure 1: Geometric illustration of sparse reconstruction showing the intersection of the measurement hyperplane and the l1-norm ball.*

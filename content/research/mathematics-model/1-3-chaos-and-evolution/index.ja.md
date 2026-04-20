@@ -18,5 +18,5 @@ math: true
 
 ---
 ## 図示
-![Lorenz アトラクタの軌道](/images/research/mathematics-model/1-3-chaos-and-evolution/figure-1.png)
+![Lorenz アトラクタの軌道](images/research/mathematics-model/1-3-chaos-and-evolution/figure-1.png)
 *図 1：相空間における奇异アトラクタの軌道。*

@@ -26,7 +26,7 @@ In the ocean of silicon, humans are no longer just passers-by in time. Through A
 
 ## Illustration
 
-![Second Archive Point of Human Civilization](/images/research/technology/5-4-second-archive-point-of-human-civilization/figure-1.png)
+![Second Archive Point of Human Civilization](images/research/technology/5-4-second-archive-point-of-human-civilization/figure-1.png)
 
 *Figure 1: Conceptual illustration of the Ark Core for civilizational archiving. A glowing, complex spherical crystal floats in the void. Inside the crystal, colored spots representing human art, formulas, languages, and emotions are refracted. Countless tiny golden data streams flow from the crystal toward distant stars, demonstrating how AIOS carries the seeds of human civilization across time and space.*
 

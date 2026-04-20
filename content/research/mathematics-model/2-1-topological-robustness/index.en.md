@@ -19,5 +19,5 @@ Random failures are modeled as a percolation process. For scale-free networks ($
 
 ---
 ## Figure
-![Heatmap of Network Topological Robustness](/images/research/mathematics-model/2-1-topological-robustness/figure-1.png)
+![Heatmap of Network Topological Robustness](images/research/mathematics-model/2-1-topological-robustness/figure-1.png)
 *Figure 1: Heatmap showing node centrality and simulated fragmentation under hub removal.*

@@ -26,7 +26,7 @@ The birth of a planetary operating system means that human society is shifting f
 
 ## Illustration
 
-![Planetary Operating System Architecture](/images/research/technology/5-3-birth-of-planetary-operating-system/figure-1.png)
+![Planetary Operating System Architecture](images/research/technology/5-3-birth-of-planetary-operating-system/figure-1.png)
 
 *Figure 1: Conceptual illustration of the planetary AIOS kernel architecture. The image of the Earth is enveloped in a glowing, latticed compute shell. Nodes on the shell represent distributed compute units worldwide, with countless intent flow lines weaving through the grid, demonstrating a unified and dynamically pulsating global digital life support system.*
 

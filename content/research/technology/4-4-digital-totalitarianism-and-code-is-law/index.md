@@ -26,7 +26,7 @@ tags: ['AIOS', '数字极权', '代码即法律', '算法规约', '隐私监控'
 
 ## 图示
 
-![数字极权代码监牢图](/images/research/technology/4-4-digital-totalitarianism-and-code-is-law/figure-1.png)
+![数字极权代码监牢图](images/research/technology/4-4-digital-totalitarianism-and-code-is-law/figure-1.png)
 
 *图 1：代码监牢的抽象示意图。中心的人形光影被密集的、发出寒光的蓝色数字流线条编织的球体笼罩。线条代表了无处不在的算法逻辑规约，象征着代码如何从底层逻辑上架构出一个绝对服从却失去自由的秩序空间。*
 

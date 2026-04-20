@@ -29,6 +29,6 @@ AIOSに「この2つの財務報告書を比較して」と伝えると、無味
 
 ## 図解
 
-![GUIからLUIへの過渡態](/images/research/interaction/1-1-gui-to-lui-transition/figure-1.png)
+![GUIからLUIへの過渡態](images/research/interaction/1-1-gui-to-lui-transition/figure-1.png)
 
 *図 1：従来のインターフェース・フレームワークから生成型UIへの進化の模式図。左側は消えゆく固定されたウィンドウ領域、右側は意図の核心を中心にリアルタイムで集約される動的なインタラクション・ノードを表しています。*

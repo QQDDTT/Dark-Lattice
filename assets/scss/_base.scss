@@ -22,7 +22,7 @@ body {
     overflow-x: hidden;
     min-height: 100vh;
     // 全站背景格阵纹理叠加：极低不透明度，保持深色基底
-    background-image: url('/images/background-grid.png');
+    background-image: url('../images/background-grid.png');
     background-repeat: repeat;
     background-size: 512px 512px;
     background-blend-mode: overlay;

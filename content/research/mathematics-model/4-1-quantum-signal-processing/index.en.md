@@ -21,5 +21,5 @@ Quantum state preparation maps signals to amplitudes, allowing Grover-like algor
 
 ---
 ## Figure
-![Quantum Circuit Complexity Comparison](/images/research/mathematics-model/4-1-quantum-signal-processing/figure-1.png)
+![Quantum Circuit Complexity Comparison](images/research/mathematics-model/4-1-quantum-signal-processing/figure-1.png)
 *Figure 1: Illustration of QFT circuit complexity compared to classical FFT on a logarithmic scale.*

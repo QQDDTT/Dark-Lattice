@@ -18,5 +18,5 @@ math: true
 
 ---
 ## 図示
-![切換えシステムの相軌跡](/images/research/mathematics-model/3-1-switching-systems/figure-1.png)
+![切換えシステムの相軌跡](images/research/mathematics-model/3-1-switching-systems/figure-1.png)
 *図 1：2 つのサブシステム間での切換え軌跡。滞在時間が全体の収束性に与える影響を示しています。*

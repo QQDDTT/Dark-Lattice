@@ -28,7 +28,7 @@ The obsolescence of Prompt Engineering means that the technical bottleneck has s
 
 ## Illustration
 
-![Evolution of Prompt Engineering](/images/research/technology/3-3-obsolescence-of-prompt-engineering/figure-1.png)
+![Evolution of Prompt Engineering](images/research/technology/3-3-obsolescence-of-prompt-engineering/figure-1.png)
 
 *Figure 1: Lifecycle assessment diagram of instruction engineering. The curve shows the trend of Prompt complexity rising and then falling over time. As the AIOS intent parsing core strengthens, complex textual instructions (gray area) will be absorbed by intuitive intent resonance (the glowing center).*
  drug-delivery systems and economic models.

@@ -1,0 +1,42 @@
+@import "variables";
+
+// Blog List Page Specifics
+.blog-hero {
+    height: 45vh;
+    min-height: 350px;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: $spacing-unit * 6;
+
+    // Bottom gradient fade to match research
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 150px;
+        background: linear-gradient(to top, $space-black, transparent);
+    }
+
+    .hero-content {
+        z-index: 2;
+        
+        .page-title {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: $spacing-unit * 2;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+
+        .page-description {
+            font-size: 1.15rem;
+            color: $text-primary;
+            max-width: 600px;
+            opacity: 0.9;
+        }
+    }
+}

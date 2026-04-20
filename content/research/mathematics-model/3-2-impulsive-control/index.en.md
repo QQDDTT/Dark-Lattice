@@ -18,5 +18,5 @@ Stability is defined by the balance between the continuous growth rate and the d
 
 ---
 ## Figure
-![Impulsive Control Waveforms](/images/research/mathematics-model/3-2-impulsive-control/figure-1.png)
+![Impulsive Control Waveforms](images/research/mathematics-model/3-2-impulsive-control/figure-1.png)
 *Figure 1: Superposition of impulsive control signals and state trajectories, showing how discrete interventions "pull back" an otherwise divergent system.*
