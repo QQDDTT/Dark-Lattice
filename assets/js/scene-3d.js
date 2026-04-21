@@ -19,36 +19,80 @@ export function initHeroScene() {
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(container.clientWidth, container.clientHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
+    
+    // Fix color space and tone mapping for GLB materials
+    renderer.outputColorSpace = THREE.SRGBColorSpace;
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.5;
+
     container.appendChild(renderer.domElement);
 
     // 4. Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    // 基础环境光：降低强度以保持阴影对比
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
     scene.add(ambientLight);
 
-    const directionalLight = new THREE.DirectionalLight(0x3B82F6, 1);
-    directionalLight.position.set(5, 5, 5);
+    // 半球光：模拟天空和地面反射，提供自然的冷暖过渡
+    const hemisphereLight = new THREE.HemisphereLight(0x3B82F6, 0x8B5CF6, 0.6);
+    scene.add(hemisphereLight);
+
+    // 主方向光：模拟来自上方的强光源
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
+    directionalLight.position.set(5, 10, 5);
     scene.add(directionalLight);
 
-    const pointLight = new THREE.PointLight(0x8B5CF6, 1);
-    pointLight.position.set(-5, -5, 5);
+    // 点光源：为模型侧面增加色彩深度
+    const pointLight = new THREE.PointLight(0x3B82F6, 2);
+    pointLight.position.set(-5, -2, 5);
     scene.add(pointLight);
+
+    const cornerLight = new THREE.PointLight(0x8B5CF6, 1.5);
+    cornerLight.position.set(5, -5, -5);
+    scene.add(cornerLight);
+
+    // 使用 PMREMGenerator 生成拟真的环境光反射
+    const pmremGenerator = new THREE.PMREMGenerator(renderer);
+    pmremGenerator.compileEquirectangularShader();
 
     // 5. Load Model
     const loader = new GLTFLoader();
     let model;
+    let core, circel1, circel2;
+    let group1, group2, group3;
 
     loader.load(
         modelPath,
         (gltf) => {
             model = gltf.scene;
             
-            // Center the model
+            // 根据规范查找具名对象
+            core = model.getObjectByName('core');
+            circel1 = model.getObjectByName('circel1');
+            circel2 = model.getObjectByName('circel2');
+            group1 = model.getObjectByName('group1');
+            group2 = model.getObjectByName('group2');
+            group3 = model.getObjectByName('group3');
+            
+            // 修复材质并确保可见性
+            model.traverse((child) => {
+                if (child.isMesh) {
+                    if (child.material) {
+                        // 提高环境光强度映射，使 IBL 效果更明显
+                        child.material.envMapIntensity = 2.5; 
+                        child.material.metalness = 0.8;
+                        child.material.roughness = 0.2;
+                        child.material.needsUpdate = true;
+                    }
+                }
+            });
+
+            // 居中模型
             const box = new THREE.Box3().setFromObject(model);
             const center = box.getCenter(new THREE.Vector3());
             model.position.sub(center);
             
-            // Adjust scale if needed
-            model.scale.set(2, 2, 2); 
+            // 调整缩放
+            model.scale.set(1.5, 1.5, 1.5); 
             
             scene.add(model);
             console.log('3D Model loaded successfully');
@@ -80,11 +124,15 @@ export function initHeroScene() {
         targetY = mouseY * 0.2;
 
         if (model) {
-            // Auto rotation
-            model.rotation.y += 0.005;
-            model.rotation.x += 0.002;
+            // 应用核心动画逻辑
+            if (group1) group1.rotation.y += 0.01;      // 快速
+            if (group2) group2.rotation.y += 0.002;     // 慢速
+            if (group3) group3.rotation.z += 0.005;     // 异轴
+            
+            if (circel1) circel1.rotation.y += 0.003;   // 顺时针
+            if (circel2) circel2.rotation.y -= 0.003;   // 逆时针
 
-            // Mouse parallax
+            // 鼠标视差 (Mouse parallax) 应用于整体模型
             model.rotation.y += (targetX - model.rotation.y) * 0.05;
             model.rotation.x += (targetY - model.rotation.x) * 0.05;
         }
