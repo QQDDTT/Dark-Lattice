@@ -29,27 +29,20 @@ export function initHeroScene() {
     container.appendChild(renderer.domElement);
 
     // 4. Lights
-    // 基础环境光：降低强度以保持阴影对比
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+    // 切换为单侧光照明逻辑 (One-sided dramatic lighting)
+    
+    // 基础环境光：降低到极低，仅保留最微弱的轮廓
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
     scene.add(ambientLight);
 
-    // 半球光：模拟天空和地面反射，提供自然的冷暖过渡
-    const hemisphereLight = new THREE.HemisphereLight(0x3B82F6, 0x8B5CF6, 0.6);
-    scene.add(hemisphereLight);
+    // 主侧向光源：创造戏剧性的明暗对比
+    const mainLight = new THREE.DirectionalLight(0x3B82F6, 3.0);
+    mainLight.position.set(10, 5, 5);
+    scene.add(mainLight);
 
-    // 主方向光：模拟来自上方的强光源
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.2);
-    directionalLight.position.set(5, 10, 5);
-    scene.add(directionalLight);
-
-    // 点光源：为模型侧面增加色彩深度
-    const pointLight = new THREE.PointLight(0x3B82F6, 2);
-    pointLight.position.set(-5, -2, 5);
-    scene.add(pointLight);
-
-    const cornerLight = new THREE.PointLight(0x8B5CF6, 1.5);
-    cornerLight.position.set(5, -5, -5);
-    scene.add(cornerLight);
+    const rimLight = new THREE.PointLight(0x8B5CF6, 1.5);
+    rimLight.position.set(-10, 0, -5); // 弱侧向补偿，增加轮廓
+    scene.add(rimLight);
 
     // 使用 PMREMGenerator 生成拟真的环境光反射
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -85,10 +78,10 @@ export function initHeroScene() {
             model.traverse((child) => {
                 if (child.isMesh) {
                     if (child.material) {
-                        // 提高环境光强度映射，使 IBL 效果更明显
-                        child.material.envMapIntensity = 2.5; 
-                        child.material.metalness = 0.8;
-                        child.material.roughness = 0.2;
+                        // 降低环境贴图强度以配合单侧照明，保持阴影深邃
+                        child.material.envMapIntensity = 0.5; 
+                        child.material.metalness = 0.9;
+                        child.material.roughness = 0.1;
                         child.material.needsUpdate = true;
                     }
                 }
