@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 
 export function initHeroScene() {
     const container = document.getElementById('hero-canvas-container');
@@ -53,6 +54,13 @@ export function initHeroScene() {
     // 使用 PMREMGenerator 生成拟真的环境光反射
     const pmremGenerator = new THREE.PMREMGenerator(renderer);
     pmremGenerator.compileEquirectangularShader();
+    
+    // 使用内置 RoomEnvironment 作为环境光来源
+    const roomEnv = new RoomEnvironment(renderer);
+    const envMap = pmremGenerator.fromScene(roomEnv).texture;
+    scene.environment = envMap;
+    // scene.background = envMap; // 如果需要背景也显示环境贴图可以开启
+    pmremGenerator.dispose();
 
     // 5. Load Model
     const loader = new GLTFLoader();
