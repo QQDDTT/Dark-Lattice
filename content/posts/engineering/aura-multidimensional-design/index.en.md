@@ -51,8 +51,8 @@ This is Aura's most breakthrough dimension. It records the feedback loop of node
 
 To support multi-platform interaction, we defined the **ACP (Agent Communication Protocol)**.
 
-- **Multi-platform Sync**: The JSON-RPC based ACP protocol allows Dashboards, mobile apps, and CLIs to sync the Agent's status in real-time.
-- **Parallel Experience**: Thanks to Rust's async runtime, Aura achieves decoupling of "frontend interaction" and "backend reasoning." You can continue issuing new commands or viewing intermediate reasoning on the Dashboard while the Agent performs complex graph searches, without perceiving any blocking.
+- **Parallel Experience**: Thanks to Rust's async runtime, Aura achieves decoupling of "frontend interaction" and "backend reasoning."
+- **IM and Multi-Agent Collaboration**: Introducing an Instant Messaging-like interaction mode. Users can deploy multiple roles (e.g., Architect and Coder) in a channel for "group chat-style" collaboration. Each message bubble can be a dynamic graph node card, supporting real-time feedback and decision intervention.
 
 ---
 
