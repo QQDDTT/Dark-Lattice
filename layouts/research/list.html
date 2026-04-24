@@ -19,13 +19,35 @@
         </div>
     </section>
 
-    <!-- Project List -->
+    <!-- Research List -->
     <div class="container section-spacing">
-        <div class="cards-grid">
+        <div class="blog-card-list">
             {{ $pages := where .Site.RegularPages "Section" "research" }}
             {{ range $index, $element := (.Paginate $pages).Pages }}
-            <div class="grid-item">
-                {{ partial "card.html" . }}
+            <div class="blog-card-item" style="--index: {{ $index }};">
+                <article class="blog-card-inner glass">
+                    <div class="blog-card-decor">
+                        <!-- Research Type Decoration -->
+                        <div class="research-type-big">
+                            {{ $category := index .Params.categories 0 | default .Section }}
+                            <span class="type-name">{{ $category }}</span>
+                        </div>
+                    </div>
+                    <div class="blog-card-content">
+                        <h2 class="blog-card-title">
+                            <a href="{{ .Permalink }}">{{ .Title }}</a>
+                        </h2>
+                        <p class="blog-card-summary">
+                            {{ .Summary | truncate 150 }}
+                        </p>
+                        <div class="blog-card-meta">
+                            {{ range .Params.tags }}
+                            <span class="meta-tag">#{{ . }}</span>
+                            {{ end }}
+                            <span class="meta-item">{{ .ReadingTime }} min read</span>
+                        </div>
+                    </div>
+                </article>
             </div>
             {{ end }}
         </div>

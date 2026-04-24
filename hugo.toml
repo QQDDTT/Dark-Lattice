@@ -1,13 +1,21 @@
-baseURL = '/'
+baseURL = 'https://dark-lattice.vercel.app/'
 languageCode = 'zh-cn'
 defaultContentLanguage = 'zh'
 title = 'Dark Lattice'
 # theme = 'nightfield' # 使用项目根目录布局，不引用外部主题
 
+[sitemap]
+    changefreq = 'weekly'
+    filename = 'sitemap.xml'
+    priority = 0.5
+
 [params]
     author = "Researcher"
     logo = "images/logo.svg"
     favicon = "images/icon.svg"
+    googleSiteVerification = "v0qML84AcUySaIID9ZNSGNkDHGEAEtgqynKZyq_PiE0"
+    enableRobotsTXT = true
+    canonicalURL = true
 
 [languages]
     [languages.zh]
