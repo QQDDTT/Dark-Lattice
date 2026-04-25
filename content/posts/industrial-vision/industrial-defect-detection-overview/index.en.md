@@ -4,6 +4,7 @@ date: 2026-04-23T12:10:00+09:00
 draft: false
 tags: ["Computer Vision", "Industrial Vision", "Deep Learning", "Edge Computing", "Algorithm Engineering"]
 categories: ["Industrial Applications"]
+math: true
 summary: "An in-depth analysis of the technical evolution of industrial surface defect detection. Comparing the pros and cons of traditional morphology-based machine vision algorithms with modern deep learning models (YOLO, semantic segmentation, unsupervised anomaly detection), and exploring the challenges of model deployment on edge industrial PCs."
 ---
 
