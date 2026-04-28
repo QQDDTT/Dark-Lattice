@@ -1,9 +1,9 @@
 ---
 title: "Aura 8 级模型路由：多维度评分下的性价比最优解"
-date: 2026-04-29T13:10:00+09:00
+date: 2026-04-28T13:10:00+09:00
 draft: false
 tags: ["Aura", "Model Routing", "LLM", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "解析 Aura 如何通过 8 级模型阶梯与四维度动态评分引擎，为每一个执行节点自动匹配最合适的算力资源，在极致性能与合理成本之间寻找黄金平衡。"
 ---
 

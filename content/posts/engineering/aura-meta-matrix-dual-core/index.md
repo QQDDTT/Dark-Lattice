@@ -1,9 +1,9 @@
 ---
 title: "Aura 双内核架构：Meta 指挥官与 Matrix 执行者的深度解耦"
-date: 2026-04-29T10:00:00+09:00
+date: 2026-04-28T10:00:00+09:00
 draft: false
 tags: ["Aura", "Architecture", "Rust", "AI Agent"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "深度解析 Aura 系统的核心架构：为何必须将“思考规划”与“原子执行”彻底分离为 Meta 与 Matrix 双内核，以及这种设计如何解决 Agent 的失控与幻觉问题。"
 ---
 

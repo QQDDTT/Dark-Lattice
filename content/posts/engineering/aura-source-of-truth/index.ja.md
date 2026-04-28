@@ -1,9 +1,9 @@
 ---
 title: "Aura 真実の源：なぜ SurrealDB が唯一の真実であり、Redis は単なるトリガーなのか"
-date: 2026-04-29T11:30:00+09:00
+date: 2026-04-28T11:30:00+09:00
 draft: false
 tags: ["Aura", "Database", "Architecture", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura のステート管理における哲学を探索：永続的な真実（SurrealDB）と一過性のシグナル（Redis）を厳密に分離することで、システムクラッシュ後も 100% のステート復旧が可能な決定論的エージェントを構築します。"
 ---
 

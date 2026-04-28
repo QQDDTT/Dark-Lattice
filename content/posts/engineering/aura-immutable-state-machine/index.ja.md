@@ -1,9 +1,9 @@
 ---
 title: "Aura 不可逆状態マシン：単方向推進原則と Saga 補正モード"
-date: 2026-04-29T12:00:00+09:00
+date: 2026-04-28T12:00:00+09:00
 draft: false
 tags: ["Aura", "State Machine", "Saga Pattern", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura がエージェント実行中のサイドエフェクトをいかに処理するかを探索します。不可逆状態マシンによってシステムステートが常に前進することを保証し、失敗時には Saga パターンを利用してエレガントな論理補正を実施します。"
 ---
 

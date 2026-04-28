@@ -1,9 +1,9 @@
 ---
 title: "Ant Colony Optimization in Aura Task Planning: Pheromone-Driven Path Finding"
-date: 2026-04-29T10:20:00+09:00
+date: 2026-04-28T10:20:00+09:00
 draft: false
 tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Analyzing how Aura's Meta kernel borrows from natural ant colony algorithms to dynamically generate optimal task plans within a massive execution node space via pheromone mechanisms."
 ---
 

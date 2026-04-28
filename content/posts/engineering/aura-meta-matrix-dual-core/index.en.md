@@ -1,9 +1,9 @@
 ---
 title: "Aura Dual-Core Architecture: Deep Decoupling of Meta Commander and Matrix Executor"
-date: 2026-04-29T10:00:00+09:00
+date: 2026-04-28T10:00:00+09:00
 draft: false
 tags: ["Aura", "Architecture", "Rust", "AI Agent"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "In-depth analysis of Aura's core architecture: why planning and execution must be decoupled into Meta and Matrix kernels, and how this design solves agent drift and hallucinations."
 ---
 

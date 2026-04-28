@@ -1,9 +1,9 @@
 ---
 title: "Aura 動的知識注入（KDC）：RAG を超えるセマンティックローディング革命"
-date: 2026-04-29T13:00:00+09:00
+date: 2026-04-28T13:00:00+09:00
 draft: false
 tags: ["Aura", "RAG", "Knowledge", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura の動的知識注入（KDC）メカニズムを探索します。Matrix ノードの実行前のマイクロ秒単位の時間内に、現在の 3D コンテキストに基づいて最も関連性の高い知識断片をいかに精密にロードし、AI の長期記憶喪失問題を解決するかを解説します。"
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "Aura Immutable State Machine: One-Way Progression and Saga Compensation"
-date: 2026-04-29T12:00:00+09:00
+date: 2026-04-28T12:00:00+09:00
 draft: false
 tags: ["Aura", "State Machine", "Saga Pattern", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Exploring how Aura handles side effects during agent execution. Ensuring the system state always moves forward via an immutable state machine, and using the Saga pattern for elegant logical compensation upon failure."
 ---
 

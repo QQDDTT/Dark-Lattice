@@ -1,9 +1,9 @@
 ---
 title: "Aura WASM 技能沙箱：安全隔离与高性能调用的完美契合"
-date: 2026-04-29T12:20:00+09:00
+date: 2026-04-28T12:20:00+09:00
 draft: false
 tags: ["Aura", "WASM", "Security", "Sandboxing", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "深入解析 Aura 的技能插件系统。通过 WebAssembly 构建安全沙箱，在不牺牲性能的前提下，为 AI 代理的执行能力加上一道坚不可摧的安全边界。"
 ---
 

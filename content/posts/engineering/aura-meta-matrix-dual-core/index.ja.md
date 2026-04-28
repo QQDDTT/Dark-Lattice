@@ -1,9 +1,9 @@
 ---
 title: "Aura 双内核アーキテクチャ：Meta 指揮官と Matrix 実行者の深度デカップリング"
-date: 2026-04-29T10:00:00+09:00
+date: 2026-04-28T10:00:00+09:00
 draft: false
 tags: ["Aura", "Architecture", "Rust", "AI Agent"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura システムのコアアーキテクチャを深掘り：なぜ「思考・計画」と「原子実行」を Meta と Matrix カーネルに完全に分離する必要があるのか、そしてこの設計がいかにエージェントの暴走やハルシネーションを解決するのかを解説します。"
 ---
 

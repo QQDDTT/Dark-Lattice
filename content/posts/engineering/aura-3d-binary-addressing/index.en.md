@@ -1,9 +1,9 @@
 ---
 title: "Aura 3D Binary Addressing: Absolute Cybernetics under 24-bit Masking"
-date: 2026-04-29T10:10:00+09:00
+date: 2026-04-28T10:10:00+09:00
 draft: false
 tags: ["Aura", "Mathematics", "Rust", "Architecture"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Deep dive into Aura's 3D Binary Addressing system: achieving O(1) execution node positioning through a 24-bit mask of Action | Model | Role, collapsing complexity into pure mathematical bitwise operations."
 ---
 

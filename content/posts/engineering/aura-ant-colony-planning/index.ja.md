@@ -1,9 +1,9 @@
 ---
 title: "Aura タスクプランニングにおけるアリ群最適化：フェロモン駆動のパス探索"
-date: 2026-04-29T10:20:00+09:00
+date: 2026-04-28T10:20:00+09:00
 draft: false
 tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura の Meta カーネルが自然界のアリ群アルゴリズムをいかに借用し、フェロモンメカニズムを通じて巨大な実行ノード空間内で最適なタスクプランを動的に生成し、意思決定のグローバル最適化を実現するかを解説します。"
 ---
 

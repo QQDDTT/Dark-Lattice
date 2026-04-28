@@ -1,9 +1,9 @@
 ---
 title: "Aura 3D バイナリアドレッシング：24-bit ビットマスクによる絶対的制御論"
-date: 2026-04-29T10:10:00+09:00
+date: 2026-04-28T10:10:00+09:00
 draft: false
 tags: ["Aura", "Mathematics", "Rust", "Architecture"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura システムの 3D バイナリアドレッシング体系を深掘り：Action | Model | Role の 24-bit ビットマスクによって O(1) レベルの実行ノード配置を実現し、システムの複雑さを純粋な数学的ビット演算に収束させる方法を解説します。"
 ---
 

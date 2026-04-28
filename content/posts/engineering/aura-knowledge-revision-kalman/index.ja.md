@@ -1,9 +1,9 @@
 ---
 title: "Aura 知識修正アルゴリズム：カルマンフィルタによる Surprise 駆動型更新"
-date: 2026-04-29T11:10:00+09:00
+date: 2026-04-28T11:10:00+09:00
 draft: false
 tags: ["Aura", "Control Theory", "Mathematics", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura が制御理論におけるカルマンフィルタの思想をいかに借用し、予測と実際の結果の間の「Surprise（驚き）」の偏差を計算することで、内部知識グラフを動的に修正し、知識のリアルタイムな真偽確認を実現するかを探索します。"
 ---
 

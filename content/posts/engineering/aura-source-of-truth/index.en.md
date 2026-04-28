@@ -1,9 +1,9 @@
 ---
 title: "Aura Source of Truth: Why SurrealDB is the Only Truth and Redis is Just a Trigger"
-date: 2026-04-29T11:30:00+09:00
+date: 2026-04-28T11:30:00+09:00
 draft: false
 tags: ["Aura", "Database", "Architecture", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Exploring Aura's philosophy on state management: strictly separating permanent truth (SurrealDB) and transient signals (Redis) to build a deterministic agent capable of 100% state recovery after crashes."
 ---
 

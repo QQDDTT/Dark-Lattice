@@ -1,9 +1,9 @@
 ---
 title: "Aura WASM スキルサンドボックス：安全隔離と高性能呼び出しの完璧な融合"
-date: 2026-04-29T12:20:00+09:00
+date: 2026-04-28T12:20:00+09:00
 draft: false
 tags: ["Aura", "WASM", "Security", "Sandboxing", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura のスキルプラグインシステムを深掘り。WebAssembly を通じて安全なサンドボックスを構築し、パフォーマンスを犠牲にすることなく、AI エージェントの実行能力に揺るぎない安全境界線を追加する方法を解説します。"
 ---
 

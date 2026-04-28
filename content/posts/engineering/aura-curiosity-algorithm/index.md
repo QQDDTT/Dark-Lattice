@@ -1,9 +1,9 @@
 ---
 title: "Aura 好奇心引擎：基于 Beta 分布的边界探索采样算法"
-date: 2026-04-29T11:00:00+09:00
+date: 2026-04-28T11:00:00+09:00
 draft: false
 tags: ["Aura", "Mathematics", "Machine Learning", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "解析 Aura 如何利用 Beta 分布作为好奇心调节器，通过动态采样强制系统逃离“经验陷阱”，在未知领域中挖掘更优的任务执行路径。"
 ---
 

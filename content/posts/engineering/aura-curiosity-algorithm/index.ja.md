@@ -1,9 +1,9 @@
 ---
 title: "Aura 好奇心エンジン：Beta 分布による境界探索サンプリングアルゴリズム"
-date: 2026-04-29T11:00:00+09:00
+date: 2026-04-28T11:00:00+09:00
 draft: false
 tags: ["Aura", "Mathematics", "Machine Learning", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura がいかに Beta 分布を好奇心調節器として利用し、動的サンプリングを通じてシステムを「経験の罠」から強制的に脱出させ、未知の領域でより優れた実行パスを発掘するかを解説します。"
 ---
 

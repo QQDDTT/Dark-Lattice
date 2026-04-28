@@ -1,9 +1,9 @@
 ---
 title: "Aura 四象限 GC ライフサイクル：メモリロックと自動解放のバランス"
-date: 2026-04-29T12:10:00+09:00
+date: 2026-04-28T12:10:00+09:00
 draft: false
 tags: ["Aura", "GC", "Rust", "Memory Management", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura が 256MB のコアアドレッシングテーブルを永続的に常駐させつつ、Rust の RAII メカニズムを通じて実行ノードレベルのリソースをいかに精密に回収し、極めてジッターの少ないメモリライフサイクルを構築するかを解析します。"
 ---
 

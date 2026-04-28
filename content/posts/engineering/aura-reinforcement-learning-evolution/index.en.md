@@ -1,9 +1,9 @@
 ---
 title: "Aura Reinforcement Learning Evolution: Weight Convergence and Self-Evolution in the S3 Stage"
-date: 2026-04-29T11:20:00+09:00
+date: 2026-04-28T11:20:00+09:00
 draft: false
 tags: ["Aura", "Reinforcement Learning", "Evolution", "AI Agent"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Parsing Aura's S3 attribution logic: how reward signals rewrite 3D matrix weights to achieve continuous intelligence growth during long-term agent operation."
 ---
 

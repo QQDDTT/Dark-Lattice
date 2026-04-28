@@ -1,9 +1,9 @@
 ---
 title: "Aura Knowledge Revision: Surprise-Driven Updates via Kalman Filtering"
-date: 2026-04-29T11:10:00+09:00
+date: 2026-04-28T11:10:00+09:00
 draft: false
 tags: ["Aura", "Control Theory", "Mathematics", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Exploring Aura's knowledge revision mechanism inspired by Kalman filtering: how calculating 'Surprise' deviations between expected and actual results dynamically updates the internal knowledge graph."
 ---
 

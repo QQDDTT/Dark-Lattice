@@ -1,9 +1,9 @@
 ---
 title: "Aura 強化学習エボリューション：S3 段階におけるウェイト収束と自己進化"
-date: 2026-04-29T11:20:00+09:00
+date: 2026-04-28T11:20:00+09:00
 draft: false
 tags: ["Aura", "Reinforcement Learning", "Evolution", "AI Agent"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura 進化エンジンの S3 帰因ロジックを解析：報酬シグナルによって 3D マトリックスのウェイトをいかに書き換え、長期運用における AI エージェントの持続的な知能成長を実現するかを解説します。"
 ---
 

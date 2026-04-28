@@ -1,9 +1,9 @@
 ---
 title: "Aura 动态知识注入（KDC）：RAG 之上的语义装载革命"
-date: 2026-04-29T13:00:00+09:00
+date: 2026-04-28T13:00:00+09:00
 draft: false
 tags: ["Aura", "RAG", "Knowledge", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "探讨 Aura 的知识动态注入（KDC）机制。如何在 Matrix 节点执行前的微秒级时间内，基于当前 3D 上下文精准装载最相关的知识碎片，解决 AI 的长程失忆问题。"
 ---
 

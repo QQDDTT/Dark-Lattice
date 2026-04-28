@@ -1,9 +1,9 @@
 ---
 title: "Aura EWC 知識保護：破滅的忘却を防ぐコアアルゴリズム"
-date: 2026-04-29T14:00:00+09:00
+date: 2026-04-28T14:00:00+09:00
 draft: false
 tags: ["Aura", "Machine Learning", "EWC", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura が弾性的重み統合（EWC）アルゴリズムを通じていかにコア知識を保護するかを解析します。急速なイテレーションと持続的な進化の過程において、AI エージェントが常にその中核となるソウルルールと基礎ロジックの安定性を維持することを保証します。"
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "Aura Trajectory Streaming: Auto-Conversion from Execution Topology to Self-Evolving Datasets"
-date: 2026-04-29T13:20:00+09:00
+date: 2026-04-28T13:20:00+09:00
 draft: false
 tags: ["Aura", "Fine-tuning", "Machine Learning", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Exploring how Aura automatically exports high-quality task execution trajectories into standard ShareGPT format datasets, forming the ultimate foundation for continuous AI agent evolution."
 ---
 

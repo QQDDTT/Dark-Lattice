@@ -1,9 +1,9 @@
 ---
 title: "Aura EWC 知识保护：防止灾难性遗忘的核心算法"
-date: 2026-04-29T14:00:00+09:00
+date: 2026-04-28T14:00:00+09:00
 draft: false
 tags: ["Aura", "Machine Learning", "EWC", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "解析 Aura 如何通过弹性权重整合（EWC）算法保护核心知识。在快速迭代与持续进化的过程中，确保 AI 代理始终维持其核心灵魂规则与基础逻辑的稳定性。"
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "Aura 四象限 GC 生命周期：内存锁定与自动释放的平衡"
-date: 2026-04-29T12:10:00+09:00
+date: 2026-04-28T12:10:00+09:00
 draft: false
 tags: ["Aura", "GC", "Rust", "Memory Management", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "解析 Aura 如何在维持 256MB 核心寻址表永久驻留的同时，通过 Rust 的 RAII 机制实现执行节点级资源的精准回收，构建极低抖动的内存生命周期。"
 ---
 

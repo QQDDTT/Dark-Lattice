@@ -1,9 +1,9 @@
 ---
 title: "Aura 軌跡導流：実行トポロジから自己進化データセットへの自動変換"
-date: 2026-04-29T13:20:00+09:00
+date: 2026-04-28T13:20:00+09:00
 draft: false
 tags: ["Aura", "Fine-tuning", "Machine Learning", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura が高品質なタスク実行軌跡を標準の ShareGPT 形式データセットにいかに自動出力するかを探索します。この実戦から学習へのフィードバックループは、AI エージェントの持続的な進化の究極の基石となります。"
 ---
 

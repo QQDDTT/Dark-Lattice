@@ -1,9 +1,9 @@
 ---
 title: "蚁群算法在 Aura 任务规划中的应用：信息素驱动的路径寻优"
-date: 2026-04-29T10:20:00+09:00
+date: 2026-04-28T10:20:00+09:00
 draft: false
 tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "解析 Aura Meta 内核如何借鉴自然界蚁群算法，通过信息素机制在巨大的执行节点空间中动态生成最优任务计划，实现智能体决策的全局最优。"
 ---
 

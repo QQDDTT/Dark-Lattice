@@ -1,9 +1,9 @@
 ---
 title: "Aura 强化学习演进：S3 阶段的权重收敛与自我进化"
-date: 2026-04-29T11:20:00+09:00
+date: 2026-04-28T11:20:00+09:00
 draft: false
 tags: ["Aura", "Reinforcement Learning", "Evolution", "AI Agent"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "解析 Aura 进化引擎的 S3 归因逻辑：如何通过奖励信号重写 3D 矩阵权重，实现 AI 代理在长期运行中的持续智慧增长。"
 ---
 

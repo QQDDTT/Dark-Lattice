@@ -1,9 +1,9 @@
 ---
 title: "Aura WASM Skill Sandbox: The Perfect Convergence of Security Isolation and High Performance"
-date: 2026-04-29T12:20:00+09:00
+date: 2026-04-28T12:20:00+09:00
 draft: false
 tags: ["Aura", "WASM", "Security", "Sandboxing", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "In-depth analysis of Aura's skill plugin system. Building a secure sandbox via WebAssembly to add an unshakeable security boundary to AI agent execution without sacrificing performance."
 ---
 

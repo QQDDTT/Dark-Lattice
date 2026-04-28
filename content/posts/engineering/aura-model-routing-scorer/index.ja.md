@@ -1,9 +1,9 @@
 ---
 title: "Aura 8 段階モデルルーティング：多次元スコアリングによるコスパ最適解"
-date: 2026-04-29T13:10:00+09:00
+date: 2026-04-28T13:10:00+09:00
 draft: false
 tags: ["Aura", "Model Routing", "LLM", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Aura が 8 段階のモデル階層と 4 次元の動的スコアリングエンジンを通じて、各実行ノードに対して最適な計算リソースを自動的にマッチングし、究極のパフォーマンスと合理的なコストの間で黄金のバランスを見出す方法を解析します。"
 ---
 

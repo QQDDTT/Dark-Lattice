@@ -1,9 +1,9 @@
 ---
 title: "Aura 轨迹导流：从执行拓扑到自进化数据集的自动转换"
-date: 2026-04-29T13:20:00+09:00
+date: 2026-04-28T13:20:00+09:00
 draft: false
 tags: ["Aura", "Fine-tuning", "Machine Learning", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "探讨 Aura 如何将高质量的任务执行轨迹自动导出为标准的 ShareGPT 格式数据集。这种从实战到训练的反馈闭环，构成了 AI 代理持续进化的终极基石。"
 ---
 

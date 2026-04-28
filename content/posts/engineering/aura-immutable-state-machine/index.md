@@ -1,9 +1,9 @@
 ---
 title: "Aura 不可逆状态机：单向推进原则与 Saga 补偿模式"
-date: 2026-04-29T12:00:00+09:00
+date: 2026-04-28T12:00:00+09:00
 draft: false
 tags: ["Aura", "State Machine", "Saga Pattern", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "探讨 Aura 如何处理 AI 代理执行过程中的副作用。通过不可逆状态机确保系统状态永远向前，并利用 Saga 模式在失败时实施优雅的逻辑补偿。"
 ---
 

@@ -1,9 +1,9 @@
 ---
 title: "Aura Knowledge Dynamic Injection (KDC): The Semantic Loading Revolution beyond RAG"
-date: 2026-04-29T13:00:00+09:00
+date: 2026-04-28T13:00:00+09:00
 draft: false
 tags: ["Aura", "RAG", "Knowledge", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Exploring Aura's Knowledge Dynamic Injection (KDC) mechanism. How to precisely load the most relevant knowledge fragments based on the current 3D context in microseconds before Matrix node execution."
 ---
 

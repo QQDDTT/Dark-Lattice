@@ -1,9 +1,9 @@
 ---
 title: "Aura Four-Quadrant GC Lifecycle: Balancing Memory Locking and Auto-Release"
-date: 2026-04-29T12:10:00+09:00
+date: 2026-04-28T12:10:00+09:00
 draft: false
 tags: ["Aura", "GC", "Rust", "Memory Management", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Parsing how Aura maintains a permanent 256MB core addressing table while achieving precise execution node-level resource recovery via Rust's RAII mechanism, building an ultra-low jitter memory lifecycle."
 ---
 

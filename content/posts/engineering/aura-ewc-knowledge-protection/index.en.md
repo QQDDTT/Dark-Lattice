@@ -1,9 +1,9 @@
 ---
 title: "Aura EWC Knowledge Protection: Core Algorithm to Prevent Catastrophic Forgetting"
-date: 2026-04-29T14:00:00+09:00
+date: 2026-04-28T14:00:00+09:00
 draft: false
 tags: ["Aura", "Machine Learning", "EWC", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Parsing how Aura protects core knowledge via Elastic Weight Consolidation (EWC). Ensuring the agent maintains the stability of its core Soul Rules and basic logic during rapid iteration and continuous evolution."
 ---
 

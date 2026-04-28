@@ -1,9 +1,9 @@
 ---
 title: "Aura 3D 二进制寻址：24-bit 位掩码下的绝对控制论"
-date: 2026-04-29T10:10:00+09:00
+date: 2026-04-28T10:10:00+09:00
 draft: false
 tags: ["Aura", "Mathematics", "Rust", "Architecture"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "深度解析 Aura 系统的 3D 二进制寻址体系：如何通过 Action | Model | Role 的 24-bit 位掩码实现 O(1) 级别的执行节点定位，并将系统复杂性坍缩为纯粹的数学位运算。"
 ---
 

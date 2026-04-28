@@ -1,9 +1,9 @@
 ---
 title: "Aura 事实来源分离：为何 SurrealDB 是唯一真理，Redis 仅是触发器"
-date: 2026-04-29T11:30:00+09:00
+date: 2026-04-28T11:30:00+09:00
 draft: false
 tags: ["Aura", "Database", "Architecture", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "探讨 Aura 在状态管理上的哲学：通过严格分离永久事实（SurrealDB）与瞬时信号（Redis），构建一个在系统崩溃后能实现 100% 状态恢复的确定性 Agent。"
 ---
 

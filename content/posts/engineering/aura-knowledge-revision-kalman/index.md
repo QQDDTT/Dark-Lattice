@@ -1,9 +1,9 @@
 ---
 title: "Aura 知识修正算法：基于卡尔曼滤波的 Surprise 驱动更新"
-date: 2026-04-29T11:10:00+09:00
+date: 2026-04-28T11:10:00+09:00
 draft: false
 tags: ["Aura", "Control Theory", "Mathematics", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "探讨 Aura 如何借鉴控制理论中的卡尔曼滤波思想，通过计算预期与实际结果之间的“Surprise”偏差，动态修正内部知识图谱，实现知识的实时去伪存真。"
 ---
 

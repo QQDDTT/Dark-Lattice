@@ -1,9 +1,9 @@
 ---
 title: "Aura Curiosity Engine: Boundary Exploration Sampling via Beta Distribution"
-date: 2026-04-29T11:00:00+09:00
+date: 2026-04-28T11:00:00+09:00
 draft: false
 tags: ["Aura", "Mathematics", "Machine Learning", "Algorithm"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Analyzing how Aura utilizes Beta distribution as a curiosity regulator, forcing the system to escape 'experience traps' via dynamic sampling to unearth optimal execution paths in unknown territories."
 ---
 

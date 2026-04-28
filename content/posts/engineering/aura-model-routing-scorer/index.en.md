@@ -1,9 +1,9 @@
 ---
 title: "Aura 8-Level Model Routing: The Golden Balance of Performance and Cost"
-date: 2026-04-29T13:10:00+09:00
+date: 2026-04-28T13:10:00+09:00
 draft: false
 tags: ["Aura", "Model Routing", "LLM", "Engineering"]
-categories: ["Engineering"]
+categories: ["工程实践"]
 description: "Analyzing how Aura uses an 8-level model tier and a four-dimensional dynamic scoring engine to automatically match the most suitable compute resources for each execution node."
 ---
 
