@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ .Language.Lang }}">
+<head>
+    {{ partial "head.html" . }}
+    {{ $style := resources.Get "scss/dashboard/main.scss" | resources.ToCSS | resources.Minify }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+</head>
+<body class="dashboard-body">
+    <div class="dashboard-container">
+        <!-- Navigation Sidebar -->
+        {{ partial "dashboard/sidebar.html" . }}
+
+        <!-- Main Content -->
+        <main class="dash-content">
+            <header class="dash-header">
+                <h1 id="dash-current-title" class="dash-title">Aura Command Center</h1>
+                <p id="dash-current-subtitle" class="dash-subtitle">Real-time Multidimensional Graph Monitoring</p>
+            </header>
+
+            <!-- Interface Panels -->
+            <div id="interface-overview" class="interface-panel active">
+                {{ partial "dashboard/interface-overview.html" . }}
+            </div>
+
+            <div id="interface-matrix" class="interface-panel">
+                {{ partial "dashboard/interface-matrix.html" . }}
+            </div>
+
+            <div id="interface-monitoring" class="interface-panel">
+                {{ partial "dashboard/interface-monitoring.html" . }}
+            </div>
+
+            <div id="interface-evolution" class="interface-panel">
+                {{ partial "dashboard/interface-evolution.html" . }}
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    {{ $js := resources.Get "js/dashboard/main.js" | resources.Minify }}
+    <script src="{{ $js.RelPermalink }}"></script>
+    
+    <!-- Module Scripts for each interface -->
+    <script src="{{ (resources.Get "js/dashboard/interface-overview.js").RelPermalink }}"></script>
+    <script src="{{ (resources.Get "js/dashboard/interface-matrix.js").RelPermalink }}"></script>
+    <script src="{{ (resources.Get "js/dashboard/interface-monitoring.js").RelPermalink }}"></script>
+    <script src="{{ (resources.Get "js/dashboard/interface-evolution.js").RelPermalink }}"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<div class="grid-layout">
+    <div class="dash-card">
+        <div class="card-title">Self-Optimization Drift</div>
+        <div style="font-size: 0.9rem; color: #f59e0b; margin-bottom: 1rem;">
+            ⚠️ High probability of feedback collapse in Memory Dimension.
+        </div>
+        <div style="height: 120px; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.2); border-radius: 12px; border: 1px dashed rgba(245, 158, 11, 0.3);">
+            <span style="font-size: 0.8rem;">Drift Coefficient: 0.042 (Normal < 0.050)</span>
+        </div>
+    </div>
+
+    <div class="dash-card">
+        <div class="card-title">Role Persistence</div>
+        <div style="font-size: 2.5rem; font-weight: 800; color: #10b981;">99.8%</div>
+        <p class="dash-subtitle">Unauthorized role drift: 0.2%</p>
+    </div>
+
+    <div class="dash-card" style="grid-column: span 2;">
+        <div class="card-title">Evolutionary Gradient</div>
+        <div style="height: 200px; display: flex; align-items: flex-end; gap: 4px; padding: 1rem;">
+            {{ range (seq 50) }}
+            <div style="flex: 1; background: var(--dash-accent); height: {{ mul (add (mod . 20) 10) 2 }}%; opacity: {{ div . 50.0 }}; border-radius: 2px;"></div>
+            {{ end }}
+        </div>
+    </div>
+</div>
