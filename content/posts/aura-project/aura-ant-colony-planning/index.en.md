@@ -1,15 +1,15 @@
 ---
-title: "Ant Colony Optimization in Aura Task Planning: Pheromone-Driven Path Finding"
+title: "Ant Colony Optimization in Aura Task Planning: Pheromone-Driven Path Finding | AI Agent Architecture - Dark Lattice"
 date: 2026-04-28T10:20:00+09:00
 draft: false
-tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm"]
+tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm", "AI Agent", "Path Finding"]
 categories: ["Engineering"]
-description: "Analyzing how Aura's Meta kernel borrows from natural ant colony algorithms to dynamically generate optimal task plans within a massive execution node space via pheromone mechanisms."
+description: "Traditional planners struggle with long-range task complexity. Explore how Aura utilizes Ant Colony Optimization (ACO) to dynamically generate optimal execution chains via probabilistic feedback, overcoming combinatorial explosion in AI agent decision-making."
 ---
 
 # Ant Colony Optimization in Aura Task Planning: Pheromone-Driven Path Finding
 
-![Ant Colony Viz](featured.png)
+![Ant Colony Viz](featured.webp)
 
 Traditional AI Agent planners (such as ReAct or Plan-and-Execute) are often **greedy**: they focus only on the immediate next step. However, when faced with long-range tasks containing dozens of steps, greedy algorithms easily fall into local optimum solutions.
 

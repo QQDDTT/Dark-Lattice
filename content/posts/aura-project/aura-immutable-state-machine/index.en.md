@@ -9,7 +9,7 @@ description: "Exploring how Aura handles side effects during agent execution. En
 
 # Aura Immutable State Machine: One-Way Progression and Saga Compensation
 
-![Aura Immutable State Machine Viz](featured.png)
+![Aura Immutable State Machine Viz](featured.webp)
 
 In classical software development, we are used to using `try-catch-rollback`. If a database write fails, we rollback the transaction. But when an Agent executes real-world tasks (such as sending Slack messages or modifying server configurations), **"physical rollback" is a complete lie.**
 

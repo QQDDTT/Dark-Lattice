@@ -9,7 +9,7 @@ description: "Deep dive into Aura's 3D Binary Addressing system: achieving O(1) 
 
 # Aura 3D Binary Addressing: Absolute Cybernetics under 24-bit Masking
 
-![Aura 3D Addressing Viz](featured.png)
+![Aura 3D Addressing Viz](featured.webp)
 
 While most Agent frameworks are still parsing cumbersome JSON configurations or string routes, Aura has entered the **Binary Addressing Era**. We believe that an agent's decision space should not be a fuzzy semantic collection, but a **Geometric Tensor** that can be precisely coordinate-mapped.
 

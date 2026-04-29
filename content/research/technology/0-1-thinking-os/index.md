@@ -1,9 +1,10 @@
 ---
-title: "当操作系统开始「思考」"
+title: "当操作系统开始「思考」：AIOS 架构下的意图驱动范式 | AIOS 与操作系统革命 - Dark Lattice"
 date: 2026-03-24
 categories: ['Technology']
 draft: false
 tags: ['AIOS', 'AI大模型', 'AaaS', 'MaaS', '产品思维', '人工智能', '技术革命', '操作系统', '硅谷', '科技洞察']
+description: "SaaS 正在向 AaaS 演进。本文深度解析 AIOS（AI 操作系统）如何通过意图驱动交互、统一 Agent 调度及重塑成本结构，挑战传统操作系统的确定性内核，探讨 AI 原生系统的未来与挑战。"
 ---
 
 ——AIOS 人工智能系统 vs 传统操作系统：优势与挑战全解析

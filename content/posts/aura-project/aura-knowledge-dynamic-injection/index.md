@@ -9,7 +9,7 @@ description: "探讨 Aura 的知识动态注入（KDC）机制。如何在 Matri
 
 # Aura 动态知识注入（KDC）：RAG 之之上语义装载革命
 
-![Aura KDC 可视化](featured.png)
+![Aura KDC 可视化](featured.webp)
 
 传统的 RAG（检索增强生成）通常是全局性的，即在对话开始前搜索一遍。但在 Aura 的长程执行流中，由于任务目标在不断演进，全局 RAG 会导致无关信息迅速填满上下文窗口。
 

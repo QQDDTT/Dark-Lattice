@@ -9,7 +9,7 @@ description: "Analyzing how Aura utilizes Beta distribution as a curiosity regul
 
 # Aura Curiosity Engine: Boundary Exploration Sampling via Beta Distribution
 
-![Curiosity Engine Viz](featured.png)
+![Curiosity Engine Viz](featured.webp)
 
 A perfect AI agent shouldn't just be "obedient." If it only repeats known paths, it will never evolve in changing environments. Aura's **Curiosity Engine** is designed precisely to break the shackles of "empiricism."
 

@@ -9,7 +9,7 @@ description: "解析 Aura 如何通过弹性权重整合（EWC）算法保护核
 
 # Aura EWC 知识保护：防止灾难性遗忘的核心算法
 
-![Aura EWC 知识保护可视化](featured.png)
+![Aura EWC 知识保护可视化](featured.webp)
 
 持续学习（Continual Learning）是 AI 进化的终极目标，但它面临着一个致命挑战：**灾难性遗忘（Catastrophic Forgetting）**。当 Agent 学会了编写 Python 代码的新技巧时，它可能会不小心“忘记”了之前牢记的安全防御原则。
 

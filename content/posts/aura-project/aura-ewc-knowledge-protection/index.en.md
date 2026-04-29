@@ -9,7 +9,7 @@ description: "Parsing how Aura protects core knowledge through the Elastic Weigh
 
 # Aura EWC Knowledge Protection: Core Algorithm to Prevent Catastrophic Forgetting
 
-![Aura EWC Protection Viz](featured.png)
+![Aura EWC Protection Viz](featured.webp)
 
 Continual Learning is the ultimate goal of AI evolution, but it faces a fatal challenge: **Catastrophic Forgetting**. When an Agent learns a new trick for writing Python code, it might accidentally "forget" the security defense principles it previously remembered.
 

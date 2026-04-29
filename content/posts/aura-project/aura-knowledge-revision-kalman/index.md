@@ -9,7 +9,7 @@ description: "探讨 Aura 如何借鉴控制理论中的卡尔曼滤波思想，
 
 # Aura 知识修正算法：基于卡尔曼滤波的 Surprise 驱动更新
 
-![Aura 知识修正可视化](featured.png)
+![Aura 知识修正可视化](featured.webp)
 
 一个智能体的知识库（Knowledge Base）如果不具备动态修正能力，它很快就会沦为一堆充满“幻觉”的陈旧数据。Aura 引入了控制理论中经典的**卡尔曼滤波（Kalman Filter）**思想，建立了一套实时的知识纠错机制。
 

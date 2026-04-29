@@ -9,7 +9,7 @@ description: "Parsing the S3 attribution logic of Aura's evolution engine: how r
 
 # Aura Reinforcement Learning Evolution: Weight Convergence and Self-Evolution in the S3 Stage
 
-![Aura RL Evolution Viz](featured.png)
+![Aura RL Evolution Viz](featured.webp)
 
 If the Meta kernel is the brain and Matrix is the muscle, then the **S3 (Feedback) Attribution Engine** is the system's evolutionary gene. It solves the core engineering challenge in the AI Agent field: **how to extract deterministic laws for success from thousands of imperfect executions?**
 

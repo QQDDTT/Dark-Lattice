@@ -9,7 +9,7 @@ description: "In-depth analysis of Aura's core architecture: why planning and ex
 
 # Aura Dual-Core Architecture: Deep Decoupling of Meta Commander and Matrix Executor
 
-![Aura Dual-Core Viz](featured.png)
+![Aura Dual-Core Viz](featured.webp)
 
 In traditional AI Agent paradigms, we often expect a single Large Language Model (LLM) to act as both the "planner" and the "executor." However, when handling complex engineering tasks, this coupling leads to severe **cognitive overload**: while the model thinks about how to call an API, it often loses track of the original task objective.
 

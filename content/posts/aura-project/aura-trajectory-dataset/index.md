@@ -9,7 +9,7 @@ description: "探讨 Aura 如何将高质量的任务执行轨迹自动导出为
 
 # Aura 轨迹导流：从执行拓扑到自进化数据集的自动转换
 
-![Aura 轨迹导流可视化](featured.png)
+![Aura 轨迹导流可视化](featured.webp)
 
 在 AI 领域，最好的数据不是从互联网爬取的，而是 Agent 在真实生产环境中产生的高质量执行轨迹。Aura 的**轨迹导流（Trajectory Streaming）**机制，旨在将这些碎片化的执行记录提炼为系统的自进化动力。
 

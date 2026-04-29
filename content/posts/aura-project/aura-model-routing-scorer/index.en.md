@@ -9,7 +9,7 @@ description: "Analyzing how Aura uses an 8-level model tier and a four-dimension
 
 # Aura 8-Level Model Routing: The Golden Balance of Performance and Cost
 
-![Aura Model Routing Viz](featured.png)
+![Aura Model Routing Viz](featured.webp)
 
 Letting an expensive flagship-level LLM perform a simple task like "converting text to JSON format" is an engineering failure. Aura possesses a sophisticated **Model Routing Engine (Model Router)** that pushes compute scheduling to the extreme.
 

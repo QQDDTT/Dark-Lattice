@@ -1,15 +1,15 @@
 ---
-title: "Aura タスクプランニングにおけるアリ群最適化：フェロモン駆動のパス探索"
+title: "Aura タスクプランニングにおけるアリ群最適化：フェロモン駆動のパス探索 | AI エージェント 構造 - Dark Lattice"
 date: 2026-04-28T10:20:00+09:00
 draft: false
-tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm"]
+tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm", "AI エージェント", "パス探索"]
 categories: ["Engineering"]
-description: "Aura の Meta カーネルが自然界のアリ群アルゴリズムをいかに借用し、フェロモンメカニズムを通じて巨大な実行ノード空間内で最適なタスクプランを動的に生成し、意思決定のグローバル最適化を実現するかを解説します。"
+description: "従来のプランナーが陥りやすい局所最適解の課題を解決。Aura がいかにアリ群アルゴリズムを借用し、フェロモンメカニズムを通じて巨大な空間内で最適なタスクプランを動的に生成し、長期的な意思決定を最適化するかを解説します。"
 ---
 
 # Aura タスクプランニングにおけるアリ群最適化：フェロモン駆動のパス探索
 
-![アリ群最適化可視化](featured.png)
+![アリ群最適化可視化](featured.webp)
 
 従来の AI エージェントプランナー（ReAct や Plan-and-Execute など）は、往々にして**強欲（Greedy）**です。つまり、目先の次の一歩だけに集中します。しかし、数十ステップに及ぶ長期的なタスクに直面したとき、強欲アルゴリズムは容易に局所最適解に陥ってしまいます。
 

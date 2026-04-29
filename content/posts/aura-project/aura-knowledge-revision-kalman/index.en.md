@@ -9,7 +9,7 @@ description: "Exploring how Aura borrows from Kalman filtering in control theory
 
 # Aura Knowledge Revision: Surprise-Driven Updates via Kalman Filtering
 
-![Aura Knowledge Revision Viz](featured.png)
+![Aura Knowledge Revision Viz](featured.webp)
 
 If an agent's knowledge base lacks dynamic revision capability, it quickly degenerates into a pile of stale data filled with "hallucinations." Aura introduces the classic **Kalman Filter** concept from control theory, establishing a real-time knowledge error correction mechanism.
 

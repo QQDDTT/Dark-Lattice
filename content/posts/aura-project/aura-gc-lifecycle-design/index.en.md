@@ -9,7 +9,7 @@ description: "Parsing how Aura maintains a permanent 256MB core addressing table
 
 # Aura Four-Quadrant GC Lifecycle: Balancing Memory Locking and Auto-Release
 
-![Aura GC Lifecycle Viz](featured.png)
+![Aura GC Lifecycle Viz](featured.webp)
 
 For an agent engine processing thousands of node jumps per second, traditional "Stop-the-world" Garbage Collection (GC) is an unacceptable performance black hole. Aura builds a **Four-Quadrant Lifecycle System** based on the Rust language, borrowing memory management strategies from high-performance databases.
 

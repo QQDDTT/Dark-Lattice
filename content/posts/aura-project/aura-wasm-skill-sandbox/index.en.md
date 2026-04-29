@@ -9,7 +9,7 @@ description: "In-depth analysis of Aura's skill plugin system. Building a secure
 
 # Aura WASM Skill Sandbox: The Perfect Convergence of Security Isolation and High Performance
 
-![Aura WASM Sandbox Viz](featured.png)
+![Aura WASM Sandbox Viz](featured.webp)
 
 Giving AI Agents the capability to execute code and call system APIs is powerful, but also dangerous. We cannot let an Agent run wild in the server like a child with root privileges. Aura establishes a solid physical defense for every execution node via **WebAssembly (WASM)**.
 

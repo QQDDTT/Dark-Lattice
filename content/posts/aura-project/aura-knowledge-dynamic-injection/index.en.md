@@ -9,7 +9,7 @@ description: "Exploring Aura's Knowledge Dynamic Injection (KDC) mechanism. How 
 
 # Aura Knowledge Dynamic Injection (KDC): The Semantic Loading Revolution beyond RAG
 
-![Aura KDC Viz](featured.png)
+![Aura KDC Viz](featured.webp)
 
 Traditional RAG (Retrieval-Augmented Generation) is often global, occurring before a dialogue begins. However, in Aura's long-range execution flow, as task goals constantly evolve, global RAG leads to irrelevant information quickly filling up the context window.
 

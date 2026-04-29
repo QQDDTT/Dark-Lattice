@@ -1,15 +1,15 @@
 ---
-title: "蚁群算法在 Aura 任务规划中的应用：信息素驱动的路径寻优"
+title: "蚁群算法在 Aura 任务规划中的应用：信息素驱动的路径寻优 | 蚁群优化与任务规划 - Dark Lattice"
 date: 2026-04-28T10:20:00+09:00
 draft: false
-tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm"]
+tags: ["Aura", "Ant Colony Optimization", "Planning", "Algorithm", "智能体", "路径寻优"]
 categories: ["工程实践"]
-description: "解析 Aura Meta 内核如何借鉴自然界蚁群算法，通过信息素机制在巨大的执行节点空间中动态生成最优任务计划，实现智能体决策的全局最优。"
+description: "传统 AI Agent 规划器易陷入局部最优。解析 Aura 如何借鉴蚁群算法，通过信息素机制在执行空间中动态生成最优路径，解决长程决策的“组合爆炸”问题，提升复杂任务的确定性。"
 ---
 
 # 蚁群算法在 Aura 任务规划中的应用：信息素驱动的路径寻优
 
-![蚁群算法路径寻优可视化](featured.png)
+![蚁群算法路径寻优可视化](featured.webp)
 
 传统的 AI Agent 规划器（如 ReAct 或 Plan-and-Execute）往往是**贪婪**的：它们只关注当下的下一步。然而，在面对包含数十个步骤的长程任务时，贪婪算法极易陷入局部最优解。
 

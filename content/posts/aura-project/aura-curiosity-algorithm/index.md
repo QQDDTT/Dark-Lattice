@@ -1,15 +1,15 @@
 ---
-title: "Aura 好奇心引擎：Beta 分布下的边界探索采样算法"
+title: "Aura 好奇心引擎：Beta 分布下的边界探索采样算法 | 强化学习与动态采样 - Dark Lattice"
 date: 2026-04-28T11:00:00+09:00
 draft: false
-tags: ["Aura", "Mathematics", "Machine Learning", "Algorithm"]
+tags: ["Aura", "Mathematics", "Machine Learning", "Algorithm", "强化学习", "探索算法"]
 categories: ["工程实践"]
-description: "解析 Aura 如何利用 Beta 分布作为好奇心调节器，通过动态采样强制系统逃离“经验陷阱”，在未知领域挖掘更优执行路径。"
+description: "AI 代理易陷入“经验陷阱”。解析 Aura 如何利用 Beta 分布作为好奇心调节器，通过动态采样强制系统逃离过拟合路径，在未知领域挖掘更优执行策略，实现系统的持续进化。"
 ---
 
 # Aura 好奇心引擎：Beta 分布下的边界探索采样算法
 
-![Aura 好奇心引擎可视化](featured.png)
+![Aura 好奇心引擎可视化](featured.webp)
 
 一个完美的 AI 代理不应该仅仅是“听话”的。如果它只会在已知的路径上重复，它就永远无法在变化的环境中进化。Aura 的**好奇心引擎（Curiosity Engine）**正是为了打破“经验主义”的桎梏而设计的。
 

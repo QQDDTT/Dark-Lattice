@@ -9,7 +9,7 @@ description: "Exploring how Aura automatically exports high-quality task executi
 
 # Aura Trajectory Streaming: Auto-Conversion from Execution Topology to Self-Evolving Datasets
 
-![Aura Trajectory Streaming Viz](featured.png)
+![Aura Trajectory Streaming Viz](featured.webp)
 
 In the AI field, the best data is not crawled from the internet but high-quality execution trajectories produced by an Agent in a real production environment. Aura's **Trajectory Streaming** mechanism aims to refine these fragmented execution records into the power for continuous system evolution.
 

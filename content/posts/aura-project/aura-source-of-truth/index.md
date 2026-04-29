@@ -9,7 +9,7 @@ description: "探讨 Aura 在状态管理上的哲学：通过严格分离永久
 
 # Aura 事实来源分离：为何 SurrealDB 是唯一真理，Redis 仅是触发器
 
-![Aura 事实来源分离可视化](featured.png)
+![Aura 事实来源分离可视化](featured.webp)
 
 在分布式 AI 系统的工程实践中，开发者常犯的致命错误就是“状态管理混乱”：把内存缓存当成了状态机，或者依赖脆弱的消息中间件来保存核心业务逻辑。Aura 通过**事实来源分离（Source of Truth Separation）** 确立了系统的鲁棒性底线。
 

@@ -9,7 +9,7 @@ description: "Exploring Aura's philosophy on state management: strictly separati
 
 # Aura Source of Truth: Why SurrealDB is the Only Truth and Redis is Just a Trigger
 
-![Aura Source of Truth Viz](featured.png)
+![Aura Source of Truth Viz](featured.webp)
 
 In the engineering practice of distributed AI systems, a fatal mistake developers often make is "state management chaos": treating memory cache as a state machine or relying on fragile message middleware to preserve core business logic. Aura establishes the system's robustness baseline through **Source of Truth Separation**.
 

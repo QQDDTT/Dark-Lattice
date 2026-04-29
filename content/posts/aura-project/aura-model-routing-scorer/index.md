@@ -9,7 +9,7 @@ description: "解析 Aura 如何通过 8 级模型阶梯与四维度动态评分
 
 # Aura 8 级模型路由：多维度评分下的性价比最优解
 
-![Aura 模型路由可视化](featured.png)
+![Aura 模型路由可视化](featured.webp)
 
 让一个昂贵的旗舰级 LLM 去执行“将文本转换为 JSON 格式”这种简单任务，在工程上是不及格的。Aura 内置了一套精密的**模型路由引擎（Model Router）**，将算力调度推向了极致。
 
