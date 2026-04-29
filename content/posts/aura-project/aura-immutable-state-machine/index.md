@@ -32,15 +32,25 @@ Aura 引入了**不可逆状态机（Immutable State Machine）**，这是对现
 既然不能回滚，Aura 采用分布式系统中成熟的 **Saga 模式** 来处理错误。
 
 ```mermaid
-graph TD
-    Node[Matrix 节点执行] --> Status{执行状态}
-    Status -->|成功| Next[状态推进: Version+1]
-    Status -->|失败| Voucher[提取副作用凭证: Side-effects]
-    Voucher --> DAG[生成补偿任务图: Compensation DAG]
-    DAG --> Repair[执行补偿动作: 物理修复/人工接入]
-    Repair --> Forward[逻辑重定向: 跳转至安全分支]
-    Next --> End([继续后续任务])
-    Forward --> End
+graph LR
+    classDef main fill:#0F172A,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef process fill:#1E293B,stroke:#8B5CF6,stroke-width:1px,color:#94A3B8;
+
+    Node[Matrix 执行] --> Status{状态检测}
+    
+    Status -- 成功 --> Next[状态推进: Version+1]
+    
+    subgraph Compensation [Saga 补偿逻辑]
+        Status -- 失败 --> Voucher[提取副作用凭证]
+        Voucher --> DAG[生成补偿任务图]
+        DAG --> Repair[执行补偿动作]
+    end
+
+    Repair --> Next
+    Next --> End([继续任务])
+
+    class Node,Next,End main;
+    class Status,Voucher,DAG,Repair process;
 ```
 
 ### 3.1 补偿 DAG 的生成

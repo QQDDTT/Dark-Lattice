@@ -26,18 +26,31 @@ Meta 内核是系统的“高阶前额皮层”。它不持有任何具体的技
 Meta 利用**蚁群算法（ACO）**在预定义的 3D 寻址空间中搜索最优路径。它生成的不是一段代码，而是一组 **24-bit 节点指针序列**。这相当于为底层的 Matrix 提供了一张精确到分秒的“作战地图”。
 
 ```mermaid
-graph TD
-    User([用户需求输入]) --> S0[S1: 意图解构与熵增分析]
-    S0 -->|意图明确| S1[S1: 蚁群算法路径寻优]
-    S0 -->|意图模糊| Ask[交互确认]
-    Ask --> User
-    S1 -->|生成 24-bit 指针序列| ACP[ACP 通讯协议封装]
-    ACP --> Matrix[Matrix 核心唤起]
-    Matrix --> S2[S2: 原子任务执行]
-    S2 --> S3[S3: 产物上报与反馈归因]
-    S3 -->|成功| Done([任务达成])
-    S3 -->|失败| Saga[Saga 补偿逻辑启动]
-    Saga --> S1
+graph LR
+    %% 样式定义
+    classDef core fill:#0F172A,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef logic fill:#1E293B,stroke:#8B5CF6,stroke-width:1px,color:#94A3B8;
+    classDef action fill:#3B82F6,stroke:#fff,stroke-width:2px,color:#0F172A;
+
+    User([需求输入]) --> Meta{Meta 内核}
+    
+    subgraph Planning [指挥层: Meta]
+        Meta -- 意图分析 --> S0[S1: 解构与寻优]
+        S0 -- ACP 协议 --> ACP[协议封装]
+    end
+
+    ACP --> Matrix{Matrix 核心}
+
+    subgraph Execution [执行层: Matrix]
+        Matrix -- 原子任务 --> S2[S2: 执行与反馈]
+    end
+
+    S2 -- 异常反馈 --> Saga[Saga 补偿]
+    Saga -. 重算 .-> S0
+    S2 -- 成功 --> Done([任务达成])
+
+    class Meta,Matrix,Done action;
+    class S0,ACP,S2,Saga logic;
 ```
 
 ## 2. Matrix 内核：被动反应与原子执行

@@ -27,12 +27,22 @@ KDC 不会简单地塞入整篇文档。
 
 ```mermaid
 graph LR
+    classDef core fill:#0F172A,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef logic fill:#1E293B,stroke:#8B5CF6,stroke-width:1px,color:#94A3B8;
+
     Ptr[24-bit 指针下发] --> Context[提取 3D 坐标特征]
-    Context --> Retrieval[SurrealDB 向量检索]
-    Retrieval --> Cosine{余弦相似度过滤}
-    Cosine -->|得分 > 阈值| MMR[MMR 多样性重排]
-    MMR --> Inject[微片段注入: Snippets]
-    Inject --> Matrix[Matrix 节点唤起执行]
+    Context --> Retrieval[向量检索]
+    
+    subgraph Loading [语义装载]
+        Retrieval --> Filter{余弦过滤}
+        Filter -- 得分 > 阈值 --> MMR[MMR 重排]
+    end
+
+    MMR --> Inject[微片段注入]
+    Inject --> Matrix([Matrix 节点执行])
+
+    class Ptr,Matrix core;
+    class Context,Retrieval,Filter,MMR,Inject logic;
 ```
 
 ### 2.1 语义余弦相似度过滤

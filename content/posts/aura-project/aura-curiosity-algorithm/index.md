@@ -29,14 +29,22 @@ Beta 分布定义在 $[0, 1]$ 区间。通过动态调整参数 $\alpha$ 和 $\b
 ### 2.2 熵驱动激活
 
 ```mermaid
-graph TD
-    S3[S3: 任务评分反馈] --> Entropy[计算知识库熵增/减]
-    Entropy --> Status{熵值过低? 系统陷于保守}
-    Status -->|是| Active[激活好奇心引擎]
-    Status -->|否| Normal[维持现状]
-    Active --> Beta[调整 Beta 分布参数: alpha, beta < 1]
-    Beta --> Sample[U型采样: 探索 3D 矩阵边界节点]
-    Sample --> Meta[更新下一次规划路径]
+graph LR
+    classDef main fill:#0F172A,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef process fill:#1E293B,stroke:#8B5CF6,stroke-width:1px,color:#94A3B8;
+
+    Feedback[任务评分反馈] --> Entropy[计算知识库熵增/减]
+    
+    subgraph Regulation [好奇心调节]
+        Entropy -- 熵值过低 --> Active[激活引擎]
+        Active --> Beta[调整 Beta 分布]
+    end
+
+    Beta --> Sample[U型边界采样]
+    Sample --> Meta([更新规划路径])
+
+    class Feedback,Meta main;
+    class Entropy,Active,Beta,Sample process;
 ```
 
 当 Meta 探测到任务成功率长时间停滞，且知识库中的熵（Entropy）降低时，系统会自动调低 $\alpha, \beta$。这种“人工焦虑”强制蚂蚁们走出舒适区，去探索 3D 矩阵中的冷门坐标。

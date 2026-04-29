@@ -56,7 +56,41 @@
     });"></script>
 
 <!-- Mermaid.js for Flowcharts -->
+<style>
+  .mermaid {
+    background: transparent !important;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+    overflow-x: auto;
+  }
+  .mermaid svg {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
 <script type="module">
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({ startOnLoad: true, theme: 'dark', securityLevel: 'loose' });
+  mermaid.initialize({ 
+    startOnLoad: true, 
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#1e293b',
+      primaryTextColor: '#e2e8f0',
+      primaryBorderColor: '#3b82f6',
+      lineColor: '#3b82f6',
+      secondaryColor: '#334155',
+      tertiaryColor: '#1e293b',
+      fontFamily: 'Inter, system-ui, sans-serif',
+      fontSize: '14px',
+      mainBkg: '#1e293b',
+      nodeBorder: '#3b82f6',
+      nodeTextColor: '#e2e8f0',
+      titleColor: '#3b82f6',
+      edgeLabelBackground: '#0f172a',
+      clusterBkg: 'rgba(59, 130, 246, 0.05)',
+      clusterBorder: 'rgba(59, 130, 246, 0.3)'
+    },
+    securityLevel: 'loose'
+  });
 </script>

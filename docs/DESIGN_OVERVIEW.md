@@ -52,7 +52,22 @@
 
 ---
 
-## 5. 核心理念
+## 5. 插图与图表规范 (Illustration & Diagram Specs)
+
+为了保持全站视觉的一致性与专业感，所有插图与图表应遵循以下规范：
+
+- **Mermaid 图表**：
+  - 必须包含 `classDef` 定义配色方案。
+  - 背景色使用 `Space Black` (#0F172A)，边框使用 `Cyber Blue` (#3B82F6)。
+  - 尽量使用 `graph LR` 布局以减少纵向空间占用，保持文档整洁。
+- **UI Mockups / 3D 渲染图**：
+  - 必须采用**赛博极简风格**。
+  - 避免凌乱的装饰与 AI 生成的乱码文字。
+  - 色调以深色 (Slate 900) 为主，辅以高饱和度的科技蓝与神秘紫发光效果。
+
+---
+
+## 6. 核心理念
 
 > "In the lattice of dots, truth hides in the darkness."
 > 在点的格阵中，真相潜藏于黑暗。

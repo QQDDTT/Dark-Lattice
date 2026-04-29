@@ -41,13 +41,22 @@ $$\tau_{ij}(t+1) = (1 - \rho) \cdot \tau_{ij}(t) + \Delta\tau_{ij}$$
 
 ```mermaid
 graph LR
-    Start([开始规划]) --> Sample[路径采样: 生成多条候选链路]
-    Sample --> Scoring[四维评估: 延迟/成本/准确/安全]
-    Scoring --> Best{选出最优路径}
-    Best -->|信息素强化| Pheromone[更新 ACO 概率图]
-    Pheromone --> Evaporate[全局信息素挥发]
-    Evaporate --> ACP[生成 ACP 执行指令]
-    ACP --> Matrix[交付 Matrix 运行]
+    classDef main fill:#0F172A,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef process fill:#1E293B,stroke:#8B5CF6,stroke-width:1px,color:#94A3B8;
+
+    Start([开始规划]) --> Sample[路径采样]
+    Sample --> Scoring[四维评估]
+    Scoring --> Best{选出最优}
+    
+    subgraph Update [循环优化]
+        Best -- 强化 --> Pheromone[更新信息素]
+        Pheromone -- 挥发 --> Evaporate[全局挥发]
+    end
+
+    Evaporate --> ACP([生成执行计划])
+
+    class Start,Best,ACP main;
+    class Sample,Scoring,Pheromone,Evaporate process;
 ```
 
 1. **采样**：生成多条潜在的执行链路。

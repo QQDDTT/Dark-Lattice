@@ -24,7 +24,7 @@
     *   模糊：`backdrop-filter: blur(8px)`。
     *   框线：`1px solid rgba(59, 130, 246, 0.1)`, 仅底部或全框。
 
-![Blog List UI Mockup](/images/design/blog-list-ui-mockup.png)
+![Blog List UI Mockup](../static/images/design/blog-list-ui-mockup.png)
 
 ### 2.2 研究列表 3D 渲染 (Research 3D Rendering)
 
@@ -32,8 +32,8 @@
 
 *   **专题清单 (Topic List)**：
     *   **风格图片**：每个专题（如 Technology, Interaction）配备一张独特风格的 3D 渲染图。
-        *   **Technology**: ![Technology 3D](/images/design/research-tech-3d.png)
-        *   **Interaction**: ![Interaction 3D](/images/design/research-interaction-3d.png)
+        *   **Technology**: ![Technology 3D](../static/images/design/research-tech-3d.png)
+        *   **Interaction**: ![Interaction 3D](../static/images/design/research-interaction-3d.png)
     *   **材质标准**：使用半透明玻璃材质、发光边缘（Emissive Edges）以及符合 Nightfield 主色的粒子背景。
 *   **课题清单 (Project List)**：
     *   **3D 场景动画**：每个课题条目对应一个微型 3D 交互场景。
@@ -72,9 +72,9 @@
 
 | 素材名称 | 路径 | 描述 |
 | :--- | :--- | :--- |
-| Blog List UI | `/images/design/blog-list-ui-mockup.png` | 列表页 UI 原型 |
-| Tech 3D | `/images/design/research-tech-3d.png` | 技术专题 3D 背景 |
-| Interaction 3D | `/images/design/research-interaction-3d.png` | 交互专题 3D 背景 |
+| Blog List UI | `../static/images/design/blog-list-ui-mockup.png` | 列表页 UI 原型 |
+| Tech 3D | `../static/images/design/research-tech-3d.png` | 技术专题 3D 背景 |
+| Interaction 3D | `../static/images/design/research-interaction-3d.png` | 交互专题 3D 背景 |
 
 ## 6. 无障碍设计 (Accessibility)
 

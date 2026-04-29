@@ -8,15 +8,29 @@
 ## 2. 交互流程 (Interaction Flow)
 
 ```mermaid
-graph TD
-    A[访问首页] --> B{Hero 区交互}
-    B -->|悬停头像| C[头像轻微缩放并增加蓝色描边]
-    B -->|悬停 Slogan| D[打字机效果重现或高亮]
-    B -->|点击 CTA| E[平滑滚动至项目列表]
+graph LR
+    %% 样式定义
+    classDef primary fill:#0F172A,stroke:#3B82F6,stroke-width:2px,color:#fff;
+    classDef secondary fill:#1E293B,stroke:#8B5CF6,stroke-width:1px,color:#94A3B8;
+    classDef highlight fill:#3B82F6,stroke:#fff,stroke-width:2px,color:#0F172A;
+
+    Start((访问首页)) --> Hero{Hero 区域}
     
-    F[项目卡片区] --> G{交互反馈}
-    G -->|鼠标悬停| H[卡片上升 10px + 阴影扩散]
-    G -->|点击标签| I[按标签即时过滤项目]
+    subgraph Interaction [交互反馈]
+        Hero -- 悬停头像 --> Avatar[缩放 + 蓝色描边]
+        Hero -- 悬停标语 --> Slogan[打字机效果]
+        Hero -- 点击 CTA --> Scroll[平滑滚动]
+    end
+
+    Scroll --> Projects[项目卡片区]
+    
+    subgraph Cards [卡片行为]
+        Projects -- 悬停 --> Lift[抬升 10px + 弥散阴影]
+        Projects -- 点击标签 --> Filter[即时过滤]
+    end
+
+    class Start,Hero,Projects highlight;
+    class Avatar,Slogan,Scroll,Lift,Filter secondary;
 ```
 
 ---

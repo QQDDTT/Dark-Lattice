@@ -1,5 +1,11 @@
 {{ $item := . }}
 <div class="glass-card standardized-card animate-slide-up">
+    {{ $featured := .Resources.GetMatch "featured*" }}
+    {{ with $featured }}
+    <div class="card-image">
+        <img src="{{ .RelPermalink }}" alt="{{ $item.Title }}" loading="lazy">
+    </div>
+    {{ end }}
     <div class="card-inner">
         <!-- 1. Meta / Category Header -->
         <div class="card-header">
