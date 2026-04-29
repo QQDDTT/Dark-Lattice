@@ -46,7 +46,14 @@
         <h2 class="section-title">{{ T "research_dimensions" | default "RESEARCH DIMENSIONS" }}</h2>
     </div>
     <div class="radar-layout glass">
-        <div id="skill-radar-container"></div>
+        <div id="skill-radar-container" 
+             data-label-agent="{{ T "radar_label_agent" }}"
+             data-label-vision="{{ T "radar_label_vision" }}"
+             data-label-frontend="{{ T "radar_label_frontend" }}"
+             data-label-stability="{{ T "radar_label_stability" }}"
+             data-label-evolution="{{ T "radar_label_evolution" }}"
+             data-label-knowledge="{{ T "radar_label_knowledge" }}">
+        </div>
         <div class="radar-info">
             <h3 class="info-title">{{ T "competence_overview" | default "Competence Overview" }}</h3>
             <p class="info-desc">{{ T "radar_desc" | default "Quantitative analysis of core research fields and engineering capabilities." }}</p>

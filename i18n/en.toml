@@ -42,3 +42,25 @@ other = "Table of Contents"
 
 [view_bibtex]
 other = "View BibTeX"
+
+[research_dimensions]
+other = "Research Dimensions"
+
+[competence_overview]
+other = "Technical Matrix"
+
+[radar_desc]
+other = "Quantitative analysis of core research fields and engineering capabilities, reflecting the technical inclination of the articles."
+
+[radar_label_agent]
+other = "Agent Logic"
+[radar_label_vision]
+other = "Vision AI"
+[radar_label_frontend]
+other = "Frontend UX"
+[radar_label_stability]
+other = "Stability"
+[radar_label_evolution]
+other = "Evolution"
+[radar_label_knowledge]
+other = "Knowledge"

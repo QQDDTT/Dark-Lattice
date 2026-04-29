@@ -53,6 +53,12 @@ Although algorithms dominate open datasets (like MVTec AD), in actual deployment
 1. **Data Silos and Incremental Learning**: Factories are extremely protective of data privacy. Models need to support rapid fine-tuning and incremental updates on local edge devices with few samples.
 2. **Limited Compute and Edge Inference**: Assembly line cycle times are typically less than 50ms. How to achieve this speed on power-constrained edge devices (like NVIDIA Jetson or basic x86 IPCs without GPUs)? This requires extreme computational graph optimization through **ONNX conversion**, **INT8 Model Quantization**, and the use of inference engines like **TensorRT / OpenVINO**.
 
+## Academic & Design Insights
+
+- **Design Philosophy**: In industrial vision, we advocate for "hybrid intelligence." Instead of blindly pursuing complex models, we should choose the most robust solution based on operating conditions.
+- **Technical Breakthrough**: By using traditional morphological operators as pre-filters for deep learning, we significantly reduced the computational overhead on the edge.
+- **Inspiration**: When facing industrial requirements, algorithm engineers must understand that "Cycle Time" and "Stability" carry more weight than mere mAP scores.
+
 ## Conclusion
 
 Technology is never absolutely good or bad, only whether it fits the business scenario. In stamping parts detection with fixed morphology and single backgrounds, traditional morphology remains the most efficient and low-cost king. However, on complex fabric textures or reflective solder joint surfaces, deep learning is the only path to break through the ceiling. The excellent industrial vision systems of the future will inevitably be a deep integration of rule-based processing and AI neural networks.

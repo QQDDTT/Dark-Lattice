@@ -2,8 +2,10 @@
 <html lang="{{ .Language.Lang }}">
 <head>
     {{ partial "head.html" . }}
-    {{ $style := resources.Get "scss/dashboard/main.scss" | resources.ToCSS | resources.Minify }}
+    {{ $style := resources.Get "scss/dashboard/main.scss" | toCSS | minify }}
+    {{ if $style }}
     <link rel="stylesheet" href="{{ $style.RelPermalink }}">
+    {{ end }}
 </head>
 <body class="dashboard-body">
     <div class="dashboard-container">
@@ -37,13 +39,17 @@
     </div>
 
     <!-- Scripts -->
-    {{ $js := resources.Get "js/dashboard/main.js" | resources.Minify }}
+    {{ $js := resources.Get "js/dashboard/main.js" | minify }}
+    {{ if $js }}
     <script src="{{ $js.RelPermalink }}"></script>
+    {{ end }}
     
     <!-- Module Scripts for each interface -->
-    <script src="{{ (resources.Get "js/dashboard/interface-overview.js").RelPermalink }}"></script>
-    <script src="{{ (resources.Get "js/dashboard/interface-matrix.js").RelPermalink }}"></script>
-    <script src="{{ (resources.Get "js/dashboard/interface-monitoring.js").RelPermalink }}"></script>
-    <script src="{{ (resources.Get "js/dashboard/interface-evolution.js").RelPermalink }}"></script>
+    {{ range (slice "interface-overview" "interface-matrix" "interface-monitoring" "interface-evolution") }}
+        {{ $module := resources.Get (printf "js/dashboard/%s.js" .) }}
+        {{ if $module }}
+            <script src="{{ $module.RelPermalink }}"></script>
+        {{ end }}
+    {{ end }}
 </body>
 </html>

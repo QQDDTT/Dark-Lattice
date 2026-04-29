@@ -45,6 +45,12 @@ Based on the calculated $K_t$, Aura performs asynchronous "knowledge surgery" in
 1. **Grafting**: Permanently boosting the association strength of high-performing nodes.
 2. **Excision**: Establishing "quarantine zones" for knowledge paths that lead to significant deviations (high Surprise and failure).
 
+## Academic & Design Insights
+
+- **Design Philosophy**: Kalman filtering in Aura marks a paradigm shift from "static knowledge bases" to "dynamic belief systems." Surprise is a signal for system upgrades, not just an error.
+- **Technical Breakthrough**: Self-adaptive balance between robustness and exploration is achieved via dynamic Kalman gain adjustment based on covariance P.
+- **Inspiration**: A great AI system should have "self-reflection," learning to revise its cognitive map through collisions with reality.
+
 ## 5. Conclusion
 
 This mechanism grants Aura "self-reflection." It no longer blindly trusts initial probabilities from pre-trained models but continuously refines its cognitive map in every collision with the real world, eventually evolving into a true domain expert who understands specific scenarios and businesses.

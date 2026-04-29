@@ -40,6 +40,12 @@ Through the EWC algorithm, Aura successfully achieves a kind of **"Asymmetric Ev
 - **Bottom Skeleton**: Including irreversibility principles, security bottom lines, etc., as stable as Mount Tai, no matter how many tasks they go through.
 - **Surface Skills**: Including coding techniques, communication styles, etc., can be aggressively iterated according to user feedback.
 
+## Academic & Design Insights
+
+- **Design Philosophy**: EWC embodies "asymmetric evolution" - protecting the stability of the soul while releasing the flexibility of skills, mimicking genetic protection in biological evolution.
+- **Technical Breakthrough**: Using the Fisher Information Matrix as an "elastic lock" for core knowledge keeps the AI Agent's logic stable without sacrificing learning efficiency.
+- **Inspiration**: Identifying and quantifying "immutable core knowledge" is more critical than blind full-parameter fine-tuning.
+
 ## 4. Conclusion: Building a Trustworthy Evolving Entity
 
 EWC is Aura's "Long-term Memory Protector." It ensures that on the road to pursuing evolution, the intelligent agent never loses the core essence that makes it "Aura."

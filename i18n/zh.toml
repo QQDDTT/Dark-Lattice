@@ -42,3 +42,25 @@ other = "目录"
 
 [view_bibtex]
 other = "查看 BibTeX"
+
+[research_dimensions]
+other = "研究维度"
+
+[competence_overview]
+other = "技术矩阵"
+
+[radar_desc]
+other = "对核心研究领域与工程能力的量化分析，直观反映专栏文章的技术倾向。"
+
+[radar_label_agent]
+other = "智能体逻辑"
+[radar_label_vision]
+other = "工业视觉"
+[radar_label_frontend]
+other = "前端艺术"
+[radar_label_stability]
+other = "工程稳定性"
+[radar_label_evolution]
+other = "持续进化"
+[radar_label_knowledge]
+other = "知识图谱"

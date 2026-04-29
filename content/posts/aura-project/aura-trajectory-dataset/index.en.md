@@ -37,6 +37,12 @@ Filtered data is automatically converted into standard **ShareGPT** or **Alpaca*
 - When tasks are executed, the system acts as an executor to generate data.
 - During idle time, the system acts as a teacher to fine-tune local models using this data.
 
+## Academic & Design Insights
+
+- **Design Philosophy**: Trajectory streaming embodies the "learning through action" Agent design philosophy. We abandoned static datasets in favor of feedback-driven self-evolution.
+- **Technical Breakthrough**: By introducing CoT integrity checks and information entropy scoring, we solved the noise pollution problem in fine-tuning, enabling the Agent to transition from an executor to an educator.
+- **Inspiration**: Understanding how to transform unstructured logs into high-quality SFT data is the core lifeline for building vertical-domain expert Agents.
+
 ## 4. Conclusion: Breaking the "Capability Ceiling"
 
 Trajectory streaming allows Aura's capability to no longer be limited by the pre-training level of the base model. By continuously digesting its own successful experience, Aura can spontaneously grow vertical expertise that exceeds the original model's capability for specific user business scenarios.

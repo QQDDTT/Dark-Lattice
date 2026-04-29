@@ -42,3 +42,25 @@ other = "目次"
 
 [view_bibtex]
 other = "BibTeX を表示"
+
+[research_dimensions]
+other = "研究次元"
+
+[competence_overview]
+other = "テクニカルマトリックス"
+
+[radar_desc]
+other = "コア研究領域とエンジニアリング能力の定量分析。各記事の技術的傾向を視覚的に反映しています。"
+
+[radar_label_agent]
+other = "エージェント論理"
+[radar_label_vision]
+other = "工業用ビジョン"
+[radar_label_frontend]
+other = "フロントエンド芸術"
+[radar_label_stability]
+other = "安定性"
+[radar_label_evolution]
+other = "継続進化"
+[radar_label_knowledge]
+other = "ナレッジグラフ"

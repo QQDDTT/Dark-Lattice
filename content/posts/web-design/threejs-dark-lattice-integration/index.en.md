@@ -91,6 +91,12 @@ function animate() {
 }
 ```
 
+## Academic & Design Insights
+
+- **Design Philosophy**: A webpage should not just be a flat information carrier, but a sensory space with depth (Z-axis). We pursue "breath-like" interactions, letting the 3D model resonate with user behavior in real-time.
+- **Technical Breakthrough**: Through Physically Based Rendering (PBR) and a meticulously tuned one-sided lighting system, we achieved a visual texture comparable to native desktop applications without sacrificing performance.
+- **Inspiration**: For designers and frontend developers, mastering light mapping and animation rhythm is key to breaking through web visual mediocrity.
+
 ## Conclusion
 
 Integrating Three.js into a static website is by no means simply copying and pasting a piece of code. From color space calibration and HDR environment map generation to multi-track matrix animation scheduling, every step requires the engineer to simultaneously possess **"frontend performance thinking"** and **"3D visual aesthetics"**.
