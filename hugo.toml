@@ -1,6 +1,8 @@
 baseURL = 'https://dark-lattice.vercel.app/'
 languageCode = 'zh-cn'
 defaultContentLanguage = 'zh'
+defaultContentLanguageInSubdir = true
+canonifyURLs = true
 title = 'Dark Lattice'
 # theme = 'nightfield' # 使用项目根目录布局，不引用外部主题
 

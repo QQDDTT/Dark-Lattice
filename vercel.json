@@ -2,7 +2,7 @@
   "version": 2,
   "framework": "hugo",
   "cleanUrls": true,
-  "trailingSlash": false,
+  "trailingSlash": true,
   "buildCommand": "hugo --minify --gc",
   "outputDirectory": "public",
   "headers": [
