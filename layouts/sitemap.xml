@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
-  {{ range .Data.Pages }}
+  {{ range .Site.Pages }}
     {{ if and (ne .Kind "404") (not .Params.sitemap_exclude) (ne .Params.sitemap.disable true) }}
     <url>
       <loc>{{ .Permalink }}</loc>
@@ -16,7 +16,7 @@
       {{ end }}
       {{ if .IsHome }}
         <priority>1.0</priority>
-      {{ else if eq .Section "posts" }}
+      {{ else if or (eq .Section "posts") (eq .Section "research") }}
         <priority>0.8</priority>
       {{ else if .Sitemap.Priority }}
         <priority>{{ .Sitemap.Priority }}</priority>
@@ -33,16 +33,17 @@
         {{ end }}
       {{ end }}
       {{/* 图片 Sitemap 支持 */}}
+      {{ $pageTitle := .Title }}
       {{ if .Params.background }}
         <image:image>
           <image:loc>{{ .Params.background | absURL }}</image:loc>
-          <image:title>{{ .Title }}</image:title>
+          <image:title>{{ $pageTitle }}</image:title>
         </image:image>
       {{ end }}
       {{ range .Resources.ByType "image" }}
         <image:image>
           <image:loc>{{ .Permalink }}</image:loc>
-          <image:title>{{ $.Title }}</image:title>
+          <image:title>{{ $pageTitle }}</image:title>
         </image:image>
       {{ end }}
     </url>
