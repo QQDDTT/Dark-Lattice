@@ -51,6 +51,11 @@ title = 'Dark Lattice'
     [markup.goldmark]
         [markup.goldmark.renderer]
             unsafe = true
+        [markup.goldmark.extensions.passthrough]
+            enable = true
+            [markup.goldmark.extensions.passthrough.delimiters]
+                block = [['$$', '$$'], ['\[', '\]']]
+                inline = [['$', '$'], ['\(', '\)']]
     [markup.highlight]
         noClasses = false
         style = "monokai"
