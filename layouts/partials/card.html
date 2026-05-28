@@ -1,6 +1,6 @@
 {{ $item := . }}
 <div class="glass-card standardized-card animate-slide-up">
-    {{ $featured := .Resources.GetMatch "featured*" }}
+    {{ $featured := .Resources.GetMatch "featured*.webp" | default (.Resources.GetMatch "featured*") }}
     {{ with $featured }}
     <div class="card-image">
         <img src="{{ .RelPermalink }}" alt="{{ $item.Title }}" loading="lazy">

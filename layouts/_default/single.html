@@ -1,8 +1,10 @@
 {{ define "main" }}
 <div class="container main-content">
+    <!-- 面包屑导航 -->
+    {{ partial "breadcrumbs.html" . }}
+    
     <div class="doc-layout">
         <article class="doc-content single-page">
-
                 <header class="doc-header gsap-fade-up">
                     <h1 class="doc-title">{{ .Title }}</h1>
                     <div class="doc-meta">
@@ -17,7 +19,8 @@
                     </div>
                 </header>
                 <div class="doc-body post-content gsap-fade-up">
-                    {{ .Content }}
+                    <!-- 使用正则过滤 Markdown 开头渲染出的重复 H1 标题 -->
+                    {{ .Content | replaceRE "(?s)^\\s*<h1.*?>.*?</h1>" "" | safeHTML }}
                 </div>
             </article>
         </div>

@@ -1,0 +1,37 @@
+{{ if not .IsHome }}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    <!-- 首页链接 -->
+    <li class="breadcrumb-item">
+      <a href="{{ .Site.Home.Permalink }}">{{ T "home" | default "首页" }}</a>
+    </li>
+    
+    <!-- 追溯父级节点 -->
+    {{ $scratch := newScratch }}
+    {{ $scratch.Set "parents" slice }}
+    {{ $scratch.Set "current" .Parent }}
+    {{ range seq 10 }}
+      {{ $current := $scratch.Get "current" }}
+      {{ if and $current (not $current.IsHome) }}
+        {{ $scratch.Add "parents" $current }}
+        {{ $scratch.Set "current" $current.Parent }}
+      {{ end }}
+    {{ end }}
+    
+    <!-- 倒序渲染父级节点（从祖先到直接父级） -->
+    {{ $parents := $scratch.Get "parents" }}
+    {{ if $parents }}
+      {{ range collections.Reverse $parents }}
+        <li class="breadcrumb-item">
+          <a href="{{ .Permalink }}">{{ .Title }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+    
+    <!-- 当前页面 -->
+    <li class="breadcrumb-item active" aria-current="page">
+      <span>{{ .Title }}</span>
+    </li>
+  </ol>
+</nav>
+{{ end }}

@@ -26,8 +26,14 @@
 
 <!-- SEO: Hreflang & Multi-language -->
 {{ if .IsTranslated }}
+    {{ $defaultLang := (index hugo.Sites 0).Language.Lang }}
     {{ range .AllTranslations }}
-        <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .RelPermalink }}">
+        <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+    {{ end }}
+    {{ range .AllTranslations }}
+        {{ if eq .Language.Lang $defaultLang }}
+            <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+        {{ end }}
     {{ end }}
 {{ end }}
 

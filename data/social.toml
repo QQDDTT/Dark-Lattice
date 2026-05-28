@@ -1,0 +1,18 @@
+# 个人联系邮箱（如果配置，将作为 mailto 链接渲染）
+email = "hunengwei0414@gmail.com"
+
+# 外部第三方链接列表（若需启用，请取消注释并填写您的具体账号链接）
+# [[links]]
+#     name = "GitHub"
+#     url = "https://github.com/your-username"
+#     aria_label = "GitHub"
+#
+# [[links]]
+#     name = "Twitter"
+#     url = "https://twitter.com/your-username"
+#     aria_label = "Twitter"
+#
+# [[links]]
+#     name = "ORCID"
+#     url = "https://orcid.org/your-orcid-id"
+#     aria_label = "ORCID"

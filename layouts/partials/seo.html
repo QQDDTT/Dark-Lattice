@@ -1,6 +1,10 @@
+<!-- SEO: 计算智能 Description 摘要以兜底 -->
+{{- $description := .Description | default (.Summary | plainify | truncate 160) | default .Site.Params.description -}}
+
 <!-- SEO: Basic Meta -->
 <meta name="google-site-verification" content="{{ site.Params.googleSiteVerification }}">
 <meta name="robots" content="index, follow">
+<meta name="description" content="{{ $description }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Keywords -->
@@ -10,7 +14,7 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="og:description" content="{{ $description }}">
 {{ with .Params.images }}
 <meta property="og:image" content="{{ index . 0 | absURL }}">
 {{ else }}
@@ -21,7 +25,7 @@
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ .Permalink }}">
 <meta property="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
-<meta property="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}">
+<meta property="twitter:description" content="{{ $description }}">
 {{ with .Params.images }}
 <meta property="twitter:image" content="{{ index . 0 | absURL }}">
 {{ else }}
@@ -29,24 +33,58 @@
 {{ end }}
 
 <!-- JSON-LD Structured Data -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "{{ if .IsPage }}Article{{ else }}WebSite{{ end }}",
-  "headline": "{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}",
-  "description": "{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.description }}{{ end }}",
-  "url": "{{ .Permalink }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ .Site.Params.author }}"
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "{{ .Site.Title }}",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "{{ .Site.Params.logo | absURL }}"
-    }
-  }
-}
-</script>
+{{- $ld := dict 
+  "@context" "https://schema.org"
+  "@type" (cond .IsPage "Article" "WebSite")
+  "headline" (default .Site.Title .Title)
+  "description" $description
+  "url" .Permalink
+  "author" (dict "@type" "Person" "name" .Site.Params.author)
+  "publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" (.Site.Params.logo | absURL)))
+-}}
+{{- if .IsPage -}}
+  {{- $img := "images/og-image.png" | absURL -}}
+  {{- if .Params.images -}}
+    {{- $img = index .Params.images 0 | absURL -}}
+  {{- end -}}
+  {{- $ld = merge $ld (dict 
+    "datePublished" (.PublishDate.Format "2006-01-02T15:04:05-07:00")
+    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "image" (slice $img)
+  ) -}}
+{{- end -}}
+<script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
+
+<!-- 面包屑 JSON-LD 结构化数据 -->
+{{ if not .IsHome }}
+    {{ $scratch := newScratch }}
+    {{ $scratch.Set "parents" slice }}
+    {{ $scratch.Set "current" .Parent }}
+    {{ range seq 10 }}
+      {{ $current := $scratch.Get "current" }}
+      {{ if and $current (not $current.IsHome) }}
+        {{ $scratch.Add "parents" $current }}
+        {{ $scratch.Set "current" $current.Parent }}
+      {{ end }}
+    {{ end }}
+    {{ $parents := $scratch.Get "parents" }}
+    
+    {{ $list := slice (dict "@type" "ListItem" "position" 1 "name" (T "home" | default "首页") "item" .Site.Home.Permalink) }}
+    {{ $position := 1 }}
+    {{ if $parents }}
+      {{ range collections.Reverse $parents }}
+        {{ $position = add $position 1 }}
+        {{ $list = $list | append (dict "@type" "ListItem" "position" $position "name" .Title "item" .Permalink) }}
+      {{ end }}
+    {{ end }}
+    {{ $position = add $position 1 }}
+    {{ $list = $list | append (dict "@type" "ListItem" "position" $position "name" .Title "item" .Permalink) }}
+    
+    {{ $breadcrumb := dict 
+      "@context" "https://schema.org" 
+      "@type" "BreadcrumbList" 
+      "itemListElement" $list 
+    }}
+<script type="application/ld+json">{{ $breadcrumb | jsonify | safeJS }}</script>
+{{ end }}
