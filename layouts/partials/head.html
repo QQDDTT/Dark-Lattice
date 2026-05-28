@@ -28,7 +28,7 @@
 {{ if .IsTranslated }}
     {{ $defaultLang := (index hugo.Sites 0).Language.Lang }}
     {{ range .AllTranslations }}
-        <link rel="alternate" hreflang="{{ .Language.Locale }}" href="{{ .Permalink }}">
+        <link rel="alternate" hreflang="{{ .Language.LanguageCode }}" href="{{ .Permalink }}">
     {{ end }}
     {{ range .AllTranslations }}
         {{ if eq .Language.Lang $defaultLang }}

@@ -1,5 +1,5 @@
 baseURL = 'https://dark-lattice.vercel.app/'
-locale = 'zh-cn'
+languageCode = 'zh-cn'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = true
 canonifyURLs = true
@@ -21,8 +21,8 @@ title = 'Dark Lattice'
 
 [languages]
     [languages.zh]
-        locale = 'zh-cn'
-        label = '简体中文'
+        languageCode = 'zh-cn'
+        languageName = '简体中文'
         weight = 1
         contentDir = 'content'
         [languages.zh.params]
@@ -30,8 +30,8 @@ title = 'Dark Lattice'
             keywords = ["AI 研究", "网页工程", "深色模式计划", "Hugo 博客"]
 
     [languages.en]
-        locale = 'en-us'
-        label = 'English'
+        languageCode = 'en-us'
+        languageName = 'English'
         weight = 2
         contentDir = 'content'
         [languages.en.params]
@@ -39,8 +39,8 @@ title = 'Dark Lattice'
             keywords = ["AI Research", "Web Engineering", "Dark Mode Design", "Hugo Blog"]
 
     [languages.ja]
-        locale = 'ja-jp'
-        label = '日本語'
+        languageCode = 'ja-jp'
+        languageName = '日本語'
         weight = 3
         contentDir = 'content'
         [languages.ja.params]
