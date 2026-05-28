@@ -26,6 +26,7 @@ title = 'Dark Lattice'
         weight = 1
         contentDir = 'content'
         [languages.zh.params]
+            label = '简体中文'
             description = "探索深度学习、工业视觉与极致网页设计的交汇点。"
             keywords = ["AI 研究", "网页工程", "深色模式计划", "Hugo 博客"]
 
@@ -35,6 +36,7 @@ title = 'Dark Lattice'
         weight = 2
         contentDir = 'content'
         [languages.en.params]
+            label = 'English'
             description = "Exploring the intersection of Deep Learning, Industrial Vision, and high-end Web Design."
             keywords = ["AI Research", "Web Engineering", "Dark Mode Design", "Hugo Blog"]
 
@@ -44,6 +46,7 @@ title = 'Dark Lattice'
         weight = 3
         contentDir = 'content'
         [languages.ja.params]
+            label = '日本語'
             description = "ディープラーニング、工業用ビジョン、そして最先端ウェブデザインの交差点を探索する。"
             keywords = ["AI 研究", "ウェブエンジニアリング", "ダークモードデザイン", "Hugo ブログ"]
 
