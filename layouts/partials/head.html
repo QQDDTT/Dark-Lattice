@@ -26,7 +26,7 @@
 
 <!-- SEO: Hreflang & Multi-language -->
 {{ if .IsTranslated }}
-    {{ $defaultLang := site.DefaultContentLanguage }}
+    {{ $defaultLang := .Site.DefaultContentLanguage }}
     {{ range .AllTranslations }}
         <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
     {{ end }}
