@@ -44,11 +44,11 @@
             {{ $featured := first 4 (where .Site.RegularPages "Section" "in" (slice "posts" "research")) }}
             
             <!-- ====== 原始的一组卡片 ====== -->
-            {{ range $featured }}
+            {{ range $index, $element := $featured }}
                 <a href="{{ .Permalink }}" class="project-card">
                     {{ $img := .Params.featured_image }}
                     {{ if not $img }}
-                        {{ $img = "https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=600&q=80" }}
+                        {{ $img = index (slice "/images/projects/project_cover_1.png" "/images/projects/project_cover_2.png" "/images/projects/project_cover_3.png") (mod $index 3) }}
                     {{ end }}
                     <div class="project-cover" style="background-image: url('{{ $img | absURL }}'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
@@ -66,11 +66,11 @@
             {{ end }}
 
             <!-- ====== 复制的一组卡片（用于实现无缝衔接动画） ====== -->
-            {{ range $featured }}
+            {{ range $index, $element := $featured }}
                 <a href="{{ .Permalink }}" class="project-card">
                     {{ $img := .Params.featured_image }}
                     {{ if not $img }}
-                        {{ $img = "https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=600&q=80" }}
+                        {{ $img = index (slice "/images/projects/project_cover_1.png" "/images/projects/project_cover_2.png" "/images/projects/project_cover_3.png") (mod $index 3) }}
                     {{ end }}
                     <div class="project-cover" style="background-image: url('{{ $img | absURL }}'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
