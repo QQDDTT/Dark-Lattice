@@ -64,3 +64,33 @@ other = "Stability"
 other = "Evolution"
 [radar_label_knowledge]
 other = "Knowledge"
+
+[home_hero_title]
+other = "Engineering.<br>Research.<br>Aesthetics."
+
+[home_hero_subtitle]
+other = "Exploring the intersection of Deep Learning, Industrial Vision, and Minimalist Web Design. We build robust, logical, and elegant agent systems."
+
+[home_view_projects]
+other = "View Projects"
+
+[home_manifesto_agent]
+other = "Agent Logic"
+
+[home_manifesto_agent_desc]
+other = "Exploring autonomous systems based on state machines and multimodal LLMs. Focusing on logical closures to build architectures capable of continuous learning."
+
+[home_manifesto_vision]
+other = "Vision AI"
+
+[home_manifesto_vision_desc]
+other = "Deep dive into industrial-grade visual inspection. Achieving high-precision defect recognition within microsecond windows through algorithm optimization and edge computing."
+
+[home_manifesto_frontend]
+other = "Frontend UX"
+
+[home_manifesto_frontend_desc]
+other = "Adhering to minimalist design aesthetics. Removing redundancy for purity. Using the cleanest code to build fluid, intuitive, and premium interactive experiences."
+
+[home_featured_projects]
+other = "Featured Projects"

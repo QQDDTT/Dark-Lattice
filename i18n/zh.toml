@@ -64,3 +64,33 @@ other = "工程稳定性"
 other = "持续进化"
 [radar_label_knowledge]
 other = "知识图谱"
+
+[home_hero_title]
+other = "Engineering.<br>Research.<br>Aesthetics."
+
+[home_hero_subtitle]
+other = "探索深度学习、工业视觉与极致网页设计的交汇点。摒弃繁杂，专注于构建具有逻辑性、稳定性与极简美感的智能体系统。"
+
+[home_view_projects]
+other = "View Projects"
+
+[home_manifesto_agent]
+other = "Agent Logic"
+
+[home_manifesto_agent_desc]
+other = "探索基于状态机与多模态大模型的自主演化系统。专注于逻辑闭环，构建能够在复杂环境中持续学习与决策的智能体架构。"
+
+[home_manifesto_vision]
+other = "Vision AI"
+
+[home_manifesto_vision_desc]
+other = "深耕工业级视觉检测。通过算法优化与边缘计算，在微秒级的时间窗口内实现高精度的缺陷识别与分类。"
+
+[home_manifesto_frontend]
+other = "Frontend UX"
+
+[home_manifesto_frontend_desc]
+other = "坚持极简主义的设计美学。去冗余，求纯粹。用最干净的代码构建流畅、直观且具备高级感的交互体验。"
+
+[home_featured_projects]
+other = "Featured Projects"

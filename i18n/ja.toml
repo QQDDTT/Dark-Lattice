@@ -64,3 +64,33 @@ other = "安定性"
 other = "継続進化"
 [radar_label_knowledge]
 other = "ナレッジグラフ"
+
+[home_hero_title]
+other = "Engineering.<br>Research.<br>Aesthetics."
+
+[home_hero_subtitle]
+other = "ディープラーニング、工業用ビジョン、極限のウェブデザインの交差点を探索します。冗長性を排除し、論理的で安定したミニマルな美しさを持つエージェントシステムの構築に注力しています。"
+
+[home_view_projects]
+other = "プロジェクトを見る"
+
+[home_manifesto_agent]
+other = "Agent Logic"
+
+[home_manifesto_agent_desc]
+other = "状態マシンとマルチモーダルLLMに基づく自律進化システムを探索します。論理の閉ループに焦点を当て、複雑な環境で継続的に学習と意思決定ができるエージェントアーキテクチャを構築します。"
+
+[home_manifesto_vision]
+other = "Vision AI"
+
+[home_manifesto_vision_desc]
+other = "産業グレードの視覚検査を深掘りします。アルゴリズムの最適化とエッジコンピューティングにより、マイクロ秒のウィンドウで高精度の欠陥認識と分類を実現します。"
+
+[home_manifesto_frontend]
+other = "Frontend UX"
+
+[home_manifesto_frontend_desc]
+other = "ミニマリストのデザイン美学を堅持します。無駄を省き、純粋さを求めます。最もクリーンなコードを使用して、スムーズで直感的なプレミアムなインタラクティブ体験を構築します。"
+
+[home_featured_projects]
+other = "注目のプロジェクト"
