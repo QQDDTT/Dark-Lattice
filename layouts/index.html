@@ -48,7 +48,7 @@
                 <a href="{{ .Permalink }}" class="project-card">
                     {{ $img := .Params.featured_image }}
                     {{ if not $img }}
-                        {{ $img = index (slice "/images/projects/project_cover_1.png" "/images/projects/project_cover_2.png" "/images/projects/project_cover_3.png") (mod $index 3) }}
+                        {{ $img = index (slice "images/projects/project_cover_1.png" "images/projects/project_cover_2.png" "images/projects/project_cover_3.png") (mod $index 3) }}
                     {{ end }}
                     <div class="project-cover" style="background-image: url('{{ $img | absURL }}'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
@@ -70,7 +70,7 @@
                 <a href="{{ .Permalink }}" class="project-card">
                     {{ $img := .Params.featured_image }}
                     {{ if not $img }}
-                        {{ $img = index (slice "/images/projects/project_cover_1.png" "/images/projects/project_cover_2.png" "/images/projects/project_cover_3.png") (mod $index 3) }}
+                        {{ $img = index (slice "images/projects/project_cover_1.png" "images/projects/project_cover_2.png" "images/projects/project_cover_3.png") (mod $index 3) }}
                     {{ end }}
                     <div class="project-cover" style="background-image: url('{{ $img | absURL }}'); background-size: cover; background-position: center;"></div>
                     <div class="project-info">
