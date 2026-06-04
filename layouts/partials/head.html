@@ -28,10 +28,10 @@
     {{ end }}
 {{ end }}
 
-<!-- Favicon (Embedded as Data URI to bypass strict CSP) -->
-<link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,{{ readFile "static/favicon.ico" | base64Encode }}">
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="{{ "favicon.ico" | absURL }}">
 {{ with .Site.Params.favicon }}
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,{{ readFile (printf "static/%s" .) | base64Encode }}">
+<link rel="icon" type="image/svg+xml" href="{{ . | absURL }}">
 {{ end }}
 
 <!-- GSAP & ScrollTrigger -->
