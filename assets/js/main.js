@@ -16,9 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-            } else {
-                // 离开视口时移除类，实现向下/向上滚动时的双向淡入淡出
-                entry.target.classList.remove('is-visible');
             }
         });
     }, observerOptions);
