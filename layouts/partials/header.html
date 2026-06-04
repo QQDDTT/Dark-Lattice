@@ -4,7 +4,7 @@
     </a>
     <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
         {{ range .Site.Menus.main }}
-            <a href="{{ .URL | absLangURL }}" class="page-link {{ if eq $.Permalink ( .URL | absLangURL ) }}active{{ end }}" {{ if eq $.Permalink ( .URL | absLangURL ) }}style="color: var(--text-main);"{{ end }}>{{ .Name }}</a>
+            <a href="{{ .URL }}" class="page-link {{ if eq $.Permalink .URL }}active{{ end }}" {{ if eq $.Permalink .URL }}style="color: var(--text-main);"{{ end }}>{{ .Name }}</a>
         {{ end }}
         
         <!-- Language Switcher Placeholder -->

@@ -67,43 +67,43 @@ title = 'Dark Lattice'
 
 [[menu.main]]
     name = "首页"
-    url = "/"
+    pageRef = "/"
     weight = 1
 
 [[menu.main]]
     name = "博客"
-    url = "/posts/"
+    pageRef = "/posts"
     weight = 2
 
 [[menu.main]]
     name = "研究"
-    url = "/research/"
+    pageRef = "/research"
     weight = 3
 
 [languages.en.menu]
     [[languages.en.menu.main]]
         name = "Home"
-        url = "/"
+        pageRef = "/"
         weight = 1
     [[languages.en.menu.main]]
         name = "Blog"
-        url = "/posts/"
+        pageRef = "/posts"
         weight = 2
     [[languages.en.menu.main]]
         name = "Research"
-        url = "/research/"
+        pageRef = "/research"
         weight = 3
 
 [languages.ja.menu]
     [[languages.ja.menu.main]]
         name = "ホーム"
-        url = "/"
+        pageRef = "/"
         weight = 1
     [[languages.ja.menu.main]]
         name = "ブログ"
-        url = "/posts/"
+        pageRef = "/posts"
         weight = 2
     [[languages.ja.menu.main]]
         name = "研究"
-        url = "/research/"
+        pageRef = "/research"
         weight = 3
