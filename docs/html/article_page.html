@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article | Dark Lattice</title>
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --text-main: #fafafa;
+            --text-muted: #a1a1aa;
+            --border-color: #27272a;
+            --code-bg: #18181b;
+            --accent: #e4e4e7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 极简导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .navbar h1 { font-size: 1.1rem; font-weight: 600; color: var(--text-main); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-main); }
+
+        /* 文章容器 */
+        .article-container {
+            padding: 8rem 5% 6rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        /* 文章头部 */
+        .article-header {
+            margin-bottom: 4rem;
+        }
+
+        .article-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #71717a;
+            font-family: monospace;
+            margin-bottom: 1.5rem;
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            color: var(--text-main);
+        }
+
+        /* 文章正文排版 */
+        .article-content h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 3rem 0 1.5rem;
+            color: var(--text-main);
+        }
+
+        .article-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .article-content a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-color: #52525b;
+            text-underline-offset: 4px;
+        }
+
+        .article-content blockquote {
+            border-left: 2px solid var(--text-main);
+            padding-left: 1.5rem;
+            margin: 2rem 0;
+            color: #d4d4d8;
+            font-style: italic;
+        }
+
+        .article-content pre {
+            background-color: var(--code-bg);
+            padding: 1.5rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            overflow-x: auto;
+            margin: 2rem 0;
+            font-family: 'Fira Code', monospace;
+            font-size: 0.9rem;
+            color: #e4e4e7;
+        }
+
+        .article-content code {
+            font-family: 'Fira Code', monospace;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        /* 页脚 */
+        .footer {
+            padding: 4rem 8%;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Dark Lattice</h1>
+        <div class="nav-links">
+            <a href="home_page.html">Home</a>
+            <a href="list_page.html" style="color: var(--text-main);">Blog</a>
+        </div>
+    </nav>
+
+    <main class="article-container">
+        
+        <header class="article-header">
+            <div class="article-meta">
+                <span>2024.03.15</span>
+                <span>AGENT LOGIC</span>
+                <span>8 MIN READ</span>
+            </div>
+            <h1 class="article-title">基于状态机的多模态大模型决策系统设计</h1>
+        </header>
+
+        <article class="article-content">
+            <p>在当前大语言模型（LLM）的工程落地中，我们常常面临一个核心矛盾：大模型具有极强的发散性思维与生成能力，但在严苛的工业级决策场景中，我们需要的是绝对的稳定性和可预测性。</p>
+            
+            <p>本文探讨如何通过确定性的状态机（State Machine）来约束大模型，构建一个能够在复杂环境中稳定运行的自主演化智能体（Agent）。</p>
+
+            <h2>1. 混沌与秩序：大模型的黑盒挑战</h2>
+            <p>纯提示词工程（Prompt Engineering）构建的 Agent 往往容易陷入死循环或产生幻觉。当你把复杂的业务流全部交给大模型去推理时，整个系统就变成了一个不可靠的黑盒。</p>
+
+            <blockquote>
+                “不要试图让 LLM 掌握整个控制流，让它做它最擅长的事：特征提取与意图识别。”
+            </blockquote>
+
+            <h2>2. 状态机驱动的架构设计</h2>
+            <p>为了解决上述问题，我们引入了有限状态机（FSM）。在这一架构中，状态流转的规则是硬编码（Hardcoded）且确定的，而 LLM 的作用被严格限制在状态内部的数据处理节点。</p>
+
+            <pre><code>class AgentState(Enum):
+    IDLE = "idle"
+    ANALYZING = "analyzing"
+    EXECUTING = "executing"
+    VALIDATING = "validating"
+
+def transition(current_state, event_context):
+    # 状态流转规则是绝对确定的
+    if current_state == AgentState.IDLE and event_context.has_task:
+        return AgentState.ANALYZING
+    ...</code></pre>
+
+            <p>如上述代码所示，系统从 <code>IDLE</code> 状态进入 <code>ANALYZING</code>，这一步是确定的。当处于 <code>ANALYZING</code> 状态时，我们才调用大模型，传入具体的上下文进行分析。</p>
+
+            <h2>3. 结论与未来展望</h2>
+            <p>这种架构有效地将“发散的智能”关进了“确定的牢笼”里。未来，我们将继续探索在这个框架下加入更多模态的数据输入，使其在保持稳定的同时，具备更强大的感知能力。</p>
+        </article>
+
+    </main>
+
+    <footer class="footer">
+        © 2024 Dark Lattice. All rights reserved.
+    </footer>
+
+</body>
+</html>

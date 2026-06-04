@@ -1,42 +1,67 @@
 @import "variables";
 
-// Blog List Page Specifics
-.blog-hero {
-    height: 45vh;
-    min-height: 350px;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+.page-header {
+    padding: 10rem 8% 4rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1rem;
+    color: $text-primary;
+}
+
+.page-desc {
+    color: $text-secondary;
+    font-size: 1.1rem;
+    max-width: 600px;
+    line-height: 1.8;
+}
+
+/* 列表容器 */
+.list-container {
+    padding: 0 8% 8rem;
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: $spacing-unit * 6;
+    flex-direction: column;
+    gap: 3rem;
+}
 
-    // Bottom gradient fade to match research
-    &::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 150px;
-        background: linear-gradient(to top, $space-black, transparent);
-    }
+.list-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid $border-color;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
 
-    .hero-content {
-        z-index: 2;
-        
-        .page-title {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            margin-bottom: $spacing-unit * 2;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
-        }
+.list-item:hover {
+    opacity: 0.8;
+}
 
-        .page-description {
-            font-size: 1.15rem;
-            color: $text-primary;
-            max-width: 600px;
-            opacity: 0.9;
-        }
-    }
+.item-meta {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: $text-muted;
+    font-family: monospace;
+}
+
+.item-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: $text-primary;
+    letter-spacing: -0.01em;
+}
+
+.item-summary {
+    color: $text-secondary;
+    font-size: 1rem;
+    line-height: 1.7;
 }

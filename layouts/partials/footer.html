@@ -1,5 +1,5 @@
-<footer class="footer container site-footer animate-fade-in">
-    <div class="footer-content">
+<footer class="footer">
+    <div class="footer-content" style="display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; gap: 1rem;">
         <div class="footer-left">
             <p>&copy; {{ now.Format "2006" }} Dark Lattice. {{ T "all_rights_reserved" }}</p>
             {{ if .IsTranslated }}
@@ -13,18 +13,16 @@
             </div>
             {{ end }}
         </div>
-        <div class="footer-center">
-            <p>{{ T "built_with" }} <a href="https://gohugo.io/" target="_blank">Hugo</a> & Nightfield Theme</p>
-        </div>
+
         <div class="footer-right">
-            <div class="social-links">
+            <div class="social-links" style="display: flex; gap: 1.5rem;">
                 {{- $social := readFile "data/social.toml" | transform.Unmarshal -}}
                 {{- if $social -}}
                     {{- range $social.links -}}
-                        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .aria_label }}">{{ .name }}</a>
+                        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .aria_label }}" style="color: var(--text-secondary); text-decoration: none;">{{ .name }}</a>
                     {{- end -}}
                     {{- with $social.email -}}
-                        <a href="mailto:{{ . }}" aria-label="Email">Email</a>
+                        <a href="mailto:{{ . }}" aria-label="Email" style="color: var(--text-secondary); text-decoration: none;">Email</a>
                     {{- end -}}
                 {{- end -}}
             </div>

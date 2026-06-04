@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Dark Lattice</title>
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --text-main: #fafafa;
+            --text-muted: #a1a1aa;
+            --border-color: #27272a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 极简导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+        }
+
+        .navbar h1 { font-size: 1.1rem; font-weight: 600; color: var(--text-main); }
+        .nav-links { display: flex; gap: 2rem; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+        .nav-links a:hover { color: var(--text-main); }
+
+        /* 页面头部 */
+        .page-header {
+            padding: 10rem 8% 4rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .page-desc {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            line-height: 1.8;
+        }
+
+        /* 列表容器 */
+        .list-container {
+            padding: 0 8% 8rem;
+            max-width: 900px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .list-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            padding-bottom: 3rem;
+            border-bottom: 1px solid var(--border-color);
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+
+        .list-item:hover {
+            opacity: 0.8;
+        }
+
+        .item-meta {
+            display: flex;
+            gap: 1.5rem;
+            font-size: 0.85rem;
+            color: #71717a;
+            font-family: monospace;
+        }
+
+        .item-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--text-main);
+            letter-spacing: -0.01em;
+        }
+
+        .item-summary {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        /* 页脚 */
+        .footer {
+            padding: 4rem 8%;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <h1>Dark Lattice</h1>
+        <div class="nav-links">
+            <a href="home_page.html">Home</a>
+            <a href="#" style="color: var(--text-main);">Blog</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <h2 class="page-title">Writings & Research.</h2>
+        <p class="page-desc">
+            关于智能体逻辑、前端架构与计算美学的思考与记录。
+        </p>
+    </header>
+
+    <main class="list-container">
+        
+        <a href="article_page.html" class="list-item">
+            <div class="item-meta">
+                <span>2024.03.15</span>
+                <span>AGENT LOGIC</span>
+            </div>
+            <h3 class="item-title">基于状态机的多模态大模型决策系统设计</h3>
+            <p class="item-summary">
+                探讨如何通过确定性的状态机编排来约束和引导大语言模型的发散性思维，从而构建出能在复杂环境中稳定运行的自主演化智能体架构。
+            </p>
+        </a>
+
+        <a href="article_page.html" class="list-item">
+            <div class="item-meta">
+                <span>2024.02.28</span>
+                <span>FRONTEND UX</span>
+            </div>
+            <h3 class="item-title">回归纯粹：极简暗色系 Web 架构的底层逻辑</h3>
+            <p class="item-summary">
+                为什么在充满花哨 3D 和渐变动效的今天，我们需要回归 Brutalism 与极致的 Typography？从工程视角解析极简主义的性能与体验优势。
+            </p>
+        </a>
+
+        <a href="article_page.html" class="list-item">
+            <div class="item-meta">
+                <span>2024.01.10</span>
+                <span>VISION AI</span>
+            </div>
+            <h3 class="item-title">工业视觉中微秒级缺陷检测的边缘计算优化</h3>
+            <p class="item-summary">
+                解析我们在生产线实际落地的 CV 模型架构，如何在算力受限的边缘设备上实现高精度的缺陷分类与定位。
+            </p>
+        </a>
+
+    </main>
+
+    <footer class="footer">
+        © 2024 Dark Lattice. All rights reserved.
+    </footer>
+
+</body>
+</html>

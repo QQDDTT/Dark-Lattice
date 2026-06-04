@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[姓名] | Dark Lattice</title>
+    <meta name="description" content="AI Research & Web Engineering.">
+    <style>
+        :root {
+            --bg-dark: #09090b;
+            --text-main: #fafafa;
+            --text-muted: #a1a1aa;
+            --border-color: #27272a;
+            --accent: #e4e4e7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            /* 页面切换初始透明 */
+            opacity: 0;
+            transition: opacity 0.6s ease-out;
+        }
+
+        body.page-loaded {
+            opacity: 1;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 8%;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-bottom: 1px solid transparent;
+            z-index: 1000;
+            transition: border-color 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .navbar h1 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-main);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero h2 {
+            font-size: 4rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            background: var(--text-main);
+            color: var(--bg-dark);
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .cta-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* 核心理念/极简介绍区 */
+        .manifesto-section {
+            padding: 6rem 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .manifesto-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .manifesto-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .manifesto-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* 项目区 */
+        .projects-section {
+            padding: 6rem 8%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        /* 项目滚动播放区域 */
+        .projects-wrapper {
+            overflow: hidden;
+            width: 100%;
+            padding: 1rem 0;
+            position: relative;
+        }
+        
+        /* 两端渐变遮罩层 */
+        .projects-wrapper::before,
+        .projects-wrapper::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 150px;
+            z-index: 2;
+            pointer-events: none;
+        }
+        .projects-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-dark), transparent);
+        }
+        .projects-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-dark), transparent);
+        }
+
+        .projects-marquee {
+            display: flex;
+            gap: 3rem;
+            width: max-content;
+            animation: marquee 25s linear infinite;
+        }
+
+        /* 鼠标悬停时暂停滚动 */
+        .projects-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            /* 移动总宽度的50%，外加 gap 的一半以对齐无缝循环 */
+            100% { transform: translateX(calc(-50% - 1.5rem)); }
+        }
+
+        .project-card {
+            width: 380px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-decoration: none;
+        }
+
+        .project-cover {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #18181b;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            transition: border-color 0.3s;
+        }
+
+        .project-card:hover .project-cover {
+            border-color: #3f3f46;
+        }
+
+        .project-info h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+        }
+
+        .project-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .tech-list {
+            display: flex;
+            gap: 0.75rem;
+            font-size: 0.8rem;
+            color: #71717a;
+        }
+
+        /* 页脚 */
+        .footer {
+            padding: 4rem 8%;
+            border-top: 1px solid var(--border-color);
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text-main);
+        }
+
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .nav-links {
+                display: none;
+            }
+            .footer-content {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+        }
+
+        /* 滚动幻灯片动画 */
+        .reveal-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+            will-change: opacity, transform;
+        }
+
+        .reveal-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* 针对不同元素的延迟 */
+        .delay-100 { transition-delay: 0.1s; }
+        .delay-200 { transition-delay: 0.2s; }
+        .delay-300 { transition-delay: 0.3s; }
+    </style>
+</head>
+<!-- 加载时赋予 opacity:1 实现渐入 -->
+<body onload="document.body.classList.add('page-loaded')">
+
+    <!-- 极简导航栏 -->
+    <nav class="navbar" id="navbar">
+        <h1>Dark Lattice</h1>
+        <div class="nav-links">
+            <a href="#about" class="page-link">About</a>
+            <a href="#research" class="page-link">Research</a>
+            <a href="#projects" class="page-link">Projects</a>
+        </div>
+    </nav>
+
+    <!-- Hero 区域 -->
+    <section class="hero" id="about">
+        <h2>Engineering.<br>Research.<br>Aesthetics.</h2>
+        <p>
+            探索深度学习、工业视觉与极致网页设计的交汇点。摒弃繁杂，专注于构建具有逻辑性、稳定性与极简美感的智能体系统。
+        </p>
+        <div>
+            <a href="#projects" class="cta-btn">View Projects</a>
+        </div>
+    </section>
+
+    <!-- 理念/研究区 (替代原雷达图) -->
+    <section class="manifesto-section" id="research">
+        <div class="manifesto-grid">
+            <div class="manifesto-item reveal-on-scroll">
+                <h3>Agent Logic</h3>
+                <p>探索基于状态机与多模态大模型的自主演化系统。专注于逻辑闭环，构建能够在复杂环境中持续学习与决策的智能体架构。</p>
+            </div>
+            <div class="manifesto-item reveal-on-scroll delay-100">
+                <h3>Vision AI</h3>
+                <p>深耕工业级视觉检测。通过算法优化与边缘计算，在微秒级的时间窗口内实现高精度的缺陷识别与分类。</p>
+            </div>
+            <div class="manifesto-item reveal-on-scroll delay-200">
+                <h3>Frontend UX</h3>
+                <p>坚持极简主义的设计美学。去冗余，求纯粹。用最干净的代码构建流畅、直观且具备高级感的交互体验。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 项目卡片区 -->
+    <section class="projects-section reveal-on-scroll" id="projects">
+        <div class="section-header">
+            <h2>Featured Projects</h2>
+        </div>
+        
+        <!-- 水平无缝滚动播放 -->
+        <div class="projects-wrapper">
+            <div class="projects-marquee">
+                
+                <!-- ====== 原始的一组卡片 ====== -->
+                <a href="#" class="project-card">
+                    <div class="project-cover" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Aura Agent Engine</h3>
+                        <p>基于状态机与多模态 LLM 结合的自主决策引擎，赋予应用自主演化能力。</p>
+                        <div class="tech-list">
+                            <span>Agent Logic</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div class="project-cover" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Vision Inspect Pro</h3>
+                        <p>工业级表面缺陷检测系统，结合边缘计算与自适应阈值算法，实现极速响应。</p>
+                        <div class="tech-list">
+                            <span>Vision AI</span>
+                            <span>C++</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div class="project-cover" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Minimalist UI Kit</h3>
+                        <p>一套极简的暗色系前端组件库，抛弃过度的视觉修饰，回归内容与功能的本质。</p>
+                        <div class="tech-list">
+                            <span>Frontend UX</span>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- ====== 复制的一组卡片（用于实现无缝衔接动画） ====== -->
+                <a href="#" class="project-card">
+                    <div class="project-cover" style="background-image: url('https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Aura Agent Engine</h3>
+                        <p>基于状态机与多模态 LLM 结合的自主决策引擎，赋予应用自主演化能力。</p>
+                        <div class="tech-list">
+                            <span>Agent Logic</span>
+                            <span>Python</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div class="project-cover" style="background-image: url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Vision Inspect Pro</h3>
+                        <p>工业级表面缺陷检测系统，结合边缘计算与自适应阈值算法，实现极速响应。</p>
+                        <div class="tech-list">
+                            <span>Vision AI</span>
+                            <span>C++</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div class="project-cover" style="background-image: url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80'); background-size: cover; background-position: center;"></div>
+                    <div class="project-info">
+                        <h3>Minimalist UI Kit</h3>
+                        <p>一套极简的暗色系前端组件库，抛弃过度的视觉修饰，回归内容与功能的本质。</p>
+                        <div class="tech-list">
+                            <span>Frontend UX</span>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="copyright">
+                © 2024 Dark Lattice. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+                <a href="#">ORCID</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 极简导航栏滚动交互
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // 幻灯片动态效果 (Intersection Observer 双向触发)
+        document.addEventListener("DOMContentLoaded", () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '-50px 0px -50px 0px', // 上下收缩50px，使得离开视口时更早触发淡出
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    } else {
+                        // 离开视口时移除类，实现向下/向上滚动时的双向淡入淡出
+                        entry.target.classList.remove('is-visible');
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-on-scroll').forEach((elem) => {
+                observer.observe(elem);
+            });
+
+            // 页面切换时的淡出效果拦截
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    const targetUrl = this.getAttribute('href');
+                    // 仅处理外部或跨页链接的淡出，忽略锚点链接
+                    if (targetUrl && !targetUrl.startsWith('#') && !targetUrl.startsWith('javascript:')) {
+                        e.preventDefault();
+                        document.body.classList.remove('page-loaded');
+                        setTimeout(() => {
+                            window.location.href = targetUrl;
+                        }, 600); // 必须与 body 的 transition 时间一致
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

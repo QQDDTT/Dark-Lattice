@@ -1,216 +1,113 @@
 @import "variables";
 
-// 1. Single Page Layout Variables
-$content-width: 800px;
-$sidebar-width: 300px;
-
-.doc-layout {
-    display: flex;
-    flex-direction: column;
-    gap: $spacing-unit * 6;
-    padding: ($spacing-unit * 12) 0;
-
-    @media (min-width: $breakpoint-desktop) {
-        flex-direction: row;
-        align-items: flex-start; // Ensure sticky works
-    }
-}
-
-// 2. Article Content (Left)
-.doc-content {
-    flex: 1;
-    max-width: $content-width;
-    width: 100%;
+/* 文章容器 */
+.article-container {
+    padding: 8rem 5% 6rem;
+    max-width: 720px;
     margin: 0 auto;
-
-    .doc-header {
-        margin-bottom: $spacing-unit * 8;
-        padding-bottom: $spacing-unit * 4;
-        border-bottom: 1px solid rgba($cyber-blue, 0.2);
-    }
-
-    .doc-title {
-        font-size: clamp(2rem, 4vw, 3rem);
-        line-height: 1.2;
-        margin-bottom: $spacing-unit * 3;
-        color: #fff;
-    }
-
-    .doc-meta {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: $spacing-unit * 3;
-        color: $text-muted;
-        font-size: 0.85rem;
-    }
-
-    .doc-tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: $spacing-unit;
-        
-        .doc-tag {
-            color: $mystic-purple;
-            background: rgba($mystic-purple, 0.1);
-            padding: 2px 8px;
-            border-radius: 4px;
-            white-space: nowrap;
-        }
-    }
 }
 
-// 3. Typography & Markdown (post-content)
-.post-content {
-    h1, h2, h3, h4, h5, h6 {
-        color: #fff;
-        margin-top: 2em;
-        margin-bottom: 1em;
-        line-height: 1.3;
-        font-family: $font-title;
-    }
+/* 文章头部 */
+.article-header {
+    margin-bottom: 4rem;
+}
 
-    h2 { font-size: 1.75rem; border-bottom: 1px solid rgba($cyber-blue, 0.1); padding-bottom: 0.3em; }
-    h3 { font-size: 1.4rem; }
+.article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 0.85rem;
+    color: $text-muted;
+    font-family: monospace;
+    margin-bottom: 1.5rem;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: $text-primary;
+}
+
+/* 文章正文排版 */
+.article-content {
+    h2 {
+        font-size: 1.5rem;
+        font-weight: 600;
+        margin: 3rem 0 1.5rem;
+        color: $text-primary;
+    }
+    
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin: 2.5rem 0 1rem;
+        color: $text-primary;
+    }
 
     p {
+        color: $text-secondary;
+        margin-bottom: 1.5rem;
         font-size: 1.05rem;
         line-height: 1.8;
-        color: $text-primary;
-        margin-bottom: 1.5em;
     }
 
     a {
-        color: $cyber-blue;
+        color: $text-primary;
         text-decoration: underline;
+        text-decoration-color: $text-muted;
         text-underline-offset: 4px;
-        transition: color 0.2s;
-        &:hover { color: lighten($cyber-blue, 15%); }
-    }
-
-    ul, ol {
-        margin-bottom: 1.5em;
-        padding-left: 1.5em;
-        li {
-            line-height: 1.7;
-            margin-bottom: 0.5em;
-            color: $text-primary;
-            &::marker { color: $cyber-blue; }
+        
+        &:hover {
+            color: $cyber-blue;
+            text-decoration-color: $cyber-blue;
         }
     }
 
     blockquote {
-        margin: 2em 0;
-        padding: 1em 1.5em;
-        border-left: 4px solid $mystic-purple;
-        background: rgba($mystic-purple, 0.05);
-        color: $text-secondary;
+        border-left: 2px solid $text-primary;
+        padding-left: 1.5rem;
+        margin: 2rem 0;
+        color: #d4d4d8;
         font-style: italic;
-        border-radius: 0 8px 8px 0;
-        p:last-child { margin-bottom: 0; }
     }
 
-    // Code Blocks Customization
     pre {
-        padding: 1.5em;
-        border-radius: 8px;
-        background: #111b2b !important; // Slightly darker than slate-900
-        border: 1px solid rgba($cyber-blue, 0.15);
+        background-color: #18181b;
+        padding: 1.5rem;
+        border-radius: 6px;
+        border: 1px solid $border-color;
         overflow-x: auto;
-        margin: 2em 0;
-        font-family: $font-code;
+        margin: 2rem 0;
+        font-family: 'Fira Code', monospace;
         font-size: 0.9rem;
-        box-shadow: inset 0 0 20px rgba(0,0,0,0.5);
-
-        code {
-            color: #d1d5db;
-        }
+        color: #e4e4e7;
     }
 
-    // Inline Code
-    code:not(pre > code) {
-        background: rgba($cyber-blue, 0.1);
-        color: lighten($cyber-blue, 10%);
-        padding: 0.2em 0.4em;
+    code {
+        font-family: 'Fira Code', monospace;
+        background: rgba(255, 255, 255, 0.1);
+        padding: 0.2rem 0.4rem;
         border-radius: 4px;
-        font-family: $font-code;
-        font-size: 0.85em;
+        font-size: 0.9em;
+    }
+    
+    ul, ol {
+        margin-bottom: 1.5rem;
+        padding-left: 1.5rem;
+        
+        li {
+            color: $text-secondary;
+            margin-bottom: 0.5rem;
+            line-height: 1.7;
+        }
     }
     
     img {
         max-width: 100%;
         height: auto;
-        border-radius: 8px;
-        margin: 2em 0;
-        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        border-radius: 6px;
+        margin: 2rem 0;
     }
 }
-
-// 4. Sidebar & TOC (Right)
-// 4. Sidebar & TOC (Right)
-.doc-sidebar {
-    display: none; // Hide by default on mobile
-    
-    @media (min-width: $breakpoint-desktop) {
-        display: block;
-        width: $sidebar-width;
-        flex-shrink: 0;
-        position: sticky;
-        top: 100px;
-    }
-
-    .toc-container {
-        padding: $spacing-unit * 4;
-        border-radius: 12px;
-        border: 1px solid rgba($cyber-blue, 0.1);
-        max-height: calc(100vh - 140px);
-        overflow-y: auto;
-
-        &::-webkit-scrollbar { width: 3px; }
-        &::-webkit-scrollbar-track { background: transparent; }
-        &::-webkit-scrollbar-thumb { background: rgba($cyber-blue, 0.2); border-radius: 2px; }
-
-        .toc-title {
-            color: #fff;
-            font-size: 1.1rem;
-            margin-bottom: $spacing-unit * 2;
-            padding-bottom: $spacing-unit;
-            border-bottom: 1px solid rgba($cyber-blue, 0.1);
-        }
-
-        nav {
-            font-size: 0.85rem;
-            line-height: 1.6;
-
-            ul {
-                list-style: none;
-                padding-left: $spacing-unit * 2;
-                margin: 0;
-                > ul { padding-left: 0; }
-            }
-
-            li {
-                margin-top: $spacing-unit;
-                a {
-                    color: $text-secondary;
-                    text-decoration: none;
-                    display: block;
-                    padding: 2px 0;
-                    transition: all 0.2s;
-                    border-left: 2px solid transparent;
-                    padding-left: 8px;
-                    margin-left: -10px;
-
-                    &:hover { color: $cyber-blue; }
-                    &.active {
-                        color: $cyber-blue;
-                        font-weight: 700;
-                        border-left-color: $cyber-blue;
-                        background: linear-gradient(90deg, rgba($cyber-blue, 0.1) 0%, transparent 100%);
-                    }
-                }
-            }
-        }
-    }
-}
-

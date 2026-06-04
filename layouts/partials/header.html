@@ -1,32 +1,21 @@
-<header class="header glass site-header">
-    <div class="container header-container">
-        <a href="{{ .Site.Home.RelPermalink }}" class="logo-link">
-            {{ if .Site.Params.logo }}
-                <img src="{{ .Site.Params.logo | relURL }}" alt="{{ .Site.Title }}" class="site-logo">
-            {{ else }}
-                <span class="logo-text">{{ .Site.Title }}</span>
-            {{ end }}
-        </a>
+<nav class="navbar" id="navbar">
+    <a href="{{ .Site.Home.RelPermalink }}" style="text-decoration: none;">
+        <h1>{{ .Site.Title }}</h1>
+    </a>
+    <div class="nav-links" style="display: flex; align-items: center; gap: 2rem;">
+        {{ range .Site.Menus.main }}
+            <a href="{{ .URL | relLangURL }}" class="page-link {{ if eq $.Permalink .URL }}active{{ end }}" {{ if eq $.Permalink .URL }}style="color: var(--text-main);"{{ end }}>{{ .Name }}</a>
+        {{ end }}
         
-        <nav class="navigation">
-            <ul class="nav-list">
-                {{ range .Site.Menus.main }}
-                    <li class="nav-item">
-                        <a href="{{ .URL | relLangURL }}" class="nav-link">{{ .Name }}</a>
-                    </li>
-                {{ end }}
-            </ul>
-        </nav>
-
-        <div class="header-actions">
-            <!-- Language Switcher Placeholder -->
-            <select class="language-select" onchange="window.location.href=this.value">
-                {{ range .AllTranslations }}
-                    <option value="{{ .RelPermalink }}" {{ if eq .Language $.Language }}selected{{ end }}>
-                        {{ .Language.Params.label }}
-                    </option>
-                {{ end }}
-            </select>
-        </div>
+        <!-- Language Switcher Placeholder -->
+        {{ if .IsTranslated }}
+        <select class="language-select" onchange="window.location.href=this.value" style="margin-left: 1rem;">
+            {{ range .AllTranslations }}
+                <option value="{{ .RelPermalink }}" {{ if eq .Language $.Language }}selected{{ end }}>
+                    {{ .Language.Params.label }}
+                </option>
+            {{ end }}
+        </select>
+        {{ end }}
     </div>
-</header>
+</nav>

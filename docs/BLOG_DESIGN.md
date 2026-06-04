@@ -89,6 +89,16 @@
 - **Open Graph**：为每一篇文章生成动态封面图或引用文章首图。
 - **RSS**：提供全量或摘要式的订阅支持。
 
+## 6. HTML 原型设计
+
+为了方便在 Markdown 预览器（如 Markdown Preview Enhanced）中实时预览极简设计的渲染效果，直接导入对应原型：
+
+### 6.1 列表页原型 (Index Page)
+@import "./html/list_page.html"
+
+### 6.2 文章内容页原型 (Single Article)
+@import "./html/article_page.html"
+
 ---
 
 ## 相关文档
@@ -96,4 +106,4 @@
 - [首页设计文档](./HOME_PAGE_DESIGN.md)
 - [国际化方案设计](./I18N_DESIGN.md)
 
-*更新时间：2026-04-29*
+*更新时间：2026-06-04*

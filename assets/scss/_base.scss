@@ -21,28 +21,33 @@ body {
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    // 全站背景格阵纹理叠加：极低不透明度，保持深色基底
-    background-image: url('../images/background-grid.png');
-    background-repeat: repeat;
-    background-size: 512px 512px;
-    background-blend-mode: overlay;
+    background-color: $space-black;
+    color: $text-primary;
+    
+    // 页面切换初始透明
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+}
+
+body.page-loaded {
+    opacity: 1;
 }
 
 h1, h2, h3, h4, h5, h6 {
     font-family: $font-title;
-    font-weight: 700;
-    color: #fff;
+    font-weight: 600;
+    color: $text-primary;
     line-height: 1.2;
     margin-bottom: $spacing-unit * 2;
 }
 
 a {
-    color: $cyber-blue;
+    color: $text-secondary;
     text-decoration: none;
     transition: color $transition-duration $transition-timing;
 
     &:hover {
-        color: lighten($cyber-blue, 15%);
+        color: $text-primary;
     }
 }
 
@@ -58,65 +63,32 @@ code, pre {
 }
 
 .main-content {
-    padding-top: 100px; // Offset for fixed header
+    padding-top: 100px;
     min-height: calc(100vh - 200px);
 }
 
 // 3. Animations
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+/* 滚动幻灯片动画 */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    will-change: opacity, transform;
 }
 
-@keyframes slideUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.animate-fade-in {
-    animation: fadeIn $transition-duration $transition-timing forwards;
-}
-
-.animate-slide-up {
-    animation: slideUp $transition-duration $transition-timing forwards;
-}
-
-// Shimmer 动画（代码生成，替代 shimmer-noise 图片）
-@keyframes shimmer {
-    0%   { opacity: 0; transform: translateX(-100%) skewX(-15deg); }
-    50%  { opacity: 1; }
-    100% { opacity: 0; transform: translateX(200%) skewX(-15deg); }
-}
+/* 针对不同元素的延迟 */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
 
 // 4. Utility Components
 .glass {
-    background: $glass-bg;
-    backdrop-filter: blur(12px);
+    background: rgba(9, 9, 11, 0.8);
+    backdrop-filter: blur(8px);
     border: 1px solid $border-color;
-    position: relative;
-    overflow: hidden;
-
-    // 磨砂玻璃微光扫描效果（shimmer）
-    &::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 40%;
-        height: 100%;
-        background: linear-gradient(
-            90deg,
-            transparent,
-            rgba(255, 255, 255, 0.04),
-            transparent
-        );
-        animation: shimmer 6s ease-in-out infinite;
-        pointer-events: none;
-    }
 }

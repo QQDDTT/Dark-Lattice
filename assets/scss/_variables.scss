@@ -1,16 +1,16 @@
 // Nightfield Design System Variables
 
-// 1. Colors (Nightfield Palette)
-$space-black: #0F172A; // 背景 (60%)
-$cyber-blue: #3B82F6;  // 主色 (30%)
-$mystic-purple: #8B5CF6; // 辅助 (10%)
+// 1. Colors (Minimalist Palette)
+$space-black: #09090B; // 深邃黑背景
+$cyber-blue: #FAFAFA;  // 主文本色（极高对比度）
+$mystic-purple: #FAFAFA; // 辅助文本色
 
-$text-primary: #E2E8F0;
-$text-secondary: #94A3B8;
-$text-muted: #64748B;
+$text-primary: #FAFAFA;
+$text-secondary: #A1A1AA;
+$text-muted: #71717A;
 
-$border-color: rgba($cyber-blue, 0.2);
-$glass-bg: rgba($space-black, 0.8);
+$border-color: #27272A;
+$glass-bg: rgba(9, 9, 11, 0.8);
 
 // 2. Typography
 $font-title: 'Inter', 'Source Code Pro', sans-serif;

@@ -1,40 +1,38 @@
 {{ define "main" }}
-<div class="container main-content animate-fade-in">
-    <div class="list-header">
-        <h1 class="page-title">{{ .Title }}</h1>
-        {{ with .Content }}
-        <div class="page-description">
-            {{ . }}
-        </div>
-        {{ end }}
-    </div>
+<header class="page-header">
+    <h2 class="page-title">{{ .Title }}</h2>
+    {{ if .Params.description }}
+        <p class="page-desc">{{ .Params.description }}</p>
+    {{ else if eq .Type "posts" }}
+        <p class="page-desc">关于智能体逻辑、前端架构与计算美学的思考与记录。</p>
+    {{ else if eq .Type "research" }}
+        <p class="page-desc">我们在多模态大语言模型与工业视觉领域的探索与实践。</p>
+    {{ end }}
+</header>
 
-    <div class="doc-list">
-        {{ range $index, $element := .Paginator.Pages }}
-            <div class="doc-item" style="--index: {{ $index }};">
-                <article class="doc-item-inner">
-                    <div class="doc-item-meta">
-                        <span class="doc-item-date">{{ .Date.Format "2006-01-02" }}</span>
-                    </div>
-                    <div class="doc-item-main">
-                        <h2 class="doc-item-title">
-                            <a href="{{ .Permalink }}">{{ .Title }}</a>
-                        </h2>
-                        {{ with .Params.tags }}
-                        <div class="doc-item-tags">
-                            {{ range . }}
-                            <span class="doc-item-tag">#{{ . }}</span>
-                            {{ end }}
-                        </div>
-                        {{ end }}
-                    </div>
-                </article>
+<div class="list-container">
+    {{ $paginator := .Paginate .Pages }}
+    {{ range $paginator.Pages }}
+        <a href="{{ .Permalink }}" class="list-item reveal-on-scroll">
+            <div class="item-meta">
+                <span>{{ .Date.Format "2006.01.02" }}</span>
+                {{ if .Params.tags }}
+                    <span>{{ index .Params.tags 0 | upper }}</span>
+                {{ else }}
+                    <span>{{ .Type | upper }}</span>
+                {{ end }}
             </div>
-        {{ end }}
-    </div>
-
-    <div class="pagination-wrapper">
-        {{ partial "pagination.html" . }}
-    </div>
+            <h3 class="item-title">{{ .Title }}</h3>
+            <p class="item-summary">
+                {{ if .Params.summary }}
+                    {{ .Params.summary }}
+                {{ else }}
+                    {{ .Summary | plainify | truncate 120 }}
+                {{ end }}
+            </p>
+        </a>
+    {{ end }}
+    
+    {{ partial "pagination.html" . }}
 </div>
 {{ end }}

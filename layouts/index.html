@@ -1,63 +1,49 @@
 {{ define "main" }}
 <div class="hero-section container">
-    <!-- Bio Segment (Left) -->
-    <div class="hero-bio-segment glass animate-fade-in">
-        <div class="avatar-wrapper">
-            <img src="{{ "images/avatar.png" | relURL }}" alt="Researcher Avatar" class="hero-avatar">
-        </div>
-        <div class="bio-text">
-            <p class="typewriter-text">{{ T "hero_bio" }}</p>
-        </div>
-    </div>
-    
-    <!-- Hero Content Segment (Right) -->
-    <div class="hero-content-segment animate-slide-up">
-        <h1 class="hero-title">{{ T "hero_title" }}</h1>
-        <p class="hero-subtitle">{{ T "hero_subtitle" }}</p>
+    <div class="hero-content-segment animate-slide-up" style="max-width: 800px; margin: 10vh auto; text-align: left; padding: 0 5%;">
+        <h1 class="hero-title" style="font-size: 4rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1.5rem; color: var(--text-main);">
+            Engineering.<br>Research.<br>Aesthetics.
+        </h1>
+        <p class="hero-subtitle" style="color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin-bottom: 2.5rem; line-height: 1.8;">
+            探索深度学习、工业视觉与极致网页设计的交汇点。摒弃繁杂，专注于构建具有逻辑性、稳定性与极简美感的智能体系统。
+        </p>
         
         <div class="hero-cta-group">
-            <a href="/research/" class="btn btn-primary">{{ T "research_cta" }}</a>
-            <a href="/posts/" class="btn btn-secondary">{{ T "blog_cta" }}</a>
+            <a href="/research/" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; background: var(--text-main); color: var(--bg-dark); text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; transition: opacity 0.2s;">View Projects</a>
         </div>
     </div>
-
-    <!-- 3D Scene Container -->
-    <div id="hero-canvas-container" class="animate-fade-in" data-model="{{ "models/star.glb" | relURL }}"></div>
 </div>
 
-<div class="container recent-updates section-spacing">
-    <div class="section-header-group">
-        <h2 class="section-title">{{ T "latest_updates" }}</h2>
-        <a href="/research/" class="view-all-link">{{ T "view_all" | default "VIEW ALL" }} →</a>
+<!-- 核心理念区 (Manifesto Section) -->
+<div class="manifesto-section container section-spacing" style="padding: 6rem 5%; border-top: 1px solid var(--border-color); max-width: 1200px; margin: 0 auto;">
+    <div class="manifesto-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem;">
+        <div class="manifesto-item">
+            <h3 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-main);">Agent Logic</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">探索基于状态机与多模态大模型的自主演化系统。专注于逻辑闭环，构建能够在复杂环境中持续学习与决策的智能体架构。</p>
+        </div>
+        <div class="manifesto-item">
+            <h3 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-main);">Vision AI</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">深耕工业级视觉检测。通过算法优化与边缘计算，在微秒级的时间窗口内实现高精度的缺陷识别与分类。</p>
+        </div>
+        <div class="manifesto-item">
+            <h3 style="font-size: 1.1rem; font-weight: 500; margin-bottom: 1rem; color: var(--text-main);">Frontend UX</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.7;">坚持极简主义的设计美学。去冗余，求纯粹。用最干净的代码构建流畅、直观且具备高级感的交互体验。</p>
+        </div>
+    </div>
+</div>
+
+<!-- 项目区 -->
+<div class="container recent-updates section-spacing" style="padding: 6rem 5%; border-top: 1px solid var(--border-color); max-width: 1200px; margin: 0 auto;">
+    <div class="section-header-group" style="margin-bottom: 4rem;">
+        <h2 class="section-title" style="font-size: 2rem; font-weight: 600; color: var(--text-main);">Featured Projects</h2>
     </div>
     
-    <div class="cards-grid">
+    <div class="cards-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 3rem;">
         {{ range first 3 (where .Site.RegularPages "Section" "in" (slice "posts" "research")) }}
         <div class="grid-item">
             {{ partial "card.html" . }}
         </div>
         {{ end }}
-    </div>
-</div>
-
-<!-- Skill Radar Section -->
-<div class="container section-spacing animate-fade-in">
-    <div class="section-header-group">
-        <h2 class="section-title">{{ T "research_dimensions" | default "RESEARCH DIMENSIONS" }}</h2>
-    </div>
-    <div class="radar-layout glass">
-        <div id="skill-radar-container" 
-             data-label-agent="{{ T "radar_label_agent" }}"
-             data-label-vision="{{ T "radar_label_vision" }}"
-             data-label-frontend="{{ T "radar_label_frontend" }}"
-             data-label-stability="{{ T "radar_label_stability" }}"
-             data-label-evolution="{{ T "radar_label_evolution" }}"
-             data-label-knowledge="{{ T "radar_label_knowledge" }}">
-        </div>
-        <div class="radar-info">
-            <h3 class="info-title">{{ T "competence_overview" | default "Competence Overview" }}</h3>
-            <p class="info-desc">{{ T "radar_desc" | default "Quantitative analysis of core research fields and engineering capabilities." }}</p>
-        </div>
     </div>
 </div>
 {{ end }}

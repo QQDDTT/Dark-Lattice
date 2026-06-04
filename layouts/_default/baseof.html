@@ -3,10 +3,10 @@
 <head>
     {{ partial "head.html" . }}
 </head>
-<body class="animate-fade-in">
+<body onload="document.body.classList.add('page-loaded')">
     {{ partial "header.html" . }}
     
-    <div class="container main-content animate-slide-up">
+    <div class="main-content">
         {{ block "main" . }}{{ end }}
     </div>
 
@@ -15,15 +15,11 @@
 
     {{ $js := resources.Get "js/main.js" }}
     {{ if $js }}
-        {{ $defines := dict "process.env.NODE_ENV" `"production"` }}
         {{ $opts := dict 
             "minify" true 
             "format" "esm" 
             "target" "es2020" 
-            "externals" (slice "three" "three/addons/*") 
-            "defines" $defines
         }}
-        {{/* 强制执行 js.Build 以合并模块，杜绝子文件 404 问题 */}}
         {{ $built := $js | js.Build $opts | fingerprint }}
         <script src="{{ $built.RelPermalink }}" integrity="{{ $built.Data.Integrity }}" type="module"></script>
     {{ end }}
