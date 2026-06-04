@@ -1,8 +1,8 @@
-baseURL = 'https://dark-lattice.vercel.app/'
+baseURL = 'https://qqddtt.github.io/Dark-Lattice/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = true
-canonifyURLs = true
+canonifyURLs = false
 title = 'Dark Lattice'
 # theme = 'nightfield' # 使用项目根目录布局，不引用外部主题
 
