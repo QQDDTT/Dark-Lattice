@@ -1,4 +1,4 @@
-baseURL = 'https://qqddtt.github.io/Dark-Lattice/'
+baseURL = 'https://dark-lattice.vercel.app/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = true
