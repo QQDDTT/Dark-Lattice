@@ -4,7 +4,6 @@
       "staticDistDir": "./public",
       "numberOfRuns": 1,
       "url": [
-        "http://localhost/index.html",
         "http://localhost/zh/index.html",
         "http://localhost/en/index.html"
       ]
