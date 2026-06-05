@@ -15,6 +15,7 @@ description: 获取项目的部署状态和 GSC 的数据，从而制定修改�
 执行此工作流前，需确保：
 1. 可获取 Vercel 状态：通过 Vercel CLI (`vercel ls`) 或通过访问站点进行可用性探活。
 2. 可获取 GSC 数据：用户已将 GSC 数据导出为 CSV 文件并放置于项目目录（例如 `data/seo_exports/`），或已配置 GSC API 凭证。
+3. 运行环境说明：因本地未安装 Hugo，在任何步骤中请勿尝试本地运行构建（如 `hugo build`）。所有运行状态和日志验证均严格依赖 GitHub Actions 及 Vercel。
 
 ## 🔄 执行步骤 (Workflow Steps)
 

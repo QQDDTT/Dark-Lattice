@@ -12,7 +12,7 @@ description: 提交本地修改并推送，依赖 GitHub CLI (gh) 检查最新�
 - 提取并分析部署日志，确保没有构建失败或隐藏的警告。
 
 ## 📋 前提条件 (Prerequisites)
-1. 工作区代码已通过本地测试或验证（如 `hugo build` 成功）。
+1. 工作区代码无需本地构建验证（因本地未安装 Hugo），一切运行和日志检查以 GitHub Actions 或 Vercel 部署状态为准。
 2. 本地已安装 `git`，并配置好对当前仓库的提交权限。
 3. 本地已安装并登录 GitHub CLI (`gh auth status` 验证通过)。
 
