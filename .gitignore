@@ -26,4 +26,4 @@ resources/
 .hugo_build.lock
 .devcontainer/
 
-.agents/
+.agents/*
