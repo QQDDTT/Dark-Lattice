@@ -7,9 +7,9 @@ title = 'Dark Lattice'
 # theme = 'nightfield' # 使用项目根目录布局，不引用外部主题
 
 [sitemap]
-    changefreq = 'weekly'
+    changefreq = 'daily'
     filename = 'sitemap.xml'
-    priority = 0.5
+    priority = 0.8
 
 [params]
     author = "Researcher"

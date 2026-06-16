@@ -3,7 +3,11 @@
 
 <!-- SEO: Basic Meta -->
 <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+<meta name="robots" content="noindex, follow">
+{{ else }}
 <meta name="robots" content="index, follow">
+{{ end }}
 <meta name="description" content="{{ $description }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
