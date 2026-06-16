@@ -3,6 +3,13 @@
   "framework": "hugo",
   "cleanUrls": true,
   "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/zh/",
+      "permanent": true
+    }
+  ],
   "buildCommand": "hugo --minify --gc",
   "outputDirectory": "public",
   "headers": [

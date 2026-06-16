@@ -1,5 +1,5 @@
 <!-- SEO: 计算智能 Description 摘要以兜底 -->
-{{- $description := .Description | default (.Summary | plainify | truncate 160) | default .Site.Params.description -}}
+{{- $description := .Description | default (.Summary | plainify | replaceRE "\n" " " | truncate 160) | default .Site.Params.description -}}
 
 <!-- SEO: Basic Meta -->
 <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
