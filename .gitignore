@@ -27,3 +27,5 @@ resources/
 .devcontainer/
 
 .agents/*
+.bin/
+.lighthouseci/
