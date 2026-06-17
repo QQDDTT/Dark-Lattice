@@ -22,13 +22,14 @@ The breakthrough for AppMatrix lies in **100% embracing the Expo EAS (Expo Appli
 - **Certificate Hosting**: All Apple developer certificates, Provisioning Profiles, and Google Play Keystores are delegated to the EAS cloud armory, saying goodbye to the tediousness of expiring certificates.
 - **Automated Publishing & Hot Updates**: Utilizing EAS Submit and EAS Update, we achieve seamless integration from cloud building to app store submission, and even emergency OTA hotfixes.
 
-## 2. Agent-Assisted Automated Development Pipeline
+## 2. Loop Engineering: Agent-Driven Self-Healing Automated Pipeline
 
-Beyond the cloudification of infrastructure, AppMatrix introduces a powerful **Agent Assistance Mechanism**.
+Beyond the cloudification of infrastructure, AppMatrix has comprehensively upgraded its architecture with **Loop Engineering**, evolving traditional Agent assistance into **unattended, self-healing feedback loops**.
 
-In the underlying `.agents/` directory of the platform, we have defined exclusive agent workflow scripts and rules:
-1. **Automated Assembly**: Using local auxiliary scripts under `scripts/`, Agents can take over routine one-click packaging and submission operations.
-2. **Dehydrated Projects**: Each application (e.g., `MobileFileEditor` and `ReceiptTracker`) exists in the repository in a lightweight, dehydrated state. The Agent dynamically assembles the complete build context based on environment and requirements.
+In the underlying `.agents/` directory of the platform, workflows have been refactored to implement strict, continuous automated cycles:
+1. **Automated Assembly & Dehydrated Projects**: Applications remain in a lightweight "dehydrated" state in the repository. The Agent dynamically assembles the complete build context and strictly validates environmental integrity during the pre-flight phase.
+2. **Multi-layer Code Verification Loops**: In the coding and compilation phases, we introduced a continuous [Code -> Compile/Test -> Feedback -> Fix] TDD loop. Combining static analysis with cloud-based E2E auto-repair, the Agent triggers self-healing logic upon errors until all tests pass.
+3. **Closed-Loop Monitoring & Hotfixes**: Integrated with real-time crash monitoring, the Agent can automatically generate hotfixes upon catching exceptions (like canary test failures) and deploy emergency OTA updates via EAS, minimizing human intervention.
 
 ## 3. Current Ecosystem Overview
 
