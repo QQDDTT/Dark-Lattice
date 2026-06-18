@@ -10,6 +10,6 @@ Our current research spans several key domains:
 - **Technology**：Engineering practices focusing on system architecture, network protocol optimization, and edge computing.
 - **Interaction**：User-centric micro-interactions, motion design, and natural user interface patterns.
 - **Mathematics & AI Models**：Deep dives into machine learning algorithms, unsupervised industrial anomaly detection, and local LLM optimization.
-- **Web Design**：Immersive digital spaces bridging Three.js 3D rendering and typographic art.
+- **System Resonance between Pixels and Architecture**：Exploring the systemic resonance of visual design, aesthetics, visual psychology, and IT engineering planning.
 
 Every piece of research represents our ultimate pursuit of balancing theoretical rigor with practical implementation.
