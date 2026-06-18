@@ -7,9 +7,12 @@
 ├── assets/             # 需经处理的资源 (SCSS, JS Bundling, Images Processing)
 ├── content/            # 内容源文件 (Markdown)
 │   ├── posts/          # 博客文章
+│   │   └── <项目名>/    # 项目目录 (如 aura-project)
+│   │       └── <文章名>/ # 文章目录 (如 wasm-sandbox)
+│   │           └── <内容文件> # 索引文件 index.md 及资源
 │   └── research/       # 研究论文/报告
-│       └── <专题名称>/  # 专题目录 (如 technology)
-│           └── <课题名称>/ # 课题目录 (如 thinking-os)
+│       └── <课题名>/    # 课题目录 (如 interaction)
+│           └── <文章名>/ # 文章目录 (如 gestural-interface)
 │               └── <内容文件> # 索引文件 index.md 及资源
 ├── data/               # 静态数据文件 (YAML, JSON, TOML)
 ├── docs/               # 项目设计文档 (当前所在目录)
@@ -30,14 +33,15 @@
 ## 2. 命名规范与目录深度 (Naming & Hierarchy)
 
 ### 2.1 统一命名规则
-- **专题与课题目录**：必须采用 `kebab-case`（全小写字母，单词间用连字符 `-` 连接）。
-  - 正确示例：`interaction/gestural-interface`
-  - 错误示例：`Interaction/Gestural_Interface`, `1.1-gestures`
+- **目录命名（项目名、课题名、文章名）**：必须采用 `kebab-case`（全小写字母，单词间用连字符 `-` 连接）。
+  - 正确示例：`aura-project/wasm-sandbox`
+  - 错误示例：`Aura_Project/WasmSandbox`
 - **文件命名**：内容索引统一使用 `index.md`（及其语言后缀如 `index.en.md`）。
 
-### 2.2 研究文章结构
-严格遵循三级路径：`content/research/<专题名称>/<课题名称>/<内容文件>`。
-- 每个课题应为一个独立的 Bundle，包含其专属的图片和附件。
+### 2.2 目录深度规范
+- **博客文章**：严格遵循二级路径 `content/posts/<项目名>/<文章名>/<内容文件>`。
+- **研究论文**：严格遵循二级路径 `content/research/<课题名>/<文章名>/<内容文件>`。
+- 每个文章目录应作为一个独立的 Page Bundle，包含其专属的图片和附件资源。
 
 ---
 
@@ -51,7 +55,6 @@
 | **I18N_DESIGN.md** | 国际化与翻译逻辑 |
 | **BLOG_DESIGN.md** | 博客功能与学术支持细节 |
 | **HOME_PAGE_DESIGN.md** | 首页布局与交互设计 |
-| **PHOTO_DESIGN.md** | 个人形象视觉与后期规范 |
 | **LOGO_DESIGN.md** | 品牌 LOGO 理念与应用 |
 | **PROJECT_STRUCTURE.md** | 目录结构与工程规范 (当前文件) |
 
@@ -61,7 +64,6 @@
 
 ### 3.1 图片资源
 - 所有的博客首图存放在 `assets/images/posts/`。
-- 形象照存放在 `static/images/avatar.png`。
 
 ### 3.2 样式 (CSS/SCSS)
 - 全局变量定义在 `assets/scss/_variables.scss`。

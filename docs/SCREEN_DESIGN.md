@@ -26,24 +26,8 @@
 
 ![Blog List UI Mockup](../static/images/design/blog-list-ui-mockup.png)
 
-### 2.2 研究列表 3D 渲染 (Research 3D Rendering)
-
-研究板块采用更加复杂的 3D 动态模板，增强其学术与科技的深度感。
-
-*   **专题清单 (Topic List)**：
-    *   **风格图片**：每个专题（如 Technology, Interaction）配备一张独特风格的 3D 渲染图。
-        *   **Technology**: ![Technology 3D](../static/images/design/research-tech-3d.png)
-        *   **Interaction**: ![Interaction 3D](../static/images/design/research-interaction-3d.png)
-    *   **材质标准**：使用半透明玻璃材质、发光边缘（Emissive Edges）以及符合 Nightfield 主色的粒子背景。
-*   **课题清单 (Project List)**：
-    *   **3D 场景动画**：每个课题条目对应一个微型 3D 交互场景。
-    *   **滚动反馈**：当用户滚动列表时，三维模型产生轴向旋转（Tilt）或进场缩放（Zoom-in）。
-    *   **搜索联动**：
-        *   执行搜索动作时，3D 背景格阵产生扰动（Disturbance）。
-        *   匹配成功的课题项通过高亮光晕（Glow）与平滑的景深（DOF）切换进行强调。
-
-### 2.3 响应式策略
-*   **移动端**：卡片堆叠显示，移去左侧日期装饰，将日期置于标题上方。对于 3D 渲染，在移动端自动切换为低功耗的静态图或简化的 Canvas 粒子效果。
+### 2.2 响应式策略
+*   **移动端**：卡片堆叠显示，移去左侧日期装饰，将日期置于标题上方。
 *   **间距**：列表项之间保持 `32px` 的呼吸感间距。
 
 ## 3. 动效系统 (Animation System)
@@ -73,8 +57,6 @@
 | 素材名称 | 路径 | 描述 |
 | :--- | :--- | :--- |
 | Blog List UI | `../static/images/design/blog-list-ui-mockup.png` | 列表页 UI 原型 |
-| Tech 3D | `../static/images/design/research-tech-3d.png` | 技术专题 3D 背景 |
-| Interaction 3D | `../static/images/design/research-interaction-3d.png` | 交互专题 3D 背景 |
 
 ## 6. 无障碍设计 (Accessibility)
 

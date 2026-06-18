@@ -1,0 +1,35 @@
+{
+  "description": "This file maps local blog projects and research topics to their external resource paths to guide agents workflow.",
+  "projects": {
+    "aura-project": {
+      "external_path": "/home/nick/workspaces/Aura/docs",
+      "description": "Aura 智能体系统项目"
+    },
+    "appmatrix-project": {
+      "external_path": "/home/nick/workspaces/AppMatrix/docs",
+      "description": "AppMatrix 应用矩阵项目"
+    },
+    "industrial-vision": {
+      "external_path": "/home/nick/文档/01_开发项目/camera",
+      "description": "工业视觉相关文章"
+    }
+  },
+  "research_topics": {
+    "technology": {
+      "external_path": "/home/nick/文档/02_课题研究",
+      "description": "技术性研究课题"
+    },
+    "interaction": {
+      "external_path": "/home/nick/文档/02_课题研究",
+      "description": "交互与用户体验研究课题"
+    },
+    "mathematics-model": {
+      "external_path": "/home/nick/文档/02_课题研究",
+      "description": "数学模型与 AI 算法研究课题"
+    },
+    "web-design": {
+      "external_path": "/home/nick/文档/02_课题研究",
+      "description": "网页设计与 UX 相关文章"
+    }
+  }
+}

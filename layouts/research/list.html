@@ -11,7 +11,23 @@
 </header>
 
 <div class="list-container">
-    {{ $paginator := .Paginate .Pages }}
+    {{ if .Sections }}
+    <!-- 二级清单模式：展示课题分类列表 -->
+    {{ range .Sections }}
+        <a href="{{ .Permalink }}" class="list-item reveal-on-scroll" style="margin-bottom: 2rem; border-left: 3px solid var(--accent, #3B82F6); padding-left: 1.5rem;">
+            <div class="item-meta">
+                <span>RESEARCH TOPIC</span>
+                <span>{{ len .RegularPages }} ARTICLES</span>
+            </div>
+            <h3 class="item-title" style="color: var(--accent, #3B82F6);">{{ .Title }}</h3>
+            <p class="item-summary">
+                {{ .Description | default .Summary | plainify | truncate 150 }}
+            </p>
+        </a>
+    {{ end }}
+    {{ else }}
+    <!-- 二级清单模式：展示当前课题下的文章列表 -->
+    {{ $paginator := .Paginate .RegularPages }}
     {{ range $paginator.Pages }}
         <a href="{{ .Permalink }}" class="list-item reveal-on-scroll">
             <div class="item-meta">
@@ -32,7 +48,7 @@
             </p>
         </a>
     {{ end }}
-    
     {{ partial "pagination.html" . }}
+    {{ end }}
 </div>
 {{ end }}
