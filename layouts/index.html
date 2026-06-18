@@ -57,8 +57,10 @@
                             {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 80 }}{{ end }}
                         </p>
                         <div class="tech-list">
-                            {{ range first 2 .Params.tags }}
-                                <span>{{ . | upper }}</span>
+                            {{ with .Params.tags }}
+                                {{ range first 2 . }}
+                                    <span>{{ . | upper }}</span>
+                                {{ end }}
                             {{ end }}
                         </div>
                     </div>
@@ -79,8 +81,10 @@
                             {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 80 }}{{ end }}
                         </p>
                         <div class="tech-list">
-                            {{ range first 2 .Params.tags }}
-                                <span>{{ . | upper }}</span>
+                            {{ with .Params.tags }}
+                                {{ range first 2 . }}
+                                    <span>{{ . | upper }}</span>
+                                {{ end }}
                             {{ end }}
                         </div>
                     </div>
