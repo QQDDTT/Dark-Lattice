@@ -1,76 +1,74 @@
 ---
-title: "Chapter 2 Theoretical Foundations of the Four Fields"
+title: "Chapter 2 Foundational Foundations of the Four Major Fields"
 date: 2026-06-19T00:00:00+09:00
-description: "Systematically reviewing the foundational theories of philosophical aesthetics, Gestalt psychology, compositional design, and software engineering."
+description: "A systematic review of foundational theories in philosophical aesthetics, Gestalt psychology, compositional design, and IT software engineering."
 draft: false
 ---
 
-> **[English translation is under preparation. The Chinese version is displayed below for reference.]**
+To construct an interdisciplinary relational model, we must first consolidate the underlying theoretical foundations of each field. **Aesthetics, visual psychology, visual design, and IT engineering planning** each have unique developmental histories and core conceptual systems.
 
-要构建跨学科的关联体系，首先必须夯实各个领域的底层理论地基。**美学、视觉心理学、画面设计与IT工程规划**，每一个领域都有其独特的发展脉络和核心概念体系。
+## 2.1 Aesthetics: From Sensible Experience to the Elevation of Life Realm
+Aesthetics, as a branch of philosophy exploring sensible cognition and aesthetic spirit, is by no means merely about superficial "decoration" of objects, but touches upon the core issues of human existential experience.
 
-## 2.1 美学：从感性经验到人生境界的提升
-美学 (Aesthetics) 作为一门探讨感性认识与审美精神的哲学分支，绝非单纯关乎事物的表层“装饰”，而是触及人类生存体验的核心课题。
+### 2.1.1 The Sensible Manifestation of the Idea: Hegel's Rational Framework of Art Philosophy
+In Western classical aesthetics, the German philosopher Hegel, standing on classical idealism and dialectics, aimed to "understand art from a scientific perspective" in his landmark work *Lectures on Aesthetics*. Hegel proposed the core thesis of aesthetics—**"beauty is the sensible manifestation of the idea."**
+*   **Carrying the Absolute "Idea"**: Hegel believed that the essence of art is never the simple decoration of subjective feelings, but the self-manifestation of the infinite, absolute rational idea in concrete, material, and sensible forms.
+*   **Logical Evolution of History and Spirit**: Hegel systematically examined artistic forms such as architecture, sculpture, painting, music, drama, and poetry. Based on the degree of integration between the idea and the sensible form, he divided the historical development of art into three types: **symbolic art, classical art, and romantic art**. This classification not only clarifies the internal structure of the artistic ideal, but also provides a spiritual sublimation channel for humans to transition from sensibility to rationality, standing between religion and philosophy.
 
-### 2.1.1 理念的感性显现：黑格尔艺术哲学的理性框架
-在西方古典美学中，德意志哲学家黑格尔立足于古典唯心主义和辩证法，其划时代巨著《美学》旨在“从科学的角度来理解艺术”。黑格尔提出了美学的核心命题——**“美是理念的感性显现”**。
-*   **绝对“理念”的承载**：黑格尔认为，艺术的本质绝不只是主观感觉的简单装饰，而是无限、绝对的理性理念在感性具体物质形式中的自我显现。
-*   **历史与精神的逻辑演进**：黑格尔系统考察了建筑、雕刻、绘画、音乐、戏剧和诗歌等艺术形式，并依据理念与感性形式的契合度，将艺术历史的发展逻辑划分为三种类型：**象征型艺术、古典型艺术和浪漫型艺术**。这一分类不仅阐明了艺术理想的内在结构，也为人类提供了一种从感性向理性过渡、介于宗教与哲学之间的精神升华通道。
+### 2.1.2 Imagery and Experience: Sublimation of Life under the Chinese Cultural Context
+Professor Ye Lang of Peking University, inheriting the traditions of aesthetic masters such as Cai Yuanpei, Zhu Guangqian, and Zong Baihua, constructed a theoretical system of aesthetic principles centered on **"imagery (Xiang)"** and **"experience (Ti-yan)"**.
+*   **Gestalt of Imagery**: Chinese traditional aesthetics holds that beauty does not lie in isolated physical entities, but in "imagery" generated instantaneously through the fusion of subject and object. The soul of traditional Chinese art lies in constructing an "artistic realm (Yijing)" through unique techniques of combining reality and virtuality (void and solid).
+*   **Elevation of Life Realm**: Ye Lang's *Principles of Aesthetics* ultimately defines the goal of aesthetics as **"elevating the realm of human life."** The value of aesthetic research is not to teach rigid dogmas, but to awaken individual aesthetic experiences, merging the essence of Chinese and Western aesthetics to help modern people find the spiritual home in a chaotic material world, thereby elevating the quality of life.
 
-### 2.1.2 意象与体验：中国文化脉络下的生命升华
-北京大学教授叶朗在继承蔡元培、朱光潜、宗白华等美学大师的传统基础上，建构了以**“意象”**和**“体验”**为核心的美学原理体系。
-*   **意象完形**：中国传统美学认为，美不在于孤立的物理实体，而在于主客体交融、瞬间生成的“意象”。中国传统艺术的精魂在于通过独特的虚实手法构筑“艺术境界”。
-*   **人生境界的提升**：叶朗《美学原理》最终将美学的归宿定义为**“提升人生境界”**。美学研究的价值不是教授死板的教条，而是通过唤醒个体的审美体验，融会中西美学精华，帮助现代人在纷繁物质世界中寻找到心灵的故乡，从而让生命品质得以跃升。
+### 2.1.3 Aesthetic Relations and Life Practice: Construction of Zhu Liyuan's Aesthetic System
+Professor Zhu Liyuan of Fudan University, in the textbook *Aesthetics* edited by him, committed to building the aesthetic edifice on the theory of aesthetic relations, which is **based on practice theory and centered on creation theory**.
+*   **Beauty as a Fundamental Life Practice**: Zhu Liyuan advocates that aesthetic activity is not a fantasy detached from social life, but an indispensable life practice that runs through the entire process of human transformation of the world and self-confirmation.
+*   **Aesthetic Education and Personality Shaping**: This aesthetic framework emphasizes that beauty in a broad sense is a special realm of life, which must internalize aesthetic forms, experiences, and artistic aesthetics through aesthetic education (Meiyu), thereby shaping a well-rounded, healthy psychological personality and national spirit.
 
-### 2.1.3 审美关系与人生实践：朱立元美学体系的建构
-复旦大学朱立元教授在主编的《美学》教材中，则致力于在以**实践论为哲学基础、以创造论为核心**的审美关系理论上建构美学大厦。
-*   **美是一种基本的人生实践**：朱立元主张，审美活动不是游离于社会生活之外的玄想，它本身就是一种必不可少的人生实践，贯穿于人类改造世界和自我确证的全部过程。
-*   **审美教育与人格塑造**：该美学框架强调，广义的美是一种特殊的人生境界，必须通过审美教育（美育）将审美形态、审美经验和艺术美学内化，进而塑造人类完满、健康的心理人格与民族精神。
+## 2.2 Visual Psychology: Gestalt School's Perceptual Dynamic System
+As an important cornerstone of modern cognitive psychology, **Gestalt psychology** (also known as psychology of form), which originated in Germany, provides the core key to decoding the human perceptual world.
 
-## 2.2 视觉心理学：格式塔学派的知觉动力系统
-作为现代认知心理学的重要基石，诞生于德国的**格式塔 (Gestalt) 心理学**（又称完形心理学）提供了解码人类知觉世界的核心秘钥。
+### 2.2.1 Holistic Cognitive Principles: The Gestalt Tendency of the Eye-Brain System
+The core proposition of Gestalt psychology is: **"Experience and behavior are holistic; the whole is not equal to, and is greater than, the sum of its parts."**
+*   **Perceptual Dynamic Reorganization**: When observing objects, the human eye and brain never mechanically identify isolated pixels, lines, or color blocks. Instead, they spontaneously and instantaneously combine local information to make it a unified, easy-to-understand whole (Gestalt).
+*   **Transcending Physical Stimuli**: This perceptual tendency is an innate neurological inertia acquired by humans during evolution. It not only explains various "optical illusions" and "apparent motion phenomena" that we take for granted, but also elevates psychological research to the rational height of the experiential structure of the universe.
 
-### 2.2.1 整体性的认知原则：眼脑系统的完形倾向
-格式塔心理学的核心命题是：**“经验和行为具有整体性，整体不等于、并且大于部分之和”**。
-*   **知觉的动力重组**：人在观察物体时，眼睛与大脑绝对不是机械地去识别一个个孤立的像素点、线条或色彩块，而是会自发地、瞬间将这些局部信息组合起来，使之成为一个易于理解的统一整体（完形）。
-*   **超越物理刺激**：这种知觉倾向是人类在进化过程中天生具备的神经惯性。它不仅解释了我们习以为常的各种“视错觉”和“似动现象”，更将心理学研究提升到了关乎宇宙经验结构的理性高度。
+### 2.2.2 The Seven Core Organization Laws of Gestalt Visual Perception
+The tendency of the human brain to automatically group elements, infer contours, and filter chaotic information is summarized into the **seven core principles of Gestalt**:
+1.  **Proximity**: The brain automatically perceives visual elements close to each other in space or time as part of the same related group. Adjusting spacing (such as line height or group margins) helps achieve natural classification of information and creates a clear visual hierarchy.
+2.  **Similarity**: The human visual system automatically groups elements with highly similar shapes, colors, sizes, or textures into a single category. Using the same color or shape implies specific functional associations, such as the visual consistency of buttons at the same level in a navigation bar.
+3.  **Continuity**: When scanning a screen, the eye's visual flow tends to follow a smooth, continuous path rather than breaking or turning sharply. Effective alignment in design reduces eye fatigue by keeping the visual flow continuous.
+4.  **Closure**: Even if a physical shape has gaps or open boundaries, the brain automatically fills in the blanks based on visual inertia, perceiving it as a closed, complete shape.
+5.  **Symmetry & Simplicity**: When observing things, our first impression tends toward simple and symmetric shapes, which effectively reduces cognitive reading load.
+6.  **Figure-Ground**: When small shapes overlap larger shapes, our vision tends to perceive the small shape as the "figure" and the large color block as the "ground," reflecting the symbiotic relationship between shapes.
+7.  **Common Fate**: Objects moving together are perceived as belonging to the same group or being related to one another. An example is the motion effect where application icons shake simultaneously when preparing to delete apps on an iPhone.
 
-### 2.2.2 格式塔视觉感知的七大核心组织率
-将人类大脑自动分组、脑补轮廓并过滤繁杂信息的倾向总结为**格式塔七大视觉原则**：
-1.  **接近性原则 (Proximity)**：大脑倾向于将空间或时间上距离较近的视觉元素自动视为同一个关联分组。通过微调间距（如行距、组距）实现信息的自然分类，创造清晰的视觉层次。
-2.  **相似性原则 (Similarity)**：人类视觉系统会自动将形状、颜色、大小或材质等特征高度相似的元素归为一类。利用相同色彩或形状暗示特定功能的关联，例如导航栏上同一层级按钮的视觉一致性。
-3.  **连续性原则 (Continuity)**：人眼在扫视画面时，视觉流更倾向于沿着一条平滑、连续的路径运动，而不是中断或急折。在设计中有效的对齐可以减弱用户的视觉疲劳感，不打破视觉的连续性。
-4.  **闭合性原则 (Closure)**：即使真实的物理图形存在残缺或开口，大脑也会自动根据视觉惯性将空白填满，感知为一个封闭的完整形状。
-5.  **简单对称性原则 (Symmetry)**：在观察事物过程中，我们第一印象更倾向于简单而且对称的图形，有效减轻了阅读压力。
-6.  **主体与背景原则 (Figure-Ground)**：当小图形重叠大图形之上，我们的视觉会倾向于将小图形归为主体，大色块为背景，体现了图形之间的共生关系。
-7.  **共同命运原则 (Common Fate)**：一起运动的物体会被感知为属于同一组或是彼此相关。例如 iPhone 中删除应用时，所有图标同步产生轻微颤动的操作动效。
+## 2.3 Visual Design: Quantitative Training and Formal Rules of Design Foundations
+In the field of visual communication and plastic arts, "design foundations" is the common origin of all design disciplines, including planar composition, color composition, and three-dimensional composition.
 
-## 2.3 画面设计：设计构成的量化训练与形式法则
-在视觉传达与造型艺术领域，“设计构成”是所有设计门类的共同发源地，包括平面构成、色彩构成、立体构成。
+### 2.3.1 Core Training Domains of the Three Major Foundations
+*   **Planar Composition**: Explores how to organize basic elements into a visually beautiful order on a two-dimensional space through rational grid and skeletal control. It includes the exploration of nine major composition methods, such as repetition, similarity, gradation, radiation, anomaly, contrast, density, space, and texture.
+*   **Color Composition**: Based on basic color principles, it studies color contrast, color harmony, and color mixing rules, and further explores the application of **"visual psychology of color"** in emotional communication and information setting.
+*   **Three-dimensional Composition**: Transcending two dimensions, it deeply studies the rules of material materials (such as blocks, sheets, and wires) and space creation, exploring the physical sense of gravity of modeling elements and three-dimensional aesthetic rules.
 
-### 2.3.1 三大构成的核心训练范畴
-*   **平面构成**：探讨在二维空间中，如何通过理性的骨骼、网格控制，将基础元素编排为富有形式美感的视觉秩序。它包括对重复、近似、渐变、发射、特异、对比、密集、空间及肌理构成等九大构成法的探索。
-*   **色彩构成**：基于色彩基本原理，研究色彩的对比、色彩调和以及色彩混合规律，进而探究**“色彩的视觉心理”**在情感传达和信息烘托中的应用。
-*   **立体构成**：超越二维，深入研究块体、面材、线材等物质材料与空间创造的规律，探究造型要素的物理重力感和立体美学法则。
+### 2.3.2 Syntactic Core of Planar Composition: Points, Lines, Planes, and Grid/Skeletons
+1.  **Point**: The most basic composition unit in vision. It not only guides position on the screen, but also generates strong visual tension and gravity through clustering and density changes.
+2.  **Line**: The trajectory of a moving point. It emphasizes the **"stylistic feeling of lines"**—the tranquility of horizontal lines, the sublime loftiness of vertical lines, the dynamic imbalance of diagonal lines, and the elegant flow of curved lines are formal carriers of emotional appeal.
+3.  **Plane**: The trajectory of a moving line or the closure of lines. It controls the distribution of color blocks, shape boundaries, and the contrast of virtual and real space on the screen.
+4.  **Grid/Skeleton in Grid**: The controlling frame of planar composition. It constrains the coordinates, angles, and scaling of all basic elements, allowing the design to maintain its underlying order amidst complexity.
 
-### 2.3.2 平面构成的语法核心：点、线、面与骨骼网格
-1.  **点 (Point)**：是视觉中最基础的构成单位。它在画面中不仅承担位置指引，更在聚集、疏密变化中产生强大的视觉张力和引力。
-2.  **线 (Line)**：点移动的轨迹。强调**“线的风格感受”**——水平线的宁静、垂直线的崇高挺拔、斜线的动态不平衡，以及曲线的优雅流转，是情感诉求的形式载体。
-3.  **面 (Plane)**：线移动的轨迹或面的闭合。它控制着画面中的色块分布、形体边界与虚实空间对比。
-4.  **骨骼中的骨骼 (骨骼网络)**：平面构成的控制骨架。约束着所有基本形 (Elements) 的坐标、角度与缩放，使设计在纷繁复杂中始终维持底层秩序。
+## 2.4 IT Engineering Planning: Software Development Life Cycle and Computational Thinking
+Shifting our gaze back to rational computer science. In IT planning and the construction of large and medium-sized software systems, the underlying theories similarly emphasize strict phase control and abstract encapsulation.
 
-## 2.4 IT工程规划：软件生存周期与计算思维
-将视线转回理性的计算科学。在 IT 规划与大中型软件系统构建中，底层理论同样强调严密的阶段控制与抽象封装。
+### 2.4.1 Symbolization and Automation Evolution of Computational Thinking
+*   **Symbolization and Automation**: The starting point of computational thinking is to reconstruct complex real-world business scenarios into "symbolized, calculated, and automated" models, converting the complex meanings of the physical world into machine instructions and data structures of Von Neumann computers.
+*   **Five Pillars of Program Thought**: Namely, **"combination, abstraction, repetition, construction, and recursion."** Software engineers combine and construct basic code in logic, hide underlying details that do not need attention through abstraction, and pipeline complex operations through repetition and recursion.
+*   **Hierarchical Architecture Construction**: In physical system construction, IT planning follows step-by-step encapsulation from **"algorithms, programs" to "functions, objects, components, and services."**
 
-### 2.4.1 计算思维的符号化与自动化演进
-*   **符号化与自动化**：计算思维的起点在于将错杂的现实业务场景进行“符号化、计算化与自动化”重构，将现实世界的微言大义收敛进冯·诺依曼计算机的机器指令与数据结构中。
-*   **程序思想的五大支柱**：即**“组合、抽象、重复、构造、递归”**。软件工程师正是通过在逻辑上对基础代码进行“组合”与“构造”，并利用“抽象”隐去不需要关心的底层细节，通过“重复”与“递归”完成复杂运算的流水线化。
-*   **层级架构构造**：在系统物理构造上，IT 规划遵循着从**“算法、程序”到“函数、对象、组件、服务”**的逐级封装。
-
-### 2.4.2 软件生存周期 (SDLC) 的严密工程规划
-1.  **问题调研、定义与可行性分析**：IT工程规划的第一步是确定“要解决的问题是什么”。通过对业务背景的调研，绘制出**系统流程图**，并进行精细的**成本/效益分析**。
-2.  **需求分析 (Requirements Analysis)**：利用**用例图**和数据流图 (DFD)，精确界定系统的逻辑边界，从宏观上回答“系统必须做什么”。
-3.  **系统设计（总体设计与详细设计）**：
-    *   **结构化设计方法**：以“模块独立性”为核心（强调高内聚、低耦合），规划出高内聚的软件结构图。
-    *   **面向对象设计方法 (OOD)**：建立类图、状态图，规划对象的行为、职责及相互间的通信逻辑。
-4.  **工程管理与过程控制**：在生命周期演进中，通过制定开发计划、实施敏捷/单体等过程生存周期模型、执行规范化测试（白盒、黑盒、面向对象测试）、调试与项目版本维护，确保 IT 系统在高速演进中不崩溃、不失控。
+### 2.4.2 Rigorous Engineering Planning of the Software Development Life Cycle (SDLC)
+1.  **Problem Investigation, Definition, and Feasibility Analysis**: The first step of IT engineering planning is to define "what problem to solve." Through researching the business background, system flowcharts are drawn, and detailed cost/benefit analyses are performed.
+2.  **Requirements Analysis**: Utilizing **use case diagrams** and data flow diagrams (DFD), it precisely defines the logical boundaries of the system, answering the macro question of "what the system must do."
+3.  **System Design (System Design & Detailed Design)**:
+    *   **Structured Design Method**: Centered on "module independence" (emphasizing high cohesion and low coupling), it plans highly cohesive software structure charts.
+    *   **Object-Oriented Design Method (OOD)**: Establishes class diagrams and state diagrams to plan object behaviors, responsibilities, and communication logic.
+4.  **Engineering Management and Process Control**: Throughout the life cycle, by formulating development plans, implementing process models (such as agile or waterfall), performing standardized testing (white-box, black-box, object-oriented testing), debugging, and project version maintenance, it ensures that the IT system does not collapse or lose control during rapid evolution.

@@ -6,55 +6,53 @@ date: 2026-06-19
 draft: false
 ---
 
-> **[English translation is under preparation. The Chinese version is displayed below for reference.]**
-
-本课题是一项跨学科的系统性研究，致力于打破学科壁垒，探索**哲学美学、格式塔视觉心理学、三大设计构成与 IT 软件工程规划**在最底层的逻辑同构与系统共鸣。
+This project is an interdisciplinary systematic study dedicated to breaking down disciplinary barriers and exploring the underlying logical isomorphism and system resonance among **philosophical aesthetics, Gestalt visual psychology, the three major design foundations, and IT software engineering planning**.
 
 ---
 
-## 核心研究主线
+## Core Research Thrusts
 
-本课题围绕以下两条核心纽带展开研究：
+The study is built around two core logical connections:
 
-1.  **“整体大于部分之和”的完形同构机制**：
-    - **视觉心理**：眼脑系统的“完形”重构与闭合/连续倾向。
-    - **画面设计**：点线面与骨骼网格的形式秩序。
-    - **哲学美学**：感性超越与主客体生成的“意象完形”。
-    - **IT工程规划**：基于高内聚、低耦合原则组合而成的“系统级涌现能力”。
-2.  **“形式服从功能，技术交融艺术”的信息控制论**：
-    - **认知降负**：利用接近性、相似性、主体背景等格式塔律简化视觉层级，降低大脑负荷。
-    - **逻辑控制**：使用用例图、数据流图和层级服务架构建立逻辑世界的精密秩序与拓扑美感。
-    - **多感官心流**：将冷酷的技术逻辑温柔地转化为顺应人类生理本能的无摩擦审美体验。
-
----
-
-## 理论研究目录 (Theoretical Study)
-
-所有的基础理论和跨学科映射图谱已统一归档于 `理论/` 文件夹中。您可以点击以下链接查看具体内容：
-
-- [第一章 导论：系统、信息与审美的跨界交融]({{< ref "01-introduction" >}})  
-  _课题背景、必要性、核心研究对象界定以及两条底层逻辑纽带的阐述。_
-- [第二章 四大领域的底层理论基石]({{< ref "02-foundations" >}})  
-  _系统梳理美学哲学（黑格尔/叶朗/朱立元）、格式塔心理学七大原则、三大设计构成要义与软件生命周期（SDLC）/计算思维。_
-- [第三章 “整体大于部分之和”的跨界同构机制]({{< ref "03-gestalt-isomorphism" >}})  
-  _深入解析意象完形、形式骨骼与高内聚系统架构在“整体论”维度的完美同构。_
-- [第四章 “形式服从功能，技术交融艺术”的信息控制论]({{< ref "04-information-cybernetics" >}})  
-  _详尽剖析认知降负（格式塔应用）与 IT 工程系统规划中架构的精密逻辑美。_
-- [第五章 跨领域应用实战：面向体验的IT系统UI/UX开发生命周期导则]({{< ref "05-application-guide" >}})  
-  _将理论落地于软件生命周期各阶段（从可行性到维护），并解构微信、邮件、iOS 与 IBM Logo 的经典交互案例。_
-- [第六章 结论与未来展望]({{< ref "06-conclusion" >}})  
-  _跨学科研究的核心结论提炼，并展望智能时代人机协同、日常生活审美化与理性工程的终极和谐。_
-- [跨界同构映射图谱 (Mermaid Relations Map)]({{< ref "theory-research-map" >}})  
-  _使用 Mermaid 拓扑图直观展示完形机制、信息控制流程以及跨学科元概念对照表。_
+1. **The "Whole is Greater than the Sum of its Parts" Gestalt Isomorphism Mechanism**:
+    - **Visual Psychology**: The "Gestalt" reconstruction and the closure/continuity tendencies of the eye-brain system.
+    - **Screen Design**: The formal order of points, lines, planes, and grid/skeletons.
+    - **Philosophical Aesthetics**: Sensible transcendence and the "Gestalt of Imagery" generated through subject-object fusion.
+    - **IT Engineering Planning**: System-level emergent capabilities aggregated through high-cohesion, low-coupling principles.
+2. **The "Form Follows Function, Technology Blends with Art" Information Cybernetics**:
+    - **Cognitive Load Reduction**: Simplifying visual hierarchy and reducing mental workload using Gestalt laws such as proximity, similarity, and figure-ground.
+    - **Logical Control**: Establishing precise order and topological beauty in the logical world through use case diagrams, data flow diagrams, and hierarchical service architectures.
+    - **Multi-sensory Flow**: Gently transforming cold technical logic into a frictionless aesthetic experience that aligns with human physiological instincts.
 
 ---
 
-## 案例分析目录 (Case Studies)
+## Theoretical Study Directory
 
-本模块包含图文实战解构与国际大奖作品的深度点评视频，以提供实证学习支撑：
+All foundational theories and cross-domain mapping relations maps are unified in the `Theory/` archive. Click the links below to view the specific chapters:
 
-*   👉 **[案例分析主入口 (Case Studies Overview)]({{< ref "case-studies-overview" >}})**
-    *   [经典交互案例图解 (Interactive Case Diagrams)]({{< ref "case-interactive-diagrams" >}})  
-        *深度图文剖析空白接近性、网格卡片流及 Web 模态框等格式塔与 UI 物理实践。*
-    *   [大奖作品点评与视频解析 (Award Critiques & Video Analysis)]({{< ref "case-award-critiques" >}})  
-        *汇整了 8 个涵盖 UI/UX 获奖网页、3D 动画电影与红点至尊奖产品设计的视频解析与跨界共鸣解析。*
+- [Chapter 1 Introduction: The Cross-Boundary Fusion of Systems, Information, and Aesthetics]({{< ref "01-introduction" >}})  
+  _Elaboration of the project background, necessity, definition of core research subjects, and the two underlying logical connections._
+- [Chapter 2 Foundational Foundations of the Four Major Fields]({{< ref "02-foundations" >}})  
+  _A systematic review of philosophical aesthetics (Hegel/Ye Lang/Zhu Liyuan), the seven core principles of Gestalt psychology, the essentials of the three major design foundations, and the Software Development Life Cycle (SDLC) / computational thinking._
+- [Chapter 3 The Cross-Boundary Isomorphism Mechanism of "The Whole is Greater than the Sum of its Parts"]({{< ref "03-gestalt-isomorphism" >}})  
+  _An in-depth analysis of the perfect isomorphism among Gestalt of imagery, formal skeletons, and highly cohesive system architectures from a "holism" perspective._
+- [Chapter 4 The Information Cybernetics of "Form Follows Function, Technology Blends with Art"]({{< ref "04-information-cybernetics" >}})  
+  _A detailed dissection of cognitive load reduction (Gestalt applications) and the precise logical beauty of architecture in IT engineering system planning._
+- [Chapter 5 Cross-Domain Practical Guide: UX-Oriented IT System UI/UX Development Life Cycle Guidelines]({{< ref "05-application-guide" >}})  
+  _Applying theoretical principles to all phases of the software life cycle (from feasibility study to maintenance) and deconstructing classic interaction cases such as WeChat, Mail, iOS, and the IBM logo._
+- [Chapter 6 Conclusion and Future Outlook]({{< ref "06-conclusion" >}})  
+  _Refining the core conclusions of this interdisciplinary study and envisioning the ultimate harmony of human-AI collaboration, the aestheticization of everyday life, and rational engineering in the smart era._
+- [Cross-Boundary Isomorphism Relations Map (Mermaid Relations Map)]({{< ref "theory-research-map" >}})  
+  _Using Mermaid topologies to intuitively display Gestalt mechanisms, information control processes, and the cross-disciplinary meta-concept comparison table._
+
+---
+
+## Case Studies Directory
+
+This module contains graphic and text case deconstructions along with in-depth video critiques of award-winning international designs to provide empirical learning support:
+
+*   👉 **[Case Studies Overview]({{< ref "case-studies-overview" >}})**
+    *   [Interactive Case Diagrams]({{< ref "case-interactive-diagrams" >}})  
+        _In-depth deconstruction of Gestalt and UI physical practices, including whitespace proximity, grid card flows, and Web modals._
+    *   [Award Critiques & Video Analysis]({{< ref "case-award-critiques" >}})  
+        _A collection of video critiques and cross-boundary resonance analyses covering award-winning UI/UX websites, 3D animated films, and Red Dot Best of the Best product designs._

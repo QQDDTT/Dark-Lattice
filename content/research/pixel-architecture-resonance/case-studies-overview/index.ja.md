@@ -1,40 +1,37 @@
 ---
-title: "ケーススタディ メインエントランス"
+title: "ケーススタディ概要"
 date: 2026-06-19T00:00:00+09:00
-description: "学際的研究課題のすべての実践的かつ受賞歴のあるケーススタディのメインインデックスエントランス。"
+description: "領域横断的研究プロジェクトにおけるすべての実戦および受賞事例デコンストラクションのメインディレクトリのエントランス。"
 draft: false
 ---
 
-> **[日本語訳は準備中です。参考のために中国語版を以下に表示します。]**
-
-本目录归档了课题研究中的所有实战与获奖案例解构，包含图文案例剖析以及国际大奖作品的深度点评视频。
+本ディレクトリには、プロジェクト研究におけるすべての実戦および受賞事例のデコンストラクションがアーカイブされており、図面・テキストによる事例分析と国際的なデザイン賞受賞作品の詳細なビデオレビューが含まれています。
 
 ---
 
-## 案例内容索引
+## ケースコンテンツインデックス
 
-您可点击以下链接直接查看具体的案例分析文档：
+以下のリンクをクリックして、具体的なケース分析ドキュメントを直接表示できます。
 
-1.  **[01. 经典交互案例图解 (Interactive Case Diagrams)]({{< ref "case-interactive-diagrams" >}})**  
-    *结合图片素材，深度解构：*
-    *   **空白与接近性原则应用 (Proximity)**：无物理分割线的隐性间距分组设计。
-    *   **卡片网格与相似性机制 (Similarity)**：卡片流中的明度层级景深与前端组件继承同构。
-    *   **Web 综合体验与形式服从功能 (Web Integration)**：虚实模糊景深与系统可用性/认知降负实战。
+1.  **[01. インタラクティブ・ケース図解 (Interactive Case Diagrams)]({{< ref "case-interactive-diagrams" >}})**  
+    _画像アセットと組み合わせた詳細なデコンストラクション:_
+    *   **余白と近接の法則の応用 (Proximity)**: 物理的な分割線のない、暗黙의余白によるグループ化設計。
+    *   **カードグリッドと類似性メカニズム (Similarity)**: カードフローにおける明度階層の被写界深度とフロントエンドコンポーネントの継承の同型性。
+    *   **Web総合体験と形態は機能に従う (Web Integration)**: 仮想と現実のぼかし被写界深度とシステムの使いやすさ・認知負荷の軽減の実践。
 
-2.  **[02. 国际设计大奖作品点评与深度解析视频汇总 (Award Critiques & Video Analysis)]({{< ref "case-award-critiques" >}})**  
-    *整理了 8 个涵盖 UI/UX 网页设计大奖、3D 特效（奥斯卡最佳 VFX）与工业设计红点奖的全球至尊作品点评视频，进一步解析格式塔视觉流、三维 Blender 材质美学和前端工程化高保真工作流。*
+2.  **[02. 受賞作品レビューとビデオ分析 (Award Critiques & Video Analysis)]({{< ref "case-award-critiques" >}})**  
+    _受賞UI/UXウェブサイト、3D特殊効果（アカデミー賞最優秀視覚効果賞）、およびレッドドット賞（プロダクトデザイン）の受賞作品をカバーする8つのビデオレビューのまとめ。ゲシュタルト視覚流、3D Blenderマテリアル美学、および高精度フロントエンドエンジニアリングワークフローをさらに分析します。_
 
 ---
 
 ## 含まれるメディアアセット
-概要と図に対応するビジュアルアセットは以下に保存されています：
+本ディレクトリには、概要に対応するビジュアルアセットも保存されています。
 
-#### カードグリッドの類似性例 (Card Grid Similarity)
-![カードグリッドの類似性](../case-interactive-diagrams/card_grid_gestalt.jpg)
+#### カードグリッド類似性の例 (Card Grid Similarity)
+![カードグリッド類似性の例](../case-interactive-diagrams/card_grid_gestalt.jpg)
 
-#### 余白と近接性の例 (Whitespace Proximity)
-![余白と近接性](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
+#### WeChat近接余白の例 (Whitespace Proximity)
+![WeChat近接余白の例](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
 
-#### Web統合コントロールコンソールの例 (Web Integration Console)
-![Web統合コントロールコンソール](../case-interactive-diagrams/powerhouse_case_web.jpg)
-
+#### Awwwards Web統合コンソールの例 (Web Integration Console)
+![Awwwards Web統合コンソールの例](../case-interactive-diagrams/powerhouse_case_web.jpg)

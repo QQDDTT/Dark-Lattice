@@ -1,58 +1,56 @@
 ---
-title: "Classic Interactive Case Diagrams"
+title: "Interactive Case Diagrams"
 date: 2026-06-19T00:00:00+09:00
-description: "Deep teardown of Proximity, Similarity, and Web modal implementations based on Gestalt design principles with image assets."
+description: "In-depth deconstruction of Gestalt principles, including whitespace proximity, grid card flows, and Web modals combined with image assets."
 draft: false
 ---
 
-> **[English translation is under preparation. The Chinese version is displayed below for reference.]**
-
-本模块结合了下载的图片素材，对数字产品中的格式塔原则和设计构成进行了多维度的图文解构。
+This module combines downloaded image assets to perform multi-dimensional graphic and text deconstruction of Gestalt principles and design composition in digital products.
 
 ---
 
-## 1. 空白与接近性原则的应用 (Whitespace & Proximity)
+## 1. Application of Whitespace and Proximity Principles (Whitespace & Proximity)
 
-### 1.1 案例视觉展示
+### 1.1 Case Visual Presentation
 
-![空白与接近性 UI](whitespace_proximity_ui.jpg)
+![Whitespace and Proximity UI](whitespace_proximity_ui.jpg)
 
-### 1.2 深度学术解构
-*   **视觉心理学 (Proximity)**：
-    在此界面设计中，离散的信息卡片和文本项并没有依赖生硬的深色粗线条进行强行阻断。而是通过精确拉大“卡片与卡片之间”的垂直/水平间距，使之显著大于“卡片内部子元素之间”的间距。人类的大脑视觉系统会自发启动接近性组织率，将间距小的子元素判定为一个有关联的“功能群组”。
-*   **平面构成 (点线面与骨骼网格)**：
-    这属于设计构成中的“软性分割”手法。利用网格（Grid）骨骼来约束各个模块的边界。虚空中隐藏的骨骼线维持了版面的呼吸感与透气感，使画面在信息量饱满的同时依然轻盈，塑造了流线型的视觉通道。
-*   **IT工程规划 (模块高内聚)**：
-    这在软件工程中同构于“高内聚”在界面表现上的映射。属于同一个业务逻辑实体（如“发现”列表中的单个模块）的全部底层数据，被紧密地聚拢在局部的物理空间中，形成了一个强内聚的、在逻辑与视觉上均独立的自治单元。
-
----
-
-## 2. 卡片网格与相似性机制 (Card Grid & Similarity)
-
-### 2.1 案例视觉展示
-
-![卡片网格格式塔](card_grid_gestalt.jpg)
-
-### 2.2 深度学术解构
-*   **视觉心理学 (Similarity & Common Fate)**：
-    当用户浏览由多个卡片拼装成的仪表盘或列表时，眼脑系统能够在一瞬间对这些异质数据进行极速分类。这是因为每个卡片卡槽在形状、背景色、文字大小和图标对齐上具有高度的一致性。相似的视觉特征让大脑自发过滤掉卡片之间的物理空隙，将其视为一个“统一卡片流”整体。
-*   **色彩与立体构成 (明度对比与景深)**：
-    卡片通过轻微的投影（Box Shadow）与微光半透明边框，在暗黑背景上创造出浮空的“立体景深感”。这利用了主体与背景的共生关系，将数据内容作为“主体”浮现于暗色“背景”之上，体现了色彩构成中明度调和的原理。
-*   **IT工程规划 (组件化与面向对象 OOD)**：
-    这与面向对象设计中的“类 (Class)”与“实例 (Instance)”的关系完美同构。前端工程中，我们将这套统一的卡片样式抽象封装为可复用的 `CardComponent`。在系统开发生命周期中，高度复用的高相似度卡片不仅大幅降低了代码冗余度，更极大提升了系统的可维护性，实现了开发效率与视觉美感的高度统一。
+### 1.2 In-Depth Academic Deconstruction
+*   **Visual Psychology (Proximity)**:
+    In this interface design, discrete information cards and text items do not rely on rigid dark thick lines for forced blocking. Instead, it precisely widens the vertical/horizontal spacing \"between cards\" to make it significantly larger than the spacing \"between sub-elements inside cards.\" The human brain's visual system will spontaneously activate the proximity organization law, judging the sub-elements with small spacing as a related \"functional group.\"
+*   **Planar Composition (Points, Lines, Planes & Grid/Skeletons)**:
+    This belongs to the \"soft partitioning\" technique in design composition. Utilizing grid skeletons to constrain the boundaries of each module. The hidden grid lines maintain the breathing and air permeability of the layout, keeping the screen light even when the information capacity is full, shaping streamlined visual channels.
+*   **IT Engineering Planning (Module High Cohesion)**:
+    This is isomorphic to the mapping of \"high cohesion\" on the interface in software engineering. All underlying data belonging to the same business logic entity (such as a single module in the \"Discovery\" list) is tightly grouped in local physical space, forming a highly cohesive, self-contained unit that is independent both logically and visually.
 
 ---
 
-## 3. Web 综合体验与“形式服从功能” (Web Integration & Form Follows Function)
+## 2. Card Grid and Similarity Mechanism (Card Grid & Similarity)
 
-### 3.1 案例视觉展示
+### 2.1 Case Visual Presentation
 
-![Web综合体验](powerhouse_case_web.jpg)
+![Card Grid Gestalt](card_grid_gestalt.jpg)
 
-### 3.2 深度学术解构
-*   **哲学美学 (理念的感性显现与心流)**：
-    黑格尔艺术哲学指出，美是无限的理念通过感性形式进行自我显现。在此 Web 界面中，复杂的系统底层业务流程（理念）经过科学设计，通过直观的动态控制台和多感官视觉对齐（感性形式）完美投射给用户。在高度契合人类眼脑知觉倾向的排版中，用户获得了完美的精神感官愉悦与人机协同的完美“心流”体验。
-*   **视觉心理学 (Figure-Ground & Continuity)**：
-    该案例深刻实践了主体与背景的控制法则。在关键弹窗或核心操控区唤醒时，底层背景会自动淡化或模糊，确保用户的注意力能量完全聚焦在关键交互上。视线沿着完美的水平/垂直对齐路径流畅扫视，极大地减轻了用户在信息密集环境下的视觉压力和心理负荷。
-*   **IT工程规划 (系统生存周期的非功能性设计)**：
-    在软件生存周期的需求与分析阶段，IT 规划必须引入美育评估与知觉降负指标。本案例展示了高质量的系统规划决不仅是代码堆砌，而是把“界面流畅度、认知降负指标”深度结合到系统非功能性需求架构中，从而产出兼具精密工程秩序与感性美学高度的数字化杰作。
+### 2.2 In-Depth Academic Deconstruction
+*   **Visual Psychology (Similarity & Common Fate)**:
+    When users browse dashboards or lists assembled from multiple cards, the eye-brain system can classify these heterogeneous data at extreme speeds in an instant. This is because each card slot is highly consistent in shape, background color, text size, and icon alignment. Similar visual features allow the brain to spontaneously filter out physical gaps between cards, perceiving them as a unified \"card flow\" whole.
+*   **Color and Three-dimensional Composition (Lightness Contrast & Depth of Field)**:
+    Cards create a floating \"three-dimensional depth-of-field\" on dark backgrounds through light box shadows and micro-light translucent borders. This leverages the symbiotic relationship between figure and ground, floating the data content as the \"figure\" on the dark \"ground,\" reflecting the principle of lightness harmony in color composition.
+*   **IT Engineering Planning (Componentization & Object-Oriented OOD)**:
+    This is perfectly isomorphic to the relationship between \"Class\" and \"Instance\" in object-oriented design. In front-end engineering, we abstract and encapsulate this unified card style into a reusable `CardComponent`. Throughout the system development life cycle, highly reusable cards with high similarity not only drastically reduce code redundancy, but also greatly improve system maintainability, achieving high integration of development efficiency and visual beauty.
+
+---
+
+## 3. Web Integration & \"Form Follows Function\" (Web Integration & Form Follows Function)
+
+### 3.1 Case Visual Presentation
+
+![Web Integration](powerhouse_case_web.jpg)
+
+### 3.2 In-Depth Academic Deconstruction
+*   **Philosophical Aesthetics (Sensible Manifestation of the Idea & Flow)**:
+    Hegel's art philosophy points out that beauty is the sensible manifestation of infinite ideas through sensible forms. In this Web interface, complex system-level underlying business processes (ideas) are scientifically designed and perfectly projected to users through intuitive dynamic consoles and multi-sensory visual alignment (sensible forms). In a layout highly aligned with the human eye-brain perceptual tendency, users obtain perfect spiritual sensory pleasure and the perfect \"flow\" experience of human-computer collaboration.
+*   **Visual Psychology (Figure-Ground & Continuity)**:
+    This case profoundly practices the control laws of figure and ground. When critical pop-ups or core control areas are activated, the underlying background automatically dims or blurs, ensuring the user's attention energy is entirely focused on key interactions. Lines of sight scan smoothly along perfect horizontal/vertical alignment paths, greatly alleviating users' visual pressure and cognitive load in information-intensive environments.
+*   **IT Engineering Planning (Non-Functional Design of SDLC)**:
+    During the requirements and analysis phase of the software life cycle, IT planning must introduce aesthetic evaluations and cognitive load reduction indicators. This case demonstrates that high-quality system planning is by no means merely code stacking, but rather deeply integrates \"interface smoothness and cognitive load reduction indicators\" into non-functional requirements architectures, thereby producing digital masterpieces that combine precise engineering order with sensible aesthetics.

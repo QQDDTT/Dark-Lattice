@@ -1,56 +1,54 @@
 ---
-title: "Cross-Boundary Isomorphic Mapping Chart (Mermaid)"
+title: "Cross-Boundary Isomorphism Relations Map (Mermaid)"
 date: 2026-06-19T00:00:00+09:00
-description: "Visually demonstrating the system Gestalt mechanism, information cybernetics, and cross-disciplinary mapping relationships using Mermaid."
+description: "Intuitively demonstrating Gestalt mechanisms, information control, and cross-domain mappings through Mermaid charts."
 draft: false
 ---
 
-> **[English translation is under preparation. The Chinese version is displayed below for reference.]**
-
-本文件通过直观的 Mermaid 拓扑图，系统展现**美学、视觉心理学、画面设计（设计构成）与 IT工程规划（SDLC / 计算思维）**在底层的映射与共鸣机制。
+This file presents the underlying mapping and resonance mechanisms among **aesthetics, visual psychology, screen design (design composition), and IT engineering planning (SDLC / computational thinking)** through intuitive Mermaid charts.
 
 ---
 
-## 1. “整体大于部分之和”完形同构映射
+## 1. The "Whole is Greater than the Sum of its Parts" Gestalt Isomorphism Relations Map
 
-这一图谱展示了当离散的子元素组合在一起时，在各个学科领域中是如何涌现出“超越局部之和的整体本能”的。
+This chart illustrates how a holistic instinct transcending the sum of parts spontaneously emerges in various domains when discrete sub-elements are combined.
 
 ```mermaid
 graph TD
-    %% 核心概念
-    Root["整体大于部分之和<br>(格式塔完形同构机制)"] --> P_Psych["视觉心理学<br>(知觉动力重组)"]
-    Root --> V_Design["画面设计<br>(设计构成秩序)"]
-    Root --> Aesthetics["哲学美学<br>(感性体验超越)"]
-    Root --> IT_Plan["IT工程规划<br>(逻辑封装涌现)"]
+    %% Core Concepts
+    Root["The Whole is Greater than the Sum of its Parts<br>(Gestalt Isomorphism Mechanism)"] --> P_Psych["Visual Psychology<br>(Perceptual Dynamic Reorganization)"]
+    Root --> V_Design["Screen Design<br>(Compositional Order of Design)"]
+    Root --> Aesthetics["Philosophical Aesthetics<br>(Sensible Transcendence of Experience)"]
+    Root --> IT_Plan["IT Engineering Planning<br>(Emergence of Logical Encapsulation)"]
 
-    %% 视觉心理学分支
-    P_Psych --> Psych_1["闭合性原则 (Closure)<br>脑补残缺，填满空白"]
-    P_Psych --> Psych_2["连续性原则 (Continuity)<br>视线沿平滑路径运动"]
-    P_Psych --> Psych_3["邻近与相似分组<br>自动群组离散视觉源"]
+    %% Visual Psychology Branch
+    P_Psych --> Psych_1["Closure Principle (Closure)<br>Brain fills in gaps and blank space"]
+    P_Psych --> Psych_2["Continuity Principle (Continuity)<br>Lines of sight move along smooth paths"]
+    P_Psych --> Psych_3["Proximity & Similarity Grouping<br>Spontaneously group discrete visual sources"]
 
-    %% 画面设计分支
-    V_Design --> Design_1["点、线、面基础形<br>最小视觉单位及其张力"]
-    V_Design --> Design_2["骨骼网格 (Grid/Skeleton)<br>规范坐标与物理边界"]
-    V_Design --> Design_3["形式美法则<br>重复/渐变/特异/对比之节奏"]
+    %% Screen Design Branch
+    V_Design --> Design_1["Points, Lines, Planes<br>Minimal visual units & their tensions"]
+    V_Design --> Design_2["Grid/Skeleton (Grid/Skeleton)<br>Standardized coordinates & physical boundaries"]
+    V_Design --> Design_3["Laws of Formal Beauty<br>Rhythms of repetition/gradation/anomaly/contrast"]
 
-    %% 哲学美学分支
-    Aesthetics --> Aest_1["黑格尔: 理念的感性显现<br>艺术是无限理性的具象承载"]
-    Aesthetics --> Aest_2["叶朗: 意象完形<br>超越物理介质的主客交融境界"]
-    Aesthetics --> Aest_3["朱立元: 审美实践<br>通过审美活动塑造完满人格"]
+    %% Philosophical Aesthetics Branch
+    Aesthetics --> Aest_1["Hegel: Sensible Manifestation of the Idea<br>Art is the concrete carrier of infinite reason"]
+    Aesthetics --> Aest_2["Ye Lang: Gestalt of Imagery<br>Subject-object fusion transcending physical media"]
+    Aesthetics --> Aest_3["Zhu Liyuan: Aesthetic Practice<br>Shaping a well-rounded personality through aesthetics"]
 
-    %% IT工程规划分支
-    IT_Plan --> IT_1["计算思维五大支柱<br>组合-抽象-重复-构造-递归"]
-    IT_Plan --> IT_2["层级架构封装<br>函数 -> 对象 -> 组件 -> 服务"]
-    IT_Plan --> IT_3["高内聚低耦合<br>模块独立以应对复杂系统变迁"]
+    %% IT Engineering Planning Branch
+    IT_Plan --> IT_1["5 Pillars of Computational Thinking<br>Combination-Abstraction-Repetition-Construction-Recursion"]
+    IT_Plan --> IT_2["Hierarchical Architecture Encapsulation<br>Function -> Object -> Component -> Service"]
+    IT_Plan --> IT_3["High Cohesion & Low Coupling<br>Module independence to cope with system changes"]
 
-    %% 跨学科底层连接线
-    Psych_1 -. 神经重组 .- Aest_2
-    Design_2 -. 空间约束 .- IT_2
-    Design_3 -. 形式节奏 .- IT_1
-    Aest_1 -. 理性具象 .- IT_3
-    Psych_3 -. 知觉分组 .- IT_3
+    %% Cross-Disciplinary Connections
+    Psych_1 -. Neurological Reorganization .- Aest_2
+    Design_2 -. Spatial Constraints .- IT_2
+    Design_3 -. Formal Rhythm .- IT_1
+    Aest_1 -. Rational Concreteness .- IT_3
+    Psych_3 -. Perceptual Grouping .- IT_3
 
-    %% 样式
+    %% Styles
     style Root fill:#1a1c23,stroke:#6366f1,stroke-width:3px,color:#fff
     style P_Psych fill:#111827,stroke:#10b981,stroke-width:2px,color:#fff
     style V_Design fill:#111827,stroke:#3b82f6,stroke-width:2px,color:#fff
@@ -60,38 +58,38 @@ graph TD
 
 ---
 
-## 2. “形式服从功能，技术交融艺术”信息控制映射
+## 2. The "Form Follows Function, Technology Blends with Art" Information Cybernetics Relations Map
 
-该图谱展示了系统与界面在进行“信息控制与认知降负”时，如何将物理设计与逻辑架构有机结合，从而实现完美的用户体验。
+This flowchart demonstrates how systems and interfaces combine physical design with logical architecture to achieve frictionless user experiences during "information control and cognitive load reduction."
 
 ```mermaid
 flowchart LR
-    subgraph Input ["现实无序与高复杂度 (物理/逻辑)"]
-        Raw_Info["海量离散信息 / 琐碎业务逻辑"]
+    subgraph Input ["Real-World Disorder & High Complexity (Physical/Logical)"]
+        Raw_Info["Massive Discrete Information / Trivial Business Logic"]
     end
 
-    subgraph Design_Control ["视觉层面：设计构成与知觉降负 (形式美)"]
+    subgraph Design_Control ["Visual Level: Design Composition & Perceptual Mitigation (Formal Beauty)"]
         direction TB
-        Grid_Layout["骨骼网格对齐<br>(平面构成)"]
-        Color_Psy["色彩调和与视觉心理<br>(色彩构成)"]
-        Gestalt_Filter["格式塔知觉分类<br>(接近/相似/对称原则)"]
+        Grid_Layout["Grid Layout Alignment<br>(Planar Composition)"]
+        Color_Psy["Color Harmony & Visual Psychology<br>(Color Composition)"]
+        Gestalt_Filter["Gestalt Perceptual Classification<br>(Proximity/Similarity/Symmetry Principles)"]
         Grid_Layout --> Gestalt_Filter
         Color_Psy --> Gestalt_Filter
     end
 
-    subgraph IT_Control ["系统层面：工程架构与逻辑控制 (科学美)"]
+    subgraph IT_Control ["System Level: Engineering Architecture & Logical Control (Scientific Beauty)"]
         direction TB
-        SDLC_Plan["SDLC生命周期模型<br>(可行性分析/用例分析)"]
-        Module_Enc["高内聚低耦合封装<br>(模块化/服务化接口)"]
-        Topo_Flow["数据流与状态控制<br>(拓扑秩序/类图/流图)"]
+        SDLC_Plan["SDLC Lifecycle Model<br>(Feasibility/Use Case Analysis)"]
+        Module_Enc["High Cohesion & Low Coupling Encapsulation<br>(Modular/Service Interfaces)"]
+        Topo_Flow["Data Flow & State Control<br>(Topological Order/Class Diagrams/DFD)"]
         SDLC_Plan --> Module_Enc
         Topo_Flow --> Module_Enc
     end
 
-    subgraph Synthesis ["融合：日常生活审美化的工程实践"]
-        UI_UX["UI/UX无摩擦交互<br>(色彩空间/物理动效映射)"]
-        Cognitive_Ease["认知降负<br>(眼脑第一印象流畅操作)"]
-        Aesthetic_Heart["审美熏陶与心流<br>(人机和谐与人生境界提升)"]
+    subgraph Synthesis ["Synthesis: Engineering Practice of Aestheticizing Everyday Life"]
+        UI_UX["UI/UX Frictionless Interaction<br>(Color Space/Physical Motion Mapping)"]
+        Cognitive_Ease["Cognitive Load Reduction<br>(Smooth Operation on Eye-Brain First Impression)"]
+        Aesthetic_Heart["Aesthetic Cultivation & Flow<br>(Man-Machine Harmony & Elevation of Life Realm)"]
     end
 
     Raw_Info --> Design_Control
@@ -103,7 +101,7 @@ flowchart LR
     UI_UX --> Cognitive_Ease
     UI_UX --> Aesthetic_Heart
 
-    %% 样式
+    %% Styles
     style Raw_Info fill:#374151,stroke:#9ca3af,stroke-width:2px,color:#fff
     style Design_Control fill:#064e3b,stroke:#059669,stroke-width:1px,color:#fff
     style IT_Control fill:#78350f,stroke:#d97706,stroke-width:1px,color:#fff
@@ -114,15 +112,15 @@ flowchart LR
 
 ---
 
-## 3. 跨界概念对照表
+## 3. Cross-Boundary Concept Comparison Table
 
-为了方便快速查阅，以下将四大领域的同构概念进行了科学的语义映射对照：
+For quick reference, the following table provides a scientific semantic mapping of isomorphic concepts across the four domains:
 
-| 映射概念 | 美学 (Aesthetics) | 视觉心理学 (Gestalt) | 画面设计 (Design) | IT工程规划 (IT Planning) |
+| Mapping Concept | Aesthetics (Aesthetics) | Visual Psychology (Gestalt) | Screen Design (Design) | IT Engineering Planning (IT Planning) |
 | :--- | :--- | :--- | :--- | :--- |
-| **元子单位** | 审美感质 (Qualia) / 笔触 | 视觉刺激点 / 像素点 | **点 (Point)** | 单行指令 / 元数据 |
-| **局部组合** | 艺术符号 / 形式语汇 | 知觉组织 (Grouping) | **线 (Line) 与面 (Plane)** | 函数 / 对象 / 数据库表 |
-| **约束架构** | 意象结构 / 艺术边界 | 视野背景 (Figure-Ground) | **骨骼网络 (Grid)** | 系统层级 / 模块划分 / 类图 |
-| **动态控制** | 审美体验演进 / 戏剧冲突 | 共同命运 (Common Fate) | 构成法 (渐变/特异/发射) | 控制流 / 状态机 / 消息队列 |
-| **终极涌现** | 艺术境界 (Aesthetic Realm) | **完形 (Gestalt)** | 画面形式韵律 (Rhythm) | **高内聚系统级功能能力** |
-| **实践追求** | 提升人生境界 / 完满人格 | 知觉无压/直觉辨识 | 认知减负 / 视觉节奏 | 系统高可靠 / 敏捷迭代 / 可维护 |
+| **Elementary Unit** | Aesthetic Qualia / Brushstroke | Visual Stimulus Point / Pixel | **Point** | Single Instruction / Metadata |
+| **Local Combination** | Artistic Symbol / Formal Vocabulary | Perceptual Organization (Grouping) | **Line & Plane** | Function / Object / Database Table |
+| **Constrained Architecture** | Imagery Structure / Artistic Boundary | Field Figure-Ground | **Skeleton/Grid** | System Hierarchy / Module Partition / Class Diagram |
+| **Dynamic Control** | Evolution of Aesthetic Experience / Drama | Common Fate | Composition Laws (Gradation/Anomaly) | Control Flow / State Machine / Message Queue |
+| **Ultimate Emergence** | Aesthetic Realm | **Gestalt** | Visual Rhythm | **Highly Cohesive System-level Capability** |
+| **Practical Pursuit** | Elevating Life Realm / Shaping Personality | Perceptual Ease / Intuitive Identification | Cognitive Load Reduction / Visual Rhythm | System High Reliability / Agile Iteration / Maintainability |

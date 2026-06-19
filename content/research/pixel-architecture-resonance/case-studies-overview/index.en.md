@@ -1,40 +1,37 @@
 ---
 title: "Case Studies Overview"
 date: 2026-06-19T00:00:00+09:00
-description: "Main index entry for all practical and award-winning case study teardowns of the cross-disciplinary research topic."
+description: "The main directory entrance for deconstructing all practical and award-winning cases in the interdisciplinary research project."
 draft: false
 ---
 
-> **[English translation is under preparation. The Chinese version is displayed below for reference.]**
-
-本目录归档了课题研究中的所有实战与获奖案例解构，包含图文案例剖析以及国际大奖作品的深度点评视频。
+This directory archives all practical and award-winning case deconstructions in the project study, including graphic and text case analyses as well as in-depth video critiques of international award-winning designs.
 
 ---
 
-## 案例内容索引
+## Case Content Index
 
-您可点击以下链接直接查看具体的案例分析文档：
+You can click the following links to directly view the specific case analysis documents:
 
-1.  **[01. 经典交互案例图解 (Interactive Case Diagrams)]({{< ref "case-interactive-diagrams" >}})**  
-    *结合图片素材，深度解构：*
-    *   **空白与接近性原则应用 (Proximity)**：无物理分割线的隐性间距分组设计。
-    *   **卡片网格与相似性机制 (Similarity)**：卡片流中的明度层级景深与前端组件继承同构。
-    *   **Web 综合体验与形式服从功能 (Web Integration)**：虚实模糊景深与系统可用性/认知降负实战。
+1.  **[01. Interactive Case Diagrams]({{< ref "case-interactive-diagrams" >}})**  
+    _In-depth deconstruction combined with image assets:_
+    *   **Whitespace & Proximity Principle Application**: Implicit spacing group design without physical dividing lines.
+    *   **Card Grid & Similarity Mechanism**: Lightness hierarchy depth-of-field in card flows and front-end component inheritance isomorphism.
+    *   **Web Integration & Form Follows Function**: Virtual-to-real blurry depth-of-field combined with system usability and cognitive load reduction in practice.
 
-2.  **[02. 国际设计大奖作品点评与深度解析视频汇总 (Award Critiques & Video Analysis)]({{< ref "case-award-critiques" >}})**  
-    *整理了 8 个涵盖 UI/UX 网页设计大奖、3D 特效（奥斯卡最佳 VFX）与工业设计红点奖的全球至尊作品点评视频，进一步解析格式塔视觉流、三维 Blender 材质美学和前端工程化高保真工作流。*
+2.  **[02. Award Critiques & Video Analysis]({{< ref "case-award-critiques" >}})**  
+    _A collection of video critiques of 8 global masterpiece works covering UI/UX web design awards, 3D special effects (Oscar Best VFX), and Red Dot product & industrial design awards. It further analyzes Gestalt visual flows, 3D Blender material aesthetics, and high-fidelity front-end engineering workflows._
 
 ---
 
-## Media Assets Included
-The visual assets corresponding to the outlines are stored below:
+## Included Media Assets
+This directory also stores visual assets corresponding to the graphic outlines:
 
 #### Card Grid Similarity Example
-![Card Grid Similarity](../case-interactive-diagrams/card_grid_gestalt.jpg)
+![Card Grid Similarity Example](../case-interactive-diagrams/card_grid_gestalt.jpg)
 
-#### Whitespace Proximity Example
-![Whitespace Proximity](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
+#### WeChat Whitespace Proximity Example
+![WeChat Whitespace Proximity Example](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
 
-#### Web Integration Console Example
-![Web Integration Console](../case-interactive-diagrams/powerhouse_case_web.jpg)
-
+#### Awwwards Web Integration Console Example
+![Awwwards Web Integration Console Example](../case-interactive-diagrams/powerhouse_case_web.jpg)
