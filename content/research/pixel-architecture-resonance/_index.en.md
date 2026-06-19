@@ -40,7 +40,9 @@ All foundational theories and cross-domain mapping relations maps are unified in
   _A detailed dissection of cognitive load reduction (Gestalt applications) and the precise logical beauty of architecture in IT engineering system planning._
 - [Chapter 5 Cross-Domain Practical Guide: UX-Oriented IT System UI/UX Development Life Cycle Guidelines]({{< ref "05-application-guide" >}})  
   _Applying theoretical principles to all phases of the software life cycle (from feasibility study to maintenance) and deconstructing classic interaction cases such as WeChat, Mail, iOS, and the IBM logo._
-- [Chapter 6 Conclusion and Future Outlook]({{< ref "06-conclusion" >}})  
+- [Chapter 6 Comprehensive Case Studies: Spatial-Temporal Cross-Domain Deconstruction]({{< ref "06-case-studies" >}})  
+  _Demonstrating interdisciplinary deconstruction of time and space through four classic cases: WeChat Discovery, Stagger lists, iOS shaking delete, and loading spinners._
+- [Chapter 7 Conclusion and Future Outlook]({{< ref "07-conclusion" >}})  
   _Refining the core conclusions of this interdisciplinary study and envisioning the ultimate harmony of human-AI collaboration, the aestheticization of everyday life, and rational engineering in the smart era._
 - [Cross-Boundary Isomorphism Relations Map (Mermaid Relations Map)]({{< ref "theory-research-map" >}})  
   _Using Mermaid topologies to intuitively display Gestalt mechanisms, information control processes, and the cross-disciplinary meta-concept comparison table._
@@ -53,6 +55,10 @@ This module contains graphic and text case deconstructions along with in-depth v
 
 *   👉 **[Case Studies Overview]({{< ref "case-studies-overview" >}})**
     *   [Interactive Case Diagrams]({{< ref "case-interactive-diagrams" >}})  
-        _In-depth deconstruction of Gestalt and UI physical practices, including whitespace proximity, grid card flows, and Web modals._
+        _In-depth deconstruction of Gestalt and UI physical practices, including whitespace proximity, grid card flows, and Web modals, with added cases such as iOS shaking, loading spinners, and Figma smart animate._
     *   [Award Critiques & Video Analysis]({{< ref "case-award-critiques" >}})  
         _A collection of video critiques and cross-boundary resonance analyses covering award-winning UI/UX websites, 3D animated films, and Red Dot Best of the Best product designs._
+    *   [Quantitative Evaluation Matrix for Abstract Concepts]({{< ref "case-evaluation-matrix" >}})  
+        _Designs a quantitative scoring model to grade abstract concepts like \"aesthetics,\" \"Gestalt psychology,\" \"visual design,\" and \"IT engineering planning,\" introducing the SRS weighted calculation method._
+    *   [Quantitative Comparison Report between Award-Winning Works and Common Designs]({{< ref "case-comparative-report" >}})  
+        _Selects Awwwards award-winning designs, common business templates, and poorly-ordered pages as targets to perform comparison, demonstrating the value gap brought by the \"resonance between pixels and architecture.\"_

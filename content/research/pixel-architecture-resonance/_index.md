@@ -40,7 +40,9 @@ draft: false
   _详尽剖析认知降负（格式塔应用）与 IT 工程系统规划中架构的精密逻辑美。_
 - [第五章 跨领域应用实战：面向体验的IT系统UI/UX开发生命周期导则]({{< ref "05-application-guide" >}})  
   _将理论落地于软件生命周期各阶段（从可行性到维护），并解构微信、邮件、iOS 与 IBM Logo 的经典交互案例。_
-- [第六章 结论与未来展望]({{< ref "06-conclusion" >}})  
+- [第六章 综合案例分析：跨学科空间-时间双维度解构]({{< ref "06-case-studies" >}})  
+  _通过微信发现页、Stagger 列表、iOS 抖动删除与加载指示器四大经典案例，演示时间与空间的跨学科解构。_
+- [第七章 结论与未来展望]({{< ref "07-conclusion" >}})  
   _跨学科研究的核心结论提炼，并展望智能时代人机协同、日常生活审美化与理性工程的终极和谐。_
 - [跨界同构映射图谱 (Mermaid Relations Map)]({{< ref "theory-research-map" >}})  
   _使用 Mermaid 拓扑图直观展示完形机制、信息控制流程以及跨学科元概念对照表。_
@@ -53,6 +55,10 @@ draft: false
 
 *   👉 **[案例分析主入口 (Case Studies Overview)]({{< ref "case-studies-overview" >}})**
     *   [经典交互案例图解 (Interactive Case Diagrams)]({{< ref "case-interactive-diagrams" >}})  
-        *深度图文剖析空白接近性、网格卡片流及 Web 模态框等格式塔与 UI 物理实践。*
+        *深度图文剖析空白接近性、网格卡片流及 Web 模态框等格式塔与 UI 物理实践，包含 iOS 抖动删除、圆环加载与 Figma 智能动画等追加案例。*
     *   [大奖作品点评与视频解析 (Award Critiques & Video Analysis)]({{< ref "case-award-critiques" >}})  
         *汇整了 8 个涵盖 UI/UX 获奖网页、3D 动画电影与红点至尊奖产品设计的视频解析与跨界共鸣解析。*
+    *   [抽象概念量化评估与对比矩阵 (Quantitative Evaluation Matrix)]({{< ref "case-evaluation-matrix" >}})  
+        *设计了一套将本课题中“美学”、“格式塔心理学”、“画面设计”与“IT工程规划”等抽象概念进行量化评分的评估矩阵模型，引入 SRS 系统共鸣加权算法。*
+    *   [赛事获奖作品与普通设计量化对比报告 (Comparative Analysis Report)]({{< ref "case-comparative-report" >}})  
+        *选取 Awwwards 获奖设计、普通商业套版和劣质失序网页作为评价靶子进行评分比对，展示“像素与架构的系统共鸣”所带来的价值级差。*

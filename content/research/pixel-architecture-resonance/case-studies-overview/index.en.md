@@ -19,9 +19,16 @@ You can click the following links to directly view the specific case analysis do
     *   **Whitespace & Proximity Principle Application**: Implicit spacing group design without physical dividing lines.
     *   **Card Grid & Similarity Mechanism**: Lightness hierarchy depth-of-field in card flows and front-end component inheritance isomorphism.
     *   **Web Integration & Form Follows Function**: Virtual-to-real blurry depth-of-field combined with system usability and cognitive load reduction in practice.
+    *   **Added: Apple iOS App Icon Shaking (Common Fate), Loading Spinner (Phi Phenomenon), Figma Smart Animate (Continuity), and Annual Music Report Data Aestheticization.**
 
 2.  **[02. Award Critiques & Video Analysis]({{< ref "case-award-critiques" >}})**  
     _A collection of video critiques of 8 global masterpiece works covering UI/UX web design awards, 3D special effects (Oscar Best VFX), and Red Dot product & industrial design awards. It further analyzes Gestalt visual flows, 3D Blender material aesthetics, and high-fidelity front-end engineering workflows._
+
+3.  **[03. Quantitative Evaluation Matrix for Abstract Concepts]({{< ref "case-evaluation-matrix" >}})**  
+    _Designs a quantitative scoring model to grade abstract concepts like \"aesthetics,\" \"Gestalt psychology,\" \"visual design,\" and \"IT engineering planning,\" introducing the SRS systemic resonance weighted calculation method._
+
+4.  **[04. Quantitative Comparison Report between Award-Winning Works and Common Designs]({{< ref "case-comparative-report" >}})**  
+    _Selects Awwwards award-winning designs, common business templates, and poorly-ordered pages as targets to perform comparison, demonstrating the value gap brought by the \"resonance between pixels and architecture.\"_
 
 ---
 
