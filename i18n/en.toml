@@ -94,3 +94,9 @@ other = "Adhering to minimalist design aesthetics. Removing redundancy for purit
 
 [home_featured_projects]
 other = "Featured Projects"
+
+[already_first_article]
+other = "First article"
+
+[no_more_articles]
+other = "No more articles"

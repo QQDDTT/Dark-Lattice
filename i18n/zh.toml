@@ -93,4 +93,10 @@ other = "Frontend UX"
 other = "坚持极简主义的设计美学。去冗余，求纯粹。用最干净的代码构建流畅、直观且具备高级感的交互体验。"
 
 [home_featured_projects]
-other = "Featured Projects"
+other = "精选项目"
+
+[already_first_article]
+other = "已经是第一篇了"
+
+[no_more_articles]
+other = "没有更多文章了"

@@ -12,19 +12,23 @@
     "industrial-vision": {
       "external_path": "/home/nick/文档/01_开发项目/camera",
       "description": "工业视觉相关文章"
+    },
+    "gestalt-resonator": {
+      "external_path": "/home/nick/workspaces/gestalt-resonator/docs",
+      "description": "Gestalt Resonator 完形共鸣器项目"
     }
   },
   "research_topics": {
     "technology": {
-      "external_path": "/home/nick/文档/02_课题研究",
+      "external_path": "/home/nick/文档/02_课题研究/技术研究",
       "description": "技术性研究课题"
     },
     "interaction": {
-      "external_path": "/home/nick/文档/02_课题研究",
+      "external_path": "/home/nick/文档/02_课题研究/交互",
       "description": "交互与用户体验研究课题"
     },
     "mathematics-model": {
-      "external_path": "/home/nick/文档/02_课题研究",
+      "external_path": "/home/nick/文档/02_课题研究/数学",
       "description": "数学模型与 AI 算法研究课题"
     },
     "pixel-architecture-resonance": {
