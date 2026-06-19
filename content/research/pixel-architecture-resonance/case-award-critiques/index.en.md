@@ -3,6 +3,7 @@ title: "Award Critiques and Video Analysis"
 date: 2026-06-19T00:00:00+09:00
 description: "A summary of 8 video critiques covering UI/UX web design awards, 3D special effects, and Red Dot industrial awards."
 draft: false
+weight: 100
 ---
 
 This report compiles and analyzes **8 high-quality YouTube review and analysis videos with deep academic and practical guidance value**, covering global award-winning works and practical case deconstructions in **3D modeling & visual effects (VFX)**, **three-dimensional animation design**, **Web UI/UX design**, and the **Red Dot Product & Industrial Design Awards**.

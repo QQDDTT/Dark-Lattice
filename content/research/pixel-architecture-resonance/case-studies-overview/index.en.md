@@ -3,6 +3,7 @@ title: "Case Studies Overview"
 date: 2026-06-19T00:00:00+09:00
 description: "The main directory entrance for deconstructing all practical and award-winning cases in the interdisciplinary research project."
 draft: false
+weight: 80
 ---
 
 This directory archives all practical and award-winning case deconstructions in the project study, including graphic and text case analyses as well as in-depth video critiques of international award-winning designs.

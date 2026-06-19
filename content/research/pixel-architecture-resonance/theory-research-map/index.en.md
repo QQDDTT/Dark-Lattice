@@ -3,6 +3,7 @@ title: "Cross-Boundary Isomorphism Relations Map (Mermaid)"
 date: 2026-06-19T00:00:00+09:00
 description: "Intuitively demonstrating Gestalt mechanisms, information control, and cross-domain mappings through Mermaid charts."
 draft: false
+weight: 70
 ---
 
 This file presents the underlying mapping and resonance mechanisms among **aesthetics, visual psychology, screen design (design composition), and IT engineering planning (SDLC / computational thinking)** through intuitive Mermaid charts.

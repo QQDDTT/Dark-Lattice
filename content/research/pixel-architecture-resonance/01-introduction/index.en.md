@@ -3,6 +3,7 @@ title: "Chapter 1 Introduction: The Cross-Boundary Fusion of Systems, Informatio
 date: 2026-06-19T00:00:00+09:00
 description: "Exploring the cross-boundary fusion background, necessity of systems engineering and aesthetics, and the core logical connections."
 draft: false
+weight: 10
 ---
 
 ## 1.1 Project Background and the Necessity of Interdisciplinary Research

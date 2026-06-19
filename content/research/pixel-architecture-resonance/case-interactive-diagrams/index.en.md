@@ -3,6 +3,7 @@ title: "Interactive Case Diagrams"
 date: 2026-06-19T00:00:00+09:00
 description: "In-depth deconstruction of Gestalt principles, including whitespace proximity, grid card flows, and Web modals combined with image assets."
 draft: false
+weight: 90
 ---
 
 This module combines downloaded image assets to perform multi-dimensional graphic and text deconstruction of Gestalt principles and design composition in digital products.

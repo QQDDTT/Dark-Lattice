@@ -3,6 +3,7 @@ title: "Chapter 3 The Cross-Boundary Isomorphism Mechanism of 'The Whole is Grea
 date: 2026-06-19T00:00:00+09:00
 description: "An in-depth analysis of the perfect isomorphism among Gestalt of imagery, formal skeletons, and highly cohesive system architectures from a 'holistic' perspective."
 draft: false
+weight: 30
 ---
 
 **\"The whole is greater than the sum of its parts\" is not only the golden law for Gestalt psychology to analyze perception, but also the underlying core bond connecting the generation of \"imagery\" in philosophical aesthetics, the \"skeleton\" grid in screen design, and the \"highly cohesive architecture\" in IT engineering.**

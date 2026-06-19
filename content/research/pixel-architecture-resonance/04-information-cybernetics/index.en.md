@@ -3,6 +3,7 @@ title: "Chapter 4 The Information Cybernetics of 'Form Follows Function, Technol
 date: 2026-06-19T00:00:00+09:00
 description: "A detailed dissection of cognitive load reduction, Gestalt design principles, and the logical structure aesthetics in IT engineering planning."
 draft: false
+weight: 40
 ---
 
 ## 4.1 Cognitive Load Reduction: Leveraging Visual Psychology to Mitigate Interaction and Reading Load

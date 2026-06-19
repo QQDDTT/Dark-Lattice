@@ -27,7 +27,7 @@
     {{ end }}
     {{ else }}
     <!-- 二级清单模式：展示当前课题下的文章列表 -->
-    {{ $paginator := .Paginate .RegularPages.ByDate.Reverse }}
+    {{ $paginator := .Paginate .RegularPages }}
     {{ range $paginator.Pages }}
         <a href="{{ .Permalink }}" class="list-item reveal-on-scroll">
             <div class="item-meta">

@@ -3,6 +3,7 @@ title: "Chapter 6 Conclusion and Future Outlook"
 date: 2026-06-19T00:00:00+09:00
 description: "Refining the core conclusions of this interdisciplinary study, and envisioning the ultimate harmony between rational engineering and sensible aesthetics in the smart era."
 draft: false
+weight: 60
 ---
 
 ## 6.1 Refinement of Core Cross-Domain Research Conclusions

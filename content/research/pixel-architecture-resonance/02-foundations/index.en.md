@@ -3,6 +3,7 @@ title: "Chapter 2 Foundational Foundations of the Four Major Fields"
 date: 2026-06-19T00:00:00+09:00
 description: "A systematic review of foundational theories in philosophical aesthetics, Gestalt psychology, compositional design, and IT software engineering."
 draft: false
+weight: 20
 ---
 
 To construct an interdisciplinary relational model, we must first consolidate the underlying theoretical foundations of each field. **Aesthetics, visual psychology, visual design, and IT engineering planning** each have unique developmental histories and core conceptual systems.

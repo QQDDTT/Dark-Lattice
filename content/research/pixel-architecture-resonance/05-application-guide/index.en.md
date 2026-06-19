@@ -3,6 +3,7 @@ title: "Chapter 5 Cross-Domain Practical Guide: UX-Oriented IT System UI/UX Deve
 date: 2026-06-19T00:00:00+09:00
 description: "From feasibility study to maintenance phase, applying cross-domain theories to IT system development and deconstructing classic interaction cases."
 draft: false
+weight: 50
 ---
 
 ## 5.1 Cross-Domain Engineering Guidance for Various Phases of the Software Life Cycle
