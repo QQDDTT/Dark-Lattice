@@ -26,8 +26,15 @@ draft: false
 
 ---
 
-## 包含的媒体资产
-本目录下同时存放了与大纲图文对应的视觉资产：
-*   [card_grid_gestalt.jpg (卡片流相似性示例)](../case-interactive-diagrams/card_grid_gestalt.jpg)
-*   [whitespace_proximity_ui.jpg (微信式接近性留白示例)](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
-*   [powerhouse_case_web.jpg (Awwwards Web 综合控制台示例)](../case-interactive-diagrams/powerhouse_case_web.jpg)
+## Media Assets Included
+The visual assets corresponding to the outlines are stored below:
+
+#### Card Grid Similarity Example
+![Card Grid Similarity](../case-interactive-diagrams/card_grid_gestalt.jpg)
+
+#### Whitespace Proximity Example
+![Whitespace Proximity](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
+
+#### Web Integration Console Example
+![Web Integration Console](../case-interactive-diagrams/powerhouse_case_web.jpg)
+

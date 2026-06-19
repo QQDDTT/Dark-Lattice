@@ -26,8 +26,15 @@ draft: false
 
 ---
 
-## 包含的媒体资产
-本目录下同时存放了与大纲图文对应的视觉资产：
-*   [card_grid_gestalt.jpg (卡片流相似性示例)](../case-interactive-diagrams/card_grid_gestalt.jpg)
-*   [whitespace_proximity_ui.jpg (微信式接近性留白示例)](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
-*   [powerhouse_case_web.jpg (Awwwards Web 综合控制台示例)](../case-interactive-diagrams/powerhouse_case_web.jpg)
+## 含まれるメディアアセット
+概要と図に対応するビジュアルアセットは以下に保存されています：
+
+#### カードグリッドの類似性例 (Card Grid Similarity)
+![カードグリッドの類似性](../case-interactive-diagrams/card_grid_gestalt.jpg)
+
+#### 余白と近接性の例 (Whitespace Proximity)
+![余白と近接性](../case-interactive-diagrams/whitespace_proximity_ui.jpg)
+
+#### Web統合コントロールコンソールの例 (Web Integration Console)
+![Web統合コントロールコンソール](../case-interactive-diagrams/powerhouse_case_web.jpg)
+
