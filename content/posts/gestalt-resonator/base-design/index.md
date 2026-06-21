@@ -3,7 +3,7 @@ title: "gestalt-resonator 设计总纲 (Base Design)"
 date: "2026-06-21T14:05:24+09:00"
 description: "跨平台画面设计合成与转译系统设计总纲"
 tags: ["gestalt-resonator", "设计总纲"]
-draft: true
+draft: false
 ---
 
 # gestalt-resonator 设计总纲 (Base Design)

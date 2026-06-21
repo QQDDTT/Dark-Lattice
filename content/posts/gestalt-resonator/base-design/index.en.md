@@ -3,7 +3,7 @@ title: "gestalt-resonator Base Design"
 date: "2026-06-21T14:05:24+09:00"
 description: "Cross-platform interface design synthesis and transpilation system base design"
 tags: ["gestalt-resonator", "Base Design"]
-draft: true
+draft: false
 ---
 
 # gestalt-resonator Base Design

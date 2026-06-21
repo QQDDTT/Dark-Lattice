@@ -3,7 +3,7 @@ title: "DDSL 生成技术方案课题研究 (DDSL Generation Tech Selection Rese
 date: "2026-06-21T14:05:24+09:00"
 description: "从原始用户要件到设计领域专用语言契约的技术方案选型论证"
 tags: ["gestalt-resonator", "技术选型", "DDSL"]
-draft: true
+draft: false
 ---
 
 # DDSL 生成技术方案课题研究 (DDSL Generation Tech Selection Research)

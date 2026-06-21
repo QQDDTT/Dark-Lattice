@@ -3,7 +3,7 @@ title: "知识驱动型 Agent 构建心得：从逻辑重构到知识提纯"
 date: "2026-06-21T14:10:00+09:00"
 description: "反思 gestalt-prompt-workflow 开发过程中的核心转变：提示词工程的博弈本质，以及如何对繁杂的知识库进行“提纯”与“洗稿”重构。"
 tags: ["gestalt-prompt-workflow", "agent-skill", "开发心得", "重构"]
-draft: true
+draft: false
 ---
 
 在经历了 `gestalt-prompt-workflow` 的从无到有、从理论落地到实战部署的全过程后，我深刻意识到：构建一个高级的知识驱动型 Agent Skill，本质上是对人类已有知识体系的重新审视与格式化。

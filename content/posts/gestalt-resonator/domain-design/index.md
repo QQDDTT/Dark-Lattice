@@ -3,7 +3,7 @@ title: "gestalt-resonator 领域设计规范 (Domain Design)"
 date: "2026-06-21T14:05:24+09:00"
 description: "严格遵循领域驱动设计(DDD)的系统限界上下文与核心模型"
 tags: ["gestalt-resonator", "领域设计", "DDD"]
-draft: true
+draft: false
 ---
 
 # gestalt-resonator 领域设计规范 (Domain Design)

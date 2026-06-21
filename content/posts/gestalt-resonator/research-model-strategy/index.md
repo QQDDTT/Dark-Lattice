@@ -3,7 +3,7 @@ title: "自训练模型策略：单模型与多模型方案对比研究 (Model S
 date: "2026-06-21T14:05:24+09:00"
 description: "针对有效设计特征提取任务的模型流水线对比与论证"
 tags: ["gestalt-resonator", "模型策略", "多模型流水线"]
-draft: true
+draft: false
 ---
 
 # 自训练模型策略：单模型与多模型方案对比研究 (Model Strategy Research: Single vs. Multi-Model Pipeline)

@@ -3,7 +3,7 @@ title: "gestalt-resonator 系统架构设计 (Architecture Design)"
 date: "2026-06-21T14:05:24+09:00"
 description: "系统分层架构、核心模块设计与数据流向"
 tags: ["gestalt-resonator", "架构设计"]
-draft: true
+draft: false
 ---
 
 # gestalt-resonator 系统架构设计 (Architecture Design)

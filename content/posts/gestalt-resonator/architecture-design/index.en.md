@@ -3,7 +3,7 @@ title: "gestalt-resonator Architecture Design"
 date: "2026-06-21T14:05:24+09:00"
 description: "System layered architecture, core module design, and data flow"
 tags: ["gestalt-resonator", "Architecture Design"]
-draft: true
+draft: false
 ---
 
 # gestalt-resonator Architecture Design

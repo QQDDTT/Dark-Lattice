@@ -3,7 +3,7 @@ title: "DDSL Generation Tech Selection Research"
 date: "2026-06-21T14:05:24+09:00"
 description: "Technology selection argument for transpiling raw user requirements to the Design Domain Specific Language contract"
 tags: ["gestalt-resonator", "Technology Selection", "DDSL"]
-draft: true
+draft: false
 ---
 
 # DDSL Generation Tech Selection Research

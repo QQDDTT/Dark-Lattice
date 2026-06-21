@@ -3,7 +3,7 @@ title: "\"发散-收敛\" 交互式设计工作流课题研究 (Research on Dive
 date: "2026-06-21T14:05:24+09:00"
 description: "基于设计谱系图解决设计推理过程痛点的方案"
 tags: ["gestalt-resonator", "工作流", "交互设计"]
-draft: true
+draft: false
 ---
 
 # "发散-收敛" 交互式设计工作流课题研究 (Research on Divergent & Convergent Interactive Design Workflow)

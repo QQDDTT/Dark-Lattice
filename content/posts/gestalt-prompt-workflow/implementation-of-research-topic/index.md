@@ -3,7 +3,7 @@ title: "Gestalt Prompt Workflow：如何将设计与架构共鸣研究落地为 
 date: "2026-06-21T14:00:00+09:00"
 description: "探讨《像素与架构的系统共鸣》研究中的五维理论，是如何通过 Gestalt Prompt Workflow 被转化为机器可理解并严格执行的代码生成引擎。"
 tags: ["gestalt-prompt-workflow", "agent-skill", "架构与设计"]
-draft: true
+draft: false
 ---
 
 在《像素与架构的系统共鸣》研究课题中，我们深入探讨了画面设计、美学、视觉心理与 IT 工程规划之间的系统级共鸣。然而，理论研究最终需要落地生根。如何让一个 AI大语言模型理解诸如“格式塔心理学”、“视觉张力”或者“组件高内聚”这样的抽象概念？

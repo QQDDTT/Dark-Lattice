@@ -3,7 +3,7 @@ title: "Model Strategy Research: Single vs. Multi-Model Pipeline"
 date: "2026-06-21T14:05:24+09:00"
 description: "Comparison and argumentation for model pipelines regarding effective design feature extraction"
 tags: ["gestalt-resonator", "Model Strategy", "Multi-Model Pipeline"]
-draft: true
+draft: false
 ---
 
 # Model Strategy Research: Single vs. Multi-Model Pipeline

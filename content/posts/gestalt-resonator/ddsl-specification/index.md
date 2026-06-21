@@ -3,7 +3,7 @@ title: "DDSL 语法设计规约 (DDSL Specification)"
 date: "2026-06-21T14:05:24+09:00"
 description: "专门为 AI Agent 协同开发设计的画面设计语义图谱契约规范"
 tags: ["gestalt-resonator", "DDSL"]
-draft: true
+draft: false
 ---
 
 # DDSL 语法设计规约 (DDSL Specification)
