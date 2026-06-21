@@ -16,6 +16,10 @@
     "gestalt-resonator": {
       "external_path": "/home/nick/workspaces/gestalt-resonator/docs",
       "description": "Gestalt Resonator 完形共鸣器项目"
+    },
+    "gestalt-prompt-workflow": {
+      "external_path": "/home/nick/workspaces/gestalt-prompt-workflow/docs",
+      "description": "Gestalt Prompt Workflow 提示词工作流项目"
     }
   },
   "research_topics": {
