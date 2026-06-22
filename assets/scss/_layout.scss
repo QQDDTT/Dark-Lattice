@@ -1,6 +1,8 @@
 @import "variables";
 
-// 1. Header Styles (极简导航栏)
+// ============================================================
+// NAVBAR — 毛玻璃，仅命令面板级别使用 backdrop-filter
+// ============================================================
 .site-header {
     position: fixed;
     top: 0;
@@ -10,130 +12,177 @@
     z-index: 1000;
     display: flex;
     align-items: center;
-    padding: 0 8%;
-    background: rgba(9, 9, 11, 0.8);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-    border-bottom: 1px solid $border-color;
-    transition: background $transition-duration $transition-timing;
+
+    // 毛玻璃：仅导航栏场景（面积 < 5% 视口）
+    background: rgba(14, 14, 20, 0.80);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+    border-bottom: 1px solid var(--border-subtle);
+    transition: border-color 200ms var(--ease-smooth);
+
+    &.scrolled {
+        border-bottom-color: var(--border-default);
+    }
 }
 
-.header-container {
+.header-inner {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-}
-
-.logo-link {
-    display: flex;
-    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--sp-8);
 }
 
 .logo-text {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: $text-primary;
+    font-family: var(--font-display);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-high);
+    letter-spacing: 0.5px;
 }
 
+// 导航链接——伪元素下划线从左到右展开（Awwwards 标志性微动效）
 .nav-list {
     display: flex;
+    align-items: center;
+    gap: var(--sp-8);
     list-style: none;
-    gap: 2rem;
 }
 
 .nav-link {
-    color: $text-secondary;
-    text-decoration: none;
-    font-size: 0.9rem;
-    transition: color 0.2s;
+    position: relative;
+    font-size: 0.875rem;
+    color: var(--text-medium);
+    transition: color 150ms var(--ease-smooth);
+    padding-bottom: 2px;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 1px;
+        background: var(--text-high);
+        // COE: 只驱动 width（例外：伪元素下划线无法用 transform 完美替代）
+        transition: width 280ms var(--ease-enter);
+    }
 
     &:hover, &.active {
-        color: $text-primary;
+        color: var(--text-high);
+    }
+
+    &:hover::after, &.active::after {
+        width: 100%;
     }
 }
 
-.language-select {
-    background: transparent;
-    border: 1px solid $border-color;
-    color: $text-secondary;
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: 0.8rem;
+// 语言切换器——精简版
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-1);
+    margin-left: var(--sp-4);
+}
+
+.lang-btn {
+    font-size: 0.75rem;
+    color: var(--text-low);
     cursor: pointer;
+    padding: 2px var(--sp-2);
+    border-radius: 4px;
+    transition: color 120ms ease, background 120ms ease;
+    text-decoration: none;
 
-    &:focus {
-        outline: none;
-        border-color: $text-primary;
+    &:hover {
+        color: var(--text-medium);
+    }
+
+    &.active {
+        color: var(--text-high);
+        background: var(--layer-3);
     }
 }
 
-// 2. Footer Styles
-.site-footer {
-    padding: 4rem 8%;
-    border-top: 1px solid $border-color;
-    text-align: center;
-    color: $text-muted;
-    font-size: 0.85rem;
-    margin-top: 4rem;
+.lang-divider {
+    color: var(--text-minimal);
+    font-size: 0.75rem;
 }
 
-.footer-content {
+// ============================================================
+// FOOTER
+// ============================================================
+.site-footer {
+    padding: var(--sp-12) 0;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--sp-8);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: $spacing-unit * 4;
-}
 
-.footer-center a {
-    color: $text-secondary;
-    text-decoration: underline;
-    text-underline-offset: 4px;
-
-    &:hover {
-        color: $text-primary;
+    @media (max-width: 640px) {
+        flex-direction: column;
+        gap: var(--sp-4);
+        align-items: flex-start;
     }
 }
 
-.social-links {
+.footer-copy {
+    font-size: 0.8rem;
+    color: var(--text-low);
+}
+
+.footer-links-group {
     display: flex;
-    gap: $spacing-unit * 3;
+    gap: var(--sp-6);
 }
 
-.social-links a {
-    color: $text-secondary;
+.footer-link {
+    font-size: 0.8rem;
+    color: var(--text-low);
+    transition: color 120ms ease;
+
     &:hover {
-        color: $text-primary;
+        color: var(--text-medium);
     }
 }
 
-// 3. Section Headers
+// ============================================================
+// SECTION HEADERS & UTILS (兼容旧版某些页面的简单样式)
+// ============================================================
 .section-header-group {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    margin-bottom: $spacing-unit * 4;
+    margin-bottom: var(--sp-4);
 }
 
 .section-title {
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: $spacing-unit * 4;
-    color: $text-primary;
+    margin-bottom: var(--sp-4);
+    color: var(--text-high);
 }
 
 .view-all-link {
     font-size: 0.8rem;
-    color: $text-secondary;
+    color: var(--text-medium);
     font-weight: 500;
-    
+
     &:hover {
-        color: $text-primary;
+        color: var(--text-high);
     }
 }
 
-// 4. Utils
 .section-spacing {
-    padding: ($spacing-unit * 10) 0;
+    padding: var(--sp-10) 0;
 }
+
