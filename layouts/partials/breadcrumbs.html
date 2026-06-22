@@ -1,37 +1,31 @@
 {{ if not .IsHome }}
-<nav class="breadcrumbs" aria-label="Breadcrumb">
-  <ol class="breadcrumb-list">
-    <!-- 首页链接 -->
-    <li class="breadcrumb-item">
-      <a href="{{ .Site.Home.Permalink }}">{{ T "home" | default "首页" }}</a>
-    </li>
-    
-    <!-- 追溯父级节点 -->
-    {{ $scratch := newScratch }}
-    {{ $scratch.Set "parents" slice }}
-    {{ $scratch.Set "current" .Parent }}
-    {{ range seq 10 }}
-      {{ $current := $scratch.Get "current" }}
-      {{ if and $current (not $current.IsHome) }}
-        {{ $scratch.Add "parents" $current }}
-        {{ $scratch.Set "current" $current.Parent }}
-      {{ end }}
+<nav class="breadcrumb" id="breadcrumb" aria-label="面包屑导航">
+  <!-- 首页链接 -->
+  <a href="{{ .Site.Home.RelPermalink }}" class="crumb">{{ T "home" | default "首页" }}</a>
+  
+  <!-- 追溯父级节点 -->
+  {{ $scratch := newScratch }}
+  {{ $scratch.Set "parents" slice }}
+  {{ $scratch.Set "current" .Parent }}
+  {{ range seq 10 }}
+    {{ $current := $scratch.Get "current" }}
+    {{ if and $current (not $current.IsHome) }}
+      {{ $scratch.Add "parents" $current }}
+      {{ $scratch.Set "current" $current.Parent }}
     {{ end }}
-    
-    <!-- 倒序渲染父级节点（从祖先到直接父级） -->
-    {{ $parents := $scratch.Get "parents" }}
-    {{ if $parents }}
-      {{ range collections.Reverse $parents }}
-        <li class="breadcrumb-item">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </li>
-      {{ end }}
+  {{ end }}
+  
+  <!-- 倒序渲染父级节点（从祖先到直接父级） -->
+  {{ $parents := $scratch.Get "parents" }}
+  {{ if $parents }}
+    {{ range collections.Reverse $parents }}
+      <span class="crumb-sep" aria-hidden="true">/</span>
+      <a href="{{ .Permalink }}" class="crumb">{{ .Title }}</a>
     {{ end }}
-    
-    <!-- 当前页面 -->
-    <li class="breadcrumb-item active" aria-current="page">
-      <span>{{ .Title }}</span>
-    </li>
-  </ol>
+  {{ end }}
+  
+  <!-- 当前页面 -->
+  <span class="crumb-sep" aria-hidden="true">/</span>
+  <span class="crumb-current">{{ .Title }}</span>
 </nav>
 {{ end }}

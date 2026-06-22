@@ -1,96 +1,142 @@
 {{ define "main" }}
-<div class="hero-section container">
-    <div class="hero-content-segment reveal-on-scroll delay-100" style="max-width: 800px; margin: 0 auto; text-align: left; padding: 0 5%;">
-        <h1 class="hero-title" style="font-size: 4rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 1.5rem; color: $text-primary;">
-            {{ i18n "home_hero_title" | safeHTML }}
+<main style="padding-top: 60px;">
+    <!-- ============================================================
+         HERO SECTION
+         Awwwards 级：超大字体 + 逐词 Stagger 揭示动效
+    ============================================================ -->
+    <section class="hero" aria-labelledby="hero-title">
+        <!-- 眉标（Eyebrow）: 先于标题入场 -->
+        <div class="hero-eyebrow" id="hero-eyebrow">
+            <span class="eyebrow-dot" aria-hidden="true"></span>
+            <span class="eyebrow-text">{{ i18n "hero_bio" | default "Dark Lattice · 个人研究博客" }}</span>
+        </div>
+
+        <!-- 主标题：逐词揭示 -->
+        <h1 class="hero-title" id="hero-title" aria-label="Engineering. Research. Aesthetics.">
+            <span class="word">Engineering.</span>
+            <br>
+            <span class="word">Research.</span>
+            <br>
+            <span class="word accent-word">Aesthetics.</span>
         </h1>
-        <p class="hero-subtitle" style="color: #a1a1aa; font-size: 1.1rem; max-width: 600px; margin-bottom: 2.5rem; line-height: 1.8;">
+
+        <!-- 副标题 -->
+        <p class="hero-subtitle" id="hero-subtitle">
             {{ i18n "home_hero_subtitle" }}
         </p>
-        
-        <div class="hero-cta-group">
-            <a href="{{ (site.GetPage "research").Permalink }}" class="btn btn-primary" style="display: inline-flex; align-items: center; justify-content: center; padding: 0.75rem 1.5rem; background: #fafafa; color: #09090b; text-decoration: none; border-radius: 6px; font-weight: 500; font-size: 0.9rem; transition: opacity 0.2s;">{{ i18n "home_view_projects" }}</a>
-        </div>
-    </div>
-</div>
 
-<!-- 核心理念区 (Manifesto Section) -->
-<div class="manifesto-section container section-spacing">
-    <div class="manifesto-grid">
-        <div class="manifesto-item reveal-on-scroll">
-            <h3>{{ i18n "home_manifesto_agent" }}</h3>
-            <p>{{ i18n "home_manifesto_agent_desc" }}</p>
+        <!-- CTA 按钮组 -->
+        <div class="hero-cta" id="hero-cta">
+            <a href="{{ (site.GetPage "research").RelPermalink }}" class="btn-primary" id="cta-research">
+                {{ i18n "home_view_projects" | default "浏览研究项目" }}
+            </a>
+            <a href="{{ (site.GetPage "posts").RelPermalink }}" class="btn-secondary" id="cta-blog">
+                {{ i18n "enter_blog" | default "阅读博客" }}
+            </a>
         </div>
-        <div class="manifesto-item reveal-on-scroll delay-100">
-            <h3>{{ i18n "home_manifesto_vision" }}</h3>
-            <p>{{ i18n "home_manifesto_vision_desc" }}</p>
-        </div>
-        <div class="manifesto-item reveal-on-scroll delay-200">
-            <h3>{{ i18n "home_manifesto_frontend" }}</h3>
-            <p>{{ i18n "home_manifesto_frontend_desc" }}</p>
-        </div>
-    </div>
-</div>
 
-<!-- 项目卡片区 -->
-<section class="projects-section reveal-on-scroll delay-100" id="projects">
-    <div class="section-header-group" style="padding: 0 5%; max-width: 1200px; margin: 0 auto 4rem auto;">
-        <h2 class="section-title" style="font-size: 2rem; font-weight: 600; color: #fafafa;">{{ i18n "home_featured_projects" }}</h2>
-    </div>
-    
-    <!-- 水平无缝滚动播放 -->
-    <div class="projects-wrapper">
-        <div class="projects-marquee">
-            {{ $featured := first 4 (where .Site.RegularPages "Section" "in" (slice "posts" "research")) }}
-            
-            <!-- ====== 原始的一组卡片 ====== -->
-            {{ range $index, $element := $featured }}
-                <a href="{{ .Permalink }}" class="project-card">
-                    {{ $img := .Params.featured_image }}
-                    {{ if not $img }}
-                        {{ $img = index (slice "images/projects/project_cover_1.png" "images/projects/project_cover_2.png" "images/projects/project_cover_3.png") (mod $index 3) }}
-                    {{ end }}
-                    <div class="project-cover" style="background-image: url('{{ $img | absURL }}'); background-size: cover; background-position: center;"></div>
-                    <div class="project-info">
-                        <h3>{{ .Title }}</h3>
-                        <p>
-                            {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 80 }}{{ end }}
-                        </p>
-                        <div class="tech-list">
-                            {{ with .Params.tags }}
-                                {{ range first 2 . }}
-                                    <span>{{ . | upper }}</span>
-                                {{ end }}
+        <div class="hero-separator" id="hero-separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============================================================
+         MANIFESTO SECTION
+         GII: 无物理边框，靠背景层（--layer-1）+ padding 区分
+    ============================================================ -->
+    <section class="manifesto-section container" aria-label="核心理念">
+        <div class="manifesto-grid">
+            <div class="manifesto-card reveal stagger-1">
+                <div class="card-num" aria-hidden="true">01</div>
+                <h2 class="card-title">{{ i18n "home_manifesto_agent" }}</h2>
+                <p class="card-desc">{{ i18n "home_manifesto_agent_desc" }}</p>
+            </div>
+
+            <div class="manifesto-card reveal stagger-2">
+                <div class="card-num" aria-hidden="true">02</div>
+                <h2 class="card-title">{{ i18n "home_manifesto_vision" }}</h2>
+                <p class="card-desc">{{ i18n "home_manifesto_vision_desc" }}</p>
+            </div>
+
+            <div class="manifesto-card reveal stagger-3">
+                <div class="card-num" aria-hidden="true">03</div>
+                <h2 class="card-title">{{ i18n "home_manifesto_frontend" }}</h2>
+                <p class="card-desc">{{ i18n "home_manifesto_frontend_desc" }}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS MARQUEE SECTION
+         COE: 动画只使用 transform.translateX，零 Reflow
+    ============================================================ -->
+    <section class="projects-section" aria-label="精选项目">
+        <div class="section-label reveal">
+            <span class="label-line" aria-hidden="true"></span>
+            <span class="label-text">Featured Projects</span>
+        </div>
+
+        <h2 class="section-heading reveal">{{ i18n "home_featured_projects" | default "精选项目" }}</h2>
+
+        <div class="marquee-wrapper" role="region" aria-label="项目展示滚动区">
+            <div class="marquee-track">
+                {{ $featured := first 4 (where .Site.RegularPages "Section" "in" (slice "posts" "research")) }}
+
+                <!-- === 原始一组 === -->
+                {{ range $index, $element := $featured }}
+                    <a href="{{ .Permalink }}" class="project-card" tabindex="0">
+                        <div class="card-cover">
+                            {{ $img := .Params.featured_image }}
+                            {{ if not $img }}
+                                {{ $img = index (slice "images/projects/project_cover_1.png" "images/projects/project_cover_2.png" "images/projects/project_cover_3.png") (mod $index 3) }}
                             {{ end }}
+                            <img src="{{ $img | absURL }}" alt="{{ .Title }} 项目封面" class="card-cover-img" loading="lazy">
                         </div>
-                    </div>
-                </a>
-            {{ end }}
-
-            <!-- ====== 复制的一组卡片（用于实现无缝衔接动画） ====== -->
-            {{ range $index, $element := $featured }}
-                <a href="{{ .Permalink }}" class="project-card">
-                    {{ $img := .Params.featured_image }}
-                    {{ if not $img }}
-                        {{ $img = index (slice "images/projects/project_cover_1.png" "images/projects/project_cover_2.png" "images/projects/project_cover_3.png") (mod $index 3) }}
-                    {{ end }}
-                    <div class="project-cover" style="background-image: url('{{ $img | absURL }}'); background-size: cover; background-position: center;"></div>
-                    <div class="project-info">
-                        <h3>{{ .Title }}</h3>
-                        <p>
-                            {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 80 }}{{ end }}
-                        </p>
-                        <div class="tech-list">
-                            {{ with .Params.tags }}
-                                {{ range first 2 . }}
-                                    <span>{{ . | upper }}</span>
+                        <div class="card-meta">
+                            <div class="card-tags">
+                                {{ if .Params.tags }}
+                                    {{ range first 2 .Params.tags }}
+                                        <span class="tag">{{ . }}</span>
+                                    {{ end }}
+                                {{ else }}
+                                    <span class="tag">{{ .Type }}</span>
                                 {{ end }}
-                            {{ end }}
+                            </div>
                         </div>
-                    </div>
-                </a>
-            {{ end }}
+                        <div class="card-title-text">{{ .Title }}</div>
+                        <div class="card-desc-text">
+                            {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 80 }}{{ end }}
+                        </div>
+                    </a>
+                {{ end }}
+
+                <!-- === 无缝循环复制组 === -->
+                {{ range $index, $element := $featured }}
+                    <a href="{{ .Permalink }}" class="project-card" tabindex="-1" aria-hidden="true">
+                        <div class="card-cover">
+                            {{ $img := .Params.featured_image }}
+                            {{ if not $img }}
+                                {{ $img = index (slice "images/projects/project_cover_1.png" "images/projects/project_cover_2.png" "images/projects/project_cover_3.png") (mod $index 3) }}
+                            {{ end }}
+                            <img src="{{ $img | absURL }}" alt="" class="card-cover-img" loading="lazy">
+                        </div>
+                        <div class="card-meta">
+                            <div class="card-tags">
+                                {{ if .Params.tags }}
+                                    {{ range first 2 .Params.tags }}
+                                        <span class="tag">{{ . }}</span>
+                                    {{ end }}
+                                {{ else }}
+                                    <span class="tag">{{ .Type }}</span>
+                                {{ end }}
+                            </div>
+                        </div>
+                        <div class="card-title-text">{{ .Title }}</div>
+                        <div class="card-desc-text">
+                            {{ if .Params.summary }}{{ .Params.summary }}{{ else }}{{ .Summary | plainify | truncate 80 }}{{ end }}
+                        </div>
+                    </a>
+                {{ end }}
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+</main>
 {{ end }}

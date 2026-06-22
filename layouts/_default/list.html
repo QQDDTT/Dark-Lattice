@@ -1,38 +1,87 @@
 {{ define "main" }}
-<header class="page-header">
-    <h2 class="page-title">{{ .Title }}</h2>
-    {{ if .Params.description }}
-        <p class="page-desc">{{ .Params.description }}</p>
-    {{ else if eq .Type "posts" }}
-        <p class="page-desc">关于智能体逻辑、前端架构与计算美学的思考与记录。</p>
-    {{ else if eq .Type "research" }}
-        <p class="page-desc">我们在多模态大语言模型与工业视觉领域的探索与实践。</p>
-    {{ end }}
-</header>
+<main>
+    <!-- ── 面包屑 & 页面头部 ── -->
+    <section class="page-header container">
+        <div class="page-eyebrow" id="pg-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-label">
+                {{- if eq .Type "posts" -}}Blog · 博客
+                {{- else if eq .Type "research" -}}Research · 研究
+                {{- else -}}{{ .Type | upper }}
+                {{- end -}}
+            </span>
+        </div>
+        <h1 class="page-title" id="pg-title">
+            {{- if eq .Type "posts" -}}思考与记录
+            {{- else if eq .Type "research" -}}学术与前沿
+            {{- else -}}{{ .Title }}
+            {{- end -}}
+        </h1>
+        <p class="page-desc" id="pg-desc">
+            {{- if .Params.description -}}
+                {{ .Params.description }}
+            {{- else if eq .Type "posts" -}}
+                关于智能体逻辑、前端架构与计算美学的思考与记录。
+            {{- else if eq .Type "research" -}}
+                我们在多模态大语言模型与工业视觉领域的探索与实践。
+            {{- else -}}
+                Explore our entries and findings.
+            {{- end -}}
+        </p>
+    </section>
 
-<div class="list-container">
-    {{ $paginator := .Paginate .Pages }}
-    {{ range $paginator.Pages }}
-        <a href="{{ .Permalink }}" class="list-item reveal-on-scroll">
-            <div class="item-meta">
-                <span>{{ .Date.Format "2006.01.02" }}</span>
-                {{ if .Params.tags }}
-                    <span>{{ index .Params.tags 0 | upper }}</span>
-                {{ else }}
-                    <span>{{ .Type | upper }}</span>
-                {{ end }}
-            </div>
-            <h3 class="item-title">{{ .Title }}</h3>
-            <p class="item-summary">
-                {{ if .Params.summary }}
-                    {{ .Params.summary }}
-                {{ else }}
-                    {{ .Summary | plainify | truncate 120 }}
-                {{ end }}
-            </p>
-        </a>
-    {{ end }}
-    
-    {{ partial "pagination.html" . }}
-</div>
+    <!-- ── 分类过滤栏 & 文章列表 ── -->
+    <div class="container">
+        <div class="filter-bar" id="filter-bar" role="group" aria-label="文章分类过滤">
+            <span class="filter-label">FILTER</span>
+            <button class="filter-chip active">全部</button>
+            <button class="filter-chip">Agent</button>
+            <button class="filter-chip">Vision AI</button>
+            <button class="filter-chip">Frontend</button>
+            <button class="filter-chip">工程随笔</button>
+            <button class="filter-chip">论文精读</button>
+        </div>
+
+        <!-- ── 文章列表 ── -->
+        <div class="post-list" role="list">
+            {{ $paginator := .Paginate .Pages }}
+            {{ range $index, $element := $paginator.Pages }}
+                <!-- 为前几个元素生成依次递增的 stagger 延迟以实现更平滑的首次入场效果 -->
+                {{ $staggerIndex := add (mod $index 8) 1 }}
+                <a href="{{ .RelPermalink }}" class="post-item reveal stagger-{{ $staggerIndex }}" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">{{ .Date.Format "02" }}</span>
+                        <span class="date-month">{{ .Date.Format "Jan 2006" }}</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            {{ if .Params.tags }}
+                                {{ range first 2 .Params.tags }}
+                                    <span class="post-tag">{{ . }}</span>
+                                {{ end }}
+                            {{ else }}
+                                <span class="post-tag">{{ .Type }}</span>
+                            {{ end }}
+                        </div>
+                        <div class="post-title">{{ .Title }}</div>
+                        <p class="post-summary">
+                            {{ if .Params.summary }}
+                                {{ .Params.summary }}
+                            {{ else }}
+                                {{ .Summary | plainify | truncate 120 }}
+                            {{ end }}
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 {{ .ReadingTime }} 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+            {{ end }}
+        </div>
+
+        <!-- ── 分页 ── -->
+        {{ partial "pagination.html" . }}
+    </div>
+</main>
 {{ end }}

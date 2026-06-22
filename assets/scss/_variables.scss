@@ -1,30 +1,51 @@
-// Nightfield Design System Variables
+// Dark Lattice Design System Variables - v2 Spec
 
-// 1. Colors (Minimalist Palette)
-$space-black: #09090B; // 深邃黑背景
-$cyber-blue: #FAFAFA;  // 主文本色（极高对比度）
-$mystic-purple: #FAFAFA; // 辅助文本色
+// 1. Colors & Layering (HSL 5-Layer Grayscale)
+$layer-0: hsl(240, 8%, 5.5%);
+$layer-1: hsl(240, 8%, 8%);
+$layer-2: hsl(240, 6%, 10.5%);
+$layer-3: hsl(240, 5%, 13%);
+$layer-4: hsl(240, 4%, 17%);
 
-$text-primary: #FAFAFA;
-$text-secondary: #A1A1AA;
-$text-muted: #71717A;
+$text-high:    rgba(255, 255, 255, 0.92);
+$text-medium:  rgba(255, 255, 255, 0.60);
+$text-low:     rgba(255, 255, 255, 0.36);
+$text-minimal: rgba(255, 255, 255, 0.20);
 
-$border-color: #27272A;
-$glass-bg: rgba(9, 9, 11, 0.8);
+$accent:        hsl(250, 85%, 62%);
+$accent-dim:    hsla(250, 85%, 62%, 0.12);
+$accent-glow:   rgba(139, 92, 246, 0.35);
+$accent-border: rgba(139, 92, 246, 0.3);
+
+$border-subtle:   rgba(255, 255, 255, 0.06);
+$border-default:  rgba(255, 255, 255, 0.10);
+$border-emphasis: rgba(255, 255, 255, 0.18);
+
+// 兼容旧有 SCSS 变量的过渡绑定
+$space-black: $layer-0;
+$text-primary: $text-high;
+$text-secondary: $text-medium;
+$text-muted: $text-low;
+$border-color: $border-default;
 
 // 2. Typography
-$font-title: 'Inter', 'Source Code Pro', sans-serif;
-$font-body: 'Roboto', sans-serif;
-$font-code: 'Fira Code', monospace;
+$font-title: 'Syne', 'Inter', sans-serif;
+$font-body: 'Inter', system-ui, -apple-system, sans-serif;
+$font-code: 'Fira Code', 'Consolas', monospace;
 
-// 3. Grid & Spacing
-$spacing-unit: 8px;
+// 3. Grid & Spacing (4px Base Unit)
+$spacing-unit: 4px;
 
-// 4. Transitions
-$transition-duration: 300ms;
-$transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
+// 4. Transitions & Easing
+$ease-enter: cubic-bezier(0.16, 1, 0.3, 1);
+$ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+$ease-exit: cubic-bezier(0.4, 0, 1, 1);
+
+$transition-duration: 400ms;
+$transition-timing: $ease-smooth;
 
 // 5. Breakpoints
 $breakpoint-mobile: 480px;
 $breakpoint-tablet: 768px;
 $breakpoint-desktop: 1024px;
+

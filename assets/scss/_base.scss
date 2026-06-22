@@ -1,6 +1,58 @@
 @import "variables";
 
-// 1. CSS Reset & Base Defaults
+// ============================================================
+// DESIGN TOKENS — SCR 规范: CSS 自定义属性全量定义
+// ============================================================
+:root {
+    --layer-0: #{$layer-0};
+    --layer-1: #{$layer-1};
+    --layer-2: #{$layer-2};
+    --layer-3: #{$layer-3};
+    --layer-4: #{$layer-4};
+
+    --text-high:    #{$text-high};
+    --text-medium:  #{$text-medium};
+    --text-low:     #{$text-low};
+    --text-minimal: #{$text-minimal};
+
+    --accent:        #{$accent};
+    --accent-dim:    #{$accent-dim};
+    --accent-glow:   #{$accent-glow};
+    --accent-border: #{$accent-border};
+
+    --border-subtle:   #{$border-subtle};
+    --border-default:  #{$border-default};
+    --border-emphasis: #{$border-emphasis};
+
+    --ease-enter:  #{$ease-enter};
+    --ease-smooth: #{$ease-smooth};
+    --ease-exit:   #{$ease-exit};
+
+    --sp-1:  #{$spacing-unit};
+    --sp-2:  #{$spacing-unit * 2};
+    --sp-3:  #{$spacing-unit * 3};
+    --sp-4:  #{$spacing-unit * 4};
+    --sp-6:  #{$spacing-unit * 6};
+    --sp-8:  #{$spacing-unit * 8};
+    --sp-10: #{$spacing-unit * 10};
+    --sp-12: #{$spacing-unit * 12};
+    --sp-16: #{$spacing-unit * 16};
+    --sp-20: #{$spacing-unit * 20};
+    --sp-24: #{$spacing-unit * 24};
+
+    --section-gap: clamp(80px, 12vw, 160px);
+
+    --font-display: #{$font-title};
+    --font-body:    #{$font-body};
+    --font-code:    #{$font-code};
+
+    // 阅读进度变量（由 JS 动态写入）
+    --scroll-progress: 0;
+}
+
+// ============================================================
+// RESET & BASE DEFAULTS
+// ============================================================
 *, *::before, *::after {
     box-sizing: border-box;
     margin: 0;
@@ -10,77 +62,97 @@
 html {
     font-size: 16px;
     scroll-behavior: smooth;
-    background-color: $space-black;
-    color: $text-primary;
+    background-color: var(--layer-0);
+    color: var(--text-high);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-    font-family: $font-body;
+    font-family: var(--font-body);
     line-height: 1.6;
     overflow-x: hidden;
     min-height: 100vh;
-    background-color: $space-black;
-    color: $text-primary;
-}
+    background-color: var(--layer-0);
+    color: var(--text-high);
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: $font-title;
-    font-weight: 600;
-    color: $text-primary;
-    line-height: 1.2;
-    margin-bottom: $spacing-unit * 2;
-}
+    // COE: 页面淡显使用 opacity，不触发 Reflow
+    opacity: 0;
+    transition: opacity 500ms var(--ease-enter);
 
-a {
-    color: $text-secondary;
-    text-decoration: none;
-    transition: color $transition-duration $transition-timing;
-
-    &:hover {
-        color: $text-primary;
+    &.page-loaded {
+        opacity: 1;
     }
 }
 
-code, pre {
-    font-family: $font-code;
+a {
+    color: var(--text-medium);
+    text-decoration: none;
+    transition: color 150ms var(--ease-smooth);
+
+    &:hover {
+        color: var(--text-high);
+    }
 }
 
-// 2. Global Layout Classes
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    color: var(--text-high);
+    line-height: 1.2;
+}
+
+// ============================================================
+// GLOBAL LAYOUT & UTILITIES
+// ============================================================
 .container {
-    max-width: $breakpoint-desktop;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 0 ($spacing-unit * 3);
+    padding: 0 var(--sp-8);
 }
 
 .main-content {
-    padding-top: 100px;
     min-height: calc(100vh - 200px);
 }
 
-// 3. Animations
-/* 滚动幻灯片动画 */
-.reveal-on-scroll {
+// ============================================================
+// REVEAL ANIMATIONS (Scroll Reveal / Stagger)
+// ============================================================
+.reveal, .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.8s ease-out, transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+    transform: translateY(24px);
+    transition: opacity 700ms var(--ease-enter),
+                transform 700ms var(--ease-enter);
     will-change: opacity, transform;
+
+    &.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.reveal-on-scroll.is-visible {
-    opacity: 1;
-    transform: translateY(0);
+// Stagger 延迟工具类（40ms 步长，Awwwards 规范）
+.stagger-1 { transition-delay: 40ms; }
+.stagger-2 { transition-delay: 80ms; }
+.stagger-3 { transition-delay: 120ms; }
+.stagger-4 { transition-delay: 160ms; }
+.stagger-5 { transition-delay: 200ms; }
+.stagger-6 { transition-delay: 240ms; }
+.stagger-7 { transition-delay: 280ms; }
+.stagger-8 { transition-delay: 320ms; }
+
+// a11y: 所有交互元素 focus-visible 样式
+:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 4px;
+    border-radius: 2px;
 }
 
-/* 针对不同元素的延迟 */
-.delay-100 { transition-delay: 0.1s; }
-.delay-200 { transition-delay: 0.2s; }
-.delay-300 { transition-delay: 0.3s; }
-
-// 4. Utility Components
-.glass {
-    background: rgba(9, 9, 11, 0.8);
-    backdrop-filter: blur(8px);
-    border: 1px solid $border-color;
+// prefers-reduced-motion: 禁用位移动效，仅保留 fade
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
+

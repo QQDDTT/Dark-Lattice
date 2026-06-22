@@ -1,31 +1,29 @@
-<footer class="footer">
-    <div class="footer-content" style="display: flex; justify-content: space-between; align-items: center; max-width: 1000px; margin: 0 auto; flex-wrap: wrap; gap: 1rem;">
-        <div class="footer-left">
-            <p>&copy; {{ now.Format "2006" }} Dark Lattice. {{ T "all_rights_reserved" }}</p>
-            {{ if .IsTranslated }}
-            <div class="footer-languages" style="margin-top: 0.5rem; font-size: 0.85rem; opacity: 0.7;">
-                {{ range $index, $element := .AllTranslations -}}
-                    {{- if $index }} <span style="margin: 0 0.3rem; opacity: 0.5;">|</span> {{ end -}}
-                    <a href="{{ .Permalink }}" class="lang-link {{ if eq .Language $.Language }}active{{ end }}" style="color: inherit; text-decoration: none; transition: opacity 0.2s;">
-                        {{- .Language.Params.label -}}
-                    </a>
-                {{- end }}
-            </div>
-            {{ end }}
-        </div>
-
-        <div class="footer-right">
-            <div class="social-links" style="display: flex; gap: 1.5rem;">
-                {{- $social := readFile "data/social.toml" | transform.Unmarshal -}}
-                {{- if $social -}}
+<footer class="site-footer">
+    <div class="footer-inner">
+        <p class="footer-copy">&copy; {{ now.Format "2006" }} {{ .Site.Title }}. {{ T "all_rights_reserved" | default "All rights reserved." }}</p>
+        <nav class="footer-links-group" aria-label="外部链接">
+            {{- $social := readFile "data/social.toml" | transform.Unmarshal -}}
+            {{- $hasLinks := false -}}
+            {{- if $social -}}
+                {{- if $social.links -}}
+                    {{- $hasLinks = true -}}
                     {{- range $social.links -}}
-                        <a href="{{ .url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ .aria_label }}" style="color: var(--text-secondary); text-decoration: none;">{{ .name }}</a>
-                    {{- end -}}
-                    {{- with $social.email -}}
-                        <a href="mailto:{{ . }}" aria-label="Email" style="color: var(--text-secondary); text-decoration: none;">Email</a>
+                        <a href="{{ .url }}" class="footer-link" target="_blank" rel="noopener noreferrer" aria-label="{{ .aria_label }}">{{ .name }}</a>
                     {{- end -}}
                 {{- end -}}
-            </div>
-        </div>
+                {{- if $social.email -}}
+                    <a href="mailto:{{ $social.email }}" class="footer-link" aria-label="Email">Email</a>
+                {{- else -}}
+                    <a href="mailto:hi@darklattice.dev" class="footer-link">Email</a>
+                {{- end -}}
+            {{- end -}}
+            
+            {{- /* 如果 social.toml 没有配置任何链接，显示 v2 推荐的默认链接 */ -}}
+            {{- if not $hasLinks -}}
+                <a href="https://github.com" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://orcid.org" class="footer-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+            {{- end -}}
+        </nav>
     </div>
 </footer>

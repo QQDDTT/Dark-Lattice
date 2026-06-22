@@ -1,23 +1,33 @@
-<header class="site-header" id="navbar">
-    <div class="header-container">
-        <a href="{{ .Site.Home.RelPermalink }}" class="logo-link" style="text-decoration: none;">
-            <span class="logo-text">{{ .Site.Title }}</span>
-        </a>
-        <nav class="nav-list" style="display: flex; align-items: center; gap: 2rem;">
-            {{ range .Site.Menus.main }}
-                <a href="{{ .URL }}" class="nav-link {{ if eq $.Permalink .URL }}active{{ end }}">{{ .Name }}</a>
-            {{ end }}
-            
-            <!-- Language Switcher Placeholder -->
-            {{ if .IsTranslated }}
-            <select class="language-select" onchange="window.location.href=this.value" style="margin-left: 1rem;">
-                {{ range .AllTranslations }}
-                    <option value="{{ .Permalink }}" {{ if eq .Language $.Language }}selected{{ end }}>
-                        {{ .Language.Params.label }}
-                    </option>
+<header class="site-header" id="site-header">
+    <div class="header-inner">
+        <a href="{{ .Site.Home.RelPermalink }}" class="logo-text">{{ .Site.Title }}</a>
+
+        <nav aria-label="主导航">
+            <ul class="nav-list">
+                {{ range .Site.Menus.main }}
+                    {{ $isActive := false }}
+                    {{ if or (eq $.RelPermalink .URL) (and (ne .URL "/") (hasPrefix $.RelPermalink .URL)) }}
+                        {{ $isActive = true }}
+                    {{ end }}
+                    <li>
+                        <a href="{{ .URL }}" class="nav-link{{ if $isActive }} active{{ end }}">{{ .Name }}</a>
+                    </li>
                 {{ end }}
-            </select>
-            {{ end }}
+            </ul>
         </nav>
+
+        {{ if .IsTranslated }}
+        <div class="lang-switcher" aria-label="语言切换">
+            {{ range $index, $translation := .AllTranslations }}
+                {{ if $index }}<span class="lang-divider">·</span>{{ end }}
+                <a href="{{ .Permalink }}" class="lang-btn{{ if eq .Language $.Language }} active{{ end }}">
+                    {{- if eq .Language.Lang "zh" -}}中
+                    {{- else if eq .Language.Lang "en" -}}EN
+                    {{- else if eq .Language.Lang "ja" -}}日
+                    {{- else -}}{{ .Language.Lang | upper }}{{- end -}}
+                </a>
+            {{ end }}
+        </div>
+        {{ end }}
     </div>
 </header>

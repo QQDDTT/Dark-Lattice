@@ -1,53 +1,81 @@
 {{ define "main" }}
-<div class="article-container">
-    <header class="article-header reveal-on-scroll">
-        <div class="article-meta">
-            <span>{{ .Date.Format "2006.01.02" }}</span>
+<!-- ── 阅读进度条 ── -->
+<div class="progress-bar" role="progressbar" aria-label="阅读进度" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-fill" id="progress-fill"></div>
+</div>
+
+<main>
+    <!-- ── 面包屑 ── -->
+    {{ partial "breadcrumbs.html" . }}
+
+    <!-- ── 文章头部 ── -->
+    <header class="article-header">
+        <div class="article-tags" id="article-tags">
             {{ if .Params.tags }}
                 {{ range .Params.tags }}
-                    <span>{{ . | upper }}</span>
+                    <span class="article-tag">{{ . }}</span>
                 {{ end }}
             {{ else }}
-                <span>{{ .Type | upper }}</span>
+                <span class="article-tag">{{ .Type }}</span>
             {{ end }}
-            <span>{{ .ReadingTime }} MIN READ</span>
         </div>
-        <h1 class="article-title">{{ .Title }}</h1>
+        <h1 class="article-title" id="article-title">{{ .Title }}</h1>
+        <div class="article-meta" id="article-meta">
+            <span>{{ .Date.Format "2006.01.02" }}</span>
+            <span class="meta-divider">·</span>
+            <span>约 {{ .ReadingTime }} 分钟阅读</span>
+            <span class="meta-divider">·</span>
+            <span>{{ .Type | upper }}</span>
+        </div>
     </header>
 
-    <article class="article-content reveal-on-scroll delay-100">
-        {{ .Content }}
-    </article>
+    <!-- ── 双栏：正文 + TOC ── -->
+    <div class="article-layout">
+        <!-- 正文 -->
+        <article class="article-body" id="article-body">
+            {{ .Content }}
+        </article>
 
-    {{ if or .PrevInSection .NextInSection }}
-    <div class="article-navigation reveal-on-scroll">
-        <div class="nav-prev">
-            {{ if .NextInSection }}
-            <a href="{{ .NextInSection.Permalink }}" class="nav-link glass">
-                <span class="nav-direction">← PREVIOUS</span>
-                <span class="nav-title">{{ .NextInSection.Title }}</span>
-            </a>
-            {{ else }}
-            <div class="nav-link disabled glass">
-                <span class="nav-direction">← PREVIOUS</span>
-                <span class="nav-title">{{ i18n "already_first_article" | default "已经是第一篇了" }}</span>
+        <!-- TOC 目录边栏 -->
+        {{ if .TableOfContents }}
+        <aside class="toc-sidebar" aria-label="文章目录">
+            <div class="toc-label">TOC</div>
+            <div class="toc-list">
+                {{ .TableOfContents }}
             </div>
-            {{ end }}
-        </div>
-        <div class="nav-next">
-            {{ if .PrevInSection }}
-            <a href="{{ .PrevInSection.Permalink }}" class="nav-link glass">
-                <span class="nav-direction">NEXT →</span>
-                <span class="nav-title">{{ .PrevInSection.Title }}</span>
-            </a>
-            {{ else }}
-            <div class="nav-link disabled glass">
-                <span class="nav-direction">NEXT →</span>
-                <span class="nav-title">{{ i18n "no_more_articles" | default "没有更多文章了" }}</span>
-            </div>
-            {{ end }}
-        </div>
+        </aside>
+        {{ end }}
     </div>
+
+    <!-- ── PREV / NEXT 导航 ── -->
+    {{ if or .PrevInSection .NextInSection }}
+    <nav class="article-nav" aria-label="文章导航">
+        <!-- NextInSection 在 Hugo 里实际上是发表时间更早的一篇（Previous） -->
+        {{ if .NextInSection }}
+        <a href="{{ .NextInSection.RelPermalink }}" class="nav-card">
+            <span class="nav-card-dir">← PREVIOUS</span>
+            <span class="nav-card-title">{{ .NextInSection.Title }}</span>
+        </a>
+        {{ else }}
+        <div class="nav-card disabled">
+            <span class="nav-card-dir">← PREVIOUS</span>
+            <span class="nav-card-title">{{ i18n "already_first_article" | default "已经是第一篇了" }}</span>
+        </div>
+        {{ end }}
+
+        <!-- PrevInSection 在 Hugo 里实际上是发表时间更晚的一篇（Next） -->
+        {{ if .PrevInSection }}
+        <a href="{{ .PrevInSection.RelPermalink }}" class="nav-card">
+            <span class="nav-card-dir">NEXT →</span>
+            <span class="nav-card-title">{{ .PrevInSection.Title }}</span>
+        </a>
+        {{ else }}
+        <div class="nav-card disabled">
+            <span class="nav-card-dir">NEXT →</span>
+            <span class="nav-card-title">{{ i18n "no_more_articles" | default "没有更多文章了" }}</span>
+        </div>
+        {{ end }}
+    </nav>
     {{ end }}
-</div>
+</main>
 {{ end }}
