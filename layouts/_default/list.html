@@ -5,15 +5,15 @@
         <div class="page-eyebrow" id="pg-eyebrow">
             <span class="eyebrow-line" aria-hidden="true"></span>
             <span class="eyebrow-label">
-                {{- if eq .Type "posts" -}}Blog · 博客
-                {{- else if eq .Type "research" -}}Research · 研究
+                {{- if eq .Type "posts" -}}{{ i18n "eyebrow_blog" }}
+                {{- else if eq .Type "research" -}}{{ i18n "eyebrow_research" }}
                 {{- else -}}{{ .Type | upper }}
                 {{- end -}}
             </span>
         </div>
         <h1 class="page-title" id="pg-title">
-            {{- if eq .Type "posts" -}}思考与记录
-            {{- else if eq .Type "research" -}}学术与前沿
+            {{- if eq .Type "posts" -}}{{ i18n "title_blog" }}
+            {{- else if eq .Type "research" -}}{{ i18n "title_research" }}
             {{- else -}}{{ .Title }}
             {{- end -}}
         </h1>
@@ -21,9 +21,9 @@
             {{- if .Params.description -}}
                 {{ .Params.description }}
             {{- else if eq .Type "posts" -}}
-                关于智能体逻辑、前端架构与计算美学的思考与记录。
+                {{ i18n "desc_blog" }}
             {{- else if eq .Type "research" -}}
-                我们在多模态大语言模型与工业视觉领域的探索与实践。
+                {{ i18n "desc_research" }}
             {{- else -}}
                 Explore our entries and findings.
             {{- end -}}
@@ -33,8 +33,8 @@
     <!-- ── 分类过滤栏 & 文章列表 ── -->
     <div class="container">
         <div class="filter-bar" id="filter-bar" role="group" aria-label="文章分类过滤">
-            <span class="filter-label">FILTER</span>
-            <button class="filter-chip active">全部</button>
+            <span class="filter-label">{{ i18n "label_filter" }}</span>
+            <button class="filter-chip active">{{ i18n "filter_all" }}</button>
             <button class="filter-chip">Agent</button>
             <button class="filter-chip">Vision AI</button>
             <button class="filter-chip">Frontend</button>
@@ -72,7 +72,7 @@
                             {{ end }}
                         </p>
                         <div class="post-meta-row">
-                            <span class="post-read-time">约 {{ .ReadingTime }} 分钟阅读</span>
+                            <span class="post-read-time">{{ i18n "read_time_format" .ReadingTime }}</span>
                         </div>
                     </div>
                     <span class="post-arrow" aria-hidden="true">→</span>

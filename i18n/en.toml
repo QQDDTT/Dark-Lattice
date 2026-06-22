@@ -100,3 +100,39 @@ other = "First article"
 
 [no_more_articles]
 other = "No more articles"
+
+[eyebrow_blog]
+other = "Blog"
+
+[eyebrow_research]
+other = "Research"
+
+[title_blog]
+other = "Thoughts & Records"
+
+[title_research]
+other = "Academic & Frontiers"
+
+[desc_blog]
+other = "Reflections and records on agent logic, frontend architecture, and computational aesthetics."
+
+[desc_research]
+other = "Our exploration and practice in the fields of multimodal large language models and industrial vision."
+
+[label_project_column]
+other = "Project Column"
+
+[label_research_topic]
+other = "Research Topic"
+
+[label_articles]
+other = "Articles"
+
+[label_filter]
+other = "Filter"
+
+[filter_all]
+other = "All"
+
+[read_time_format]
+other = "About {{ . }} min read"

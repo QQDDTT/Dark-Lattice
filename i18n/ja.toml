@@ -100,3 +100,39 @@ other = "最初の記事です"
 
 [no_more_articles]
 other = "次の記事はありません"
+
+[eyebrow_blog]
+other = "Blog · ブログ"
+
+[eyebrow_research]
+other = "Research · 研究"
+
+[title_blog]
+other = "思考と記録"
+
+[title_research]
+other = "学術と最先端"
+
+[desc_blog]
+other = "エージェントの論理、フロントエンドのアーキテクチャ、計算美学に関する思考と記録。"
+
+[desc_research]
+other = "マルチモーダル大言語モデルと工業用ビジョンの分野における私たちの探索と実践。"
+
+[label_project_column]
+other = "コラム"
+
+[label_research_topic]
+other = "研究課題"
+
+[label_articles]
+other = "記事"
+
+[label_filter]
+other = "フィルター"
+
+[filter_all]
+other = "すべて"
+
+[read_time_format]
+other = "読了時間 約 {{ . }} 分"

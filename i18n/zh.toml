@@ -100,3 +100,39 @@ other = "已经是第一篇了"
 
 [no_more_articles]
 other = "没有更多文章了"
+
+[eyebrow_blog]
+other = "Blog · 博客"
+
+[eyebrow_research]
+other = "Research · 研究"
+
+[title_blog]
+other = "思考与记录"
+
+[title_research]
+other = "学术与前沿"
+
+[desc_blog]
+other = "关于智能体逻辑、前端架构与计算美学的思考与记录。"
+
+[desc_research]
+other = "我们在多模态大语言模型与工业视觉领域的探索与实践。"
+
+[label_project_column]
+other = "项目专栏"
+
+[label_research_topic]
+other = "研究课题"
+
+[label_articles]
+other = "文章"
+
+[label_filter]
+other = "过滤"
+
+[filter_all]
+other = "全部"
+
+[read_time_format]
+other = "约 {{ . }} 分钟阅读"
