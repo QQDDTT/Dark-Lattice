@@ -1,85 +1,104 @@
 {{ define "main" }}
-{{ $bg := .Params.background | default "images/design/project-scene-concept.png" }}
-{{ $bg = printf "%s%s" .Site.BaseURL (strings.TrimPrefix "/" $bg) }}
-<div class="blog-page-wrapper">
-    <section class="blog-hero"
-        style="background-image: linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.9)), url('{{ $bg }}');">
-        <div class="container hero-content animate-fade-in">
-            <h1 class="page-title">{{ .Title }}</h1>
-            {{ with .Description }}
-            <div class="page-description">{{ . }}</div>
-            {{ end }}
+<main>
+    <!-- ── 面包屑 & 页面头部 ── -->
+    <section class="page-header container">
+        <div class="page-eyebrow" id="pg-eyebrow">
+            <span class="eyebrow-line" aria-hidden="true"></span>
+            <span class="eyebrow-label">
+                {{- if eq .Type "posts" -}}Blog · 博客
+                {{- else if eq .Type "research" -}}Research · 研究
+                {{- else -}}{{ .Type | upper }}
+                {{- end -}}
+            </span>
         </div>
+        <h1 class="page-title" id="pg-title">
+            {{- if eq .Type "posts" -}}思考与记录
+            {{- else if eq .Type "research" -}}学术与前沿
+            {{- else -}}{{ .Title }}
+            {{- end -}}
+        </h1>
+        <p class="page-desc" id="pg-desc">
+            {{- if .Params.description -}}
+                {{ .Params.description }}
+            {{- else if eq .Type "posts" -}}
+                关于智能体逻辑、前端架构与计算美学的思考与记录。
+            {{- else if eq .Type "research" -}}
+                我们在多模态大语言模型与工业视觉领域的探索与实践。
+            {{- else -}}
+                Explore our entries and findings.
+            {{- end -}}
+        </p>
     </section>
 
-    <div class="container section-spacing">
-
-    {{ if .Sections }}
-    <!-- 二级清单模式：展示项目专栏卡片 -->
-    <div class="blog-card-list">
-        {{ range $index, $element := .Sections }}
-        {{ $sub_bg := .Params.background | default "images/design/project-scene-concept.png" }}
-        {{ $sub_bg = printf "%s%s" $.Site.BaseURL (strings.TrimPrefix "/" $sub_bg) }}
-        <div class="blog-card-item" style="--index: {{ $index }};">
-            <article class="blog-card-inner glass">
-                <div class="blog-card-decor" style="background-image: linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.8)), url('{{ $sub_bg }}'); background-size: cover; background-position: center; min-height: 140px;">
-                    <!-- Articles Count -->
-                    <div class="blog-date-big" style="background: rgba(15, 23, 42, 0.85); min-width: 80px;">
-                        <span class="day">{{ len .RegularPages }}</span>
-                        <span class="month">Articles</span>
-                    </div>
+    <!-- ── 分类过滤栏 & 文章列表 ── -->
+    <div class="container">
+        {{ if .Sections }}
+        <!-- 二级清单模式：展示项目专栏卡片 -->
+        <div class="post-list" role="list">
+            {{ range $index, $element := .Sections }}
+            {{ $staggerIndex := add (mod $index 8) 1 }}
+            <a href="{{ .Permalink }}" class="post-item reveal stagger-{{ $staggerIndex }}" role="listitem">
+                <div class="post-date">
+                    <span class="date-day">{{ len .RegularPages }}</span>
+                    <span class="date-month">ARTICLES</span>
                 </div>
-                <div class="blog-card-content">
-                    <h2 class="blog-card-title">
-                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                    </h2>
-                    <p class="blog-card-summary">
-                        {{ .Description | default .Summary | truncate 150 }}
+                <div class="post-body">
+                    <div class="post-tags">
+                        <span class="post-tag">Project Column · 专栏</span>
+                        <span class="post-tag">{{ .File.ContentBaseName | upper }}</span>
+                    </div>
+                    <div class="post-title">{{ .Title }}</div>
+                    <p class="post-summary">
+                        {{ .Description | default .Summary | plainify | truncate 150 }}
                     </p>
-                    <div class="blog-card-meta">
-                        <span class="meta-item">Project Folder: {{ .File.ContentBaseName }}</span>
-                    </div>
                 </div>
-            </article>
+                <span class="post-arrow" aria-hidden="true">→</span>
+            </a>
+            {{ end }}
         </div>
-        {{ end }}
-    </div>
-    {{ else }}
-    <!-- 二级清单模式：展示专栏下的具体文章 -->
-    <div class="blog-card-list">
-        {{ $pages := .RegularPages.ByDate.Reverse }}
-        {{ range $index, $element := (.Paginate $pages).Pages }}
-        <div class="blog-card-item" style="--index: {{ $index }};">
-            <article class="blog-card-inner glass">
-                <div class="blog-card-decor">
-                    <!-- Date -->
-                    <div class="blog-date-big">
-                        <span class="day">{{ .Date.Format "02" }}</span>
-                        <span class="month">{{ .Date.Format "Jan" }}</span>
-                    </div>
+        {{ else }}
+        <!-- 二级清单模式：展示专栏下的具体文章 -->
+        <div class="post-list" role="list">
+            {{ $pages := .RegularPages.ByDate.Reverse }}
+            {{ $paginator := .Paginate $pages }}
+            {{ range $index, $element := $paginator.Pages }}
+            {{ $staggerIndex := add (mod $index 8) 1 }}
+            <a href="{{ .RelPermalink }}" class="post-item reveal stagger-{{ $staggerIndex }}" role="listitem">
+                <div class="post-date">
+                    <span class="date-day">{{ .Date.Format "02" }}</span>
+                    <span class="date-month">{{ .Date.Format "Jan 2006" }}</span>
                 </div>
-                <div class="blog-card-content">
-                    <h2 class="blog-card-title">
-                        <a href="{{ .Permalink }}">{{ .Title }}</a>
-                    </h2>
-                    <p class="blog-card-summary">
-                        {{ .Summary | truncate 150 }}
-                    </p>
-                    <div class="blog-card-meta">
-                        {{ range .Params.tags }}
-                        <span class="meta-tag">#{{ . }}</span>
+                <div class="post-body">
+                    <div class="post-tags">
+                        {{ if .Params.tags }}
+                            {{ range first 2 .Params.tags }}
+                                <span class="post-tag">{{ . }}</span>
+                            {{ end }}
+                        {{ else }}
+                            <span class="post-tag">{{ .Type }}</span>
                         {{ end }}
-                        <span class="meta-item">{{ .ReadingTime }} min read</span>
+                    </div>
+                    <div class="post-title">{{ .Title }}</div>
+                    <p class="post-summary">
+                        {{ if .Params.summary }}
+                            {{ .Params.summary }}
+                        {{ else }}
+                            {{ .Summary | plainify | truncate 120 }}
+                        {{ end }}
+                    </p>
+                    <div class="post-meta-row">
+                        <span class="post-read-time">约 {{ .ReadingTime }} 分钟阅读</span>
                     </div>
                 </div>
-            </article>
+                <span class="post-arrow" aria-hidden="true">→</span>
+            </a>
+            {{ end }}
+        </div>
+
+        <div class="pagination-container">
+            {{ partial "pagination.html" . }}
         </div>
         {{ end }}
     </div>
-
-    <div class="pagination-container section-spacing">
-        {{ partial "pagination.html" . }}
-    </div>
-    {{ end }}
-</div>
+</main>
 {{ end }}
