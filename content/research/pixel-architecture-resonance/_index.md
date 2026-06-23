@@ -62,3 +62,12 @@ draft: false
         *设计了一套将本课题中“美学”、“格式塔心理学”、“画面设计”与“IT工程规划”等抽象概念进行量化评分的评估矩阵模型，引入 SRS 系统共鸣加权算法。*
     *   [赛事获奖作品与普通设计量化对比报告 (Comparative Analysis Report)]({{< ref "case-comparative-report" >}})  
         *选取 Awwwards 获奖设计、普通商业套版和劣质失序网页作为评价靶子进行评分比对，展示“像素与架构的系统共鸣”所带来的价值级差。*
+
+---
+
+## 工程实践目录 (Engineering Practices)
+
+本模块探讨将美学理论工程化落地的架构路线与商业化分析：
+
+- [工程实践：提示词工作流与确定性引擎的系统共鸣架构对比]({{< ref "engineering-architecture-comparison" >}})
+- [工程实践：提示词工作流与确定性引擎的成本与商业化对比]({{< ref "engineering-commercialization-analysis" >}})

@@ -62,3 +62,12 @@ This module contains graphic and text case deconstructions along with in-depth v
         _Designs a quantitative scoring model to grade abstract concepts like \"aesthetics,\" \"Gestalt psychology,\" \"visual design,\" and \"IT engineering planning,\" introducing the SRS weighted calculation method._
     *   [Quantitative Comparison Report between Award-Winning Works and Common Designs]({{< ref "case-comparative-report" >}})  
         _Selects Awwwards award-winning designs, common business templates, and poorly-ordered pages as targets to perform comparison, demonstrating the value gap brought by the \"resonance between pixels and architecture.\"_
+
+---
+
+## Engineering Practices Directory (工程实践)
+
+This module explores the architectural routes and commercialization analysis of engineering aesthetic theories:
+
+- [Engineering Practice: Architectural Comparison of Prompt Workflow and Deterministic Engine]({{< ref "engineering-architecture-comparison" >}})
+- [Engineering Practice: Cost and Commercialization Comparison of Prompt Workflow and Deterministic Engine]({{< ref "engineering-commercialization-analysis" >}})

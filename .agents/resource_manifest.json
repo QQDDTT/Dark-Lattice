@@ -64,7 +64,19 @@
     },
     "pixel-architecture-resonance": {
       "external_path": "/home/nick/文档/02_课题研究/像素与架构的系统共鸣",
-      "description": "从像素到架构：画面设计、美学、视觉心理与IT工程规划的系统共鸣"
+      "description": "从像素到架构：画面设计、美学、视觉心理与IT工程规划的系统共鸣",
+      "posts": [
+        {
+          "slug": "engineering-architecture-comparison",
+          "title": "工程实践：提示词工作流与确定性引擎的系统共鸣架构对比",
+          "date": "2026-06-23"
+        },
+        {
+          "slug": "engineering-commercialization-analysis",
+          "title": "工程实践：提示词工作流与确定性引擎的成本与商业化对比",
+          "date": "2026-06-23"
+        }
+      ]
     }
   }
 }
