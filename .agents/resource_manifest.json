@@ -19,7 +19,34 @@
     },
     "gestalt-prompt-workflow": {
       "external_path": "/home/nick/workspaces/gestalt-prompt-workflow/docs",
-      "description": "Gestalt Prompt Workflow 提示词工作流项目"
+      "description": "Gestalt Prompt Workflow 提示词工作流项目",
+      "posts": [
+        {
+          "slug": "implementation-of-research-topic",
+          "title": "Gestalt Prompt Workflow：如何将设计与架构共鸣研究落地为 Agent 技能",
+          "date": "2026-06-21"
+        },
+        {
+          "slug": "skill-development-matters",
+          "title": "Agent Skill 开发实战：按需上下文调度与确定性评估管线",
+          "date": "2026-06-21"
+        },
+        {
+          "slug": "development-insights",
+          "title": "知识驱动型 Agent 构建心得：从逻辑重构到知识提纯",
+          "date": "2026-06-21"
+        },
+        {
+          "slug": "skill-usage-guide",
+          "title": "Gestalt Prompt Workflow 接入指南：让你的 Agent 拥有高级美学引擎",
+          "date": "2026-06-23"
+        },
+        {
+          "slug": "skill-evaluation-lifecycle",
+          "title": "Agent Skill 的测试哲学：用非确定性评估管线和知识提纯驯服 LLM",
+          "date": "2026-06-23"
+        }
+      ]
     }
   },
   "research_topics": {
