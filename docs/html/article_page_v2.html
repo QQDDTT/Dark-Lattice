@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GSAP 动画的 GPU 合成层原理深度解析 · Dark Lattice</title>
+    <meta name="description" content="为什么同样是动画，GSAP 的性能远优于 jQuery？本文从浏览器合成层的底层原理出发，系统阐述如何通过 will-change 和 transform 实现真正的 60fps 丝滑体验。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+         * DESIGN TOKENS（与系列文档完全统一）
+         * ============================================================ */
+        :root {
+            --layer-0: hsl(240, 8%, 5.5%);
+            --layer-1: hsl(240, 8%, 8%);
+            --layer-2: hsl(240, 6%, 10.5%);
+            --layer-3: hsl(240, 5%, 13%);
+            --layer-4: hsl(240, 4%, 17%);
+
+            --text-high:    rgba(255, 255, 255, 0.92);
+            --text-medium:  rgba(255, 255, 255, 0.60);
+            --text-low:     rgba(255, 255, 255, 0.36);
+            --text-minimal: rgba(255, 255, 255, 0.20);
+
+            --accent:        hsl(250, 85%, 62%);
+            --accent-dim:    hsla(250, 85%, 62%, 0.12);
+            --accent-glow:   rgba(139, 92, 246, 0.35);
+            --accent-border: rgba(139, 92, 246, 0.3);
+
+            --border-subtle:   rgba(255, 255, 255, 0.06);
+            --border-default:  rgba(255, 255, 255, 0.10);
+            --border-emphasis: rgba(255, 255, 255, 0.18);
+
+            --ease-enter:  cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+            --sp-1: 4px;  --sp-2: 8px;   --sp-3: 12px;
+            --sp-4: 16px; --sp-6: 24px;  --sp-8: 32px;
+            --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+            --sp-20: 80px; --sp-24: 96px;
+
+            --font-display: 'Syne', 'Inter', sans-serif;
+            --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+            --font-code:    'Fira Code', 'Consolas', monospace;
+
+            /* 阅读进度变量（JS 实时更新）*/
+            --scroll-progress: 0;
+        }
+
+        /* ── RESET ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: var(--layer-0);
+            color: var(--text-high);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-color: var(--layer-0);
+            opacity: 0;
+            transition: opacity 500ms var(--ease-enter);
+        }
+
+        body.page-loaded { opacity: 1; }
+        a { text-decoration: none; }
+
+        /* ── NAVBAR ── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 60px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: rgba(14, 14, 20, 0.80);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: border-color 200ms var(--ease-smooth);
+        }
+
+        .site-header.scrolled { border-bottom-color: var(--border-default); }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-high);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-8);
+            list-style: none;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            transition: color 150ms var(--ease-smooth);
+            padding-bottom: 2px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0%; height: 1px;
+            background: var(--text-high);
+            transition: width 280ms var(--ease-enter);
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--text-high); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .lang-switcher { display: flex; align-items: center; gap: var(--sp-1); margin-left: var(--sp-4); }
+        .lang-btn { font-size: 0.75rem; color: var(--text-low); cursor: pointer; padding: 2px var(--sp-2); border-radius: 4px; transition: color 120ms ease, background 120ms ease; }
+        .lang-btn:hover { color: var(--text-medium); }
+        .lang-btn.active { color: var(--text-high); background: var(--layer-3); }
+        .lang-divider { color: var(--text-minimal); font-size: 0.75rem; }
+
+        /* ============================================================
+         * 阅读进度条
+         * COE: scaleX transform 驱动，零 Reflow
+         * ============================================================ */
+        .progress-bar {
+            position: fixed;
+            top: 60px; left: 0;
+            width: 100%; height: 2px;
+            z-index: 999;
+            background: transparent;
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 100%;
+            background: var(--accent);
+            transform-origin: left;
+
+            /* COE: scaleX 驱动，GPU 合成，不触发 Reflow */
+            transform: scaleX(var(--scroll-progress));
+            box-shadow: 0 0 10px var(--accent-glow);
+            transition: transform 80ms linear;
+        }
+
+        /* ============================================================
+         * ARTICLE LAYOUT — 单列阅读排版
+         * GII: 最大宽度 680px，保持最佳阅读字符数（65-75 chars/行）
+         * ============================================================ */
+        .article-wrapper {
+            display: grid;
+            grid-template-columns: 1fr min(680px, 100%) 1fr;
+            margin-top: 60px;
+        }
+
+        .article-wrapper > * {
+            grid-column: 2;
+        }
+
+        /* 宽出血（代码块、图片可突破正文宽度）*/
+        .bleed {
+            grid-column: 1 / -1;
+            width: 100%;
+            padding: 0 var(--sp-8);
+        }
+
+        /* ── 面包屑 ── */
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-2);
+            padding: var(--sp-10) var(--sp-8) 0;
+            max-width: calc(680px + var(--sp-8) * 2);
+            margin: 0 auto;
+
+            opacity: 0;
+            transform: translateY(10px);
+            transition: opacity 500ms var(--ease-enter),
+                        transform 500ms var(--ease-enter);
+        }
+
+        .breadcrumb.revealed { opacity: 1; transform: translateY(0); }
+
+        .crumb {
+            font-size: 0.75rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            transition: color 120ms ease;
+        }
+
+        .crumb:hover { color: var(--text-medium); }
+        .crumb-sep { color: var(--text-minimal); font-size: 0.75rem; }
+        .crumb-current { color: var(--text-medium); cursor: default; }
+
+        /* ── 文章头部 ── */
+        .article-header {
+            padding: var(--sp-10) var(--sp-8) var(--sp-12);
+            max-width: calc(680px + var(--sp-8) * 2);
+            margin: 0 auto;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: var(--sp-2);
+            margin-bottom: var(--sp-6);
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 600ms var(--ease-enter) 80ms,
+                        transform 600ms var(--ease-enter) 80ms;
+        }
+
+        .article-tags.revealed { opacity: 1; transform: translateY(0); }
+
+        .article-tag {
+            font-size: 0.7rem;
+            font-family: var(--font-code);
+            color: var(--accent);
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            padding: 2px var(--sp-3);
+            border-radius: 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* 文章主标题 */
+        .article-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.9rem, 4vw, 2.8rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            color: var(--text-high);
+            margin-bottom: var(--sp-6);
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 700ms var(--ease-enter) 160ms,
+                        transform 700ms var(--ease-enter) 160ms;
+        }
+
+        .article-title.revealed { opacity: 1; transform: translateY(0); }
+
+        /* 元数据行 */
+        .article-meta {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: var(--sp-4);
+            font-size: 0.8rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            padding-bottom: var(--sp-8);
+            border-bottom: 1px solid var(--border-subtle);
+
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 600ms var(--ease-enter) 260ms,
+                        transform 600ms var(--ease-enter) 260ms;
+        }
+
+        .article-meta.revealed { opacity: 1; transform: translateY(0); }
+
+        .meta-divider { color: var(--text-minimal); }
+
+        /* ============================================================
+         * ARTICLE BODY — 正文排版系统
+         * OCC: 嵌套规则，所有排版定义在单一 .article-body 作用域内
+         * ============================================================ */
+        .article-body {
+            padding: var(--sp-10) var(--sp-8);
+            max-width: calc(680px + var(--sp-8) * 2);
+            margin: 0 auto;
+        }
+
+        .article-body h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-high);
+            letter-spacing: -0.02em;
+            margin: var(--sp-12) 0 var(--sp-6);
+            line-height: 1.25;
+            scroll-margin-top: 80px;
+        }
+
+        /* h2 前的 accent 竖条 */
+        .article-body h2::before {
+            content: '';
+            display: inline-block;
+            width: 3px;
+            height: 1em;
+            background: var(--accent);
+            border-radius: 2px;
+            margin-right: var(--sp-3);
+            vertical-align: middle;
+            margin-bottom: 2px;
+        }
+
+        .article-body h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-high);
+            letter-spacing: -0.015em;
+            margin: var(--sp-8) 0 var(--sp-4);
+            line-height: 1.3;
+            scroll-margin-top: 80px;
+        }
+
+        .article-body p {
+            font-size: 1.0rem;
+            color: var(--text-medium);
+            line-height: 1.85;
+            margin-bottom: var(--sp-6);
+        }
+
+        /* 行内链接——伪元素下划线动效 */
+        .article-body a {
+            color: var(--text-high);
+            position: relative;
+            transition: color 150ms ease;
+        }
+
+        .article-body a::after {
+            content: '';
+            position: absolute;
+            bottom: -1px; left: 0;
+            width: 0%; height: 1px;
+            background: var(--accent);
+            transition: width 280ms var(--ease-enter);
+        }
+
+        .article-body a:hover { color: #fff; }
+        .article-body a:hover::after { width: 100%; }
+
+        /* 引用块——accent 左竖条 + 微弱背景 */
+        .article-body blockquote {
+            position: relative;
+            padding: var(--sp-4) var(--sp-6);
+            background: var(--layer-1);
+            border-radius: 0 6px 6px 0;
+            margin: var(--sp-8) 0;
+            font-style: italic;
+            color: var(--text-medium);
+            font-size: 1.05rem;
+            line-height: 1.75;
+        }
+
+        .article-body blockquote::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0;
+            width: 2px;
+            background: var(--accent);
+            border-radius: 2px 0 0 2px;
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* 列表 */
+        .article-body ul,
+        .article-body ol {
+            padding-left: var(--sp-6);
+            margin-bottom: var(--sp-6);
+        }
+
+        .article-body li {
+            color: var(--text-medium);
+            font-size: 1.0rem;
+            line-height: 1.8;
+            margin-bottom: var(--sp-2);
+        }
+
+        .article-body ul li::marker { color: var(--accent); }
+        .article-body ol li::marker {
+            color: var(--text-low);
+            font-family: var(--font-code);
+            font-size: 0.85rem;
+        }
+
+        /* 行内代码 */
+        .article-body code {
+            font-family: var(--font-code);
+            font-size: 0.875em;
+            background: var(--layer-3);
+            color: rgba(255, 255, 255, 0.85);
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid var(--border-subtle);
+        }
+
+        /* 代码块——带语言标签栏 */
+        .code-block {
+            margin: var(--sp-8) 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-default);
+        }
+
+        /* 代码块标题栏 */
+        .code-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: var(--sp-3) var(--sp-4);
+            background: var(--layer-4);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .code-lang {
+            font-family: var(--font-code);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        /* 复制按钮 */
+        .copy-btn {
+            font-family: var(--font-code);
+            font-size: 0.7rem;
+            color: var(--text-low);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            padding: 3px var(--sp-3);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: color 120ms ease,
+                        border-color 120ms ease,
+                        background 120ms ease;
+        }
+
+        .copy-btn:hover {
+            color: var(--text-medium);
+            border-color: var(--border-default);
+            background: var(--layer-3);
+        }
+
+        /* 代码内容区 */
+        .code-body {
+            background: var(--layer-1);
+            padding: var(--sp-6);
+            overflow-x: auto;
+            font-family: var(--font-code);
+            font-size: 0.875rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.82);
+        }
+
+        /* 语法高亮（简化版示意）*/
+        .kw { color: hsl(250, 80%, 72%); }     /* keyword */
+        .fn { color: hsl(200, 80%, 68%); }     /* function */
+        .str { color: hsl(140, 60%, 60%); }    /* string */
+        .cm { color: var(--text-low); font-style: italic; } /* comment */
+        .num { color: hsl(30, 80%, 65%); }     /* number */
+
+        /* 图片（响应式 + 圆角）*/
+        .article-body img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border-default);
+            margin: var(--sp-8) 0;
+            display: block;
+        }
+
+        /* 强调盒（Callout）*/
+        .callout {
+            display: flex;
+            gap: var(--sp-4);
+            padding: var(--sp-4) var(--sp-6);
+            background: var(--accent-dim);
+            border: 1px solid var(--accent-border);
+            border-radius: 8px;
+            margin: var(--sp-8) 0;
+        }
+
+        .callout-icon {
+            font-size: 1.1rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .callout-text {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        .callout-text strong { color: var(--text-high); }
+
+        /* ── hr 分割线 ── */
+        .article-body hr {
+            border: none;
+            border-top: 1px solid var(--border-subtle);
+            margin: var(--sp-12) 0;
+        }
+
+        /* ── 脚注 ── */
+        .article-body small {
+            font-size: 0.8rem;
+            color: var(--text-low);
+            font-family: var(--font-code);
+        }
+
+        /* ============================================================
+         * TOC — 目录（右侧粘性栏，桌面端显示）
+         * GII: 接近性隔离，无边框，靠间距区分
+         * ============================================================ */
+        .article-layout {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 200px;
+            gap: var(--sp-12);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+            align-items: start;
+        }
+
+        .toc-sidebar {
+            position: sticky;
+            top: 80px;
+            padding: var(--sp-4) 0;
+        }
+
+        .toc-label {
+            font-family: var(--font-code);
+            font-size: 0.65rem;
+            color: var(--text-minimal);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: var(--sp-4);
+        }
+
+        .toc-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .toc-item a {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-low);
+            line-height: 1.4;
+            padding: 4px var(--sp-3);
+            border-left: 2px solid var(--border-subtle);
+            transition: color 120ms ease,
+                        border-color 120ms ease;
+        }
+
+        .toc-item a:hover { color: var(--text-medium); }
+
+        .toc-item.active a {
+            color: var(--text-high);
+            border-left-color: var(--accent);
+        }
+
+        .toc-item.sub a {
+            padding-left: var(--sp-6);
+            font-size: 0.75rem;
+        }
+
+        /* ============================================================
+         * PREV / NEXT 导航
+         * ============================================================ */
+        .article-nav {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--sp-4);
+            padding: var(--sp-12) var(--sp-8) var(--sp-20);
+            max-width: calc(680px + var(--sp-8) * 2);
+            margin: 0 auto;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .nav-card {
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-2);
+            padding: var(--sp-6);
+            background: var(--layer-1);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            transition: background 120ms ease,
+                        border-color 150ms ease,
+                        transform 200ms var(--ease-enter);
+        }
+
+        .nav-card:hover {
+            background: var(--layer-2);
+            border-color: var(--border-default);
+            transform: translateY(-2px);
+        }
+
+        .nav-card-dir {
+            font-family: var(--font-code);
+            font-size: 0.7rem;
+            color: var(--text-low);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .nav-card-title {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-high);
+            line-height: 1.35;
+        }
+
+        .nav-card.disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        /* ── FOOTER ── */
+        .site-footer {
+            padding: var(--sp-12) 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy { font-size: 0.8rem; color: var(--text-low); }
+        .footer-links-group { display: flex; gap: var(--sp-6); }
+        .footer-link { font-size: 0.8rem; color: var(--text-low); transition: color 120ms ease; }
+        .footer-link:hover { color: var(--text-medium); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .toc-sidebar { display: none; }
+            .article-layout { grid-template-columns: 1fr; max-width: 100%; }
+        }
+
+        @media (max-width: 640px) {
+            .article-nav { grid-template-columns: 1fr; }
+            .nav-list { display: none; }
+            .footer-inner { flex-direction: column; gap: var(--sp-4); align-items: flex-start; }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+
+        /* ── SPEC BADGE（仅文档）── */
+        .spec-badge {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            background: var(--layer-2);
+            border: 1px solid var(--border-default);
+            border-radius: 8px;
+            padding: var(--sp-3) var(--sp-4);
+            font-size: 0.7rem;
+            font-family: var(--font-code);
+            color: var(--text-medium);
+            z-index: 9999;
+            line-height: 1.8;
+        }
+
+        .spec-badge strong { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <!-- ── 导航栏 ── -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo-text">Dark Lattice</a>
+            <nav aria-label="主导航">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link">首页</a></li>
+                    <li><a href="/posts" class="nav-link active">博客</a></li>
+                    <li><a href="/research" class="nav-link">研究</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switcher" aria-label="语言切换">
+                <span class="lang-btn active">中</span>
+                <span class="lang-divider">·</span>
+                <span class="lang-btn">EN</span>
+                <span class="lang-divider">·</span>
+                <span class="lang-btn">日</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── 阅读进度条 ── -->
+    <div class="progress-bar" role="progressbar" aria-label="阅读进度" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <main>
+        <!-- ── 面包屑 ── -->
+        <nav class="breadcrumb" id="breadcrumb" aria-label="面包屑导航">
+            <a href="/" class="crumb">首页</a>
+            <span class="crumb-sep" aria-hidden="true">/</span>
+            <a href="/posts" class="crumb">博客</a>
+            <span class="crumb-sep" aria-hidden="true">/</span>
+            <span class="crumb-current">GSAP 动画深度解析</span>
+        </nav>
+
+        <!-- ── 文章头部 ── -->
+        <header class="article-header">
+            <div class="article-tags" id="article-tags">
+                <span class="article-tag">Frontend</span>
+                <span class="article-tag">动效</span>
+                <span class="article-tag">性能</span>
+            </div>
+            <h1 class="article-title" id="article-title">
+                GSAP 动画的 GPU 合成层<br>原理深度解析
+            </h1>
+            <div class="article-meta" id="article-meta">
+                <span>2026.06.18</span>
+                <span class="meta-divider">·</span>
+                <span>约 12 分钟阅读</span>
+                <span class="meta-divider">·</span>
+                <span>Frontend · 动效</span>
+            </div>
+        </header>
+
+        <!-- ── 双栏：正文 + TOC ── -->
+        <div class="article-layout">
+            <!-- 正文 -->
+            <article class="article-body" id="article-body">
+
+                <p>
+                    当你用 jQuery 的 <code>.animate()</code> 实现一个简单的弹窗动画，却发现页面一卡一卡时，你是否想过这背后的根本原因是什么？本文将从浏览器渲染流水线的底层切入，带你理解 GPU 合成层（Composite Layer）的工作原理，以及 GSAP 为什么能在同等视觉效果下，将性能开销降低 <strong>90% 以上</strong>。
+                </p>
+
+                <div class="callout">
+                    <span class="callout-icon" aria-hidden="true">⚡</span>
+                    <div class="callout-text">
+                        <strong>核心结论（先说结论）：</strong> 任何动画只要不触发 <code>Layout</code>（重排）和 <code>Paint</code>（重绘），只驱动 <code>transform</code> 与 <code>opacity</code>，就能完全在 GPU Compositing 层完成，实现真正的 60fps / 120fps 丝滑渲染。
+                    </div>
+                </div>
+
+                <h2 id="s1">一、浏览器渲染流水线的三个关键阶段</h2>
+
+                <p>
+                    浏览器将一个 CSS 样式变化渲染到屏幕上，要经历最多三个阶段，每个阶段的计算成本差距巨大：
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">概念示意</span>
+                        <button class="copy-btn" aria-label="复制代码">复制</button>
+                    </div>
+                    <pre class="code-body"><code><span class="cm">// 阶段 1：Layout（重排）—— 成本极高</span>
+<span class="cm">// 触发条件：修改影响几何尺寸的属性</span>
+<span class="kw">element</span>.style.width  = <span class="str">'200px'</span>;  <span class="cm">// ❌ 触发 Layout</span>
+<span class="kw">element</span>.style.height = <span class="str">'300px'</span>;  <span class="cm">// ❌ 触发 Layout</span>
+<span class="kw">element</span>.style.top    = <span class="str">'50px'</span>;   <span class="cm">// ❌ 触发 Layout</span>
+<span class="kw">element</span>.style.margin = <span class="str">'16px'</span>;   <span class="cm">// ❌ 触发 Layout</span>
+
+<span class="cm">// 阶段 2：Paint（重绘）—— 成本中等</span>
+<span class="cm">// 触发条件：修改影响像素颜色但不影响几何的属性</span>
+<span class="kw">element</span>.style.backgroundColor = <span class="str">'red'</span>;    <span class="cm">// ⚠️ 触发 Paint</span>
+<span class="kw">element</span>.style.boxShadow = <span class="str">'0 4px 20px ...'</span>; <span class="cm">// ⚠️ 触发 Paint</span>
+
+<span class="cm">// 阶段 3：Composite（合成）—— 成本极低，GPU 处理</span>
+<span class="cm">// 触发条件：只修改 transform 或 opacity</span>
+<span class="kw">element</span>.style.transform = <span class="str">'translateX(200px)'</span>;  <span class="cm">// ✅ 仅 Composite</span>
+<span class="kw">element</span>.style.opacity   = <span class="str">'0.5'</span>;                <span class="cm">// ✅ 仅 Composite</span></code></pre>
+                </div>
+
+                <p>
+                    当浏览器检测到某个元素只需要 Composite 而无需 Layout 和 Paint 时，它会将该元素提升为一个独立的 <strong>GPU 合成层</strong>，交由显卡的专用电路处理。这意味着即便 JavaScript 主线程被繁重计算完全阻塞，合成层上的动画依然可以保持满帧运行。
+                </p>
+
+                <h2 id="s2">二、GSAP 的底层策略</h2>
+
+                <p>
+                    GSAP 之所以快，根本原因在于它的渲染引擎在设计之初就将 <code>transform</code> 和 <code>opacity</code> 作为<strong>唯一合法的动画驱动属性</strong>。当你写：
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">JavaScript · GSAP</span>
+                        <button class="copy-btn" aria-label="复制代码">复制</button>
+                    </div>
+                    <pre class="code-body"><code><span class="cm">// 表面上看在动 x 坐标</span>
+<span class="fn">gsap</span>.<span class="fn">to</span>(<span class="str">'.card'</span>, {
+  x: <span class="num">200</span>,
+  y: <span class="num">-40</span>,
+  duration: <span class="num">0.6</span>,
+  ease: <span class="str">'power3.out'</span>
+});
+
+<span class="cm">// GSAP 实际生成的 CSS（底层转换）</span>
+<span class="cm">// transform: matrix(1, 0, 0, 1, 200, -40)</span>
+<span class="cm">// 完全等价于 translateX(200px) translateY(-40px)</span>
+<span class="cm">// 100% GPU Composite，零 Layout，零 Paint</span></code></pre>
+                </div>
+
+                <h3 id="s2-1">will-change 的正确用法</h3>
+
+                <p>
+                    <code>will-change: transform</code> 是一个向浏览器的"预告"提示——它告诉渲染引擎：<em>这个元素即将发生 transform 动画，请提前为它分配一个独立的 GPU 合成层</em>。但滥用会适得其反：
+                </p>
+
+                <div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">CSS</span>
+                        <button class="copy-btn" aria-label="复制代码">复制</button>
+                    </div>
+                    <pre class="code-body"><code><span class="cm">/* ✅ 正确：仅在动画即将开始前加，动画结束后移除 */</span>
+<span class="kw">.card</span>:hover {
+  <span class="fn">will-change</span>: transform;
+}
+
+<span class="cm">/* ❌ 错误：全局给所有元素加，显存爆炸 */</span>
+<span class="kw">* {</span>
+  <span class="fn">will-change</span>: transform; <span class="cm">/* 严禁！*/</span>
+<span class="kw">}</span>
+
+<span class="cm">/* ✅ GSAP 推荐方式：用 JS 精确控制时机 */</span>
+<span class="fn">gsap</span>.<span class="fn">to</span>(<span class="str">'.card'</span>, {
+  x: <span class="num">200</span>,
+  <span class="fn">onStart</span>: () => el.style.willChange = <span class="str">'transform'</span>,
+  <span class="fn">onComplete</span>: () => el.style.willChange = <span class="str">'auto'</span>
+});</code></pre>
+                </div>
+
+                <h2 id="s3">三、从 COE 视角审视你的动效代码</h2>
+
+                <p>
+                    在格式塔设计体系中，<strong>COE（仅图层合成渲染优化率）</strong>是衡量动效工程质量的核心指标之一。一个 COE 得分达到 9.5/10 的动效系统，应满足：
+                </p>
+
+                <blockquote>
+                    所有动画仅驱动 <code>transform</code>（平移 / 缩放 / 旋转）与 <code>opacity</code>（透明度）；100% 避开浏览器排版树计算；GPU 合成渲染率达 95% 以上，主线程卡死时动效仍保持满帧丝滑。
+                </blockquote>
+
+                <p>
+                    落实到实际项目中，这意味着以下几条铁律：
+                </p>
+
+                <ul>
+                    <li>面板展开动画：禁止直接动 <code>height</code>，改用 <code>grid-template-rows: 0fr → 1fr</code> 技巧。</li>
+                    <li>数字滚动动效：用 <code>transform: translateY()</code> 滚动一列数字，而非逐帧修改 DOM 文本内容。</li>
+                    <li>进度条：用 <code>transform: scaleX(progress)</code> 驱动，<code>transform-origin: left</code>，禁止修改 <code>width</code>。</li>
+                    <li>页面切换：用 <code>opacity + transform</code>，禁止 <code>display: none / block</code> 切换（触发 Layout）。</li>
+                </ul>
+
+                <hr>
+
+                <p>
+                    如果你对浏览器渲染流水线有更深入的兴趣，推荐阅读 Chrome 团队的官方文档 <a href="#">《Inside look at modern web browser》</a>，以及 Paul Lewis 的系列文章 <a href="#">《Rendering Performance》</a>。
+                </p>
+
+                <p>
+                    <small>本文最后更新于 2026-06-18。如有勘误，欢迎通过 GitHub 提交 Issue。</small>
+                </p>
+
+            </article>
+
+            <!-- TOC 目录 -->
+            <aside class="toc-sidebar" aria-label="文章目录">
+                <div class="toc-label" aria-hidden="true">目录</div>
+                <ul class="toc-list" role="list">
+                    <li class="toc-item active">
+                        <a href="#s1">一、浏览器渲染流水线</a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#s2">二、GSAP 的底层策略</a>
+                    </li>
+                    <li class="toc-item sub">
+                        <a href="#s2-1">will-change 的正确用法</a>
+                    </li>
+                    <li class="toc-item">
+                        <a href="#s3">三、COE 视角审视</a>
+                    </li>
+                </ul>
+            </aside>
+        </div>
+
+        <!-- ── 上 / 下篇导航 ── -->
+        <nav class="article-nav" aria-label="文章前后导航">
+            <a href="/posts/prev" class="nav-card disabled" aria-disabled="true">
+                <span class="nav-card-dir">← 上一篇</span>
+                <span class="nav-card-title">（无）</span>
+            </a>
+            <a href="/posts/multimodal-agent-architecture" class="nav-card">
+                <span class="nav-card-dir">下一篇 →</span>
+                <span class="nav-card-title">多模态智能体的工具调用架构设计</span>
+            </a>
+        </nav>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">© 2026 Dark Lattice. All rights reserved.</p>
+            <nav class="footer-links-group" aria-label="外部链接">
+                <a href="https://github.com" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://orcid.org" class="footer-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+                <a href="mailto:hi@darklattice.dev" class="footer-link">Email</a>
+            </nav>
+        </div>
+    </footer>
+
+    <div class="spec-badge" role="note">
+        <strong>画面设计文档 v2</strong> · 文章详情页<br>
+        风格：Linear Dark SaaS<br>
+        GII ✦ TPF ✦ COE ✦ SCR ✦ OCC
+    </div>
+
+    <script>
+        // ── 页面淡入 ──
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('page-loaded');
+        });
+
+        // ── 导航栏滚动 ──
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
+
+        // ── 阅读进度条（COE: scaleX transform 驱动）──
+        const root = document.documentElement;
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const progress = docHeight > 0 ? scrollTop / docHeight : 0;
+            // 通过 CSS 自定义属性传递给 CSS，不直接操作 DOM 宽度
+            root.style.setProperty('--scroll-progress', progress.toFixed(4));
+
+            // aria 无障碍更新
+            const fill = document.getElementById('progress-fill');
+            if (fill) fill.parentElement.setAttribute('aria-valuenow', Math.round(progress * 100));
+        }, { passive: true });
+
+        // ── 文章头部 Stagger 入场 ──
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('breadcrumb')?.classList.add('revealed'), 60);
+            setTimeout(() => document.getElementById('article-tags')?.classList.add('revealed'), 140);
+            setTimeout(() => document.getElementById('article-title')?.classList.add('revealed'), 260);
+            setTimeout(() => document.getElementById('article-meta')?.classList.add('revealed'),  380);
+        });
+
+        // ── TOC Scroll Spy ──
+        const tocItems = document.querySelectorAll('.toc-item');
+        const headings = document.querySelectorAll('.article-body h2, .article-body h3');
+
+        const headingObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    tocItems.forEach(item => {
+                        const link = item.querySelector('a');
+                        const isActive = link?.getAttribute('href') === `#${id}`;
+                        item.classList.toggle('active', isActive);
+                    });
+                }
+            });
+        }, {
+            rootMargin: '-10% 0px -80% 0px',
+            threshold: 0
+        });
+
+        headings.forEach(h => headingObserver.observe(h));
+
+        // ── 复制按钮（示意）──
+        document.querySelectorAll('.copy-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const pre = btn.closest('.code-block')?.querySelector('pre');
+                if (pre) {
+                    navigator.clipboard.writeText(pre.innerText).then(() => {
+                        const orig = btn.textContent;
+                        btn.textContent = '已复制 ✓';
+                        setTimeout(() => { btn.textContent = orig; }, 2000);
+                    });
+                }
+            });
+        });
+
+        // ── 页面切换淡出 ──
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('javascript:') && this.target !== '_blank') {
+                    e.preventDefault();
+                    document.body.style.opacity = '0';
+                    document.body.style.transition = 'opacity 400ms ease';
+                    setTimeout(() => { window.location.href = href; }, 420);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

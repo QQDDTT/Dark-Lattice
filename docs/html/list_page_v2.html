@@ -1,0 +1,915 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客 · Dark Lattice</title>
+    <meta name="description" content="关于智能体逻辑、前端架构与计算美学的思考与记录。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+         * DESIGN TOKENS — 与 home_page_v2.html 完全一致（SCR/OCC 规范）
+         * ============================================================ */
+        :root {
+            --layer-0: hsl(240, 8%, 5.5%);
+            --layer-1: hsl(240, 8%, 8%);
+            --layer-2: hsl(240, 6%, 10.5%);
+            --layer-3: hsl(240, 5%, 13%);
+            --layer-4: hsl(240, 4%, 17%);
+
+            --text-high:    rgba(255, 255, 255, 0.92);
+            --text-medium:  rgba(255, 255, 255, 0.60);
+            --text-low:     rgba(255, 255, 255, 0.36);
+            --text-minimal: rgba(255, 255, 255, 0.20);
+
+            --accent:        hsl(250, 85%, 62%);
+            --accent-dim:    hsla(250, 85%, 62%, 0.12);
+            --accent-glow:   rgba(139, 92, 246, 0.35);
+            --accent-border: rgba(139, 92, 246, 0.3);
+
+            --border-subtle:   rgba(255, 255, 255, 0.06);
+            --border-default:  rgba(255, 255, 255, 0.10);
+            --border-emphasis: rgba(255, 255, 255, 0.18);
+
+            --ease-enter:  cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+            --sp-1:  4px;  --sp-2:  8px;  --sp-3:  12px;
+            --sp-4:  16px; --sp-6:  24px; --sp-8:  32px;
+            --sp-10: 40px; --sp-12: 48px; --sp-16: 64px;
+            --sp-20: 80px; --sp-24: 96px;
+
+            --section-gap: clamp(64px, 10vw, 120px);
+
+            --font-display: 'Syne', 'Inter', sans-serif;
+            --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+            --font-code:    'Fira Code', 'Consolas', monospace;
+        }
+
+        /* ── RESET ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: var(--layer-0);
+            color: var(--text-high);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-color: var(--layer-0);
+            opacity: 0;
+            transition: opacity 500ms var(--ease-enter);
+        }
+
+        body.page-loaded { opacity: 1; }
+        a { text-decoration: none; }
+
+        /* ── LAYOUT ── */
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+        }
+
+        /* ── NAVBAR（与首页同款）── */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            background: rgba(14, 14, 20, 0.80);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: border-color 200ms var(--ease-smooth);
+        }
+
+        .site-header.scrolled { border-bottom-color: var(--border-default); }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-high);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-8);
+            list-style: none;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            transition: color 150ms var(--ease-smooth);
+            padding-bottom: 2px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0;
+            width: 0%;
+            height: 1px;
+            background: var(--text-high);
+            transition: width 280ms var(--ease-enter);
+        }
+
+        .nav-link:hover, .nav-link.active { color: var(--text-high); }
+        .nav-link:hover::after, .nav-link.active::after { width: 100%; }
+
+        .lang-switcher { display: flex; align-items: center; gap: var(--sp-1); margin-left: var(--sp-4); }
+        .lang-btn { font-size: 0.75rem; color: var(--text-low); cursor: pointer; padding: 2px var(--sp-2); border-radius: 4px; transition: color 120ms ease, background 120ms ease; }
+        .lang-btn:hover { color: var(--text-medium); }
+        .lang-btn.active { color: var(--text-high); background: var(--layer-3); }
+        .lang-divider { color: var(--text-minimal); font-size: 0.75rem; }
+
+        /* ============================================================
+         * PAGE HEADER
+         * GII: 留白优先，无边框分割
+         * ============================================================ */
+        .page-header {
+            padding: var(--sp-24) 0 var(--sp-12);
+            margin-top: 60px; /* 偏移固定导航栏 */
+        }
+
+        .page-eyebrow {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-3);
+            margin-bottom: var(--sp-6);
+            opacity: 0;
+            transform: translateY(14px);
+            transition: opacity 600ms var(--ease-enter),
+                        transform 600ms var(--ease-enter);
+        }
+
+        .page-eyebrow.revealed { opacity: 1; transform: translateY(0); }
+
+        .eyebrow-line {
+            width: 20px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .eyebrow-label {
+            font-family: var(--font-code);
+            font-size: 0.72rem;
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .page-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+            color: var(--text-high);
+            margin-bottom: var(--sp-6);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 700ms var(--ease-enter) 80ms,
+                        transform 700ms var(--ease-enter) 80ms;
+        }
+
+        .page-title.revealed { opacity: 1; transform: translateY(0); }
+
+        .page-desc {
+            font-size: 1.05rem;
+            color: var(--text-medium);
+            max-width: 480px;
+            line-height: 1.75;
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 700ms var(--ease-enter) 160ms,
+                        transform 700ms var(--ease-enter) 160ms;
+        }
+
+        .page-desc.revealed { opacity: 1; transform: translateY(0); }
+
+        /* ============================================================
+         * FILTER BAR — 分类过滤（Linear 风格 tag 组）
+         * ============================================================ */
+        .filter-bar {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-2);
+            margin-bottom: var(--sp-10);
+            flex-wrap: wrap;
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity 600ms var(--ease-enter) 240ms,
+                        transform 600ms var(--ease-enter) 240ms;
+        }
+
+        .filter-bar.revealed { opacity: 1; transform: translateY(0); }
+
+        .filter-label {
+            font-size: 0.75rem;
+            color: var(--text-low);
+            font-family: var(--font-code);
+            margin-right: var(--sp-2);
+        }
+
+        .filter-chip {
+            font-size: 0.75rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            background: var(--layer-2);
+            border: 1px solid var(--border-subtle);
+            padding: var(--sp-1) var(--sp-3);
+            border-radius: 20px;
+            cursor: pointer;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            transition: color 120ms ease,
+                        background 120ms ease,
+                        border-color 120ms ease;
+        }
+
+        .filter-chip:hover {
+            color: var(--text-medium);
+            background: var(--layer-3);
+            border-color: var(--border-default);
+        }
+
+        .filter-chip.active {
+            color: var(--accent);
+            background: var(--accent-dim);
+            border-color: var(--accent-border);
+        }
+
+        /* ============================================================
+         * POST LIST — Linear 流派：接近性替代物理边框
+         *
+         * GII: 行高固定 = 内边距精确控制接近性
+         * TPF: hover 过渡 120ms（快速克制）
+         * COE: hover 只改 background 和 transform，无 Reflow
+         * ============================================================ */
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0; /* 无间距，靠内边距 + 边界线控制接近性 */
+        }
+
+        .post-item {
+            position: relative;
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 0 var(--sp-8);
+            padding: var(--sp-6) var(--sp-4);
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+
+            /* COE: hover 背景色过渡，不触发 Reflow */
+            background: transparent;
+            transition: background 120ms ease;
+        }
+
+        .post-item:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: var(--sp-4);
+            right: var(--sp-4);
+            height: 1px;
+            background: var(--border-subtle);
+        }
+
+        .post-item:hover {
+            background: var(--layer-1);
+        }
+
+        /* 左侧竖条 accent 指示器（hover 时出现）*/
+        .post-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 2px;
+            height: 0;
+            background: var(--accent);
+            border-radius: 0 2px 2px 0;
+            box-shadow: 0 0 8px var(--accent-glow);
+
+            /* COE: 高度动画用 transform scaleY 替代 height */
+            transform: scaleY(0) translateY(-50%);
+            transform-origin: center;
+            transition: transform 150ms var(--ease-enter);
+        }
+
+        .post-item:hover::before {
+            transform: scaleY(1) translateY(-50%);
+            height: 32px; /* 仅此处用 height 定义尺寸，transform 驱动展现 */
+        }
+
+        /* 日期列 */
+        .post-date {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 2px;
+            padding-top: 3px;
+            flex-shrink: 0;
+        }
+
+        .date-day {
+            font-family: var(--font-code);
+            font-size: 1.4rem;
+            font-weight: 500;
+            color: var(--text-low);
+            line-height: 1;
+            transition: color 120ms ease;
+        }
+
+        .date-month {
+            font-family: var(--font-code);
+            font-size: 0.65rem;
+            color: var(--text-minimal);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 120ms ease;
+        }
+
+        .post-item:hover .date-day   { color: var(--text-medium); }
+        .post-item:hover .date-month { color: var(--text-low); }
+
+        /* 主体内容 */
+        .post-body { min-width: 0; }
+
+        .post-tags {
+            display: flex;
+            gap: var(--sp-2);
+            margin-bottom: var(--sp-2);
+        }
+
+        .post-tag {
+            font-size: 0.65rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            background: var(--layer-3);
+            padding: 1px var(--sp-2);
+            border-radius: 3px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 120ms ease, background 120ms ease;
+        }
+
+        .post-item:hover .post-tag {
+            color: var(--accent);
+            background: var(--accent-dim);
+        }
+
+        .post-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--text-high);
+            letter-spacing: -0.015em;
+            line-height: 1.35;
+            margin-bottom: var(--sp-2);
+            transition: color 120ms ease;
+
+            /* 防止标题溢出 */
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .post-item:hover .post-title { color: #ffffff; }
+
+        .post-summary {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            line-height: 1.65;
+
+            /* 最多显示 2 行 */
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-meta-row {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-4);
+            margin-top: var(--sp-3);
+        }
+
+        .post-read-time {
+            font-size: 0.72rem;
+            font-family: var(--font-code);
+            color: var(--text-minimal);
+        }
+
+        /* 箭头指示器（hover 时右移）*/
+        .post-arrow {
+            position: absolute;
+            right: var(--sp-4);
+            top: 50%;
+            transform: translateY(-50%) translateX(-4px);
+            opacity: 0;
+            color: var(--text-low);
+            font-size: 0.85rem;
+            transition: opacity 150ms ease,
+                        transform 200ms var(--ease-enter);
+        }
+
+        .post-item:hover .post-arrow {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        /* ============================================================
+         * REVEAL ANIMATIONS — 通用
+         * ============================================================ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 700ms var(--ease-enter),
+                        transform 700ms var(--ease-enter);
+        }
+
+        .reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+        /* Stagger 工具类（40ms 步长）*/
+        .stagger-1 { transition-delay: 40ms; }
+        .stagger-2 { transition-delay: 80ms; }
+        .stagger-3 { transition-delay: 120ms; }
+        .stagger-4 { transition-delay: 160ms; }
+        .stagger-5 { transition-delay: 200ms; }
+        .stagger-6 { transition-delay: 240ms; }
+        .stagger-7 { transition-delay: 280ms; }
+        .stagger-8 { transition-delay: 320ms; }
+
+        /* ============================================================
+         * PAGINATION
+         * GII: 接近性分组，无多余边框
+         * ============================================================ */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: var(--sp-2);
+            padding: var(--sp-12) 0 var(--sp-20);
+        }
+
+        .page-num {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            transition: color 120ms ease, background 120ms ease;
+        }
+
+        .page-num:hover {
+            color: var(--text-medium);
+            background: var(--layer-2);
+        }
+
+        .page-num.active {
+            color: var(--text-high);
+            background: var(--layer-3);
+            font-weight: 600;
+        }
+
+        .page-dots {
+            font-size: 0.85rem;
+            color: var(--text-minimal);
+            padding: 0 var(--sp-1);
+        }
+
+        .page-nav-btn {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-2);
+            padding: 0 var(--sp-4);
+            height: 36px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            color: var(--text-low);
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            cursor: pointer;
+            transition: color 120ms ease,
+                        background 120ms ease,
+                        border-color 120ms ease;
+        }
+
+        .page-nav-btn:hover {
+            color: var(--text-medium);
+            background: var(--layer-2);
+            border-color: var(--border-default);
+        }
+
+        /* ============================================================
+         * FOOTER
+         * ============================================================ */
+        .site-footer {
+            padding: var(--sp-12) 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy { font-size: 0.8rem; color: var(--text-low); }
+
+        .footer-links-group { display: flex; gap: var(--sp-6); }
+
+        .footer-link {
+            font-size: 0.8rem;
+            color: var(--text-low);
+            transition: color 120ms ease;
+        }
+
+        .footer-link:hover { color: var(--text-medium); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .post-item { grid-template-columns: 1fr; }
+            .post-date { flex-direction: row; align-items: center; gap: var(--sp-2); margin-bottom: var(--sp-2); }
+            .nav-list { display: none; }
+            .footer-inner { flex-direction: column; gap: var(--sp-4); align-items: flex-start; }
+        }
+
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+
+        /* ── SPEC BADGE（仅文档）── */
+        .spec-badge {
+            position: fixed;
+            bottom: 24px; right: 24px;
+            background: var(--layer-2);
+            border: 1px solid var(--border-default);
+            border-radius: 8px;
+            padding: var(--sp-3) var(--sp-4);
+            font-size: 0.7rem;
+            font-family: var(--font-code);
+            color: var(--text-medium);
+            z-index: 9999;
+            line-height: 1.8;
+        }
+
+        .spec-badge strong { color: var(--accent); }
+    </style>
+</head>
+<body>
+
+    <!-- ── 导航栏 ── -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo-text">Dark Lattice</a>
+            <nav aria-label="主导航">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link">首页</a></li>
+                    <li><a href="/posts" class="nav-link active">博客</a></li>
+                    <li><a href="/research" class="nav-link">研究</a></li>
+                </ul>
+            </nav>
+            <div class="lang-switcher" aria-label="语言切换">
+                <span class="lang-btn active">中</span>
+                <span class="lang-divider">·</span>
+                <span class="lang-btn">EN</span>
+                <span class="lang-divider">·</span>
+                <span class="lang-btn">日</span>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ── 页面头部 ── -->
+        <section class="page-header container">
+            <div class="page-eyebrow" id="pg-eyebrow">
+                <span class="eyebrow-line" aria-hidden="true"></span>
+                <span class="eyebrow-label">Blog · 博客</span>
+            </div>
+            <h1 class="page-title" id="pg-title">思考与记录</h1>
+            <p class="page-desc" id="pg-desc">
+                关于智能体逻辑、前端架构与计算美学的思考与记录。
+            </p>
+        </section>
+
+        <!-- ── 分类过滤栏 ── -->
+        <div class="container">
+            <div class="filter-bar" id="filter-bar" role="group" aria-label="文章分类过滤">
+                <span class="filter-label">FILTER</span>
+                <button class="filter-chip active">全部</button>
+                <button class="filter-chip">Agent</button>
+                <button class="filter-chip">Vision AI</button>
+                <button class="filter-chip">Frontend</button>
+                <button class="filter-chip">工程随笔</button>
+                <button class="filter-chip">论文精读</button>
+            </div>
+
+            <!-- ── 文章列表 ── -->
+            <div class="post-list" role="list">
+
+                <a href="/posts/gsap-animation-deep-dive" class="post-item reveal stagger-1" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">18</span>
+                        <span class="date-month">Jun 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Frontend</span>
+                            <span class="post-tag">动效</span>
+                        </div>
+                        <div class="post-title">GSAP 动画的 GPU 合成层原理深度解析</div>
+                        <p class="post-summary">
+                            为什么同样是动画，GSAP 的性能远优于 jQuery？本文从浏览器合成层（Composite Layer）的底层原理出发，系统阐述如何通过 will-change 和 transform 实现真正的 60fps 丝滑体验。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 12 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/multimodal-agent-architecture" class="post-item reveal stagger-2" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">09</span>
+                        <span class="date-month">Jun 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Agent</span>
+                            <span class="post-tag">LLM</span>
+                        </div>
+                        <div class="post-title">多模态智能体的工具调用架构设计</div>
+                        <p class="post-summary">
+                            在设计支持图像、文本、代码三模态输入的 Agent 系统时，工具路由的选择策略直接决定了系统的响应精度与延迟。本文整理了三种主流架构范式的对比。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 18 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/industrial-defect-detection" class="post-item reveal stagger-3" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">27</span>
+                        <span class="date-month">May 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Vision AI</span>
+                            <span class="post-tag">论文精读</span>
+                        </div>
+                        <div class="post-title">工业缺陷检测中的 Few-Shot 迁移学习实践</div>
+                        <p class="post-summary">
+                            当训练数据极度稀缺时（每类缺陷仅 5-10 张图），Few-Shot 方法如何在保持精度的前提下大幅降低数据采集成本？基于实际生产线的踩坑记录与解决方案。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 22 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/hugo-design-system" class="post-item reveal stagger-4" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">14</span>
+                        <span class="date-month">May 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Frontend</span>
+                            <span class="post-tag">工程随笔</span>
+                        </div>
+                        <div class="post-title">用 Hugo 搭建基于设计令牌的暗色主题系统</div>
+                        <p class="post-summary">
+                            本文记录了从零构建 Dark Lattice 主题时，如何设计一套基于 CSS 自定义属性的设计令牌体系，实现样式的语义化、可维护与高度一致。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 9 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/attention-mechanism-visual" class="post-item reveal stagger-5" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">02</span>
+                        <span class="date-month">May 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">论文精读</span>
+                            <span class="post-tag">LLM</span>
+                        </div>
+                        <div class="post-title">Attention is All You Need 的视觉化理解</div>
+                        <p class="post-summary">
+                            用可视化图解的方式，从数学直觉出发重新解读 Transformer 的 Self-Attention 机制，并对比 GQA、MHA、MQA 在实际推理中的显存占用差异。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 15 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/css-grid-advanced" class="post-item reveal stagger-6" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">19</span>
+                        <span class="date-month">Apr 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Frontend</span>
+                        </div>
+                        <div class="post-title">CSS Grid 高级布局：subgrid 与跨列对齐实战</div>
+                        <p class="post-summary">
+                            CSS Subgrid 终于获得全浏览器支持。本文通过三个实际案例，演示如何用 subgrid 解决跨组件的列对齐难题，彻底告别硬编码 margin 的噩梦。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 8 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/edge-computing-vision" class="post-item reveal stagger-7" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">05</span>
+                        <span class="date-month">Apr 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Vision AI</span>
+                            <span class="post-tag">工程随笔</span>
+                        </div>
+                        <div class="post-title">边缘端视觉推理的量化压缩策略综述</div>
+                        <p class="post-summary">
+                            在算力受限的工业 AIoT 设备上部署视觉模型，量化（QAT/PTQ）、剪枝与知识蒸馏的组合策略如何选择？本文给出一张决策树，帮你找到最优路径。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 16 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+                <a href="/posts/state-machine-agent" class="post-item reveal stagger-8" role="listitem">
+                    <div class="post-date">
+                        <span class="date-day">21</span>
+                        <span class="date-month">Mar 2026</span>
+                    </div>
+                    <div class="post-body">
+                        <div class="post-tags">
+                            <span class="post-tag">Agent</span>
+                            <span class="post-tag">工程随笔</span>
+                        </div>
+                        <div class="post-title">用有限状态机驯服大模型的输出不确定性</div>
+                        <p class="post-summary">
+                            大模型的输出天然带有不确定性，如何用状态机约束其行为边界，实现可预测、可回滚的智能体执行流？本文分享了一套在生产环境经过验证的 FSM-Agent 模式。
+                        </p>
+                        <div class="post-meta-row">
+                            <span class="post-read-time">约 20 分钟阅读</span>
+                        </div>
+                    </div>
+                    <span class="post-arrow" aria-hidden="true">→</span>
+                </a>
+
+            </div>
+
+            <!-- ── 分页 ── -->
+            <nav class="pagination reveal" aria-label="文章分页">
+                <button class="page-nav-btn">← 上一页</button>
+                <button class="page-num active" aria-current="page" aria-label="第 1 页">1</button>
+                <button class="page-num" aria-label="第 2 页">2</button>
+                <button class="page-num" aria-label="第 3 页">3</button>
+                <span class="page-dots" aria-hidden="true">…</span>
+                <button class="page-num" aria-label="第 8 页">8</button>
+                <button class="page-nav-btn">下一页 →</button>
+            </nav>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">© 2026 Dark Lattice. All rights reserved.</p>
+            <nav class="footer-links-group" aria-label="外部链接">
+                <a href="https://github.com" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://orcid.org" class="footer-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+                <a href="mailto:hi@darklattice.dev" class="footer-link">Email</a>
+            </nav>
+        </div>
+    </footer>
+
+    <div class="spec-badge" role="note">
+        <strong>画面设计文档 v2</strong> · 博客列表页<br>
+        风格：Linear Dark SaaS<br>
+        GII ✦ TPF ✦ COE ✦ SCR ✦ OCC
+    </div>
+
+    <script>
+        // ── 页面淡入 ──
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('page-loaded');
+        });
+
+        // ── 导航栏滚动 ──
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
+
+        // ── 页面头部 Stagger 入场 ──
+        window.addEventListener('load', () => {
+            setTimeout(() => document.getElementById('pg-eyebrow')?.classList.add('revealed'), 80);
+            setTimeout(() => document.getElementById('pg-title')?.classList.add('revealed'),  180);
+            setTimeout(() => document.getElementById('pg-desc')?.classList.add('revealed'),   300);
+            setTimeout(() => document.getElementById('filter-bar')?.classList.add('revealed'), 420);
+        });
+
+        // ── Scroll Reveal ──
+        const obs = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    e.target.classList.add('is-visible');
+                    obs.unobserve(e.target);
+                }
+            });
+        }, { rootMargin: '-30px 0px -30px 0px', threshold: 0.05 });
+
+        document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+        // ── 分类过滤切换（纯视觉示意）──
+        document.querySelectorAll('.filter-chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
+                chip.classList.add('active');
+            });
+        });
+
+        // ── 页面切换淡出 ──
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('javascript:') && this.target !== '_blank') {
+                    e.preventDefault();
+                    document.body.style.opacity = '0';
+                    document.body.style.transition = 'opacity 400ms ease';
+                    setTimeout(() => { window.location.href = href; }, 420);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

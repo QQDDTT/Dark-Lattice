@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Lattice · 首页重设计 v2</title>
+    <meta name="description" content="Dark Lattice 博客首页——画面设计文档 v2，基于格式塔 GII/TPF/COE 五维规范。">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        /* ============================================================
+         * DESIGN TOKENS — SCR 规范: CSS 自定义属性全量定义
+         * 遵循 Linear/Dark SaaS 流派 + Awwwards 混合策略
+         * ============================================================ */
+        :root {
+            /* 背景 5 层 HSL 灰度体系（相邻层亮度差约 2.5%）*/
+            --layer-0: hsl(240, 8%, 5.5%);
+            --layer-1: hsl(240, 8%, 8%);
+            --layer-2: hsl(240, 6%, 10.5%);
+            --layer-3: hsl(240, 5%, 13%);
+            --layer-4: hsl(240, 4%, 17%);
+
+            /* 文字 4 层透明度体系 */
+            --text-high:    rgba(255, 255, 255, 0.92);
+            --text-medium:  rgba(255, 255, 255, 0.60);
+            --text-low:     rgba(255, 255, 255, 0.36);
+            --text-minimal: rgba(255, 255, 255, 0.20);
+
+            /* 强调色——暗紫极光（界面占比 ≤ 5%）*/
+            --accent:        hsl(250, 85%, 62%);
+            --accent-dim:    hsl(250, 85%, 62%, 0.12);
+            --accent-glow:   rgba(139, 92, 246, 0.35);
+            --accent-border: rgba(139, 92, 246, 0.3);
+
+            /* 边框层级 */
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-default: rgba(255, 255, 255, 0.10);
+            --border-emphasis: rgba(255, 255, 255, 0.18);
+
+            /* 贝塞尔缓动曲线 — TPF 规范 */
+            --ease-enter:   cubic-bezier(0.16, 1, 0.3, 1);     /* 弹性入场（Awwwards 标配）*/
+            --ease-smooth:  cubic-bezier(0.4, 0, 0.2, 1);      /* 材质设计标准 */
+            --ease-exit:    cubic-bezier(0.4, 0, 1, 1);        /* 快速退场 */
+
+            /* 4px 基础单位间距体系 */
+            --sp-1: 4px;
+            --sp-2: 8px;
+            --sp-3: 12px;
+            --sp-4: 16px;
+            --sp-6: 24px;
+            --sp-8: 32px;
+            --sp-10: 40px;
+            --sp-12: 48px;
+            --sp-16: 64px;
+            --sp-20: 80px;
+            --sp-24: 96px;
+
+            /* 响应式空间节律（Awwwards 章节呼吸感）*/
+            --section-gap: clamp(80px, 12vw, 160px);
+
+            /* 字体栈 */
+            --font-display: 'Syne', 'Inter', sans-serif;
+            --font-body:    'Inter', system-ui, -apple-system, sans-serif;
+            --font-code:    'Fira Code', 'Consolas', monospace;
+        }
+
+        /* ============================================================
+         * RESET & BASE
+         * ============================================================ */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            font-size: 16px;
+            scroll-behavior: smooth;
+            background-color: var(--layer-0);
+            color: var(--text-high);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+            background-color: var(--layer-0);
+
+            /* COE: 页面渐显使用 opacity，不触发 Reflow */
+            opacity: 0;
+            transition: opacity 500ms var(--ease-enter);
+        }
+
+        body.page-loaded { opacity: 1; }
+
+        a { text-decoration: none; }
+
+        /* ============================================================
+         * LAYOUT GRID
+         * ============================================================ */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+        }
+
+        /* ============================================================
+         * NAVBAR — 毛玻璃，仅命令面板级别使用 backdrop-filter
+         * ============================================================ */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+
+            /* 毛玻璃：仅导航栏场景（面积 < 5% 视口）*/
+            background: rgba(14, 14, 20, 0.80);
+            backdrop-filter: blur(20px) saturate(160%);
+            -webkit-backdrop-filter: blur(20px) saturate(160%);
+
+            border-bottom: 1px solid var(--border-subtle);
+            transition: border-color 200ms var(--ease-smooth);
+        }
+
+        .site-header.scrolled {
+            border-bottom-color: var(--border-default);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+        }
+
+        .logo-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--text-high);
+            letter-spacing: 0.5px;
+        }
+
+        /* 导航链接——伪元素下划线从左到右展开（Awwwards 标志性微动效）*/
+        .nav-list {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-8);
+            list-style: none;
+        }
+
+        .nav-link {
+            position: relative;
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            transition: color 150ms var(--ease-smooth);
+            padding-bottom: 2px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 1px;
+            background: var(--text-high);
+
+            /* COE: 只驱动 width（例外：伪元素下划线无法用 transform 完美替代）*/
+            transition: width 280ms var(--ease-enter);
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--text-high);
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 100%;
+        }
+
+        /* 语言切换器——精简版 */
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-1);
+            margin-left: var(--sp-4);
+        }
+
+        .lang-btn {
+            font-size: 0.75rem;
+            color: var(--text-low);
+            cursor: pointer;
+            padding: 2px var(--sp-2);
+            border-radius: 4px;
+            transition: color 120ms ease, background 120ms ease;
+        }
+
+        .lang-btn:hover { color: var(--text-medium); }
+        .lang-btn.active {
+            color: var(--text-high);
+            background: var(--layer-3);
+        }
+
+        .lang-divider {
+            color: var(--text-minimal);
+            font-size: 0.75rem;
+        }
+
+        /* ============================================================
+         * HERO SECTION — Awwwards 级大字冲击 + 文字揭示动效
+         * ============================================================ */
+        .hero {
+            min-height: 92vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 0 var(--sp-8);
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* 文字揭示容器：clip-path 从右到左展开（COE 合规：clip-path 不触发 Reflow）*/
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sp-3);
+            margin-bottom: var(--sp-6);
+
+            /* Stagger 入场 延迟 0ms */
+            opacity: 0;
+            transform: translateY(16px);
+            transition: opacity 700ms var(--ease-enter),
+                        transform 700ms var(--ease-enter);
+        }
+
+        .hero-eyebrow.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 8px var(--accent-glow);
+
+            /* 微动效：脉冲（只用 transform + opacity）*/
+            animation: pulse 2.4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1);   opacity: 0.9; }
+            50%       { transform: scale(1.4); opacity: 0.5; }
+        }
+
+        .eyebrow-text {
+            font-size: 0.75rem;
+            font-family: var(--font-code);
+            color: var(--accent);
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        /* 主标题——响应式超大字体，Syne 字体（Awwwards 展示字体）*/
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(52px, 7.5vw, 100px);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            color: var(--text-high);
+            margin-bottom: var(--sp-8);
+        }
+
+        /* 逐词 Stagger 揭示：每个 word-span 独立动效
+         * 单层 inline-block 配合 padding-bottom 和负 margin-bottom 消除 descender 裁剪 */
+        .hero-title .word {
+            display: inline-block;
+            position: relative;
+            opacity: 0;
+            padding-bottom: 0.15em;
+            margin-bottom: -0.15em;
+            transition: opacity 800ms var(--ease-enter);
+        }
+
+        .hero-title .word.revealed {
+            opacity: 1;
+        }
+
+        /* 强调色词组 */
+        .hero-title .accent-word {
+            color: var(--accent);
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            color: var(--text-medium);
+            max-width: 520px;
+            line-height: 1.75;
+            margin-bottom: var(--sp-10);
+
+            /* Stagger 入场 延迟 200ms */
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 700ms var(--ease-enter) 200ms,
+                        transform 700ms var(--ease-enter) 200ms;
+        }
+
+        .hero-subtitle.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* CTA 按钮组 */
+        .hero-cta {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-4);
+
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 700ms var(--ease-enter) 340ms,
+                        transform 700ms var(--ease-enter) 340ms;
+        }
+
+        .hero-cta.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 主 CTA 按钮——发光 */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sp-2);
+            padding: 10px var(--sp-6);
+            background: var(--accent);
+            color: rgba(255, 255, 255, 0.95);
+            font-family: var(--font-body);
+            font-size: 0.875rem;
+            font-weight: 500;
+            border-radius: 6px;
+
+            /* COE: 发光效果用 box-shadow，不触发 Reflow */
+            box-shadow: 0 0 20px var(--accent-glow);
+            transition: box-shadow 200ms var(--ease-smooth),
+                        transform 80ms ease;
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 0 36px rgba(139, 92, 246, 0.55);
+        }
+
+        .btn-primary:active {
+            transform: scale(0.97);
+        }
+
+        /* 次要按钮 */
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--sp-2);
+            padding: 10px var(--sp-6);
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--text-medium);
+            border: 1px solid var(--border-default);
+            border-radius: 6px;
+            transition: color 150ms ease,
+                        border-color 150ms ease,
+                        transform 80ms ease;
+        }
+
+        .btn-secondary:hover {
+            color: var(--text-high);
+            border-color: var(--border-emphasis);
+        }
+
+        .btn-secondary:active { transform: scale(0.97); }
+
+        /* 英雄区装饰线（底部） */
+        .hero-separator {
+            width: 1px;
+            height: 80px;
+            background: linear-gradient(to bottom, var(--border-default), transparent);
+            margin: var(--sp-12) 0 0 2px;
+
+            opacity: 0;
+            transition: opacity 700ms var(--ease-enter) 480ms;
+        }
+
+        .hero-separator.revealed { opacity: 1; }
+
+        /* ============================================================
+         * MANIFESTO SECTION
+         * GII 规范：无边框，靠灰度层 + 接近性（padding）区分
+         * ============================================================ */
+        .manifesto-section {
+            padding: var(--section-gap) 0;
+        }
+
+        .manifesto-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--sp-8);
+        }
+
+        /* 卡片：hover 时背景微亮（不加边框）*/
+        .manifesto-card {
+            padding: var(--sp-8);
+            border-radius: 8px;
+            border: 1px solid var(--border-subtle);
+            background: var(--layer-1);
+
+            /* COE: 过渡只驱动 background, border-color (颜色变化，不触发重排)*/
+            transition: background 120ms ease, border-color 150ms ease;
+        }
+
+        .manifesto-card:hover {
+            background: var(--layer-2);
+            border-color: var(--border-default);
+        }
+
+        /* 序号标签 */
+        .card-num {
+            font-family: var(--font-code);
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            margin-bottom: var(--sp-4);
+            opacity: 0.8;
+        }
+
+        .card-title {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-high);
+            margin-bottom: var(--sp-3);
+            letter-spacing: -0.01em;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+        }
+
+        /* reveal-on-scroll 通用类 */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 700ms var(--ease-enter),
+                        transform 700ms var(--ease-enter);
+        }
+
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger 延迟工具类（40ms 步长，Awwwards 规范）*/
+        .stagger-1 { transition-delay: 40ms; }
+        .stagger-2 { transition-delay: 80ms; }
+        .stagger-3 { transition-delay: 120ms; }
+        .stagger-4 { transition-delay: 160ms; }
+
+        /* ============================================================
+         * PROJECTS SECTION — Marquee 无缝滚动
+         * ============================================================ */
+        .projects-section {
+            padding-bottom: var(--section-gap);
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: var(--sp-3);
+            margin-bottom: var(--sp-8);
+            padding: 0 var(--sp-8);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .label-line {
+            width: 24px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .label-text {
+            font-size: 0.75rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        .section-heading {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 700;
+            color: var(--text-high);
+            letter-spacing: -0.02em;
+            margin-bottom: var(--sp-10);
+            padding: 0 var(--sp-8);
+            max-width: 1100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 两端渐变遮罩 */
+        .marquee-wrapper {
+            overflow: hidden;
+            position: relative;
+            padding: var(--sp-4) 0;
+        }
+
+        .marquee-wrapper::before,
+        .marquee-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .marquee-wrapper::before {
+            left: 0;
+            background: linear-gradient(to right, var(--layer-0), transparent);
+        }
+
+        .marquee-wrapper::after {
+            right: 0;
+            background: linear-gradient(to left, var(--layer-0), transparent);
+        }
+
+        .marquee-track {
+            display: flex;
+            gap: var(--sp-6);
+            width: max-content;
+
+            /* COE: 动画只驱动 transform.translateX */
+            animation: marquee-scroll 32s linear infinite;
+        }
+
+        .marquee-track:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(calc(-50% - 12px)); }
+        }
+
+        /* 项目卡片 */
+        .project-card {
+            width: 360px;
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--sp-4);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .card-cover {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: var(--layer-1);
+            border-radius: 6px;
+            border: 1px solid var(--border-subtle);
+            overflow: hidden;
+            position: relative;
+
+            /* COE: hover 效果用 transform，不触发 Reflow */
+            transition: border-color 150ms ease;
+        }
+
+        .card-cover-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            /* COE: 缩放用 transform */
+            transition: transform 400ms var(--ease-smooth);
+        }
+
+        .project-card:hover .card-cover {
+            border-color: var(--border-default);
+        }
+
+        .project-card:hover .card-cover-img {
+            transform: scale(1.04);
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: var(--sp-2);
+        }
+
+        .tag {
+            font-size: 0.7rem;
+            font-family: var(--font-code);
+            color: var(--text-low);
+            background: var(--layer-3);
+            padding: 2px var(--sp-2);
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .card-title-text {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-high);
+            letter-spacing: -0.01em;
+            transition: color 150ms ease;
+        }
+
+        .project-card:hover .card-title-text {
+            color: #fff;
+        }
+
+        .card-desc-text {
+            font-size: 0.875rem;
+            color: var(--text-medium);
+            line-height: 1.6;
+        }
+
+        /* ============================================================
+         * FOOTER
+         * ============================================================ */
+        .site-footer {
+            padding: var(--sp-12) 0;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .footer-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 var(--sp-8);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-low);
+        }
+
+        .footer-links-group {
+            display: flex;
+            gap: var(--sp-6);
+        }
+
+        .footer-link {
+            font-size: 0.8rem;
+            color: var(--text-low);
+            transition: color 120ms ease;
+        }
+
+        .footer-link:hover { color: var(--text-medium); }
+
+        /* ============================================================
+         * READING PROGRESS BAR（文章页专用，首页隐藏）
+         * COE: scaleX transform 驱动，0 Reflow
+         * ============================================================ */
+        .progress-bar {
+            position: fixed;
+            top: 60px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            z-index: 999;
+            background: var(--layer-2);
+            display: none; /* 首页隐藏 */
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 100%;
+            background: var(--accent);
+            transform-origin: left;
+            transform: scaleX(var(--scroll-progress, 0));
+            box-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* ============================================================
+         * RESPONSIVE
+         * ============================================================ */
+        @media (max-width: 768px) {
+            .manifesto-grid {
+                grid-template-columns: 1fr;
+                gap: var(--sp-4);
+            }
+
+            .hero-title {
+                font-size: clamp(40px, 10vw, 60px);
+            }
+
+            .nav-list { display: none; }
+
+            .footer-inner {
+                flex-direction: column;
+                gap: var(--sp-4);
+                align-items: flex-start;
+            }
+        }
+
+        /* ============================================================
+         * DESIGN SPEC ANNOTATION（仅文档用，生产删除）
+         * ============================================================ */
+        .spec-badge {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: var(--layer-2);
+            border: 1px solid var(--border-default);
+            border-radius: 8px;
+            padding: var(--sp-3) var(--sp-4);
+            font-size: 0.7rem;
+            font-family: var(--font-code);
+            color: var(--text-medium);
+            z-index: 9999;
+            line-height: 1.8;
+        }
+
+        .spec-badge strong {
+            color: var(--accent);
+        }
+
+        /* ============================================================
+         * FOCUS STATE — a11y: 所有交互元素 focus-visible 样式
+         * ============================================================ */
+        :focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: 4px;
+            border-radius: 2px;
+        }
+
+        /* prefers-reduced-motion: 禁用位移动效，仅保留 fade */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                transition-duration: 0.01ms !important;
+                animation-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ================================================================
+         导航栏
+         SCR: 无行内 style，所有样式由 CSS 类驱动
+    ================================================================ -->
+    <header class="site-header" id="site-header">
+        <div class="header-inner">
+            <a href="/" class="logo-text">Dark Lattice</a>
+
+            <nav aria-label="主导航">
+                <ul class="nav-list">
+                    <li><a href="/" class="nav-link active">首页</a></li>
+                    <li><a href="/posts" class="nav-link">博客</a></li>
+                    <li><a href="/research" class="nav-link">研究</a></li>
+                </ul>
+            </nav>
+
+            <!-- 语言切换器（改为内联文字按钮，无 <select>）-->
+            <div class="lang-switcher" aria-label="语言切换">
+                <span class="lang-btn active">中</span>
+                <span class="lang-divider">·</span>
+                <span class="lang-btn">EN</span>
+                <span class="lang-divider">·</span>
+                <span class="lang-btn">日</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- 阅读进度条（文章页可见，首页隐藏）-->
+    <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar-fill"></div>
+    </div>
+
+    <main style="padding-top: 60px;">
+        <!-- ============================================================
+             HERO SECTION
+             Awwwards 级：超大字体 + 逐词 Stagger 揭示动效
+             TPF: cubic-bezier(0.16, 1, 0.3, 1) 弹性缓动
+        ============================================================ -->
+        <section class="hero" aria-labelledby="hero-title">
+
+            <!-- 眉标（Eyebrow）: 先于标题入场 -->
+            <div class="hero-eyebrow" id="hero-eyebrow">
+                <span class="eyebrow-dot" aria-hidden="true"></span>
+                <span class="eyebrow-text">Dark Lattice · 个人研究博客</span>
+            </div>
+
+            <!-- 主标题：逐词揭示 -->
+            <h1 class="hero-title" id="hero-title" aria-label="Engineering. Research. Aesthetics.">
+                <span class="word">Engineering.</span>
+                <br>
+                <span class="word">Research.</span>
+                <br>
+                <span class="word accent-word">Aesthetics.</span>
+            </h1>
+
+            <!-- 副标题 -->
+            <p class="hero-subtitle" id="hero-subtitle">
+                探索深度学习、工业视觉与极致网页设计的交汇点。<br>
+                摒弃繁杂，专注于构建具有逻辑性、稳定性与极简美感的智能体系统。
+            </p>
+
+            <!-- CTA 按钮组 -->
+            <div class="hero-cta" id="hero-cta">
+                <a href="/research" class="btn-primary" id="cta-research">
+                    浏览研究项目
+                </a>
+                <a href="/posts" class="btn-secondary" id="cta-blog">
+                    阅读博客
+                </a>
+            </div>
+
+            <div class="hero-separator" id="hero-separator" aria-hidden="true"></div>
+        </section>
+
+        <!-- ============================================================
+             MANIFESTO SECTION
+             GII: 无物理边框，靠背景层（--layer-1）+ padding 接近性区分
+        ============================================================ -->
+        <section class="manifesto-section container" aria-label="核心理念">
+            <div class="manifesto-grid">
+
+                <div class="manifesto-card reveal stagger-1">
+                    <div class="card-num" aria-hidden="true">01</div>
+                    <h2 class="card-title">Agent Logic</h2>
+                    <p class="card-desc">
+                        探索基于状态机与多模态大模型的自主演化系统。专注于逻辑闭环，构建能够在复杂环境中持续学习与决策的智能体架构。
+                    </p>
+                </div>
+
+                <div class="manifesto-card reveal stagger-2">
+                    <div class="card-num" aria-hidden="true">02</div>
+                    <h2 class="card-title">Vision AI</h2>
+                    <p class="card-desc">
+                        深耕工业级视觉检测。通过算法优化与边缘计算，在微秒级的时间窗口内实现高精度的缺陷识别与分类。
+                    </p>
+                </div>
+
+                <div class="manifesto-card reveal stagger-3">
+                    <div class="card-num" aria-hidden="true">03</div>
+                    <h2 class="card-title">Frontend UX</h2>
+                    <p class="card-desc">
+                        坚持极简主义的设计美学。去冗余，求纯粹。用最干净的代码构建流畅、直观且具备高级感的交互体验。
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ============================================================
+             PROJECTS MARQUEE SECTION
+             COE: 动画只使用 transform.translateX，零 Reflow
+        ============================================================ -->
+        <section class="projects-section" aria-label="精选项目">
+
+            <div class="section-label reveal">
+                <span class="label-line" aria-hidden="true"></span>
+                <span class="label-text">Featured Projects</span>
+            </div>
+
+            <h2 class="section-heading reveal">精选项目</h2>
+
+            <div class="marquee-wrapper" role="region" aria-label="项目展示滚动区">
+                <div class="marquee-track">
+
+                    <!-- === 原始一组 === -->
+                    <a href="/posts/aura-agent" class="project-card" tabindex="0">
+                        <div class="card-cover">
+                            <img
+                                src="https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=720&q=80"
+                                alt="Aura Agent Engine 项目封面"
+                                class="card-cover-img"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="card-meta">
+                            <div class="card-tags">
+                                <span class="tag">Agent</span>
+                                <span class="tag">Python</span>
+                            </div>
+                        </div>
+                        <div class="card-title-text">Aura Agent Engine</div>
+                        <div class="card-desc-text">基于状态机与多模态 LLM 结合的自主决策引擎，赋予应用自主演化能力。</div>
+                    </a>
+
+                    <a href="/research/vision-inspect" class="project-card" tabindex="0">
+                        <div class="card-cover">
+                            <img
+                                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=720&q=80"
+                                alt="Vision Inspect Pro 项目封面"
+                                class="card-cover-img"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="card-meta">
+                            <div class="card-tags">
+                                <span class="tag">Vision AI</span>
+                                <span class="tag">C++</span>
+                            </div>
+                        </div>
+                        <div class="card-title-text">Vision Inspect Pro</div>
+                        <div class="card-desc-text">工业级表面缺陷检测系统，结合边缘计算与自适应阈值算法，实现极速响应。</div>
+                    </a>
+
+                    <a href="/posts/minimalist-ui" class="project-card" tabindex="0">
+                        <div class="card-cover">
+                            <img
+                                src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=720&q=80"
+                                alt="Minimalist UI Kit 项目封面"
+                                class="card-cover-img"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="card-meta">
+                            <div class="card-tags">
+                                <span class="tag">Frontend</span>
+                                <span class="tag">React</span>
+                            </div>
+                        </div>
+                        <div class="card-title-text">Minimalist UI Kit</div>
+                        <div class="card-desc-text">一套极简的暗色系前端组件库，抛弃过度的视觉修饰，回归内容与功能的本质。</div>
+                    </a>
+
+                    <a href="/research/llm-benchmark" class="project-card" tabindex="0">
+                        <div class="card-cover">
+                            <img
+                                src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=720&q=80"
+                                alt="LLM Benchmark 项目封面"
+                                class="card-cover-img"
+                                loading="lazy"
+                            >
+                        </div>
+                        <div class="card-meta">
+                            <div class="card-tags">
+                                <span class="tag">LLM</span>
+                                <span class="tag">Benchmark</span>
+                            </div>
+                        </div>
+                        <div class="card-title-text">LLM Evaluation Suite</div>
+                        <div class="card-desc-text">大语言模型多维度评估框架，覆盖推理、代码生成与多模态理解能力测试。</div>
+                    </a>
+
+                    <!-- === 无缝循环复制组 === -->
+                    <a href="/posts/aura-agent" class="project-card" tabindex="-1" aria-hidden="true">
+                        <div class="card-cover">
+                            <img src="https://images.unsplash.com/photo-1555949963-aa79dcee57d5?auto=format&fit=crop&w=720&q=80" alt="" class="card-cover-img" loading="lazy">
+                        </div>
+                        <div class="card-meta"><div class="card-tags"><span class="tag">Agent</span><span class="tag">Python</span></div></div>
+                        <div class="card-title-text">Aura Agent Engine</div>
+                        <div class="card-desc-text">基于状态机与多模态 LLM 结合的自主决策引擎，赋予应用自主演化能力。</div>
+                    </a>
+
+                    <a href="/research/vision-inspect" class="project-card" tabindex="-1" aria-hidden="true">
+                        <div class="card-cover">
+                            <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=720&q=80" alt="" class="card-cover-img" loading="lazy">
+                        </div>
+                        <div class="card-meta"><div class="card-tags"><span class="tag">Vision AI</span><span class="tag">C++</span></div></div>
+                        <div class="card-title-text">Vision Inspect Pro</div>
+                        <div class="card-desc-text">工业级表面缺陷检测系统，结合边缘计算与自适应阈值算法，实现极速响应。</div>
+                    </a>
+
+                    <a href="/posts/minimalist-ui" class="project-card" tabindex="-1" aria-hidden="true">
+                        <div class="card-cover">
+                            <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=720&q=80" alt="" class="card-cover-img" loading="lazy">
+                        </div>
+                        <div class="card-meta"><div class="card-tags"><span class="tag">Frontend</span><span class="tag">React</span></div></div>
+                        <div class="card-title-text">Minimalist UI Kit</div>
+                        <div class="card-desc-text">一套极简的暗色系前端组件库，抛弃过度的视觉修饰，回归内容与功能的本质。</div>
+                    </a>
+
+                    <a href="/research/llm-benchmark" class="project-card" tabindex="-1" aria-hidden="true">
+                        <div class="card-cover">
+                            <img src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=720&q=80" alt="" class="card-cover-img" loading="lazy">
+                        </div>
+                        <div class="card-meta"><div class="card-tags"><span class="tag">LLM</span><span class="tag">Benchmark</span></div></div>
+                        <div class="card-title-text">LLM Evaluation Suite</div>
+                        <div class="card-desc-text">大语言模型多维度评估框架，覆盖推理、代码生成与多模态理解能力测试。</div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ================================================================
+         FOOTER
+    ================================================================ -->
+    <footer class="site-footer">
+        <div class="footer-inner">
+            <p class="footer-copy">© 2026 Dark Lattice. All rights reserved.</p>
+            <nav class="footer-links-group" aria-label="外部链接">
+                <a href="https://github.com" class="footer-link" target="_blank" rel="noopener noreferrer">GitHub</a>
+                <a href="https://twitter.com" class="footer-link" target="_blank" rel="noopener noreferrer">Twitter</a>
+                <a href="https://orcid.org" class="footer-link" target="_blank" rel="noopener noreferrer">ORCID</a>
+                <a href="mailto:hi@darklattice.dev" class="footer-link">Email</a>
+            </nav>
+        </div>
+    </footer>
+
+    <!-- ================================================================
+         设计规范角标（仅文档用）
+    ================================================================ -->
+    <div class="spec-badge" role="note" aria-label="设计规范标注">
+        <strong>画面设计文档 v2</strong> · 首页<br>
+        风格：Awwwards + Linear 混合<br>
+        GII ✦ TPF ✦ COE ✦ SCR ✦ OCC
+    </div>
+
+    <!-- ================================================================
+         JAVASCRIPT — 动效驱动逻辑
+         COE: 所有动效只驱动 transform / opacity / clip-path
+    ================================================================ -->
+    <script>
+        // ── 1. 页面淡入 ──
+        document.addEventListener('DOMContentLoaded', () => {
+            document.body.classList.add('page-loaded');
+        });
+
+        // ── 2. 导航栏滚动强化 ──
+        const header = document.getElementById('site-header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 20);
+        }, { passive: true });
+
+        // ── 3. Hero 首屏 Stagger 入场序列 ──
+        //      TPF: 各元素按 40ms 步长依次入场
+        window.addEventListener('load', () => {
+            // 眉标
+            setTimeout(() => {
+                document.getElementById('hero-eyebrow')?.classList.add('revealed');
+            }, 100);
+
+            // 标题逐词揭示：每个 word 间隔 120ms
+            const words = document.querySelectorAll('.hero-title .word');
+            words.forEach((word, i) => {
+                setTimeout(() => {
+                    word.classList.add('revealed');
+                }, 300 + i * 120);
+            });
+
+            // 副标题
+            setTimeout(() => {
+                document.getElementById('hero-subtitle')?.classList.add('revealed');
+            }, 700);
+
+            // CTA 按钮
+            setTimeout(() => {
+                document.getElementById('hero-cta')?.classList.add('revealed');
+            }, 850);
+
+            // 装饰线
+            setTimeout(() => {
+                document.getElementById('hero-separator')?.classList.add('revealed');
+            }, 950);
+        });
+
+        // ── 4. Scroll Reveal（通用 reveal 类）──
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    // 只触发一次
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '-40px 0px -40px 0px',
+            threshold: 0.1
+        });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // ── 5. 页面切换淡出（不干扰锚点链接）──
+        document.querySelectorAll('a[href]').forEach(link => {
+            link.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href && !href.startsWith('#') && !href.startsWith('javascript:') && this.target !== '_blank') {
+                    e.preventDefault();
+                    // COE: 退场只改 opacity
+                    document.body.style.opacity = '0';
+                    document.body.style.transition = 'opacity 400ms ease';
+                    setTimeout(() => { window.location.href = href; }, 420);
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
