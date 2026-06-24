@@ -1,7 +1,7 @@
 ---
 title: "ReceiptTracker Unified Technical Design Document (Scheme A: Local Offline On-Device OCR - Multilingual i18n Version)"
 date: 2026-06-18T11:30:00+09:00
-draft: true
+draft: false
 tags: ["AppMatrix", "ReceiptTracker", "React Native", "OCR", "i18n"]
 categories: ["Engineering Practice", "Mobile Architecture"]
 description: "Design document for the smart receipt scanning and price classification tracker (ReceiptTracker), discussing in detail on-device image preprocessing, dual-platform native OCR engine integration, line-alignment clustering algorithms, and local SQLite database multilingual/multi-currency design."

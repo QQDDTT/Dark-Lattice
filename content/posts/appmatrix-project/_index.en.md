@@ -11,8 +11,6 @@ Here, we discuss how to solve cross-platform build and distribution challenges b
 ## Articles
 
 - [AppMatrix: Mobile Production Line Powered by Expo EAS & Agent Assistance](appmatrix-introduction)
-- [MobileFileEditor Unified Technical Design Document](mobile-file-editor-design)
-- [Apple and Google Developer Account Registration Guide](developer-account-registration-guide)
 - [ReceiptTracker Unified Technical Design Document (Scheme A: Local Offline On-Device OCR - Multilingual i18n Version)](receipt-tracker-design)
 - [AppMatrix Visual Design Upgrade: The Chronos Space App Based on Gestalt Workflow](visual-design-upgrade-chronos-space)
 - [AppMatrix Platform Capabilities and Risk Assessment Report](platform-evaluation)

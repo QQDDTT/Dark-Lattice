@@ -15,16 +15,6 @@
           "date": "2026-06-16T12:00:00+09:00"
         },
         {
-          "slug": "mobile-file-editor-design",
-          "title": "MobileFileEditor 统一技术设计文档",
-          "date": "2026-06-18T11:30:00+09:00"
-        },
-        {
-          "slug": "developer-account-registration-guide",
-          "title": "苹果与谷歌开发者账号注册指南",
-          "date": "2026-06-18T11:30:00+09:00"
-        },
-        {
           "slug": "receipt-tracker-design",
           "title": "ReceiptTracker 统一技术设计文档 (方案A: 本地离线端侧 OCR - 多语言国际化版)",
           "date": "2026-06-18T11:30:00+09:00"

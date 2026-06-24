@@ -1,7 +1,7 @@
 ---
 title: "AppMatrix 平台能力与风险评估报告"
 date: "2026-06-24T14:00:00+09:00"
-draft: true
+draft: false
 tags: ["AppMatrix", "Evaluation", "Platform"]
 categories: ["工程实践", "技术架构"]
 description: "基于 AppMatrix 平台的规则规范，对平台的 App 开发能力以及潜在的风险和缺陷进行的系统性评估。"

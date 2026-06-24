@@ -1,7 +1,7 @@
 ---
 title: "AppMatrix プラットフォーム機能およびリスク評価レポート"
 date: "2026-06-24T14:00:00+09:00"
-draft: true
+draft: false
 tags: ["AppMatrix", "Evaluation", "Platform"]
 categories: ["エンジニアリング実践", "技術アーキテクチャ"]
 description: "AppMatrix プラットフォームのルール仕様に基づいた、プラットフォームのアプリ開発機能と潜在的なリスクの体系的な評価。"

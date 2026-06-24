@@ -1,7 +1,7 @@
 ---
 title: "ReceiptTracker 統一技術設計ドキュメント (プランA: ローカルオフラインエッジ側 OCR - 多言語 i18n 版)"
 date: 2026-06-18T11:30:00+09:00
-draft: true
+draft: false
 tags: ["AppMatrix", "ReceiptTracker", "React Native", "OCR", "i18n"]
 categories: ["エンジニアリング実践", "モバイルアーキテクチャ"]
 description: "スマートレシートスキャン記帳および物価分類トラッカー (ReceiptTracker) の設計ドキュメント。エッジ側の画像前処理、両プラットフォームのネイティブ OCR エンジン統合、行配置クラスタリングアルゴリズム、およびローカル SQLite データベースの多言語/多通貨設計について詳細に検討します。"

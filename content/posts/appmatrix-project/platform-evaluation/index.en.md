@@ -1,7 +1,7 @@
 ---
 title: "AppMatrix Platform Capabilities and Risk Assessment Report"
 date: "2026-06-24T14:00:00+09:00"
-draft: true
+draft: false
 tags: ["AppMatrix", "Evaluation", "Platform"]
 categories: ["Engineering Practice", "Technology Architecture"]
 description: "A systematic assessment of the AppMatrix platform's app development capabilities and potential risks based on its rule specifications."

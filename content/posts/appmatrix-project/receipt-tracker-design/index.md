@@ -1,7 +1,7 @@
 ---
 title: "ReceiptTracker 统一技术设计文档 (方案A: 本地离线端侧 OCR - 多语言国际化版)"
 date: 2026-06-18T11:30:00+09:00
-draft: true
+draft: false
 tags: ["AppMatrix", "ReceiptTracker", "React Native", "OCR", "i18n"]
 categories: ["工程实践", "移动端架构"]
 description: "智能小票扫描记账与物价分类追踪器 (ReceiptTracker) 的设计文档，详细探讨端侧图像预处理、双端原生 OCR 引擎接入、行对齐聚类算法以及本地 SQLite 数据库多语言/多币种设计。"
