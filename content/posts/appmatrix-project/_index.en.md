@@ -10,9 +10,9 @@ Here, we discuss how to solve cross-platform build and distribution challenges b
 
 ## Articles
 
-- [AppMatrix: 基于 Expo EAS 与 Agent 辅助的移动端生产线](appmatrix-introduction)
-- [MobileFileEditor 统一技术设计文档](mobile-file-editor-design)
-- [苹果与谷歌开发者账号注册指南](developer-account-registration-guide)
-- [ReceiptTracker 统一技术设计文档 (方案A: 本地离线端侧 OCR - 多语言国际化版)](receipt-tracker-design)
-- [AppMatrix 画面设计的全新升级：基于 Gestalt Workflow 的时空留白应用](visual-design-upgrade-chronos-space)
-- [AppMatrix 平台能力与风险评估报告](platform-evaluation)
+- [AppMatrix: Mobile Production Line Powered by Expo EAS & Agent Assistance](appmatrix-introduction)
+- [MobileFileEditor Unified Technical Design Document](mobile-file-editor-design)
+- [Apple and Google Developer Account Registration Guide](developer-account-registration-guide)
+- [ReceiptTracker Unified Technical Design Document (Scheme A: Local Offline On-Device OCR - Multilingual i18n Version)](receipt-tracker-design)
+- [AppMatrix Visual Design Upgrade: The Chronos Space App Based on Gestalt Workflow](visual-design-upgrade-chronos-space)
+- [AppMatrix Platform Capabilities and Risk Assessment Report](platform-evaluation)

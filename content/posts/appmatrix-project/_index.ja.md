@@ -10,9 +10,9 @@ AppMatrix 技術コラムは、複数のモバイルアプリケーションの�
 
 ## 記事目次
 
-- [AppMatrix: 基于 Expo EAS 与 Agent 辅助的移动端生产线](appmatrix-introduction)
-- [MobileFileEditor 统一技术设计文档](mobile-file-editor-design)
-- [苹果与谷歌开发者账号注册指南](developer-account-registration-guide)
-- [ReceiptTracker 统一技术设计文档 (方案A: 本地离线端侧 OCR - 多语言国际化版)](receipt-tracker-design)
-- [AppMatrix 画面设计的全新升级：基于 Gestalt Workflow 的时空留白应用](visual-design-upgrade-chronos-space)
-- [AppMatrix 平台能力与风险评估报告](platform-evaluation)
+- [AppMatrix: Expo EAS とエージェント支援によるモバイル生産ライン](appmatrix-introduction)
+- [MobileFileEditor 統一技術設計ドキュメント](mobile-file-editor-design)
+- [Apple および Google 開発者アカウント登録ガイド](developer-account-registration-guide)
+- [ReceiptTracker 統一技術設計ドキュメント (プランA: ローカルオフラインエッジ側 OCR - 多言語 i18n 版)](receipt-tracker-design)
+- [AppMatrix 画面デザインの新たなアップグレード：Gestalt Workflow に基づく「時空留白」アプリ](visual-design-upgrade-chronos-space)
+- [AppMatrix プラットフォーム機能およびリスク評価レポート](platform-evaluation)
