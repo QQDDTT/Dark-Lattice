@@ -1,5 +1,5 @@
 ---
-title: "発散・収束ワークフローに関する研究"发散-收敛\" 交互式设计工作流课题研究 (Research on Divergent & Convergent Interactive Design Workflow)"
+title: "発散・収束ワークフローに関する研究"
 date: "2026-06-21T14:05:24+09:00"
 description: "設計推論プロセスにおける課題を解決するための設計系統図に基づくソリューション。"
 tags: ["gestalt-resonator", "工作流", "交互设计"]
