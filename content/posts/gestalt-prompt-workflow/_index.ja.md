@@ -13,3 +13,5 @@ Gestalt Prompt Workflow（ゲシュタルトプロンプトワークフロー）
 - [知識駆動型Agent構築の知見：ロジックリファクタリングから知識蒸留まで](development-insights)
 - [Gestalt Prompt Workflow 統合ガイド：AgentにAdvanced Aestheticエンジンを搭載する](skill-usage-guide)
 - [Agent Skillのテスト哲学：非決定論的評価パイプラインと知識蒸留でLLMを制御する](skill-evaluation-lifecycle)
+- [05. Gestalt V2.0 オートメーションエンジンとツールチェーン](gestalt-v2-automation-engine)
+- [99. Gestalt Skill の詳細な評価：Antigravity のネイティブスキルとの比較](gestalt-vs-antigravity-evaluation)

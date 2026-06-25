@@ -67,6 +67,16 @@
           "slug": "skill-evaluation-lifecycle",
           "title": "Agent Skill 的测试哲学：用非确定性评估管线和知识提纯驯服 LLM",
           "date": "2026-06-23"
+        },
+        {
+          "slug": "gestalt-v2-automation-engine",
+          "title": "05. Gestalt V2.0 自动化引擎与工具链",
+          "date": "2026-06-25"
+        },
+        {
+          "slug": "gestalt-vs-antigravity-evaluation",
+          "title": "99. Gestalt Skill 深度评估：对比 Antigravity 原生技能体系",
+          "date": "2026-06-25"
         }
       ]
     }

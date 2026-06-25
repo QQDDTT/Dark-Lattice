@@ -3,7 +3,7 @@ title: "Gestalt Prompt Workflow: Translating Design and Architecture Resonance i
 date: "2026-06-21T14:00:00+09:00"
 description: "Exploring how the five-dimensional theory from the \"Pixel and Architecture System Resonance\" research is translated into a machine-understandable and strictly executed code generation engine via the Gestalt Prompt Workflow."
 tags: ["gestalt-prompt-workflow", "agent-skill", "architecture-and-design"]
-draft: false
+draft: true
 ---
 
 In the research project *"Pixel and Architecture System Resonance"*, we delved deeply into the systemic resonance between visual design, aesthetics, visual psychology, and IT engineering planning. However, theoretical research eventually needs to be grounded in practice. How do we make an AI Large Language Model understand abstract concepts like "Gestalt psychology," "visual tension," or "high component cohesion"?

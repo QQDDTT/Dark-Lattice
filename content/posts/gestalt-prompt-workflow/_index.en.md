@@ -13,3 +13,5 @@ The Gestalt Prompt Workflow series documents our thoughts and practices in build
 - [Building Knowledge-Driven Agents: From Logic Refactoring to Knowledge Distillation](development-insights)
 - [Gestalt Prompt Workflow Integration Guide: Giving Your Agent an Advanced Aesthetic Engine](skill-usage-guide)
 - [The Testing Philosophy of Agent Skills: Taming LLMs with Non-Deterministic Evaluation Pipelines and Knowledge Distillation](skill-evaluation-lifecycle)
+- [05. Gestalt V2.0 Automation Engine and Toolchain](gestalt-v2-automation-engine)
+- [99. Gestalt Skill Deep Evaluation: Comparing with Antigravity Native Skills](gestalt-vs-antigravity-evaluation)

@@ -3,7 +3,7 @@ title: "Insights on Building Knowledge-Driven Agents: From Code Refactoring to K
 date: "2026-06-21T14:10:00+09:00"
 description: "Reflecting on the core paradigm shift during the development of gestalt-prompt-workflow: the adversarial nature of prompt engineering, and how to \"purify\" and \"cleanse\" a complex knowledge base."
 tags: ["gestalt-prompt-workflow", "agent-skill", "development-insights", "refactoring"]
-draft: false
+draft: true
 ---
 
 After experiencing the entire process of `gestalt-prompt-workflow` from inception to theoretical grounding and practical deployment, I have deeply realized: building an advanced, knowledge-driven Agent Skill is essentially a re-examination and formatting of existing human knowledge systems.

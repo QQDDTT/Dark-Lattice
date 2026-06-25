@@ -3,7 +3,7 @@ title: "Research on Divergent & Convergent Interactive Design Workflow"
 date: "2026-06-21T14:05:24+09:00"
 description: "A solution addressing design reasoning pain points based on Design Lineage Graphs"
 tags: ["gestalt-resonator", "Workflow", "Interactive Design"]
-draft: false
+draft: true
 ---
 
 # Research on Divergent & Convergent Interactive Design Workflow

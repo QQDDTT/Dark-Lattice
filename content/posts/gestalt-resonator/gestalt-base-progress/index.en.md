@@ -1,7 +1,7 @@
 ---
 title: "Gestalt Resonator: Systemic Isomorphism of Gestalt Psychology and Agent Collaborative Design Middleware"
 date: 2026-06-19T17:45:00+09:00
-draft: false
+draft: true
 tags: ["Gestalt Resonator", "Gestalt Psychology", "Agent Collaboration", "DDSL", "Design Middleware"]
 categories: ["Design System", "Artificial Intelligence", "Frontend Engineering"]
 description: "Exploring a cross-platform interface design synthesis and transpilation system based on Gestalt psychology and design composition theory. As a 'design middleware' for Agent collaboration, it bridges the last mile from requirement definition to high-fidelity code."

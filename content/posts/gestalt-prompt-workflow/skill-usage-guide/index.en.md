@@ -3,7 +3,7 @@ title: "Gestalt Prompt Workflow Integration Guide: Giving Your Agent an Advanced
 date: "2026-06-23T09:30:00+09:00"
 description: "A complete practical guide to integrating Gestalt Prompt Workflow into your AGY Agent: from hooking up the Skill, to real-world conversation examples, to a quick-reference glossary for all five quantitative indicators."
 tags: ["gestalt-prompt-workflow", "agent-skill", "usage-guide"]
-draft: false
+draft: true
 ---
 
 After getting `gestalt-prompt-workflow` fully operational, I found the most common question wasn't "what can it do?" but rather "**how do I actually plug it into my own project?**"

@@ -3,7 +3,7 @@ title: "The Testing Philosophy of Agent Skills: Taming LLMs with Non-Determinist
 date: "2026-06-23T09:35:00+09:00"
 description: "Exploring how to build Gestalt instruction compliance tests and cross-model generalization tests for LLM non-deterministic outputs, and how to maintain an Agent Skill's knowledge base lifecycle through knowledge concentration and distillation."
 tags: ["gestalt-prompt-workflow", "agent-skill", "LLM-evaluation", "knowledge-management"]
-draft: false
+draft: true
 ---
 
 One of the most striking realizations during the development of `gestalt-prompt-workflow` was the moment I understood that **traditional software testing methodology completely fails here**.

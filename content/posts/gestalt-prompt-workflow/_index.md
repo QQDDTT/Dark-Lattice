@@ -13,3 +13,5 @@ Gestalt Prompt Workflow (完形提示词工作流) 专栏记录了我们在构�
 - [知识驱动型 Agent 构建心得：从逻辑重构到知识提纯](development-insights)
 - [Gestalt Prompt Workflow 接入指南：让你的 Agent 拥有高级美学引擎](skill-usage-guide)
 - [Agent Skill 的测试哲学：用非确定性评估管线和知识提纯驯服 LLM](skill-evaluation-lifecycle)
+- [05. Gestalt V2.0 自动化引擎与工具链](gestalt-v2-automation-engine)
+- [99. Gestalt Skill 深度评估：对比 Antigravity 原生技能体系](gestalt-vs-antigravity-evaluation)

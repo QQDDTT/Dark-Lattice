@@ -3,7 +3,7 @@ title: "DDSL Specification"
 date: "2026-06-21T14:05:24+09:00"
 description: "A picture design semantic graph contract specification specifically designed for AI Agent collaborative development"
 tags: ["gestalt-resonator", "DDSL"]
-draft: false
+draft: true
 ---
 
 # DDSL Specification
