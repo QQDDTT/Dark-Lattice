@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Lattice · 文章详情</title>
+    <style>
+        :root {
+            --bg-base: hsl(220, 15%, 5%);
+            --grid-line: rgba(255, 255, 255, 0.03);
+            
+            --accent-cyan: hsl(185, 100%, 50%);
+            --accent-violet: hsl(280, 100%, 60%);
+            
+            --text-primary: hsl(0, 0%, 100%);
+            --text-secondary: hsl(220, 10%, 65%);
+            
+            --font-mono: "JetBrains Mono", "Fira Code", monospace;
+            --font-sans: "Inter", "SF Pro Display", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            
+            /* GII: 暴露的背景网格 */
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center top;
+            background-attachment: fixed;
+        }
+
+        /* COE: 巨型背景光晕 */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(150px);
+            opacity: 0.2;
+            z-index: -1;
+            pointer-events: none;
+        }
+        .orb-1 { width: 80vw; height: 400px; background: var(--accent-violet); top: -200px; left: 10vw; }
+
+        /* HUD 准星 */
+        .crosshair {
+            position: fixed;
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            opacity: 0.6;
+            z-index: 10;
+            pointer-events: none;
+            letter-spacing: 1px;
+        }
+        .tl { top: 24px; left: 24px; }
+        .tr { top: 24px; right: 24px; }
+        .bl { bottom: 24px; left: 24px; }
+        .br { bottom: 24px; right: 24px; }
+
+        .nav-bar {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 48px;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 100;
+            box-sizing: border-box;
+        }
+        .nav-brand { font-weight: 800; font-size: 18px; letter-spacing: 2px; color: #fff; text-decoration: none; }
+        .nav-back { margin-left: auto; color: var(--accent-cyan); font-family: var(--font-mono); font-size: 14px; text-decoration: none; }
+        .nav-back:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 160px 24px 120px;
+            position: relative;
+        }
+
+        /* 文章头部 */
+        .article-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .article-title {
+            font-size: clamp(40px, 6vw, 64px);
+            font-weight: 800;
+            line-height: 1.15;
+            letter-spacing: -0.02em;
+            margin: 0 0 32px 0;
+            background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: center;
+            gap: 32px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .meta-item i { color: var(--accent-violet); }
+
+        /* 文章内容主体（玻璃态容器） */
+        .article-content {
+            font-size: 17px;
+            line-height: 1.9;
+            color: var(--text-secondary);
+            background: rgba(18, 18, 24, 0.7);
+            padding: 64px;
+            border-radius: 16px;
+            border: 1px solid rgba(255,255,255,0.05);
+            backdrop-filter: blur(20px);
+            position: relative;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+        }
+
+        .article-content h2 {
+            color: var(--text-primary);
+            font-size: 28px;
+            margin: 48px 0 24px 0;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .article-content h2::before {
+            content: '[]';
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+        }
+
+        /* 极客风格引用块 */
+        .article-content blockquote {
+            margin: 40px 0;
+            padding: 24px 32px 24px 48px;
+            background: linear-gradient(90deg, rgba(139, 92, 246, 0.1) 0%, transparent 100%);
+            border-left: 2px solid var(--accent-violet);
+            color: var(--text-primary);
+            position: relative;
+            font-style: italic;
+        }
+
+        .article-content blockquote::before {
+            content: '>';
+            position: absolute;
+            left: 16px; top: 24px;
+            color: var(--accent-violet);
+            font-family: var(--font-mono);
+            font-style: normal;
+        }
+
+        /* 行内代码 */
+        .article-content code {
+            font-family: var(--font-mono);
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--accent-cyan);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            border: 1px solid rgba(0, 255, 255, 0.1);
+        }
+
+        /* 图片容器 */
+        .article-image {
+            margin: 48px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
+            position: relative;
+        }
+        
+        .article-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+            filter: grayscale(20%) contrast(1.1);
+        }
+
+        .image-caption {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 12px;
+            background: rgba(0,0,0,0.6);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        /* 阅读进度条 */
+        .progress-container {
+            position: fixed;
+            top: 64px; left: 0; width: 100%;
+            height: 2px;
+            background: rgba(255,255,255,0.05);
+            z-index: 101;
+        }
+        .progress-bar {
+            height: 100%;
+            width: 35%; /* 模拟滚动进度 */
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        @media (max-width: 768px) {
+            .article-content { padding: 32px 24px; }
+            .article-meta { flex-direction: column; gap: 12px; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    
+    <div class="crosshair tl">+ SYNC</div>
+    <div class="crosshair tr">SYS.OK +</div>
+    <div class="crosshair bl">+ V3.0</div>
+    <div class="crosshair br">ACTIVE +</div>
+
+    <nav class="nav-bar">
+        <a href="home_page_v3.html" class="nav-brand">DARK LATTICE</a>
+        <a href="posts_list_v3.html" class="nav-back">< RETURN</a>
+    </nav>
+
+    <div class="progress-container">
+        <div class="progress-bar"></div>
+    </div>
+
+    <main class="container">
+        <article>
+            <header class="article-header">
+                <h1 class="article-title">抛弃卡片：流光边框与网格暴露</h1>
+                <div class="article-meta">
+                    <span class="meta-item"><i>@</i> SYS_ADMIN</span>
+                    <span class="meta-item"><i>#</i> 2026.05.12</span>
+                    <span class="meta-item"><i>/</i> READ TIME: 08 MIN</span>
+                </div>
+            </header>
+
+            <div class="article-content">
+                <p>在现代 Web 开发的历程中，SaaS 的暗色模式往往走向了一个平庸的极端：无尽的、轻微带点灰度的圆角卡片流。虽然这种设计安全且干净，但它失去了“数字媒介”独有的张力。</p>
+                
+                <h2>破除“干净”的迷信</h2>
+                <p>传统的 GII (Gestalt 知觉完形指数) 鼓励我们使用接近性进行隐性分组，这在多数情况下是完美的。但在构建极客风格、网络安全、或 Web3 产品时，我们需要一种更具攻击性和科技感的美学。</p>
+
+                <blockquote>
+                    真正的赛博朋克设计并不是堆砌繁复的杂点，而是暴露底层的秩序。我们将 1px 的网格线直接渲染在底层，让代码的“骨骼”显形。
+                </blockquote>
+
+                <p>我们引入了 <code>--grid-line</code> 变量，通过双向的 <code>linear-gradient</code> 在 <code>body</code> 层面绘制无限延伸的网格。这立刻赋予了页面深度。</p>
+
+                <div class="article-image">
+                    <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=1200&q=80" alt="Matrix Grid Interface">
+                    <div class="image-caption">FIG 01. EXPOSED GRID BACKGROUND SIMULATION</div>
+                </div>
+
+                <h2>Conic-Gradient 的魔法</h2>
+                <p>为了取代静态的卡片边界，我们利用了 CSS <code>@property</code> 配合 <code>conic-gradient</code>。这种技术的 COE (渲染优化率) 非常高，因为它完全由 GPU 处理，且不触发 DOM 重排。</p>
+                
+                <p>这不仅仅是视觉糖果，更是状态指示器。当用户聚焦 <code>:hover</code> 或是系统处于计算状态时，边框的旋转速度可以由 4s 提升至 1s，形成强烈的交互共鸣。</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Lattice · 研究清单</title>
+    <style>
+        :root {
+            --bg-base: hsl(220, 15%, 5%);
+            --grid-line: rgba(255, 255, 255, 0.03);
+            
+            --accent-cyan: hsl(185, 100%, 50%);
+            --accent-violet: hsl(280, 100%, 60%);
+            
+            --text-primary: hsl(0, 0%, 100%);
+            --text-secondary: hsl(220, 10%, 60%);
+            
+            --font-mono: "JetBrains Mono", "Fira Code", monospace;
+            --font-sans: "Inter", "SF Pro Display", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            
+            /* GII: 暴露的背景网格 */
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        /* COE: 巨型背景光晕 */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.2;
+            z-index: -1;
+            animation: float 20s infinite alternate;
+            pointer-events: none;
+        }
+        .orb-1 { width: 500px; height: 500px; background: var(--accent-violet); top: 10%; left: -100px; }
+        .orb-2 { width: 600px; height: 600px; background: var(--accent-cyan); bottom: -100px; right: -100px; animation-delay: -5s; }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.1); }
+        }
+
+        /* HUD 准星 */
+        .crosshair {
+            position: fixed;
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            opacity: 0.6;
+            z-index: 10;
+            pointer-events: none;
+            letter-spacing: 1px;
+        }
+        .tl { top: 24px; left: 24px; }
+        .tr { top: 24px; right: 24px; }
+        .bl { bottom: 24px; left: 24px; }
+        .br { bottom: 24px; right: 24px; }
+
+        /* 顶部导航简版 */
+        .nav-bar {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            padding: 0 48px;
+            background: rgba(10, 10, 12, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            z-index: 100;
+            box-sizing: border-box;
+        }
+        .nav-brand { font-weight: 800; font-size: 18px; letter-spacing: 2px; color: #fff; text-decoration: none; }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 160px 24px 100px;
+            position: relative;
+        }
+
+        .page-header {
+            margin-bottom: 64px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .page-title {
+            font-size: 48px;
+            font-weight: 800;
+            margin: 0;
+            line-height: 1;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .data-count {
+            font-family: var(--font-mono);
+            color: var(--accent-cyan);
+            font-size: 14px;
+            border: 1px solid rgba(0,255,255,0.2);
+            padding: 4px 12px;
+            border-radius: 4px;
+            background: rgba(0,255,255,0.05);
+        }
+
+        /* 赛博风格的列表项 */
+        .post-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .post-item {
+            display: grid;
+            grid-template-columns: 140px 1fr auto;
+            gap: 24px;
+            padding: 32px;
+            background: rgba(15, 15, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        /* 左侧动态扫描线 */
+        .post-item::before {
+            content: '';
+            position: absolute;
+            left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--accent-violet);
+            transform: scaleY(0);
+            transform-origin: bottom;
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .post-item:hover {
+            background: rgba(20, 20, 28, 0.8);
+            border-color: rgba(255, 255, 255, 0.15);
+            transform: translateX(8px);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+        }
+
+        .post-item:hover::before {
+            transform: scaleY(1);
+            box-shadow: 0 0 15px var(--accent-violet);
+        }
+
+        .post-date {
+            font-family: var(--font-mono);
+            color: var(--text-secondary);
+            font-size: 14px;
+            margin-top: 4px;
+        }
+
+        .post-content h2 {
+            margin: 0 0 12px 0;
+            font-size: 22px;
+            color: var(--text-primary);
+            transition: color 0.2s ease;
+        }
+
+        .post-item:hover .post-content h2 {
+            color: var(--accent-cyan);
+        }
+
+        .post-content p {
+            margin: 0;
+            color: var(--text-secondary);
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        .post-tags {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: flex-end;
+        }
+
+        .tag {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            padding: 4px 8px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--accent-violet);
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .post-item { grid-template-columns: 1fr; gap: 16px; }
+            .post-tags { flex-direction: row; align-items: flex-start; margin-top: 16px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <div class="crosshair tl">+ SYNC</div>
+    <div class="crosshair tr">SYS.OK +</div>
+    <div class="crosshair bl">+ V3.0</div>
+    <div class="crosshair br">ACTIVE +</div>
+
+    <nav class="nav-bar">
+        <a href="home_page_v3.html" class="nav-brand">DARK LATTICE</a>
+    </nav>
+
+    <main class="container">
+        <header class="page-header">
+            <h1 class="page-title">Research Archive</h1>
+            <div class="data-count">TOTAL: 04 ENTRIES</div>
+        </header>
+
+        <div class="post-list">
+            <a href="article_detail_v3.html" class="post-item">
+                <div class="post-date">> 2026.06.25</div>
+                <div class="post-content">
+                    <h2>前端工程中的五维共鸣解析</h2>
+                    <p>深入解构 GII、TPF、COE、SCR 与 OCC 在暗色模式中的协同作用，以及如何利用属性化网格提升组件内聚。</p>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">Architecture</span>
+                    <span class="tag">Theory</span>
+                </div>
+            </a>
+
+            <a href="article_detail_v3.html" class="post-item">
+                <div class="post-date">> 2026.05.12</div>
+                <div class="post-content">
+                    <h2>抛弃卡片：流光边框与网格暴露</h2>
+                    <p>通过 CSS @property 与 conic-gradient 实现高性能赛博边框，探讨现代 SaaS 审美脱离“极简平庸”的路径。</p>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">CSS</span>
+                    <span class="tag">Visual</span>
+                </div>
+            </a>
+
+            <a href="article_detail_v3.html" class="post-item">
+                <div class="post-date">> 2026.03.08</div>
+                <div class="post-content">
+                    <h2>微前端架构的沙盒隔离策略</h2>
+                    <p>分析在多个子应用并行加载时，如何通过代理沙盒与 CSS Modules 保证样式的绝对隔离和高内聚低耦合。</p>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">Engineering</span>
+                </div>
+            </a>
+            
+            <a href="article_detail_v3.html" class="post-item">
+                <div class="post-date">> 2025.11.20</div>
+                <div class="post-content">
+                    <h2>物理缓动函数的数学推导</h2>
+                    <p>摒弃默认的 ease，利用三次贝塞尔曲线 (Cubic Bezier) 精确模拟现实世界中的弹簧回弹与阻尼消耗。</p>
+                </div>
+                <div class="post-tags">
+                    <span class="tag">Motion</span>
+                    <span class="tag">Math</span>
+                </div>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Lattice · Avant-Garde</title>
+    <style>
+        :root {
+            /* 极端发散指令 - 赛博光栅 Token */
+            --bg-base: hsl(220, 15%, 5%);
+            --grid-line: rgba(255, 255, 255, 0.03);
+            
+            --accent-cyan: hsl(185, 100%, 50%);
+            --accent-violet: hsl(280, 100%, 60%);
+            
+            --text-primary: hsl(0, 0%, 100%);
+            --text-secondary: hsl(220, 10%, 60%);
+            
+            --font-mono: "JetBrains Mono", "Fira Code", monospace;
+            --font-sans: "Inter", "SF Pro Display", sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            
+            /* GII: 暴露的背景网格 */
+            background-image: 
+                linear-gradient(var(--grid-line) 1px, transparent 1px),
+                linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: center center;
+        }
+
+        /* COE: 巨型背景光晕 */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.3;
+            z-index: -1;
+            animation: float 20s infinite alternate;
+        }
+        .orb-1 {
+            width: 500px; height: 500px;
+            background: var(--accent-violet);
+            top: -100px; left: -100px;
+        }
+        .orb-2 {
+            width: 400px; height: 400px;
+            background: var(--accent-cyan);
+            bottom: -50px; right: 10vw;
+            animation-delay: -5s;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(100px, 50px) scale(1.2); }
+        }
+
+        /* GII: 微观硬核极客 HUD 装饰 */
+        .crosshair {
+            position: fixed;
+            color: var(--accent-cyan);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            opacity: 0.6;
+            z-index: 10;
+            pointer-events: none;
+            letter-spacing: 1px;
+        }
+        .tl { top: 24px; left: 24px; }
+        .tr { top: 24px; right: 24px; }
+        .bl { bottom: 24px; left: 24px; }
+        .br { bottom: 24px; right: 24px; }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 24px;
+            position: relative;
+        }
+
+        /* Hero 区块 */
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 120px;
+        }
+
+        .status-badge {
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--accent-cyan);
+            border: 1px solid rgba(0, 255, 255, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 32px;
+            background: rgba(0, 255, 255, 0.05);
+            backdrop-filter: blur(4px);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(0, 255, 255, 0.4); }
+            50% { box-shadow: 0 0 20px 0 rgba(0, 255, 255, 0); }
+        }
+
+        /* 渐变流光文字 */
+        .hero-title {
+            font-size: clamp(64px, 10vw, 120px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin: 0 0 24px 0;
+            background: linear-gradient(135deg, #fff 0%, var(--text-secondary) 50%, var(--accent-violet) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 40px rgba(255,255,255,0.1));
+        }
+
+        .hero-subtitle {
+            font-size: 20px;
+            color: var(--text-secondary);
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* TPF: 边框流光卡片 */
+        .lattice-card {
+            position: relative;
+            background: rgba(15, 15, 20, 0.7);
+            border-radius: 16px;
+            padding: 64px 48px;
+            backdrop-filter: blur(20px);
+            text-align: center;
+            overflow: hidden;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* 魔法边框核心原理 */
+        .lattice-card::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            /* 使用 conic-gradient 绘制一圈旋转的渐变 */
+            background: conic-gradient(from var(--angle), transparent 70%, var(--accent-cyan) 85%, var(--accent-violet) 100%);
+            border-radius: 18px;
+            z-index: -1;
+            animation: spin 4s linear infinite;
+        }
+        
+        /* 内部遮罩，露出外层边框 */
+        .lattice-card::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: hsl(220, 15%, 8%);
+            border-radius: 15px;
+            z-index: -1;
+        }
+
+        @property --angle {
+            syntax: '<angle>';
+            initial-value: 0deg;
+            inherits: false;
+        }
+
+        @keyframes spin {
+            from { --angle: 0deg; }
+            to { --angle: 360deg; }
+        }
+
+        .card-code {
+            font-family: var(--font-mono);
+            color: var(--accent-cyan);
+            font-size: 14px;
+            text-align: left;
+            margin-top: 40px;
+            padding: 24px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 8px;
+            border: 1px solid rgba(255,255,255,0.05);
+            line-height: 1.6;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+        
+        .code-line {
+            display: block;
+            opacity: 0;
+            animation: typeLine 0.1s forwards;
+        }
+        .code-line:nth-child(1) { animation-delay: 0.5s; }
+        .code-line:nth-child(2) { animation-delay: 1.0s; }
+        .code-line:nth-child(3) { animation-delay: 1.5s; color: var(--accent-violet); }
+        .code-line:nth-child(4) { animation-delay: 2.0s; }
+        .code-line:nth-child(5) { animation-delay: 2.5s; color: #fff; }
+
+        @keyframes typeLine {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- 巨型氛围光源 -->
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    
+    <!-- HUD 准星 -->
+    <div class="crosshair tl">+ SYNC</div>
+    <div class="crosshair tr">SYS.OK +</div>
+    <div class="crosshair bl">+ V3.0</div>
+    <div class="crosshair br">ACTIVE +</div>
+
+    <main class="container">
+        <section class="hero">
+            <div class="status-badge">Neural Link Active</div>
+            <h1 class="hero-title">DARK LATTICE</h1>
+            <p class="hero-subtitle">超越常规。摒弃平庸的卡片流。通过网格暴露与流光边框重塑前端界面边界。</p>
+        </section>
+
+        <section class="lattice-card">
+            <h2 style="font-size: 32px; margin-bottom: 16px;">The Avant-Garde Engine</h2>
+            <p style="color: var(--text-secondary);">当我们将五维约束推向极限，引入特定的外部资产锚点，设计不再只是排版，而是能量场。</p>
+            
+            <div class="card-code">
+                <span class="code-line">> INITIALIZING GESTALT PROTOCOL...</span>
+                <span class="code-line">> DETECTED GENERIC OUTPUT... OVERRIDING.</span>
+                <span class="code-line">> INJECTING PROMPT SNIPPET: 18_DARK_LATTICE</span>
+                <span class="code-line">> APPLYING CONIC-GRADIENT BORDER</span>
+                <span class="code-line">> RENDER: SUCCESS [60FPS]</span>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
