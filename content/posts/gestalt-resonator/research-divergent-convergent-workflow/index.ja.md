@@ -4,17 +4,18 @@ date: "2026-06-21T14:05:24+09:00"
 description: "設計推論プロセスにおける課題を解決するための設計系統図に基づくソリューション。"
 tags: ["gestalt-resonator", "工作流", "交互设计"]
 draft: true
+---
+
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 # "发散-收敛" 交互式设计工作流课题研究 (Research on Divergent & Convergent Interactive Design Workflow)
 
 本篇文档记录了关于在画面设计转译系统常规设计工作流中，如何解决界面设计推理过程中“发散探索（Divergent Thinking）与决策收敛（Convergent Thinking）频繁交替”的痛点，以及如何降低高频交互中的时间与算力成本的技术方案研究。
 
----
 
 ## 1. 背景与痛点分析 (Context & Pain Points)
 

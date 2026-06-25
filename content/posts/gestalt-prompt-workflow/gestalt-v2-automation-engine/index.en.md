@@ -2,10 +2,11 @@
 title: "05. Gestalt V2.0 Automation Engine and Toolchain"
 date: 2026-06-25
 
+---
+
 > [!NOTE]
 > The main content of this article is currently being translated. Below is the original text.
 
----
 # 05. Gestalt V2.0 自动化引擎与工具链
 
 **更新日期**: 2026-06-25  

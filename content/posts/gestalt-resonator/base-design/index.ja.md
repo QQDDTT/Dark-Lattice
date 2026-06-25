@@ -4,11 +4,11 @@ date: "2026-06-21T14:05:24+09:00"
 description: "クロスプラットフォームの画面設計合成および変換システムに関する設計総覧。"
 tags: ["gestalt-resonator", "设计总纲"]
 draft: true
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 # gestalt-resonator 设计总纲 (Base Design)
 

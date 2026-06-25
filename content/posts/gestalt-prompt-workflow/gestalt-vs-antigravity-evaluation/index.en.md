@@ -2,10 +2,11 @@
 title: "99. Gestalt Skill Deep Evaluation: Comparing with Antigravity Native Skills"
 date: 2026-06-25
 
+---
+
 > [!NOTE]
 > The main content of this article is currently being translated. Below is the original text.
 
----
 # 99. Gestalt Skill 深度评估：对比 Antigravity 原生技能体系
 
 **文档状态**: V2.0 Upgraded (Resolved)  

@@ -4,17 +4,18 @@ date: "2026-06-21T14:05:24+09:00"
 description: "オリジナルのユーザー要件から設計ドメイン固有言語契約に至る技術ソリューション選定の論証。"
 tags: ["gestalt-resonator", "技术选型", "DDSL"]
 draft: true
+---
+
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 # DDSL 生成技术方案课题研究 (DDSL Generation Tech Selection Research)
 
 本篇文档记录了关于系统常规工作流中，如何高效、高确定性地实现从“原始用户要件 (Requirement)”到“设计领域专用语言契约 (DDSL)”转译的技术方案选型论证。
 
----
 
 ## 1. 背景与技术痛点
 

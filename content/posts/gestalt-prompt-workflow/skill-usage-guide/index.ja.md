@@ -4,11 +4,13 @@ date: "2026-06-23T09:30:00+09:00"
 description: "Gestalt Prompt Workflowの完全利用ガイド。AGY AgentへのSkill導入から日常的な開発対話例、5次元指標の用語チートシートまで網羅。"
 tags: ["gestalt-prompt-workflow", "agent-skill", "使用指南"]
 draft: true
+---
+
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 在将 `gestalt-prompt-workflow` 这个 Skill 真正跑通之后，我发现最频繁被问到的问题不是"它能做什么"，而是"**我该怎么把它接进我自己的项目里？**"
 
@@ -70,7 +72,6 @@ async with Agent(config) as agent:
 
 Agent 会自动从 GII、TPF、COE、SCR、OCC 五个维度进行量化分析，在 `references/cases/` 下生成标准化案例文档，并提取关键约束指令反哺提示词引擎。**这是这套系统真正实现自我进化的方式。**
 
----
 
 ## 五维指标术语速查表
 

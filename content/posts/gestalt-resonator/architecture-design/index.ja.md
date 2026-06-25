@@ -4,17 +4,18 @@ date: "2026-06-21T14:05:24+09:00"
 description: "システムの階層アーキテクチャ、コアモジュール設計、およびデータフロー。"
 tags: ["gestalt-resonator", "架构设计"]
 draft: true
+---
+
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 # gestalt-resonator 系统架构设计 (Architecture Design)
 
 本系统是作为 Agent 协同的“设计中间件”，旨在连接要件定义与高保真代码。本文档详细阐述了系统的分层架构、核心模块设计以及常规设计工作流与素材积累工作流的运行时数据流向。
 
----
 
 ## 1. 整体架构 (System Architecture)
 

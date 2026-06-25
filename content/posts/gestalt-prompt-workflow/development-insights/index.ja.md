@@ -4,11 +4,11 @@ date: "2026-06-21T14:10:00+09:00"
 description: "gestalt-prompt-workflow開発過程における核となる変革の振り返り：プロンプトエンジニアリングのゲーム理論的本質や、複雑なナレッジベースの蒸留とリファクタリング方法について。"
 tags: ["gestalt-prompt-workflow", "agent-skill", "开发心得", "重构"]
 draft: true
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 在经历了 `gestalt-prompt-workflow` 的从无到有、从理论落地到实战部署的全过程后，我深刻意识到：构建一个高级的知识驱动型 Agent Skill，本质上是对人类已有知识体系的重新审视与格式化。
 

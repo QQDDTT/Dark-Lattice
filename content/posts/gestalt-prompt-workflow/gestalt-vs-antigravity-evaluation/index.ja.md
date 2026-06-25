@@ -2,10 +2,11 @@
 title: "99. Gestalt Skill の詳細な評価：Antigravity のネイティブスキルとの比較"
 date: 2026-06-25
 
+---
+
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 # 99. Gestalt Skill 深度评估：对比 Antigravity 原生技能体系
 
 **文档状态**: V2.0 Upgraded (Resolved)  

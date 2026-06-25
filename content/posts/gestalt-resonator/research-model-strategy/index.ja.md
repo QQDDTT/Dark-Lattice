@@ -4,17 +4,18 @@ date: "2026-06-21T14:05:24+09:00"
 description: "効果的な設計特徴抽出タスクのためのモデルパイプラインの比較と論証。"
 tags: ["gestalt-resonator", "模型策略", "多模型流水线"]
 draft: true
+---
+
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 # 自训练模型策略：单模型与多模型方案对比研究 (Model Strategy Research: Single vs. Multi-Model Pipeline)
 
 本篇文档记录了关于系统常规工作流中第一阶段“有效设计特征提取”任务，在确定采用“本地自训练/微调小模型”路线下，针对**“单个统一大/小语言模型方案 (Single Unified Model)”**与**“多个专用微型模型流水线方案 (Multi-Model Pipeline)”**的技术方案对比论证。
 
----
 
 ## 1. 背景与方案定义
 

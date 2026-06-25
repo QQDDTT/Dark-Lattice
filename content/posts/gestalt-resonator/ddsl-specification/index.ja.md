@@ -4,17 +4,18 @@ date: "2026-06-21T14:05:24+09:00"
 description: "AI Agent共同開発専用に設計された画面設計意味グラフ契約仕様。"
 tags: ["gestalt-resonator", "DDSL"]
 draft: true
+---
+
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 # DDSL 语法设计规约 (DDSL Specification)
 
 DDSL (Design Domain Specific Language) 是专为 AI Agent 协同开发设计的画面设计语义图谱契约规范。它以严格的 JSON 结构，解耦了界面的“美学感质（Tokens）”、“空间拓扑（Layout Tree）”与“动态交互（State Machine）”。本文档对 DDSL 契约中的每项语法字段及其格式塔心理学设计含义进行深度阐述。
 
----
 
 ## 1. DDSL 的物理可编译性与数学可计算性规约 (DDSL Compilability & Computability Specification)
 

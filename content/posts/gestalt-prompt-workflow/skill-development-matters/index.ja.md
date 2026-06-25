@@ -4,11 +4,11 @@ date: "2026-06-21T14:05:00+09:00"
 description: "gestalt-prompt-workflow開発における技術的課題の深掘り。ツールベースのコンテキストスケジューリングやLLMの非決定論的出力に対する評価パイプラインの構築を含む。"
 tags: ["gestalt-prompt-workflow", "agent-skill", "LLM评估"]
 draft: true
+---
 
 > [!NOTE]
 > この記事の本文は現在翻訳中です。以下は原文です。
 
----
 
 开发一个 Agent Skill 截然不同于传统的软件工程（Software Dev）。传统工程侧重于代码编译、逻辑断言和确定的输入/输出（Deterministic I/O）。而构建像 `gestalt-prompt-workflow` 这样重度依赖跨界知识的复杂 Agent 技能，其核心变成了**提示词工程**、**概率调优**与**上下文知识的管理**。
 
