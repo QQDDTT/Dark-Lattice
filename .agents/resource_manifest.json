@@ -1,6 +1,32 @@
 {
   "description": "This file maps local blog projects and research topics to their external resource paths to guide agents workflow.",
   "projects": {
+    "aispect-project": {
+      "external_path": "/home/nick/workspaces/AiSpect/docs",
+      "description": "AiSpect 项目设计与架构文档",
+      "posts": [
+        {
+          "slug": "aispect-architecture-overview",
+          "title": "AiSpect 核心设计理念与架构总览",
+          "date": "2026-07-19"
+        },
+        {
+          "slug": "aispect-core-modules",
+          "title": "AiSpect 核心模块解析 (Core Modules)",
+          "date": "2026-07-19"
+        },
+        {
+          "slug": "aispect-engines-ecosystem",
+          "title": "AiSpect 引擎生态与周边矩阵 (Engines & Ecosystem)",
+          "date": "2026-07-19"
+        },
+        {
+          "slug": "google-ai-studio-limits",
+          "title": "大模型能力与限额分析 (Project AURA 扩展)",
+          "date": "2026-07-19"
+        }
+      ]
+    },
     "aura-project": {
       "external_path": "/home/nick/workspaces/Aura/docs",
       "description": "Aura 智能体系统项目"
