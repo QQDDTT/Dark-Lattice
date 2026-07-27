@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Posts · Dark Lattice V4</title>
+    <style>
+        :root {
+            --bg-base:       hsl(220, 13%, 8%);
+            --bg-surface:    hsl(220, 12%, 11%);
+            --bg-elevated:   hsl(220, 11%, 15%);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --border-normal: rgba(255, 255, 255, 0.10);
+            --text-primary:   hsl(220, 15%, 92%);
+            --text-secondary: hsl(220, 10%, 65%);
+            --text-tertiary:  hsl(220, 8%, 45%);
+            --font-sans: "Inter", "SF Pro Display", sans-serif;
+            --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+            --space-6: 24px; --space-8: 32px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 640px;
+            padding: 80px var(--space-4);
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--space-8);
+            color: var(--text-primary);
+        }
+
+        .list-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 极致严谨的列表规范 */
+        .list-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 40px; /* 固定 40px 行高 */
+            padding: 0 var(--space-4); /* 左内边距 16px */
+            border-radius: 6px;
+            text-decoration: none;
+            background: transparent;
+            transition: background 120ms ease; /* 极短时间过渡背景色 */
+            color: var(--text-primary);
+            
+            /* Stagger 动画基础 */
+            opacity: 0;
+            transform: translateX(-10px);
+            animation: slide-in 400ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        .list-item:hover {
+            background: var(--bg-surface);
+        }
+
+        .item-title {
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .item-meta {
+            font-size: 13px;
+            color: var(--text-secondary);
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* 差时加载 (Stagger) */
+        .list-item:nth-child(1) { animation-delay: 40ms; }
+        .list-item:nth-child(2) { animation-delay: 80ms; }
+        .list-item:nth-child(3) { animation-delay: 120ms; }
+        .list-item:nth-child(4) { animation-delay: 160ms; }
+        .list-item:nth-child(5) { animation-delay: 200ms; }
+
+        @keyframes slide-in {
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .back-link {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: var(--space-8);
+            transition: color 120ms ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <a href="home_page_v4.html" class="back-link">← Back to Home</a>
+        <h1>Command Log</h1>
+        <div class="list-group">
+            <a href="article_detail_v4.html" class="list-item">
+                <span class="item-title">Migrating to the New V4 Engine</span>
+                <span class="item-meta">Oct 12</span>
+            </a>
+            <a href="article_detail_v4.html" class="list-item">
+                <span class="item-title">The Psychology of Gestalt UI</span>
+                <span class="item-meta">Oct 08</span>
+            </a>
+            <a href="article_detail_v4.html" class="list-item">
+                <span class="item-title">Optimizing React Rendering Cycles</span>
+                <span class="item-meta">Sep 24</span>
+            </a>
+            <a href="article_detail_v4.html" class="list-item">
+                <span class="item-title">Designing with HSL Color Spaces</span>
+                <span class="item-meta">Sep 15</span>
+            </a>
+            <a href="article_detail_v4.html" class="list-item">
+                <span class="item-title">Why Borders are Anti-Patterns</span>
+                <span class="item-meta">Aug 30</span>
+            </a>
+        </div>
+    </main>
+</body>
+</html>

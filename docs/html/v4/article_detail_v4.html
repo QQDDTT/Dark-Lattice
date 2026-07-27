@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article · Dark Lattice V4</title>
+    <style>
+        :root {
+            --bg-base:       hsl(220, 13%, 8%);
+            --bg-surface:    hsl(220, 12%, 11%);
+            --border-subtle: rgba(255, 255, 255, 0.05);
+            --border-normal: rgba(255, 255, 255, 0.10);
+            --text-primary:   hsl(220, 15%, 92%);
+            --text-secondary: hsl(220, 10%, 65%);
+            --font-sans: "Inter", "SF Pro Display", sans-serif;
+            --font-mono: "JetBrains Mono", "Fira Code", monospace;
+            --space-4: 16px; --space-6: 24px; --space-8: 32px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.75; /* 阅读体验友好的行高 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .article-container {
+            width: 100%;
+            max-width: 680px;
+            padding: 80px var(--space-6);
+            animation: fade-in 600ms cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .back-link {
+            display: inline-block;
+            font-size: 13px;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-bottom: var(--space-8);
+            transition: color 120ms ease;
+        }
+
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .article-header {
+            margin-bottom: 48px;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: var(--space-4);
+        }
+
+        .article-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .article-content h2 {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 48px 0 16px 0;
+            color: var(--text-primary);
+        }
+
+        .article-content p {
+            margin-bottom: 24px;
+            color: var(--text-secondary); /* 正文使用次要颜色以降低对比度疲劳 */
+        }
+
+        .article-content pre {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: var(--space-4);
+            margin: 32px 0;
+            overflow-x: auto;
+        }
+
+        .article-content code {
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-primary);
+        }
+
+        /* 光学边界补偿 */
+        .text-block {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            padding-bottom: 0.12em;
+            margin-bottom: calc(24px - 0.12em);
+        }
+    </style>
+</head>
+<body>
+    <main class="article-container">
+        <a href="posts_list_v4.html" class="back-link">← Back to posts</a>
+        
+        <header class="article-header">
+            <h1>Migrating to the New V4 Engine</h1>
+            <div class="article-meta">Published on October 12, 2026</div>
+        </header>
+
+        <article class="article-content">
+            <p class="text-block">In this release, we are completely overhauling our design system to embrace the Gestalt principles. By removing physical borders and relying entirely on HSL grayscale steps, we achieve a cleaner and more focused user interface.</p>
+            
+            <h2>The Token System</h2>
+            <p>Our color palette is now strictly defined in a 5-layer grayscale system. Each layer is approximately 3% lighter in HSL lightness than the one below it. This provides enough contrast to distinguish depth without introducing visual noise.</p>
+
+            <pre><code>--bg-base: hsl(220, 13%, 8%);
+--bg-surface: hsl(220, 12%, 11%);
+--bg-elevated: hsl(220, 11%, 15%);</code></pre>
+
+            <h2>Performance First</h2>
+            <p>Animations are restricted to <code>transform</code> and <code>opacity</code>. No more layout trashing. Everything runs at 60fps, even on low-end devices. Our cubic-bezier curves provide a natural, snappy feel that respects physics.</p>
+        </article>
+    </main>
+</body>
+</html>
