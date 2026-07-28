@@ -4,7 +4,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   {{ range .Site.Pages }}
-    {{ if and (ne .Kind "404") (not .Params.sitemap_exclude) (ne .Params.sitemap.disable true) }}
+    {{ if and (ne .Kind "404") (ne .Kind "taxonomy") (ne .Kind "term") (not .Params.sitemap_exclude) (ne .Params.sitemap.disable true) }}
     <url>
       <loc>{{ .Permalink }}</loc>
       {{ if not .Lastmod.IsZero }}
