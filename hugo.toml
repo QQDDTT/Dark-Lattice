@@ -1,4 +1,4 @@
-baseURL = 'https://evotensor.dev/'
+baseURL = 'https://blog.evotensor.dev/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = true
