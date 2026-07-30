@@ -1,4 +1,4 @@
-baseURL = 'https://blog.evotensor.dev/'
+baseURL = 'https://dark-lattice.evotensor.dev/'
 locale = 'zh-cn'
 defaultContentLanguage = 'zh'
 defaultContentLanguageInSubdir = true
