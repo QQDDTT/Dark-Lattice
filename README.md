@@ -29,7 +29,7 @@
 - **🔍 全文检索**：
   - 使用 **Fuse.js** 实现轻量化的客户端侧实时搜索。
 - **🚀 自动化部署**：
-  - 集成 GitHub Actions，实现推送即部署至 GitHub Pages。
+  - 集成 Gitea Actions，实现推送即自动构建并部署至 Cloudflare Pages。
 
 ---
 
@@ -52,7 +52,7 @@
 ### 本地开发
 1. 克隆仓库：
    ```bash
-   git clone https://github.com/QQDDTT/Dark-Lattice.git
+   git clone https://git.evotensor.dev/nick/Dark-Lattice.git
    cd Dark-Lattice
    ```
 2. 启动 Hugo 开发服务器：
