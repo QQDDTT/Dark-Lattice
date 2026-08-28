@@ -52,7 +52,7 @@
 ### 本地开发
 1. 克隆仓库：
    ```bash
-   git clone https://git.evotensor.dev/nick/Dark-Lattice.git
+   git clone https://git.evotensor.dev/admin/Dark-Lattice.git
    cd Dark-Lattice
    ```
 2. 启动 Hugo 开发服务器：
