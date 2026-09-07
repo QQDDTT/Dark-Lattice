@@ -1,0 +1,32 @@
+﻿name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Source
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+
+      - name: Build
+        run: |
+          HUGO_VERSION="0.128.0"
+          curl -sL "https://github.com/gohugoio/hugo/releases/download/v/hugo_extended__linux-amd64.tar.gz" | sudo tar -xz -C /usr/local/bin hugo
+          hugo --gc --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          cname: dark-lattice.evotensor.dev
