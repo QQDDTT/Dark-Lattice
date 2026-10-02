@@ -1,6 +1,16 @@
 <!-- SEO: 计算智能 Description 摘要以兜底 -->
 {{- $description := .Description | default (.Summary | plainify | replaceRE "\n" " " | truncate 160) | default .Site.Params.description -}}
 
+<!-- SEO: 智能提取页面专属图片（优先 Page Bundle 中的 featured*，其次 featured_image/images，最后回退全局默认图） -->
+{{- $featuredImg := "images/og-image.png" | absURL -}}
+{{- with .Resources.GetMatch "featured*" -}}
+  {{- $featuredImg = .Permalink -}}
+{{- else with .Params.featured_image -}}
+  {{- $featuredImg = . | absURL -}}
+{{- else with .Params.images -}}
+  {{- $featuredImg = index . 0 | absURL -}}
+{{- end -}}
+
 <!-- SEO: Basic Meta -->
 <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
 {{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
@@ -11,30 +21,22 @@
 <meta name="description" content="{{ $description }}">
 <link rel="canonical" href="{{ .Permalink }}">
 
-<!-- Keywords -->
-<meta name="keywords" content="{{ with .Params.keywords }}{{ delimit . ", " }}{{ else }}{{ with .Site.Params.keywords }}{{ delimit . ", " }}{{ end }}{{ end }}">
+<!-- Keywords: 优先读取 params.keywords，其次自动将 params.tags 映射为 keywords，最后回退站点全局 keywords -->
+<meta name="keywords" content="{{ with .Params.keywords }}{{ delimit . ", " }}{{ else with .Params.tags }}{{ delimit . ", " }}{{ else with .Site.Params.keywords }}{{ delimit . ", " }}{{ end }}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
 <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ $description }}">
-{{ with .Params.images }}
-<meta property="og:image" content="{{ index . 0 | absURL }}">
-{{ else }}
-<meta property="og:image" content="{{ "images/og-image.png" | absURL }}">
-{{ end }}
+<meta property="og:image" content="{{ $featuredImg }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
 <meta property="twitter:url" content="{{ .Permalink }}">
 <meta property="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta property="twitter:description" content="{{ $description }}">
-{{ with .Params.images }}
-<meta property="twitter:image" content="{{ index . 0 | absURL }}">
-{{ else }}
-<meta property="twitter:image" content="{{ "images/og-image.png" | absURL }}">
-{{ end }}
+<meta property="twitter:image" content="{{ $featuredImg }}">
 
 <!-- JSON-LD Structured Data -->
 {{- $ld := dict 
@@ -47,15 +49,11 @@
   "publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" (.Site.Params.logo | absURL)))
 -}}
 {{- if .IsPage -}}
-  {{- $img := "images/og-image.png" | absURL -}}
-  {{- if .Params.images -}}
-    {{- $img = index .Params.images 0 | absURL -}}
-  {{- end -}}
   {{- $ld = merge $ld (dict 
     "datePublished" (.PublishDate.Format "2006-01-02T15:04:05-07:00")
     "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
     "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
-    "image" (slice $img)
+    "image" (slice $featuredImg)
   ) -}}
 {{- end -}}
 <script type="application/ld+json">{{ $ld | jsonify | safeJS }}</script>
