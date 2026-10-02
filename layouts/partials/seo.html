@@ -3,12 +3,20 @@
 
 <!-- SEO: 智能提取页面专属图片（优先 Page Bundle 中的 featured*，其次 featured_image/images，最后回退全局默认图） -->
 {{- $featuredImg := "images/og-image.png" | absURL -}}
-{{- with .Resources.GetMatch "featured*" -}}
-  {{- $featuredImg = .Permalink -}}
-{{- else with .Params.featured_image -}}
-  {{- $featuredImg = . | absURL -}}
-{{- else with .Params.images -}}
-  {{- $featuredImg = index . 0 | absURL -}}
+{{- if .IsPage -}}
+  {{- with .Resources.GetMatch "featured*" -}}
+    {{- $featuredImg = .Permalink -}}
+  {{- else -}}
+    {{- if .Params.featured_image -}}
+      {{- $featuredImg = .Params.featured_image | absURL -}}
+    {{- else if .Params.images -}}
+      {{- $featuredImg = index .Params.images 0 | absURL -}}
+    {{- end -}}
+  {{- end -}}
+{{- else -}}
+  {{- if .Params.images -}}
+    {{- $featuredImg = index .Params.images 0 | absURL -}}
+  {{- end -}}
 {{- end -}}
 
 <!-- SEO: Basic Meta -->
@@ -22,7 +30,15 @@
 <link rel="canonical" href="{{ .Permalink }}">
 
 <!-- Keywords: 优先读取 params.keywords，其次自动将 params.tags 映射为 keywords，最后回退站点全局 keywords -->
-<meta name="keywords" content="{{ with .Params.keywords }}{{ delimit . ", " }}{{ else with .Params.tags }}{{ delimit . ", " }}{{ else with .Site.Params.keywords }}{{ delimit . ", " }}{{ end }}">
+{{- $keywords := slice -}}
+{{- if .Params.keywords -}}
+  {{- $keywords = .Params.keywords -}}
+{{- else if .Params.tags -}}
+  {{- $keywords = .Params.tags -}}
+{{- else if .Site.Params.keywords -}}
+  {{- $keywords = .Site.Params.keywords -}}
+{{- end -}}
+<meta name="keywords" content="{{ delimit $keywords ", " }}">
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
