@@ -1,0 +1,9 @@
+# Cloudflare Pages 静态边缘重定向规则
+# 规范化历史无语言前缀路径，直接 301 永久重定向至默认简体中文 (zh) 路径，消除 404 与循环重定向链
+
+/posts        /zh/posts/        301!
+/posts/       /zh/posts/        301!
+/posts/*      /zh/posts/:splat  301!
+/research     /zh/research/     301!
+/research/    /zh/research/     301!
+/research/*   /zh/research/:splat 301!
