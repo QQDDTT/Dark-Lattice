@@ -1,6 +1,6 @@
 ---
 title: "1-1 七层技能阶梯模型：从零接触者到基座模型架构师"
-date: 2026-10-07
+date: 2026-10-06
 categories: ['AI-Skill-Evolution']
 draft: false
 tags: ['AI技能阶梯', '心智模型', '提示工程', 'Agentic架构', '认知壁垒', 'LLM原理']

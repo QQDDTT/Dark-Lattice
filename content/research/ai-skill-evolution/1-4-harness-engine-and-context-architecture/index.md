@@ -1,6 +1,6 @@
 ---
 title: "1-4 关键技术分水岭：为什么 Harness 引擎与上下文架构超越浅层微调？"
-date: 2026-10-07
+date: 2026-10-06
 categories: ['AI-Skill-Evolution']
 draft: false
 tags: ['Harness引擎', '上下文工程', '微调迷思', 'Eval评测', '系统沙箱', '端侧推理']

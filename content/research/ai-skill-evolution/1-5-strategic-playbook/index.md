@@ -1,6 +1,6 @@
 ---
 title: "1-5 终局展望与战略生存指南：超级个体跃迁与企业护城河"
-date: 2026-10-07
+date: 2026-10-06
 categories: ['AI-Skill-Evolution']
 draft: false
 tags: ['战略指南', '一人公司', '超级个体', '企业护城河', 'Eval评测', '按结果付费']

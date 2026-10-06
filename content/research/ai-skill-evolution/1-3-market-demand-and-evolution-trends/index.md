@@ -1,6 +1,6 @@
 ---
 title: "1-3 市场需求与技术演化三阶段：2024–2035 周期推演"
-date: 2026-10-07
+date: 2026-10-06
 categories: ['AI-Skill-Evolution']
 draft: false
 tags: ['市场趋势', '技术演化', 'Agent生态', '中间层坍缩', '端侧推理', '周期预测']

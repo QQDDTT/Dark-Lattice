@@ -1,6 +1,6 @@
 ---
 title: "1-2 各梯队人群规模与购买力评估矩阵：从金字塔到沙漏型结构"
-date: 2026-10-07
+date: 2026-10-06
 categories: ['AI-Skill-Evolution']
 draft: false
 tags: ['人群规模', '购买力画像', 'B2B预算', '超级个体', '商业模型', '算力杠杆']

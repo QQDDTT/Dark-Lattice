@@ -1,7 +1,7 @@
 ---
 title: "AI 技能阶梯与市场演进"
 background: "/images/design/research-tech-3d.png"
-date: 2026-10-07
+date: 2026-10-06
 draft: false
 description: "通过人类掌握 AI 技能的层次深度对人群进行系统化分类与评估，推演人群规模演进、购买力杠杆变化以及未来十年的商业市场与技术范式需求。"
 tags: ["AI技能阶梯", "市场预测", "Harness引擎", "大模型架构", "认知跃迁", "商业趋势"]
