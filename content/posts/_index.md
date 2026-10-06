@@ -2,6 +2,9 @@
 title: "专栏文章"
 description: "探索 AI 智能体架构、工业视觉实践与前沿设计美学的深度思考。"
 background: "/images/design/project-scene-concept.png"
+aliases:
+  - /posts
+  - /posts/
 ---
 
 欢迎来到 Dark Lattice 的技术与思想前哨站。在这里，我们分享关于 AI 智能体架构、工业视觉落地以及现代网页设计的深度思考。

@@ -2,6 +2,9 @@
 background: "/images/design/research-tech-3d.png"
 title: "研究专栏"
 description: "探索底层技术架构、前沿交互美学与 AI 算法模型的学术沉淀与实验记录。"
+aliases:
+  - /research
+  - /research/
 ---
 
 欢迎来到 Dark Lattice 的学术与设计实验室。这里记录了我们在技术架构、交互美学及 AI 数学模型等前沿课题上的深度探索与实验数据。
