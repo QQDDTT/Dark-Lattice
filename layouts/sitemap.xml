@@ -32,6 +32,21 @@
             href="{{ .Permalink }}"
             />
         {{ end }}
+        {{ with (where .AllTranslations "Language.Lang" "zh") }}
+          {{ range . }}
+            <xhtml:link
+              rel="alternate"
+              hreflang="x-default"
+              href="{{ .Permalink }}"
+              />
+          {{ end }}
+        {{ else }}
+          <xhtml:link
+            rel="alternate"
+            hreflang="x-default"
+            href="{{ .Permalink }}"
+            />
+        {{ end }}
       {{ end }}
       {{/* 图片 Sitemap 支持 */}}
       {{ $pageTitle := .Title }}

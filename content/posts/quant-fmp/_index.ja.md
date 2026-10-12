@@ -15,3 +15,5 @@ Quant-FMP コラムは、米国株式市場全体を対象としたクオンツ�
 ## コラム記事
 
 - [米国株全市場クオンツ予測プラットフォームの構築：Quant-FMP のアーキテクチャ、データレイク、およびエキスパートモデル進化の軌跡](dev-retrospective)
+- [Quant-FMP 予測頭脳の進化：15年超サイクル・データレイク、コーポレートアクション資産と3層ピラミッド型エキスパート行列](tiered-pyramid-and-data-lake)
+- [Quant-FMP 実盤パイロット航海録：4大高頻度トラップの打破、Alpaca 30日間ゼロコストサンドボックスと7段階自己進化ループ](live-pilot-and-7stage-evolution)

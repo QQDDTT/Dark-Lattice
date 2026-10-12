@@ -15,3 +15,5 @@ Quant-FMP 专栏专注于美股全市场量化投资系统的工程化构建与�
 ## 专栏文章
 
 - [从零构建美股全市场量化预测平台：Quant-FMP 架构分工、数据湖构建与专家模型演进全景复盘](dev-retrospective)
+- [Quant-FMP 智算大脑演进：15年跨周期数据湖、公司行动资产与三级金字塔分层专家矩阵](tiered-pyramid-and-data-lake)
+- [Quant-FMP 实盘领航实录：破解四大高频死穴、Alpaca 30天零成本沙盒与7阶段交易自演化闭环](live-pilot-and-7stage-evolution)

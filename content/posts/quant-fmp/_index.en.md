@@ -15,3 +15,5 @@ Here, we thoroughly explore:
 ## Articles
 
 - [Architecting a Full-Market Quantitative Forecasting Platform: The Quant-FMP Engineering Journey and Model Matrix Retrospective](dev-retrospective)
+- [Quant-FMP AI Brain Evolution: 15-Year Multi-Regime Data Lake, Corporate Actions, and Tiered Pyramid Expert Matrix](tiered-pyramid-and-data-lake)
+- [Quant-FMP Live Trading Pilot: Overcoming 4 High-Frequency Traps, Alpaca 30-Day Zero-Cost Sandbox, and 7-Stage Closed-Loop Self-Evolution](live-pilot-and-7stage-evolution)
