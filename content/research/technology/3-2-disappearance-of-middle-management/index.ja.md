@@ -1,4 +1,4 @@
----
+﻿---
 title: "中間管理職の消失：アルゴリズムによるスケジューリングがいかにして階層型報告を代替するか"
 date: 2026-04-16
 categories: ['Technology']
@@ -36,4 +36,3 @@ tags: ['AIOS', '中間管理職', '組織変革', 'プロセス自動化', '脱�
 ![中間管理職の消亡図](/images/research/technology/3-2-disappearance-of-middle-management/figure-1.png)
 
 *図 1：組織階層の分解図。伝統的なピラミッドの中間層（灰色部分）が徐々に透明化し、分断されていく一方で、AIOSのスケジューリング・コアから発せられる、トップの意思決定と現場の実行を直接結ぶ貫通線がそれに代わっていく様子を示しています。*
- drug-delivery systems and economic models.

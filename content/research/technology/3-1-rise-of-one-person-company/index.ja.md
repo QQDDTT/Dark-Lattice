@@ -1,4 +1,4 @@
----
+﻿---
 title: "「一人会社」の台頭：AIエージェントはいかにして伝統的な組織構造を終わらせるのか？"
 date: 2026-04-16
 categories: ['Technology']
@@ -29,4 +29,3 @@ tags: ['AIOS', '一人会社', '組織変革', '生産性', 'AIエージェン�
 ![一人会社の組織構造図](/images/research/technology/3-1-rise-of-one-person-company/figure-1.png)
 
 *図 1：伝統的なピラミッド組織からスター型の「一人会社」組織への進化を示す模式図。中心の発光点は人間の創業者（意思決定者）を表し、周囲に散らばる制御されたノードは各分野のAIエージェントを表しており、知的レバレッジの極限的な拡張を示しています。*
- drug-delivery systems and economic models.

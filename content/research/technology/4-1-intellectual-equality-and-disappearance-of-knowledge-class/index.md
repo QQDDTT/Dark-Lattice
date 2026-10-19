@@ -1,4 +1,4 @@
----
+﻿---
 title: "智力平权：当专业知识不再是阶层护城河"
 date: 2026-04-16
 categories: ['Technology']
@@ -36,4 +36,3 @@ tags: ['AIOS', '智力平权', '知识阶层', '教育变革', '社会公平', '
 
 - **认知普惠指数 (Cognitive Inclusive Index)**：如何衡量一个地区接入 AIOS 后，社会底层人群通过 AI 代理获得的权利保障增量？
 - **后知识时代的教育学重构**：当知识搜索和应用已由 Agent 完成，学校应如何重新定义人类个体的核心竞争力？
- drug-delivery systems and economic models.

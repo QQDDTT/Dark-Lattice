@@ -1,4 +1,4 @@
----
+﻿---
 title: "AIOS時代の「デジタル税」：新世界の地主となるのは誰か？"
 date: 2026-04-16
 categories: ['Technology']
@@ -38,4 +38,3 @@ AIOSの壁はこれまでのどのシステムよりも深いです。一度ユ�
 ![AIOS時代のデジタル税争奪戦](/images/research/technology/2-3-aios-digital-tax/figure-1.png)
 
 *図 1：AIOS世界における価値分配フローチャート。中央のノードはAIOSスケジューラーを表し、ユーザーの意図と様々なエージェントサービスを接続しています。各ノードに設置された流量ゲートを通じて、異なる陣営（ハードウェア vs モデル vs プロトコル）が「デジタル税」をどのように捕捉するかを示しています。*
- drug-delivery systems and economic models.

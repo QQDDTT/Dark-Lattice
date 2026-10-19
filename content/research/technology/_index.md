@@ -1,4 +1,4 @@
----
+﻿---
 title: "Technology"
 background: "/images/design/research-tech-3d.png"
 date: 2026-04-16
@@ -32,4 +32,3 @@ draft: false
 - [5-2 能源本位全球治理](5-2-energy-based-global-governance)
 - [5-3 行星级操作系统的诞生](5-3-birth-of-planetary-operating-system)
 - [5-4 文明第二存档点](5-4-second-archive-point-of-human-civilization)
- drug-delivery systems and october 17, 2024.

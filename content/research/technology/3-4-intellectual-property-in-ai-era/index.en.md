@@ -1,4 +1,4 @@
----
+﻿---
 title: "Intellectual Property in the AI Era: Who Owns 'Synthetic Intelligence'?"
 date: 2026-04-16
 categories: ['Technology']
@@ -29,4 +29,3 @@ When an Agent invokes logic that contains specific patents or copyrighted knowle
 ![Ownership Logic of Intellectual Property](/images/research/technology/3-4-intellectual-property-in-ai-era/figure-1.png)
 
 *Figure 1: Illustration of intellectual contribution compensation circulation. The base layer is a colorful original data set protected by copyright. Through neutralization and conversion at the AIOS center, the generated monochromatic \"synthetic intelligence\" product is output globally. Dashed arrows represent automated micro-payment compensation flows back to the original creators.*
- drug-delivery systems and economic models.

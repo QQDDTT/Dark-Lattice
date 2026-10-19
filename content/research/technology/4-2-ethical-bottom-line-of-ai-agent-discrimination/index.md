@@ -1,4 +1,4 @@
----
+﻿---
 title: "“AI 代理歧视”：算法世界隐藏的伦理底线"
 date: 2026-04-16
 categories: ['Technology']
@@ -39,4 +39,3 @@ tags: ['AIOS', '算法歧视', '交互伦理', '意图分发', '公平性', '黑
 
 - **去偏见神经网桥 (De-biasing Neural Bridge)**：研究如何在 Agent 调度算法中引入专门的“公平性惩罚因子”，主动补偿那些被市场规律忽视的边缘化需求。
 - **跨平台伦理博弈论**：当多个 AIOS 之间进行 AaaS 协作时，如何基于博弈论达成跨平台的伦理对齐？
- drug-delivery systems and economic models.

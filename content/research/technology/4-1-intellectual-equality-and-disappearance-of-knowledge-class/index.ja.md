@@ -1,4 +1,4 @@
----
+﻿---
 title: "知力の平権化：専門知識がもはや階級の堀でなくなるとき"
 date: 2026-04-16
 categories: ['Technology']
@@ -29,4 +29,3 @@ tags: ['AIOS', '知力の平権化', '知識階級', '教育変革', '社会公�
 ![知力の平権化による横方向の流動図](/images/research/technology/4-1-intellectual-quality-and-disappearance-of-knowledge-class/figure-1.png)
 
 *図 1：知的リソースの再分配の模式図。左側は、かつての垂直で互いに隔絶された知識の孤島を表しています。右側は、AIOSの意図階層が介入したことで、知識が液体のように社会の隅々まで浸透し、従来の勾配差を平坦化していく様子を示しています。*
- drug-delivery systems and economic models.

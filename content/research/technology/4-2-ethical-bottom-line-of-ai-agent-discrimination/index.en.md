@@ -1,4 +1,4 @@
----
+﻿---
 title: "AI Agent Discrimination: Hidden Ethical Bottom Lines in the Algorithmic World"
 date: 2026-04-16
 categories: ['Technology']
@@ -32,4 +32,3 @@ To prevent malicious competition among AI agents and systematic discrimination, 
 ![Algorithmic Discrimination Filtering](/images/research/technology/4-2-ethical-bottom-line-of-ai-agent-discrimination/figure-1.png)
 
 *Figure 1: Illustration of the \"Irregular Filter\" in the intent chain. The center is a weighted intent funnel. The left represents high-priority, smoothly flowing elite requests (gold); the right demonstrates vulnerable intent fragments (gray) intercepted based on bias and exclusionary logic, and gradually fading away.*
- drug-delivery systems and economic models.

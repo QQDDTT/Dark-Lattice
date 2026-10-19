@@ -1,4 +1,4 @@
----
+﻿---
 title: "Computing Power is Currency: The Settlement Logic of Hard Currency in the AIOS Era"
 date: 2026-04-16
 categories: ['Technology']
@@ -31,4 +31,3 @@ Compute will no longer be a background resource, but the sole measurement standa
 ![Computing Power as Currency Flow](/images/research/technology/2-6-computing-power-is-currency/figure-1.png)
 
 *Figure 1: Diagram of computing power monetization flow. The center is a glowing CPU/GPU core, with diffusing golden coin textures representing compute quotas connecting to different types of Agent interfaces, demonstrating how task flows are converted in real-time into payment flows of compute quotas.*
- drug-delivery systems and economic models.

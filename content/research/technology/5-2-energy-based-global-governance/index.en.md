@@ -1,4 +1,4 @@
----
+﻿---
 title: "Energy-Based Global Governance: Computing Output as the New National Credit"
 date: 2026-04-16
 categories: ['Technology']
@@ -36,4 +36,3 @@ Under this new order, computing power is not to be squandered limitlessly; it mu
 
 - **Inter-Sovereign Backup Agreement (ISBA)**: How to achieve dynamic disaster recovery and redundant coexistence of global compute resources through AIOS while ensuring national security?
 - **波動学 (Fluctuation Studies) of Energy-Token Exchange Rates**: Research on how to stabilize this new global monetary system based on physical output.
- drug-delivery systems and october 17, 2024.

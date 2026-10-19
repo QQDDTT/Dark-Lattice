@@ -1,4 +1,4 @@
----
+﻿---
 title: "ポスト真実時代における共感の崩壊：すべての情報が「あなたのために生成される」とき"
 date: 2026-04-16
 categories: ['Technology']
@@ -31,4 +31,3 @@ AIOSが個々のユーザーに対して、その既成の偏見に合致する�
 ![共感の崩壊と多重現実の図](/images/research/technology/4-3-collapse-of-consensus-in-post-truth-era/figure-1.png)
 
 *図 1：多重現実の屈折の模式図。元の事実を表す一つの白い光の点が、AIOSという異方性プリズムを通過することで、全く異なる色と論理を持つ無数の平行な光線へと屈折しています。それぞれの光線が個別の個人に向けられており、共有されていた事実がいかにして世界規模で粉砕されていくかを示しています。*
- drug-delivery systems and economic models.

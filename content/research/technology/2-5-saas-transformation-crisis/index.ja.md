@@ -1,4 +1,4 @@
----
+﻿---
 title: "SaaS転換期の危機：機能インターフェースが純粋な論理インターフェースに変わるとき"
 date: 2026-04-16
 categories: ['Technology']
@@ -35,4 +35,3 @@ SaaSベンダーは、**未来の競争力は「ユーザーの時間を奪う�
 ![SaaS転換の危機マップ](/images/research/technology/2-5-saas-transformation-crisis/figure-1.png)
 
 *図 1：SaaSモデル転換の交差点。一方では、伝統的で重厚な単体GUIソフトウェアアーキテクチャが崩壊しつつあり、もう一方では、インターフェース（API）に完全に基づいた軽量なエージェントサービスがその殻を破って現れようとしています。*
- drug-delivery systems and economic models.

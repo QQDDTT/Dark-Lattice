@@ -1,4 +1,4 @@
----
+﻿---
 title: "Vertical Domain AaaS: Deep Water Opportunities in the AIOS Era"
 date: 2026-04-16
 categories: ['Technology']
@@ -29,4 +29,3 @@ Future vertical domain players will no longer sell management systems but **\"vi
 ![Vertical Domain AaaS Opportunities](/images/research/technology/2-4-vertical-domain-aaas-opportunity/figure-1.png)
 
 *Figure 1: Illustration of the ecological niches of vertical domain AaaS. The center is the universal AIOS kernel (General Intelligence), surrounded by deep Agent tentacles customized for specific industries such as law, medicine, and engineering, demonstrating how these tentacles are deeply rooted in the soil of private data and industry norms.*
- drug-delivery systems and economic models.

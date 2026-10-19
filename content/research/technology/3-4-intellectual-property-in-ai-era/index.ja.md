@@ -1,4 +1,4 @@
----
+﻿---
 title: "AI時代の知的財産権：「合成知能」の所有権は誰にあるのか？"
 date: 2026-04-16
 categories: ['Technology']
@@ -29,4 +29,3 @@ tags: ['AIOS', '知的財産権', 'デジタル倫理', 'データの権利確�
 ![知的財産権の権利確定ロジック図](/images/research/technology/3-4-intellectual-property-in-ai-era/figure-1.png)
 
 *図 1：知的貢献に対する補償流転の模式図。底層にある著作権保護された多彩なオリジナルデータセットが、AIOSセンターでの中和と変換を経て、単色の「合成知能」完成品として周囲へ出力されます。点線の矢印は、元の創作者へと流れる自動化されたマイクロペイメント補償の流れを表しています。*
- drug-delivery systems and economic models.

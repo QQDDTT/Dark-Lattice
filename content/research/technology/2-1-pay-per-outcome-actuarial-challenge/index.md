@@ -1,4 +1,4 @@
----
+﻿---
 title: "按结果付费 (Pay-per-outcome)：AIOS 时代的精算挑战"
 date: 2026-04-16
 categories: ['Technology']
@@ -38,4 +38,3 @@ tags: ['AIOS', '定价模型', 'AaaS', '精算', '商业模式', '按结果付�
 
 - **动态意图对冲算法**：如何利用高频交易中常见的对冲逻辑，来平抑大规模 Agent 集群执行复杂任务时的推理成本波动？
 - **自动化责任链溯源**：当任务结果出现瑕疵时，如何通过区块链等技术自动判定是模型能力不足还是外部 API 故障？
- drug-delivery systems and economic models.

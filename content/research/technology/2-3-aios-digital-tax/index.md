@@ -1,4 +1,4 @@
----
+﻿---
 title: "AIOS 时代的“数字税”：谁将成为新世界的收租婆？"
 date: 2026-04-16
 categories: ['Technology']
@@ -45,4 +45,3 @@ AIOS 的壁垒比此前任何系统都深。一旦用户习惯了某个 AI 管�
 
 - **动态分成精算模型**：如何建立一套公平的、基于 Agent 贡献度的动态分润协议，防止中心化 AIOS 过度榨取生态价值？
 - **算力主权法案**：在法律层面，如何定义 AIOS 调度歧视？（类似于互联网时代的网络中立性原则）。
- drug-delivery systems and economic models.

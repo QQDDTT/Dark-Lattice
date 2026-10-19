@@ -1,4 +1,4 @@
----
+﻿---
 title: "流量入口的终结：当二级 App 界面逐渐消亡"
 date: 2026-04-16
 categories: ['Technology']
@@ -45,4 +45,3 @@ tags: ['AIOS', '流量入口', '移动互联网', 'App交互', '无头应用', '
 
 - **跨 Agent 调度优先级算法**：面对完全相同的服务请求，AIOS 应基于何种伦理和商业原则在多个竞争 Agent 之间进行分配？
 - **无界面品牌感知 (Interface-less Branding)**：品牌如何在没有视觉界面的情况下，通过语音韵律、交互节奏等细微特征建立独有的品牌识别度？
- drug-delivery systems and economic models.

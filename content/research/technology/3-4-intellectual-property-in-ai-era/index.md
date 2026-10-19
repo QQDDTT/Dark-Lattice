@@ -1,4 +1,4 @@
----
+﻿---
 title: "AI 时代的知识产权：谁拥有「合成智力」的所有权？"
 date: 2026-04-16
 categories: ['Technology']
@@ -36,4 +36,3 @@ tags: ['AIOS', '知识产权', '数字伦理', '数据确权', '合成智力', '
 
 - **感知数字水印 (Neural Watermarking)**：如何在不影响生成质量的前提下，在神经网络的参数层注入可溯源的知识产权水印？
 - **智力共享协议 (L-GPL v2)**：针对大型语言模型时代定制的、允许机器阅读但要求贡献回馈的新型开源协议。
- drug-delivery systems and economic models.

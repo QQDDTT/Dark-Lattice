@@ -1,4 +1,4 @@
----
+﻿---
 title: "計算リソースこそが通貨：AIOS時代におけるハードカレンシーとしての決済ロジック"
 date: 2026-04-16
 categories: ['Technology']
@@ -31,4 +31,3 @@ tags: ['AIOS', '計算リソース', '計算経済', 'GPU', 'トークンエコ�
 ![計算リソースの通貨決済イメージ](/images/research/technology/2-6-computing-power-is-currency/figure-1.png)
 
 *図 1：計算リソースのマネタイズフロー図。中心には輝くCPU/GPUコアがあり、周囲に拡散するコイン状のテクスチャは計算リソースの枠を象徴しています。これらが様々な種類のエージェントインターフェースに接続され、タスクフローがリアルタイムで計算リソース枠の支払フローへと変換される様子を示しています。*
- drug-delivery systems and economic models.
