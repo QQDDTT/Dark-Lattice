@@ -24,7 +24,7 @@
     *   模糊：`backdrop-filter: blur(8px)`。
     *   框线：`1px solid rgba(59, 130, 246, 0.1)`, 仅底部或全框。
 
-![Blog List UI Mockup](../static/images/design/blog-list-ui-mockup.png)
+!Blog List UI Mockup
 
 ### 2.2 响应式策略
 *   **移动端**：卡片堆叠显示，移去左侧日期装饰，将日期置于标题上方。
