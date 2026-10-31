@@ -19,6 +19,7 @@ content/
 │   ├── aispect-project/
 │   ├── appmatrix-project/
 │   ├── aura-project/
+│   ├── evotensor-architecture/
 │   ├── gcp-gemini-manage-project/
 │   ├── gestalt-prompt-workflow/
 │   ├── gestalt-resonator/

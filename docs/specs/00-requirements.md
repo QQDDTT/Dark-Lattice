@@ -1,7 +1,7 @@
-﻿# Dark-Lattice 要件定义文档 (Requirements Specification)
+# Dark-Lattice 要件定义文档 (Requirements Specification)
 
 > 项目名称：Dark-Lattice  
-> 项目分类：待定(既有项目)  
+> 项目分类：展示门户 (Showcase / Portal)  
 > 责任团队/维护者：QQDDTT  
 > 最新更新时间：2026-10-21  
 
@@ -30,7 +30,7 @@
 - **FR-03 [跨工程协同/发布]**：
   - **基础设施类项目**：在要件中初步确定对外输出的 Skill 名称（如 `{{SKILL_NAME}}`），建立初始模板文件，并将其注册到宿主机全局目录（`C:\Users\Nick\.gemini\config\skills\`）完成注册与验证；
   - **平台类项目**：输出静态站点/对外作品并挂载 GitHub Pages 或云端微服务；
-  - **普通类项目**：专属业务或技术方案闭环。
+  - **展示门户类项目**：开源教学演示或纯静态展示门户闭环。
 
 ---
 
