@@ -16,3 +16,4 @@ Evotensor 全域アーキテクチャ進化コラムは、マルチエージェ�
 - [全域アーキテクチャの大統一：Evopoiesis 自己創出進化、4大直交分類体系とデータ・計算力・エッジ三軌分離の鉄則](autopoietic-triad-and-four-archetypes)
 - [8大基盤プロジェクトとグローバルSkillマトリックス：Harness-Forge、Aegis-SecからChroma-Muse、Momus反脆弱性監査まで](eight-foundation-pillars-and-skill-matrix)
 - [AuraからEvo-StudioとSyntax-Labへ：AI主舞台の自律型IDE工房と純フロントエンド・タイムトラベル実験室への世代的飛躍](evo-studio-and-syntax-lab-generational-leap)
+

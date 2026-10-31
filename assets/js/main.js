@@ -130,20 +130,6 @@ document.addEventListener("DOMContentLoaded", () => {
         headers.forEach(header => spyObserver.observe(header));
     }
 
-    // ── 6. 页面跳转退出淡出拦截器 (不干扰锚点与外链) ──
-    document.querySelectorAll('a[href]').forEach(link => {
-        link.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
-            // 过滤锚点链接、javascript 脚本和 _blank 外链
-            if (href && !href.startsWith('#') && !href.startsWith('javascript:') && this.target !== '_blank') {
-                e.preventDefault();
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 400ms var(--ease-exit)';
-                setTimeout(() => {
-                    window.location.href = href;
-                }, 400); // 400ms 与 CSS 变量 --ease-exit 周期一致
-            }
-        });
-    });
+    // ── 6. 移除阻塞式的 400ms 页面退出透明度拦截，确保标准超链接零延迟响应与搜索引擎无障碍抓取 ──
 });
 

@@ -3,7 +3,7 @@ title: "Agent Skill Development in Practice: On-Demand Context Scheduling and Ev
 date: "2026-06-21T14:05:00+09:00"
 description: "Delving into the technical challenges during the development of gestalt-prompt-workflow, including tool-based on-demand context scheduling solutions and establishing evaluation pipelines for the non-deterministic outputs of LLMs."
 tags: ["gestalt-prompt-workflow", "agent-skill", "LLM-evaluation"]
-draft: true
+draft: false
 ---
 
 Developing an Agent Skill is fundamentally different from traditional software engineering (Software Dev). Traditional engineering focuses on code compilation, logic assertions, and Deterministic I/O. However, building a complex Agent capability heavily reliant on cross-disciplinary knowledge, like `gestalt-prompt-workflow`, centers on **Prompt Engineering**, **Probabilistic Tuning**, and **Context Knowledge Management**.

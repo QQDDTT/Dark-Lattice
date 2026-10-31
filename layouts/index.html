@@ -138,5 +138,40 @@
             </div>
         </div>
     </section>
+
+    <!-- ============================================================
+         COLUMNS & RESEARCH MATRIX (全站专栏与研究课题直达索引，Click Depth = 1)
+    ============================================================ -->
+    <section class="manifesto-section container" aria-label="专栏与研究索引" style="padding-top: 0;">
+        <div class="section-label" style="padding: 0; margin-bottom: var(--sp-4);">
+            <span class="label-line" aria-hidden="true"></span>
+            <span class="label-text">Knowledge Matrix</span>
+        </div>
+        <h2 class="section-heading" style="padding: 0; margin-bottom: var(--sp-8);">{{ (site.GetPage "posts").Title }} &amp; {{ (site.GetPage "research").Title }}</h2>
+        <div class="manifesto-grid">
+            {{ with site.GetPage "posts" }}
+                {{ range .Sections }}
+                    {{ if gt (len .RegularPages) 0 }}
+                    <a href="{{ .RelPermalink }}" class="manifesto-card" style="display: block; text-decoration: none;">
+                        <div class="card-num">POSTS · {{ len .RegularPages }} ARTICLES</div>
+                        <h3 class="card-title">{{ .Title }}</h3>
+                        <p class="card-desc">{{ .Description | default (.Summary | plainify | truncate 100) }}</p>
+                    </a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+            {{ with site.GetPage "research" }}
+                {{ range .Sections }}
+                    {{ if gt (len .RegularPages) 0 }}
+                    <a href="{{ .RelPermalink }}" class="manifesto-card" style="display: block; text-decoration: none;">
+                        <div class="card-num">RESEARCH · {{ len .RegularPages }} ARTICLES</div>
+                        <h3 class="card-title">{{ .Title }}</h3>
+                        <p class="card-desc">{{ .Description | default (.Summary | plainify | truncate 100) }}</p>
+                    </a>
+                    {{ end }}
+                {{ end }}
+            {{ end }}
+        </div>
+    </section>
 </main>
 {{ end }}

@@ -16,3 +16,4 @@ Here, we systematically share our recent major architectural milestones:
 - [Grand Unification of Workspace Architecture: Evopoiesis, the Four Orthogonal Archetypes, and the Storage-Compute-Edge Triad](autopoietic-triad-and-four-archetypes)
 - [Eight Foundation Pillars & Global Skill Matrix: From Harness-Forge and Aegis-Sec to Chroma-Muse and Momus Adversarial Auditing](eight-foundation-pillars-and-skill-matrix)
 - [From Aura to Evo-Studio and Syntax-Lab: The Generational Leap to an AI-First Autonomous IDE and Time-Travel Programming Lab](evo-studio-and-syntax-lab-generational-leap)
+

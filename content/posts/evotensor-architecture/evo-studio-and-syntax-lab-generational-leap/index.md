@@ -80,3 +80,4 @@ flowchart TD
 - **`Quant-FMP` & `Quant-FX` v4.0**：`Quant-FMP` 完成 15 年跨周期数据湖对齐、6,049 条深度行情增补与 13 项摩摩斯模型训练审计闭环（达标 99.9/100 质量门禁）；`Quant-FX` 重构升级至 v4.0 日内短周期策略并通过三轮对抗审计；
 - **`Nexus-Mini` & `Chrono-Lens`**：`Nexus-Mini` 确立零远程通信三层标准架构并完成 `STYLE-57 × STYLE-39` 视觉重塑与全游戏 E2E 实机截图验证；`Chrono-Lens` 完成五大理念场域转场动画统一与移动端 $44\times 44\text{px}$ 触控热区加固；
 - **`Aegis-Gate` & `SynapseGate`**：正式并入核心平台序列，作为全工作区零攻击面密码学激活网关与 AI 无感注入突触枢纽。
+

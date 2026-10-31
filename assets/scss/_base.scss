@@ -75,14 +75,7 @@ body {
     min-height: 100vh;
     background-color: var(--layer-0);
     color: var(--text-high);
-
-    // COE: 页面淡显使用 opacity，不触发 Reflow
-    opacity: 0;
-    transition: opacity 500ms var(--ease-enter);
-
-    &.page-loaded {
-        opacity: 1;
-    }
+    opacity: 1;
 }
 
 a {
@@ -116,19 +109,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 // ============================================================
-// REVEAL ANIMATIONS (Scroll Reveal / Stagger)
+// REVEAL ANIMATIONS (Scroll Reveal / Stagger — 默认可见，确保爬虫与首屏 LCP 零阻塞)
 // ============================================================
 .reveal, .reveal-on-scroll {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 700ms var(--ease-enter),
-                transform 700ms var(--ease-enter);
-    will-change: opacity, transform;
-
-    &.is-visible {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 400ms var(--ease-enter),
+                transform 400ms var(--ease-enter);
 }
 
 // Stagger 延迟工具类（40ms 步长，Awwwards 规范）

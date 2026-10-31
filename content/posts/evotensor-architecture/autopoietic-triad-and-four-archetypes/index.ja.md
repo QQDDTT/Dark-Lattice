@@ -64,3 +64,4 @@ categories: ["システムアーキテクチャ", "エンジニアリングガ�
 - **対象端末形態の明示**：各プロジェクトの `AGENTS.md` にて対象ビューポート（PCワイド画面 $\ge 1024\text{px}$、タブレット $768\text{px}\sim 1023\text{px}$、スマホ縦画面 $< 768\text{px}$ 等）を明文化；
 - **横スクロールはみ出しゼロと動的ビューポート**：`100dvh` / `100svh` を採用し、スマホ縦画面での `Horizontal Overflow <= 0px` を絶対条件化；
 - **44×44pxタッチターゲットとセーフエリア退避**：すべての操作要素に $\ge 44 \times 44\text{px}$ のヒット領域と `env(safe-area-inset-*)` を強制し、`Momus-Audit` によるChrome DevTools実機サイズエミュレーション監査で検証します。
+

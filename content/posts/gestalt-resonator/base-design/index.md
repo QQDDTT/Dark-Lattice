@@ -12,7 +12,7 @@ draft: false
 
 ## 1. 核心理论同构 (Theoretical Synesthesia)
 
-设计思想深度来源于课题研究 [像素与架构的系统共鸣](file:///home/nick/文档/02_课题研究/像素与架构的系统共鸣)。我们将美学、格式塔原则与计算思维进行了系统级映射：
+设计思想深度来源于课题研究 [像素与架构的系统共鸣](/zh/research/pixel-architecture-resonance/)。我们将美学、格式塔原则与计算思维进行了系统级映射：
 
 1. **“整体大于部分之和”完形同构**：
    - 界面上不应充斥着生硬、破碎的物理边框和零散组件。我们通过定义“接近性分组 (Proximity Groups)”和“骨骼网格 (Grid Skeleton)”，在 DDSL 中生成逻辑群组。
@@ -24,7 +24,7 @@ draft: false
 ## 2. 接口契约：DDSL 契约包 (Design Contract Package)
 
 为确保调用本系统的 Client Agent 能够无损执行转译，系统接口设计并非输出单一代码，而是交付一个“开发契约包”：
-- **DDSL 语义 JSON (`layout.ddsl.json`)**：基于 [ddsl.schema.json](file:///home/nick/workspaces/gestalt-resonator/schema/ddsl.schema.json)。内置面向 Agent 的开发约束与设计依据注解（`_agent_guidelines`）。
+- **DDSL 语义 JSON (`layout.ddsl.json`)**：基于 [ddsl.schema.json](/zh/posts/gestalt-resonator/ddsl-specification/)。内置面向 Agent 的开发约束与设计依据注解（`_agent_guidelines`）。
 - **色彩与布局 Tokens (`design_tokens.css`)**：解耦的 CSS 变量，提供全局美学感质。
 - **Agent 转译指南 (`TRANSPILER_RULES.md`)**：由 `gestalt-resonator get-context` 动态生成。Client Agent 可将此文件注入其 System Prompt 中，获得对布局树的最佳解析心智与编码约束。
 - **QA 测试清单 (`design_qa_checklist.json`)**：定义交互状态机的 E2E 断言用例，供 Client Agent 进行自动化回归校验，防止“UI 表面绿”现象。

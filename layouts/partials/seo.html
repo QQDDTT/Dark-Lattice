@@ -1,5 +1,6 @@
-<!-- SEO: 计算智能 Description 摘要以兜底 -->
-{{- $description := .Description | default (.Summary | plainify | replaceRE "\n" " " | truncate 160) | default .Site.Params.description -}}
+<!-- SEO: 计算智能 Description 摘要以兜底（剥离空白字符，杜绝空摘要） -->
+{{- $rawSummary := .Summary | plainify | replaceRE "[\\r\\n\\t]+" " " | strings.TrimSpace -}}
+{{- $description := (.Description | strings.TrimSpace) | default ($rawSummary | truncate 160) | default .Site.Params.description -}}
 
 <!-- SEO: 智能提取页面专属图片（优先 Page Bundle 中的 featured*，其次 featured_image/images，最后回退全局默认图） -->
 {{- $featuredImg := "images/og-image.png" | absURL -}}
@@ -19,15 +20,22 @@
   {{- end -}}
 {{- end -}}
 
+<!-- SEO: 计算规范 URL（修复分页页面 Canonical 自指向第一页导致的孤立页陷阱） -->
+{{- $canonical := .Permalink -}}
+{{- if and .IsNode .Paginator (gt .Paginator.PageNumber 1) -}}
+  {{- $canonical = .Paginator.URL | absURL -}}
+{{- end -}}
+
 <!-- SEO: Basic Meta -->
 <meta name="google-site-verification" content="{{ .Site.Params.googleSiteVerification }}">
-{{ if or (eq .Kind "taxonomy") (eq .Kind "term") }}
+{{- $isEmptySection := and .IsSection (eq (len .RegularPages) 0) (eq (len .Sections) 0) -}}
+{{ if or (eq .Kind "taxonomy") (eq .Kind "term") $isEmptySection .Params.sitemap_exclude }}
 <meta name="robots" content="noindex, follow">
 {{ else }}
 <meta name="robots" content="index, follow">
 {{ end }}
 <meta name="description" content="{{ $description }}">
-<link rel="canonical" href="{{ .Permalink }}">
+<link rel="canonical" href="{{ $canonical }}">
 
 <!-- Keywords: 优先读取 params.keywords，其次自动将 params.tags 映射为 keywords，最后回退站点全局 keywords -->
 {{- $keywords := slice -}}
@@ -42,33 +50,36 @@
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:url" content="{{ $canonical }}">
 <meta property="og:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:image" content="{{ $featuredImg }}">
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="{{ .Permalink }}">
+<meta property="twitter:url" content="{{ $canonical }}">
 <meta property="twitter:title" content="{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}">
 <meta property="twitter:description" content="{{ $description }}">
 <meta property="twitter:image" content="{{ $featuredImg }}">
 
 <!-- JSON-LD Structured Data -->
+{{- $pubDate := cond (not .PublishDate.IsZero) (.PublishDate.Format "2006-01-02T15:04:05-07:00") (cond (not .Date.IsZero) (.Date.Format "2006-01-02T15:04:05-07:00") (now.Format "2006-01-02T15:04:05-07:00")) -}}
+{{- $modDate := cond (not .Lastmod.IsZero) (.Lastmod.Format "2006-01-02T15:04:05-07:00") $pubDate -}}
 {{- $ld := dict 
   "@context" "https://schema.org"
   "@type" (cond .IsPage "Article" "WebSite")
   "headline" (default .Site.Title .Title)
   "description" $description
-  "url" .Permalink
+  "url" $canonical
+  "inLanguage" .Site.Language.LanguageCode
   "author" (dict "@type" "Person" "name" .Site.Params.author)
   "publisher" (dict "@type" "Organization" "name" .Site.Title "logo" (dict "@type" "ImageObject" "url" (.Site.Params.logo | absURL)))
 -}}
 {{- if .IsPage -}}
   {{- $ld = merge $ld (dict 
-    "datePublished" (.PublishDate.Format "2006-01-02T15:04:05-07:00")
-    "dateModified" (.Lastmod.Format "2006-01-02T15:04:05-07:00")
-    "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+    "datePublished" $pubDate
+    "dateModified" $modDate
+    "mainEntityOfPage" (dict "@type" "WebPage" "@id" $canonical)
     "image" (slice $featuredImg)
   ) -}}
 {{- end -}}

@@ -86,3 +86,4 @@ To guarantee flawless cross-device ergonomics, **SPEC-17** elevates terminal ada
 - **Explicit Terminal Declaration**: Every `AGENTS.md` must declare its target viewports (Desktop Workbench $\ge 1024\text{px}$, Tablet $768\text{px}\sim 1023\text{px}$, Mobile Portrait $< 768\text{px}$, Landscape Game Guard, or Dual-Screen Tabletop);
 - **Zero Horizontal Overflow & Dynamic Viewport**: Enforcing `100dvh` / `100svh` and `Horizontal Overflow <= 0px` on mobile portrait screens;
 - **44×44px Touch Target Gate & Safe-Area Insets**: Every interactive element must provide a hit area of at least $44 \times 44\text{px}$ with `env(safe-area-inset-*)` padding for notched displays and home indicators, verified end-to-end via Chrome DevTools device emulation during `Momus-Audit` red-team inspections.
+

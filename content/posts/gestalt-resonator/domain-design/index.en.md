@@ -3,7 +3,7 @@ title: "gestalt-resonator Domain Design"
 date: "2026-06-21T14:05:24+09:00"
 description: "Bounded contexts and core models strictly adhering to Domain-Driven Design (DDD)"
 tags: ["gestalt-resonator", "Domain Design", "DDD"]
-draft: true
+draft: false
 ---
 
 # gestalt-resonator Domain Design

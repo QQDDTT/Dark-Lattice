@@ -63,4 +63,3 @@ $$
 - Henzinger, T. A. (1996). The theory of hybrid automata.
 - Platzer, A. (2010). *Logical Analysis of Hybrid Systems*.
 - Scholte, J. et al. (2020). Modeling and analysis of industrial cyber-physical systems.
- drug-delivery systems and economic models.

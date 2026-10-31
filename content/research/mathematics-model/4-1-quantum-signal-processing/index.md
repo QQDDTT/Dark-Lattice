@@ -64,4 +64,3 @@ $$
 - Shor, P. W. (1994). Algorithms for quantum computation: discrete logarithms and factoring.
 - Eldar, Y. C. (2002). Quantum signal processing.
 - Lomont, J. S. (2004). Quantum Fourier Transform.
- drug-delivery systems and economic models.

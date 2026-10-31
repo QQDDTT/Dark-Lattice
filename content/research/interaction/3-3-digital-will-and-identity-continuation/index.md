@@ -40,4 +40,3 @@ tags: ['AIOS', '数字遗嘱', '身份延续', '数字永生', '交互遗产', '
 
 - **交互性格克隆 (Interaction Personality Cloning)**：如何提取用户最核心的决策权重，使其数字代理能在复杂突发事件中做出与本人高度一致的选择？
 - **数字遗产管理协议**：建立一套跨平台的、基于区块链的数字身份继承标准。
- drug-delivery systems and economic models.

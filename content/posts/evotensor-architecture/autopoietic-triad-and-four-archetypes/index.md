@@ -117,3 +117,4 @@ flowchart LR
 - **零横向滑溢与动态视口铁律**：全面采用 `100dvh` / `100svh` 动态视口单位，移动端竖屏下严格保证 `Horizontal Overflow <= 0px`；
 - **触控靶区门禁与异形屏安全区避让**：移动端所有可交互控件的物理命中热区必须满足 $\text{Hit Area} \ge 44 \times 44\text{px}$（间距 $\ge 8\text{px}$），固定底栏与浮窗强制注入 `env(safe-area-inset-*)` 避让灵动岛与底部手势条；
 - **三大中枢闭环核验**：由 `Evopoiesis` 在立项/改造时注入规则，`Optic-Resonance` 在设计阶段提供响应式令牌，最终由 `Momus-Audit` 驱动 Chrome DevTools 仿真目标设备尺寸进行一票否决式实测。
+

@@ -33,16 +33,8 @@
     padding: var(--sp-10) var(--sp-8) 0;
     max-width: calc(680px + var(--sp-8) * 2);
     margin: 0 auto;
-
-    opacity: 0;
-    transform: translateY(10px);
-    transition: opacity 500ms var(--ease-enter),
-                transform 500ms var(--ease-enter);
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .crumb {
@@ -79,15 +71,8 @@
     display: flex;
     gap: var(--sp-2);
     margin-bottom: var(--sp-6);
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 600ms var(--ease-enter) 80ms,
-                transform 600ms var(--ease-enter) 80ms;
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .article-tag {
@@ -110,16 +95,8 @@
     line-height: 1.15;
     color: var(--text-high);
     margin-bottom: var(--sp-6);
-
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 700ms var(--ease-enter) 160ms,
-                transform 700ms var(--ease-enter) 160ms;
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .article-meta {
@@ -132,16 +109,8 @@
     color: var(--text-low);
     padding-bottom: var(--sp-8);
     border-bottom: 1px solid var(--border-subtle);
-
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 600ms var(--ease-enter) 260ms,
-                transform 600ms var(--ease-enter) 260ms;
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .meta-divider {

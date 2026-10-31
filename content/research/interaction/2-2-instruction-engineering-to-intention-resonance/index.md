@@ -39,4 +39,3 @@ tags: ['AIOS', '意图识别', '指令工程', '语义理解', '人机交互', '
 
 - **动态语义边界盒 (Dynamic Semantic Bounding Box)**：如何在保护隐私的前提下，最大限度地提取用户的环境情境以辅助意图识别？
 - **模糊逻辑渲染**：当意图尚未明确时，界面如何呈现一种“半透明”的模糊状态以提示用户进行进一步引导？
- drug-delivery systems and economic models.

@@ -33,4 +33,3 @@ tags: ['AIOS', 'デジタル遺言', 'アイデンティティ継承', 'デジ�
 ![デジタルアイデンティティの無限螺旋](/images/research/interaction/3-3-digital-will-and-identity-continuation/figure-1.png)
 
 *図 1：アイデンティティ継続のDNA螺旋の模式図。光るバイナリデータ流で構成された螺旋が時空のトンネル内で無限に伸びており、ユーザーの長期記憶が個人の生命という節目を超えて、デジタルな意味での継続的な構造へと変化していく様子を表しています。*
- drug-delivery systems and economic models.

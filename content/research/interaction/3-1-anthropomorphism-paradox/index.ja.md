@@ -29,4 +29,3 @@ tags: ['AIOS', '擬人化', '不気味の谷', '人機心理学', 'インタラ�
 ![擬人化のパラドックスとインタラクションの障壁](/images/research/interaction/3-1-anthropomorphism-paradox/figure-1.png)
 
 *図 1：擬人化の度合いとユーザーの信頼度の関係曲線。擬人化曲線が人間基準に近づくにつれ、信頼度は「不気味の谷」の底へと垂直に落下します。金属模型の上のコードの点滅は、機械の本質と人間の幻想との間の葛藤を表しています。*
- drug-delivery systems and economic models.

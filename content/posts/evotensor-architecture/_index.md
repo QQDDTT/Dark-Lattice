@@ -16,3 +16,4 @@ Evotensor 全域架构演进专栏聚焦于多智能体工程工作区从“离�
 - [全域架构大一统：Evopoiesis 自生演化、四大正交分类体系与数据-算力-边缘三轨分离铁律](autopoietic-triad-and-four-archetypes)
 - [八大基础工程与全局 Skill 矩阵：从 Harness-Forge、Aegis-Sec 到 Chroma-Muse 与摩摩斯反脆弱审计](eight-foundation-pillars-and-skill-matrix)
 - [从 Aura 到 Evo-Studio 与 Syntax-Lab：AI 主舞台自主 IDE 工坊与纯前端时间旅行编程实验室的代际跃迁](evo-studio-and-syntax-lab-generational-leap)
+

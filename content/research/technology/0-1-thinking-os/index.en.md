@@ -8,7 +8,6 @@ tags: ['AI', 'AIOS', 'AaaS', 'LLM', 'MaaS', 'OperatingSystem', 'ProductMindset',
 
 ——AIOS vs. Traditional OS: A Comprehensive Analysis of Advantages and Challenges
 
-📌 Platform: Little Red Book (Xiaohongshu)
 
 ## Introduction: The Third OS Revolution
 

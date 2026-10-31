@@ -36,6 +36,7 @@ jobs:
           HUGO_ENVIRONMENT: production
           HUGO_ENV: production
         run: |
+          rm -f i18n/README.md data/README.md content/README.md static/README.md layouts/README.md assets/README.md
           hugo --gc --minify
       - name: Add CNAME
         run: echo "dark-lattice.evotensor.dev" > public/CNAME

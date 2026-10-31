@@ -16,7 +16,10 @@
 <!-- SEO: Hreflang & Multi-language -->
 {{ if .IsTranslated }}
     {{ range .AllTranslations }}
+        {{- $transEmpty := and .IsSection (eq (len .RegularPages) 0) (eq (len .Sections) 0) -}}
+        {{- if and (not $transEmpty) (not .Params.sitemap_exclude) -}}
         <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+        {{- end -}}
     {{ end }}
     {{/* x-default 必须在所有语言版本中统一指向默认语言版本（zh），杜绝语言环境错位导致的规范页冲突 */}}
     {{ with (where .AllTranslations "Language.Lang" "zh") }}

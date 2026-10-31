@@ -13,15 +13,8 @@
     align-items: center;
     gap: var(--sp-3);
     margin-bottom: var(--sp-6);
-    opacity: 0;
-    transform: translateY(14px);
-    transition: opacity 600ms var(--ease-enter),
-                transform 600ms var(--ease-enter);
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .eyebrow-line {
@@ -46,31 +39,17 @@
     line-height: 1.05;
     color: var(--text-high);
     margin-bottom: var(--sp-6);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 700ms var(--ease-enter) 80ms,
-                transform 700ms var(--ease-enter) 80ms;
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .page-desc {
     font-size: 1.05rem;
     color: var(--text-medium);
-    max-width: 480px;
+    max-width: 680px;
     line-height: 1.75;
-    opacity: 0;
-    transform: translateY(16px);
-    transition: opacity 700ms var(--ease-enter) 160ms,
-                transform 700ms var(--ease-enter) 160ms;
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 // ============================================================
@@ -82,15 +61,8 @@
     gap: var(--sp-2);
     margin-bottom: var(--sp-10);
     flex-wrap: wrap;
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 600ms var(--ease-enter) 240ms,
-                transform 600ms var(--ease-enter) 240ms;
-
-    &.revealed {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .filter-label {

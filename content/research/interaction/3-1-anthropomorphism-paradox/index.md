@@ -36,4 +36,3 @@ tags: ['AIOS', '拟人化', '恐怖谷效应', '人机心理学', '交互设计'
 
 - **动态卸载拟人化 (Dynamic De-anthropomorphism)**：当系统检测到用户正在执行高压决策时，是否应自动降低语音的拟人化程度，转为中性的专家模式？
 - **跨文化拟人习惯**：不同文化背景下，人类对 AI 拟人化程度的容忍阈值存在怎样的显著差异？
- drug-delivery systems and economic models.

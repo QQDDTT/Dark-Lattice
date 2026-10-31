@@ -76,4 +76,3 @@ $$
 - Lakshmikantham, V. et al. (1989). *Theory of Impulsive Differential Equations*.
 - Yang, T. (2001). *Impulsive Control Theory*.
 - Tabuada, P. (2007). Event-triggered real-time scheduling of control tasks.
- drug-delivery systems and economic models.

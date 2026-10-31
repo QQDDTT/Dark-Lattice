@@ -66,4 +66,3 @@ $$
 - Mallat, S. (1999). *A Wavelet Tour of Signal Processing*.
 - Meyer, Y. (1993). *Wavelets and Operators*.
 - Hubbard, B. B. (1998). *The World According to Wavelets*.
- drug-delivery systems and economic models.

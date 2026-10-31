@@ -1,6 +1,7 @@
 {{ define "main" }}
 <main>
     <!-- ── 面包屑 & 页面头部 ── -->
+    {{ partial "breadcrumbs.html" . }}
     <section class="page-header container">
         <div class="page-eyebrow" id="pg-eyebrow">
             <span class="eyebrow-line" aria-hidden="true"></span>
@@ -12,9 +13,9 @@
             </span>
         </div>
         <h1 class="page-title" id="pg-title">
-            {{- if eq .Type "posts" -}}{{ i18n "title_blog" }}
+            {{- if .Title -}}{{ .Title }}
+            {{- else if eq .Type "posts" -}}{{ i18n "title_blog" }}
             {{- else if eq .Type "research" -}}{{ i18n "title_research" }}
-            {{- else -}}{{ .Title }}
             {{- end -}}
         </h1>
         <p class="page-desc" id="pg-desc">

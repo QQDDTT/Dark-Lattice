@@ -1,5 +1,5 @@
 ---
-title: "The Anthropomorphism Paradox: Why Does Human Defense Increase as Interaction Bebecomes More Human-like?"
+title: "The Anthropomorphism Paradox: Why Does Human Defense Increase as Interaction Becomes More Human-like?"
 date: 2026-04-17
 categories: ['Interaction']
 draft: false
@@ -29,4 +29,3 @@ Future AIOS interaction design should avoid extreme anthropomorphism and instead
 ![Anthropomorphism Paradox and Interaction Barriers](/images/research/interaction/3-1-anthropomorphism-paradox/figure-1.png)
 
 *Figure 1: Illustration of the relationship curve between the degree of anthropomorphism and user trust. As the anthropomorphism curve approaches the human benchmark, trust plummets into the depths of the "Uncanny Valley." The code flickering on the metal model represents the tension of conflict between the machine essence of interaction and the human illusion.*
- drug-delivery systems and economic models.

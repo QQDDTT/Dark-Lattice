@@ -3,7 +3,7 @@ title: "DDSL Generation Tech Selection Research"
 date: "2026-06-21T14:05:24+09:00"
 description: "Technology selection argument for transpiling raw user requirements to the Design Domain Specific Language contract"
 tags: ["gestalt-resonator", "Technology Selection", "DDSL"]
-draft: true
+draft: false
 ---
 
 # DDSL Generation Tech Selection Research
@@ -14,7 +14,7 @@ This document records the technology selection arguments on how to efficiently a
 
 ## 1. Background and Technical Pain Points
 
-The primary step of the system's regular design workflow is parsing user input. The input "Requirement" is typically unstructured natural language heavily laden with redundant technical and business logic descriptions, whereas the output "DDSL" is a strictly nested, attribute-constrained JSON graph based on [ddsl.schema.json](file:///home/nick/workspaces/gestalt-resonator/schema/ddsl.schema.json).
+The primary step of the system's regular design workflow is parsing user input. The input "Requirement" is typically unstructured natural language heavily laden with redundant technical and business logic descriptions, whereas the output "DDSL" is a strictly nested, attribute-constrained JSON graph based on [ddsl.schema.json](/en/posts/gestalt-resonator/ddsl-specification/).
 
 During this process, two core design pain points are encountered:
 1. **Business Information Redundancy and Extraction Distortion**: Raw requirements contain massive amounts of text entirely unrelated to visual design, such as interface protocols, business formulas, and database fields. Traditional full-semantic analysis models attempt to "understand the entire text," leading not only to wasted compute power but also high susceptibility to interference from irrelevant business logic.

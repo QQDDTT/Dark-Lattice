@@ -65,4 +65,3 @@ $$
 - Candès, E. J. & Wakin, M. B. (2008). An introduction to compressive sampling.
 - Foucart, S. & Rauhut, H. (2013). *A Mathematical Introduction to Compressive Sensing*.
 - Baraniuk, R. G. (2007). Compressive sensing. *IEEE Signal Processing Magazine*.
- drug-delivery systems and economic models.

@@ -77,5 +77,23 @@
         {{ end }}
     </nav>
     {{ end }}
+
+    <!-- ── 同专栏延伸阅读（强化全站内部链接网格与 PageRank 传导） ── -->
+    {{ $siblings := where .CurrentSection.RegularPages "Permalink" "ne" .Permalink }}
+    {{ if gt (len $siblings) 0 }}
+    <section class="related-articles" aria-label="延伸阅读" style="max-width: calc(680px + var(--sp-8) * 2); margin: 0 auto; padding: 0 var(--sp-8) var(--sp-20);">
+        <h2 style="font-size: 0.85rem; font-family: var(--font-code); color: var(--text-low); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: var(--sp-4);">
+            {{ .CurrentSection.Title }} · MORE IN THIS SERIES
+        </h2>
+        <div class="article-nav" style="padding: 0; border-top: none;">
+            {{ range first 6 $siblings }}
+            <a href="{{ .RelPermalink }}" class="nav-card">
+                <span class="nav-card-dir">{{ .Date.Format "2006.01.02" }}</span>
+                <span class="nav-card-title">{{ .Title }}</span>
+            </a>
+            {{ end }}
+        </div>
+    </section>
+    {{ end }}
 </main>
 {{ end }}
