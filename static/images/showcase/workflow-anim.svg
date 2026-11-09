@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 270" width="100%" height="100%" role="img" aria-label="Dark Lattice Knowledge Matrix Workflow: Engineering, Research, Aesthetics to Edge Publishing">
+  <defs>
+    <linearGradient id="dlw-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07070f"/>
+      <stop offset="100%" stop-color="#0f0e1c"/>
+    </linearGradient>
+    <linearGradient id="dlw-line" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8b5cf6"/>
+      <stop offset="50%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <style>
+      .dlw-head { font-family: 'Space Grotesk', 'Outfit', sans-serif; font-weight: 700; font-size: 16px; fill: #f8fafc; }
+      .dlw-desc { font-family: 'Inter', sans-serif; font-size: 12px; fill: #94a3b8; }
+      .dlw-tag { font-family: 'JetBrains Mono', Consolas, monospace; font-size: 11px; fill: #a78bfa; letter-spacing: 0.12em; }
+      .dlw-flow { stroke-dasharray: 8 10; animation: dlwDash 2s linear infinite; }
+      @keyframes dlwDash {
+        to { stroke-dashoffset: -36; }
+      }
+    </style>
+  </defs>
+
+  <rect width="1200" height="270" rx="16" fill="url(#dlw-bg)" stroke="#272244" stroke-width="1.5"/>
+  <text x="48" y="40" class="dlw-tag">DARK LATTICE · THREE-DIMENSIONAL KNOWLEDGE MATRIX &amp; ZERO-REFLOW PIPELINE</text>
+
+  <!-- Flow Connectors -->
+  <line x1="274" y1="145" x2="342" y2="145" stroke="url(#dlw-line)" stroke-width="3" class="dlw-flow"/>
+  <line x1="564" y1="145" x2="632" y2="145" stroke="url(#dlw-line)" stroke-width="3" class="dlw-flow"/>
+  <line x1="854" y1="145" x2="922" y2="145" stroke="url(#dlw-line)" stroke-width="3" class="dlw-flow"/>
+
+  <!-- Node 1: Engineering -->
+  <g transform="translate(48, 68)">
+    <rect width="226" height="154" rx="12" fill="#100f1e" stroke="#8b5cf6" stroke-opacity="0.6"/>
+    <text x="20" y="30" class="dlw-tag">01 · ENGINEERING</text>
+    <text x="20" y="58" class="dlw-head">系统架构与实战拆解</text>
+    <text x="20" y="82" class="dlw-desc">12 大核心工程专栏Page Bundles</text>
+    <text x="20" y="102" class="dlw-desc">Wasm 沙盒 · 量化因子 · 智能体</text>
+    <rect x="20" y="118" width="186" height="22" rx="4" fill="#090812"/>
+    <text x="28" y="133" class="dlw-tag" fill="#c4b5fd">content/posts/&lt;project&gt;/</text>
+  </g>
+
+  <!-- Node 2: Research -->
+  <g transform="translate(338, 68)">
+    <rect width="226" height="154" rx="12" fill="#100f1e" stroke="#38bdf8" stroke-opacity="0.6"/>
+    <text x="20" y="30" class="dlw-tag" fill="#38bdf8">02 · RESEARCH</text>
+    <text x="20" y="58" class="dlw-head">学术推导与论文精粹</text>
+    <text x="20" y="82" class="dlw-desc">KaTeX 数理公式 · BibTeX 引文</text>
+    <text x="20" y="102" class="dlw-desc">像素与架构同构 · 博弈动力学</text>
+    <rect x="20" y="118" width="186" height="22" rx="4" fill="#090812"/>
+    <text x="28" y="133" class="dlw-tag" fill="#38bdf8">content/research/&lt;topic&gt;/</text>
+  </g>
+
+  <!-- Node 3: Aesthetics -->
+  <g transform="translate(628, 68)">
+    <rect width="226" height="154" rx="12" fill="#100f1e" stroke="#f43f5e" stroke-opacity="0.55"/>
+    <text x="20" y="30" class="dlw-tag" fill="#fb7185">03 · AESTHETICS</text>
+    <text x="20" y="58" class="dlw-head">Nightfield 视觉与动效</text>
+    <text x="20" y="82" class="dlw-desc">GPU 零重排 Marquee 跑马灯</text>
+    <text x="20" y="102" class="dlw-desc">GII 无边框层级 · 逐词揭示</text>
+    <rect x="20" y="118" width="186" height="22" rx="4" fill="#090812"/>
+    <text x="28" y="133" class="dlw-tag" fill="#fb7185">layouts/ &amp; assets/scss/</text>
+  </g>
+
+  <!-- Node 4: Global Edge -->
+  <g transform="translate(918, 68)">
+    <rect width="234" height="154" rx="12" fill="#100f1e" stroke="#10b981" stroke-opacity="0.65"/>
+    <text x="20" y="30" class="dlw-tag" fill="#10b981">04 · EDGE DELIVERY</text>
+    <text x="20" y="58" class="dlw-head">三语静态构建与安全分发</text>
+    <text x="20" y="82" class="dlw-desc">GitHub Actions 自动编译发布</text>
+    <text x="20" y="102" class="dlw-desc">SRI 哈希校验 · Cloudflare CDN</text>
+    <rect x="20" y="118" width="194" height="22" rx="4" fill="#090812"/>
+    <text x="28" y="133" class="dlw-tag" fill="#10b981">dark-lattice.evotensor.dev</text>
+  </g>
+</svg>
